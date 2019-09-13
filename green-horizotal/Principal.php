@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html class="no-js" lang="es">
+
 <!--IMPORTE head desde Menu/apertura-->
 <?php include("Menu/apertura.php"); ?>
 <!--IMPORTE head desde Menu/apertura-->
@@ -9,27 +10,24 @@
  <!-- Importe menu desde Menu/menu-->
 <?php include("Menu/menu.php"); ?>
   <!-- End Header Top Area -->
-
   <!-- Breadcomb area Start-->
+
   <div class="breadcomb-area">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
           <div class="breadcomb-list">
             <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="breadcomb-wp" align='center'>
-                  <image src="img/logo/logooo.png" />
-                </div>
-              </div>
+
+               <center><image src="img/logo/img2.png"/></center>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- Breadcomb area End-->
 
+  <!-- Breadcomb area End-->
   <!-- INCIO PIE DE PAGINA DERECHOS RESERVADOS-->
   <div class="footer-copyright-area">
     <div class="container">

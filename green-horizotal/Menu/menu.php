@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <div class="logo-area">
-          <a href="/Funesi/notika/green-horizotal/Principal.php"><img src="img/logo/funesilogo1.png" alt="" />
+          <a href="/Funesi/notika/green-horizotal/Principal.php"><img src="img/logo/funlogo_opt.png" alt="" />
             <h3></h3>
           </a>
         </div>

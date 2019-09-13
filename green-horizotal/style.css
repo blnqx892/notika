@@ -55,7 +55,7 @@
 /*  1.  Theme default CSS
 /*----------------------------------------*/
 html, body {font-family: 'Roboto', sans-serif;font-weight:400;}
-body {background:#F6F8FA;}
+body {background:#e3efe4;}
 .floatleft {float:left}
 .floatright {float:right}
 .alignleft {float:left;margin-right:15px;margin-bottom: 15px}
@@ -184,7 +184,7 @@ body {}
 /*  2.  Header Top CSS
 /*----------------------------------------*/
 .header-top-area, .footer-copyright-area{
-	background:#9FBFCD;
+	background:#66CDAA;
 }
 .logo-area{
 	padding:14px 0px;
@@ -193,13 +193,13 @@ body {}
 	float: right;
 }
 .nav.notika-top-nav .open>a, .nav.notika-top-nav .open>a:focus, .nav.notika-top-nav .open>a:hover {
-    background: #00c292;
-    border-color: 0px solid #00c292;
+    background: #66CDAA;
+    border-color: 0px solid #66CDAA;
 
 }
 .nav.notika-top-nav>li>a:focus, .nav.notika-top-nav>li>a:hover {
     text-decoration: none;
-    background-color: #00c292;
+    background-color: #66CDAA;
 }
 .navbar-nav>li>a{
 	color:#fff;
@@ -2680,7 +2680,7 @@ hr {
     -webkit-appearance: none;
     -moz-appearance: none;
     line-height: 100%;
-    background-color: #fff;
+    background-color: #337ab71c;
 	outline:none;
 }
 .dataTables_filter input:focus, .dataTables_filter select:focus, .dataTables_length input:focus, .dataTables_length select:focus, .dataTables_length option:focus {
@@ -3357,7 +3357,7 @@ textarea.auto-size {
     border: 0px solid #ccc;
     border: 0px solid rgba(0, 0, 0, 0.2);
     border-radius: 0px;
-    color: #333;
+    color: #444;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
 	width: 300px;
@@ -3569,7 +3569,7 @@ textarea.auto-size {
     margin-bottom: 0px;
 }
 /*----------------------------------------*/
-/*  38.  Login Register CSS
+/*  38.  Login Register ////COLOR FONDO
 /*----------------------------------------*/
 .login-content, .error-page-area{
     min-height:100vh;
