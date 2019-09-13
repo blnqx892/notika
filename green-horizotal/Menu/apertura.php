@@ -60,4 +60,7 @@
     <!-- main CSS
     ============================================ -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+ 
+  </style>
 </head>
