@@ -92,7 +92,7 @@
           </div>
           <div id="empleados" class="tab-pane notika-tab-menu-bg animated flipInX">
             <ul class="notika-main-menu-dropdown">
-              <li><a href="">Registrar</a>
+              <li><a href="RegEmpleado.php">Registrar</a>
               </li>
               <li><a href="">Empleados</a>
               </li>
