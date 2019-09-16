@@ -67,11 +67,13 @@
                                       <td>02156848-9</td>
                                       <td>Vendedor</td>
                                       <td>7856-9585</td>
+                                      <button type="button" class="btn btn-info waves-effect" data-toggle="modal" data-target="#myModalone">Modal Default</button>
                                       <td><center> <button class="btn btn-primary notika-btn-primary"><i class="fas fa-toggle-on"></i></button></center></td>
                                       <td><center><button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-eye"></i></button></center></td>
                                       <th><center><button class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-edit"></i></button></center></th>
                                       <th><center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-arrow-alt-circle-down"></i></button></center></th>
                                       <td><center><button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-print"></i></button></center></td>
+
                                   </tr>
                                   <tr>
                                       <td>Esteban Xavier</td>
