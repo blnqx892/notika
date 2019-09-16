@@ -20,7 +20,7 @@
 										<i class="notika-icon notika-form"></i>
 									</div>
 									<div class="breadcomb-ctn">
-										<h2>LISTADO DE CLIENTES</h2>
+										<h2>LISTADO DE EMPLEADO</h2>
 									</div>
 								</div>
 							</div>
@@ -42,17 +42,18 @@
                         <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button>
                     </div>
                       <div class="basic-tb-hd">
-                          <h2>Clientes</h2>
+                          <h2>Empleados</h2>
                       </div>
                       <div class="table-responsive">
                           <table id="data-table-basic" class="table table-striped">
                               <thead>
                                   <tr>
-                                      <th>DUI</th>
                                       <th>Nombres</th>
                                       <th>Apellidos</th>
-                                      <th>Dirección</th>
-                                      <th>Teléfono</th>
+                                      <th>Dui</th>
+                                      <th>Cargo</th>
+                                      <th>Telefono</th>
+                                      <th>Estado</th>
                                       <th>Ver</th>
                                       <th>Modificar</th>
                                       <th>Dar Baja</th>
@@ -61,22 +62,24 @@
                               </thead>
                               <tbody>
                                   <tr>
+                                      <td>Daniela Cecilia</td>
+                                      <td>Orellana Castillo</td>
                                       <td>02156848-9</td>
-                                      <td>Miguel Eduardo</td>
-                                      <td>Carvajal Fuentes</td>
-                                      <td>10 Calle Oriente, Av. Lourdes #2, San Salvador</td>
+                                      <td>Vendedor</td>
                                       <td>7856-9585</td>
+                                      <td><center> <button class="btn btn-primary notika-btn-primary"><i class="fas fa-toggle-on"></i></button></center></td>
                                       <td><center><button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-eye"></i></button></center></td>
                                       <th><center><button class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-edit"></i></button></center></th>
                                       <th><center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-arrow-alt-circle-down"></i></button></center></th>
                                       <td><center><button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-print"></i></button></center></td>
                                   </tr>
                                   <tr>
+                                      <td>Esteban Xavier</td>
+                                      <td>Orellana Castillo</td>
                                       <td>49865398-1</td>
-                                      <td>Ana María</td>
-                                      <td>Montes García</td>
-                                      <td>Av. Paz, Pasaje D #45, San Salvador</td>
+                                      <td>Motorista</td>
                                       <td>2896-5554</td>
+                                    <td><center> <button class="btn btn-primary notika-btn-primary"><i class="fas fa-toggle-on"></i></button></center></td>
                                       <td><center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-eye"></i></button></center></td>
                                       <th><center><button class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-edit"></i></button></center></th>
                                       <th><center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-arrow-alt-circle-down"></i></button></center></th>
@@ -85,6 +88,7 @@
                               </tbody>
                               <tfoot>
                                   <tr>
+
                                   </tr>
                               </tfoot>
                           </table>

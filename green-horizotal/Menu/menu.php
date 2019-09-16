@@ -76,9 +76,9 @@
           </div>
           <div id="proveedores" class="tab-pane notika-tab-menu-bg animated flipInX">
             <ul class="notika-main-menu-dropdown">
-              <li><a href="">Registrar</a>
+              <li><a href="RegProveedor.php">Registrar</a>
               </li>
-              <li><a href="">Proveedores</a>
+              <li><a href="ListaProveedor.php">Proveedores</a>
               </li>
             </ul>
           </div>
@@ -94,7 +94,7 @@
             <ul class="notika-main-menu-dropdown">
               <li><a href="RegEmpleado.php">Registrar</a>
               </li>
-              <li><a href="">Empleados</a>
+              <li><a href="ListaEmpleado.php">Empleados</a>
               </li>
             </ul>
           </div>
@@ -112,7 +112,7 @@
             <ul class="notika-main-menu-dropdown">
               <li><a href="">Administrar Backup</a>
               </li>
-              <li><a href="">Control Usuario</a>
+              <li><a href="RegUsuario.php">Control Usuario</a>
               </li>
               <li><a href="">Bitacora</a>
               </li>

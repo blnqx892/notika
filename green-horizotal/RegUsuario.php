@@ -6,7 +6,7 @@
 <body>
   <!-- Importe menu desde Menu/menu-->
  <?php include("Menu/menu.php"); ?>
-
+   <!-- End Header Top Area -->
   <!-- Breadcomb area Start-->
 	<div class="breadcomb-area">
 		<div class="container">
@@ -20,7 +20,7 @@
 										<i class="notika-icon notika-form"></i>
 									</div>
 									<div class="breadcomb-ctn">
-										<h2>LISTADO DE CLIENTES</h2>
+										<h2>REGISTRAR USUARIO</h2>
 									</div>
 								</div>
 							</div>
@@ -31,71 +31,68 @@
 		</div>
 	</div>
 	<!-- Breadcomb area End-->
-
-  <!-- Data Table area Start-->
-  <div class="data-table-area">
-      <div class="container">
-          <div class="row">
+    <!-- Inbox area Start-->
+    <div class="inbox-area">
+        <div class="container">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                  <div class="data-table-list">
-                    <div class="pull-right">
-                        <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button>
-                    </div>
-                      <div class="basic-tb-hd">
-                          <h2>Clientes</h2>
-                      </div>
-                      <div class="table-responsive">
-                          <table id="data-table-basic" class="table table-striped">
-                              <thead>
-                                  <tr>
-                                      <th>DUI</th>
-                                      <th>Nombres</th>
-                                      <th>Apellidos</th>
-                                      <th>Dirección</th>
-                                      <th>Teléfono</th>
-                                      <th>Ver</th>
-                                      <th>Modificar</th>
-                                      <th>Dar Baja</th>
-                                      <th>Reporte</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  <tr>
-                                      <td>02156848-9</td>
-                                      <td>Miguel Eduardo</td>
-                                      <td>Carvajal Fuentes</td>
-                                      <td>10 Calle Oriente, Av. Lourdes #2, San Salvador</td>
-                                      <td>7856-9585</td>
-                                      <td><center><button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-eye"></i></button></center></td>
-                                      <th><center><button class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-edit"></i></button></center></th>
-                                      <th><center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-arrow-alt-circle-down"></i></button></center></th>
-                                      <td><center><button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-print"></i></button></center></td>
-                                  </tr>
-                                  <tr>
-                                      <td>49865398-1</td>
-                                      <td>Ana María</td>
-                                      <td>Montes García</td>
-                                      <td>Av. Paz, Pasaje D #45, San Salvador</td>
-                                      <td>2896-5554</td>
-                                      <td><center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-eye"></i></button></center></td>
-                                      <th><center><button class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-edit"></i></button></center></th>
-                                      <th><center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-arrow-alt-circle-down"></i></button></center></th>
-                                      <td><center><button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-print"></i></button></center></td>
-                                  </tr>
-                              </tbody>
-                              <tfoot>
-                                  <tr>
-                                  </tr>
-                              </tfoot>
-                          </table>
-                      </div>
-                  </div>
+                  <div class="form-element-list">
+                  <div class="typography-hd-cr-4" ><h4>Datos Personales</h4></div>
+                    <hr style="width:100%;border-color:light-gray 25px;"><br>
+                      <div class="cmp-tb-hd bcs-hd">
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                              <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                      <i class="fas fa-user-circle"></i>
+                                  </div>
+                                  <div class="nk-int-st">
+                                      <input type="text" class="form-control" placeholder="Nombre: ">
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                              <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                      <i class="fas fa-user-circle"></i>
+                                  </div>
+                                  <div class="nk-int-st">
+                                      <input type="text" class="form-control" placeholder="Contraseña">
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                              <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                      <i class="fas fa-id-badge"></i>
+                                  </div>
+                                  <div class="nk-int-st">
+                                      <input type="text" class="form-control" placeholder="Correo"  9999-9999>
+                                  </div>
+                              </div>
+                          </div>
+                          <br><br><br>
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                              <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                    <i class="fas fa-address-card"></i>
+                                  </div>
+                                  <div class="nk-int-st">
+                                      <input type="text" class="form-control" placeholder="Rol">
+                                  </div>
+                              </div>
+                          </div>
+                          <br><br><br><br>
               </div>
-          </div>
-      </div>
-  </div>
-  <!--FIN TABLA-->
 
+              <center>
+                  <button class="btn btn-success notika-btn-success">Guardar  <i class="notika-icon notika-checked"></i></button>
+                  <button class="btn btn-danger notika-btn-danger">Cancelar  <i class="notika-icon notika-close"></i></button>
+                </center>
+          </div>
+
+        </div>
+        </div>
+        </div>
+    <!-- Inbox area End-->
     <!-- Start Footer area-->
     <div class="footer-copyright-area">
         <div class="container">
@@ -172,11 +169,11 @@
 		============================================ -->
     <script src="js/plugins.js"></script>
     <!-- Data Table JS
-		============================================ -->
+    ============================================ -->
     <script src="js/data-table/jquery.dataTables.min.js"></script>
     <script src="js/data-table/data-table-act.js"></script>
     <!-- main JS
-		============================================ -->
+    ============================================ -->
 </body>
 
 </html>
