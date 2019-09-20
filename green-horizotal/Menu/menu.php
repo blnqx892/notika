@@ -114,7 +114,7 @@
               </li>
               <li><a href="RegUsuario.php">Control Usuario</a>
               </li>
-              <li><a href="">Bitacora</a>
+              <li><a href="Bitacora.php">Bitacora</a>
               </li>
             </ul>
           </div>
