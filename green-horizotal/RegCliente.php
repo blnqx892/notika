@@ -36,100 +36,102 @@
         <div class="container">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="form-element-list">
-                  <div class="typography-hd-cr-4" ><h4>Datos Personales</h4></div>
+                  <div class="typography-hd-cr-4" ><h3>Datos Personales</h3></div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
-                      <div class="cmp-tb-hd bcs-hd">
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                      <i class="notika-icon notika-support"></i>
-                                  </div>
-                                  <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="DUI: 99999999-9">
-                                  </div>
+                            <div class="cmp-tb-hd bcs-hd">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-group ic-cmp-int">
+                                        <div class="form-ic-cmp">
+                                            <i class="notika-icon notika-support"></i>
+                                        </div>
+                                        <div class="nk-int-st">
+                                            <input type="text" class="form-control" placeholder="DUI: 99999999-9" disabled="disabled">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-group ic-cmp-int">
+                                        <div class="form-ic-cmp">
+                                            <i class="fas fa-user-circle"></i>
+                                        </div>
+                                        <div class="nk-int-st">
+                                            <input type="text" class="form-control" placeholder="Nombres">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-group ic-cmp-int">
+                                        <div class="form-ic-cmp">
+                                          <i class="fas fa-user-circle"></i>
+                                        </div>
+                                        <div class="nk-int-st">
+                                            <input type="text" class="form-control" placeholder="Apellidos">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br><br><br>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-group ic-cmp-int">
+                                        <div class="form-ic-cmp">
+                                          <i class="fas fa-map-marked-alt"></i>
+                                        </div>
+                                        <div class="nk-int-st">
+                                            <input type="text" class="form-control" placeholder="Dirección">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-group ic-cmp-int">
+                                        <div class="form-ic-cmp">
+                                            <i class="	fas fa-phone"></i>
+                                        </div>
+                                        <div class="nk-int-st">
+                                            <input type="text" class="form-control" placeholder="Teléfono: 9999-9999">
+                                        </div>
+                                    </div>
+                                </div>
+                    </div><br><br><br><br><br><br>
+                    <div class="cmp-tb-hd bcs-hd">
+                    <div class="typography-hd-cr-4"><h3>Datos de los Beneficiarios</h3></div>
+                        <hr style="width:100%;border-color:light-gray 25px;"><br>
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                          <div class="form-group ic-cmp-int">
+                              <div class="form-ic-cmp">
+                                  <i class="fas fa-user-circle"></i>
+                              </div>
+                              <div class="nk-int-st">
+                                  <input type="text" class="form-control" placeholder="Nombre beneficiario 1">
                               </div>
                           </div>
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                      <i class="fas fa-user-circle"></i>
-                                  </div>
-                                  <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="Nombre">
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
+                      </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
                                     <i class="fas fa-user-circle"></i>
-                                  </div>
-                                  <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="Apellido">
-                                  </div>
-                              </div>
-                          </div>
-                          <br><br><br>
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                    <i class="fas fa-map-marked-alt"></i>
-                                  </div>
-                                  <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="Dirección">
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                      <i class="fas fa-phone-alt"></i>
-                                  </div>
-                                  <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="Teléfono: 9999-9999">
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                      <i class="fas fa-user-circle"></i>
-                                  </div>
-                                  <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="Beneficiario1: ">
-                                  </div>
-                              </div>
-                          </div>
-                            <br><br><br><br>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <i class="fas fa-user-circle"></i>
-                                    </div>
-                                    <div class="nk-int-st">
-                                        <input type="text" class="form-control" placeholder="Beneficiario2: ">
-                                    </div>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Nombre beneficiario 2">
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                      <i class="fas fa-user-circle"></i>
-                                    </div>
-                                    <div class="nk-int-st">
-                                        <input type="text" class="form-control" placeholder="Beneficiario3: ">
-                                    </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                  <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Nombre beneficiario 3">
                                 </div>
                             </div>
-              </div>
-  <br><br><br><br>
+                        </div>
+              </div><br><br><br><br>
               <center>
                   <button class="btn btn-success notika-btn-success">Guardar  <i class="notika-icon notika-checked"></i></button>
                   <button class="btn btn-danger notika-btn-danger">Cancelar  <i class="notika-icon notika-close"></i></button>
                 </center>
+              </div><br><br><br><br>
           </div>
 
-        </div>
         </div>
         </div>
     <!-- Inbox area End-->
