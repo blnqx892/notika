@@ -36,7 +36,7 @@
         <div class="container">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="form-element-list">
-                  <div class="typography-hd-cr-4" ><h4>Datos Personales</h4></div>
+                  <div class="typography-hd-cr-4" ><h4>Datos Personales del Responsable</h4></div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                       <div class="cmp-tb-hd bcs-hd">
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -45,7 +45,7 @@
                                     <i class="fas fa-user-circle"></i>
                                   </div>
                                   <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="Nombre: ">
+                                      <input type="text" class="form-control" placeholder="Nombre Completo ">
                                   </div>
                               </div>
                           </div>
@@ -55,43 +55,44 @@
                                       <i class="fas fa-user-circle"></i>
                                   </div>
                                   <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="NombreResponsable">
+                                      <input type="text" class="form-control" placeholder="Teléfono 9999-9999">
                                   </div>
                               </div>
-                          </div>
+                          </div><br><br><br><br><br>
+                          <div class="typography-hd-cr-4" ><h4>Datos de la Empresa</h4></div>
+                            <hr style="width:100%;border-color:light-gray 25px;"><br>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                        <i class="fas fa-building"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <input type="text" class="form-control" placeholder="Empresa" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                    <i class="fas fa-route"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <input type="text" class="form-control" placeholder="Dirección" >
+                                    </div>
+                                </div>
+                            </div>
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
                                       <i class="fas fa-phone-square-alt"></i>
                                   </div>
                                   <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="TelefonoResponable" 9999-9999>
+                                      <input type="text" class="form-control" placeholder="Telefono 9999-9999">
                                   </div>
                               </div>
                           </div>
                           <br><br><br>
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                      <i class="fas fa-building"></i>
-                                  </div>
-                                  <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="Empresa" >
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                  <i class="fas fa-route"></i>
-                                  </div>
-                                  <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="DireccionEmpresa" >
-                                  </div>
-                              </div>
-                          </div>
               </div>
-  <br><br><br><br>
               <center>
                   <button class="btn btn-success notika-btn-success">Guardar  <i class="notika-icon notika-checked"></i></button>
                   <button class="btn btn-danger notika-btn-danger">Cancelar  <i class="notika-icon notika-close"></i></button>

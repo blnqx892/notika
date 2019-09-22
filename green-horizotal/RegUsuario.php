@@ -36,190 +36,259 @@
         <div class="container">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="form-element-list">
-                  <div class="typography-hd-cr-4" ><h4>Datos Personales</h4></div>
+                  <div class="typography-hd-cr-4" ><h3>Datos Personales</h3></div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
-                      <div class="cmp-tb-hd bcs-hd">
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                      <i class="fas fa-user-circle"></i>
-                                  </div>
-                                  <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="Nombre: ">
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                      <i class="fas fa-user-circle"></i>
-                                  </div>
-                                  <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="Contraseña">
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                      <i class="fas fa-id-badge"></i>
-                                  </div>
-                                  <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="Correo"  9999-9999>
-                                  </div>
-                              </div>
-                          </div>
-                          <br><br><br>
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                    <i class="fas fa-address-card"></i>
-                                  </div>
-                                  <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="Rol">
-                                  </div>
-                              </div>
-                          </div>
-                          <br><br><br><br>
-              </div>
-
+                            <div class="cmp-tb-hd bcs-hd">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-group ic-cmp-int">
+                                        <div class="form-ic-cmp">
+                                            <i class="notika-icon notika-support"></i>
+                                        </div>
+                                        <div class="nk-int-st">
+                                            <input type="text" class="form-control" placeholder="Nombre">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-group ic-cmp-int">
+                                        <div class="form-ic-cmp">
+                                            <i class="fas fa-user-circle"></i>
+                                        </div>
+                                        <div class="nk-int-st">
+                                            <input type="text" class="form-control" placeholder="Apellido">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-group ic-cmp-int">
+                                        <div class="form-ic-cmp">
+                                          <i class="fas fa-user-circle"></i>
+                                        </div>
+                                        <div class="nk-int-st">
+                                            <input type="text" class="form-control" placeholder="Correo">
+                                        </div>
+                                    </div>
+                                </div>
+                                <br><br><br>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-group ic-cmp-int">
+                                        <div class="form-ic-cmp">
+                                          <i class="fas fa-map-marked-alt"></i>
+                                        </div>
+                                        <div class="nk-int-st">
+                                            <input type="text" class="form-control" placeholder="Usuario" disabled="disabled">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                    <div class="form-group ic-cmp-int">
+                                        <div class="form-ic-cmp">
+                                            <i class="	fas fa-phone"></i>
+                                        </div>
+                                        <div class="nk-int-st">
+                                            <input type="text" class="form-control" placeholder="Contraseña">
+                                        </div>
+                                    </div>
+                                </div>
+                    </div><br><br><br><br>
               <center>
                   <button class="btn btn-success notika-btn-success">Guardar  <i class="notika-icon notika-checked"></i></button>
                   <button class="btn btn-danger notika-btn-danger">Cancelar  <i class="notika-icon notika-close"></i></button>
                 </center>
+              </div><br><br><br><br>
           </div>
-          <br><br><br><br>
-  <!-- Data Table area Start-->
-          <div class="data-table-area">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                          <div class="data-table-list">
-                            <div class="pull-right">
-                                <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button>
-                            </div>
-                              <div class="basic-tb-hd">
-                                  <h2>Usuarios</h2>
-                              </div>
-                              <div class="table-responsive">
-                                  <table id="data-table-basic" class="table table-striped">
-                                      <thead>
-                                          <tr>
-                                              <th>Nombres</th>
-                                              <th>Correo</th>
-                                              <th>Rol</th>
-                                              <th>Estado</th>
-                                              <th>Ver</th>
-                                              <th>Modificar</th>
-                                              <th>Dar Baja</th>
-                                              <th>Reporte</th>
-                                          </tr>
-                                      </thead>
-                                      <tbody>
-                                          <tr>
-                                              <td>Daniela Cecilia</td>
-                                              <td>Dany17@gmail.com</td>
-                                              <td>Administrador</td>
-                                              <td><center> <button class="btn btn-primary notika-btn-primary"><i class="fas fa-toggle-on"></i></button></center></td>
-                                              <td><center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center></td>
-                                              <th><center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button></center></th>
-                                              <th><center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-arrow-alt-circle-down"></i></button></center></th>
-                                              <td><center><button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-print"></i></button></center></td>
-                                          </tr>
-                                          <tr>
-                                              <td>Esteban Xavier</td>
-                                              <td>Xavier58@gmail.com</td>
-                                              <td>Invitado</td>
-                                            <td><center> <button class="btn btn-primary notika-btn-primary"><i class="fas fa-toggle-on"></i></button></center></td>
-                                            <td><center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center></td>
-                                            <th><center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button></center></th>
-                                            <th><center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-arrow-alt-circle-down"></i></button></center></th>
-                                            <td><center><button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-print"></i></button></center></td>
-
-                                              <div class="modal fade" id="modalEditar" role="dialog">
-                                                  <div class="modal-dialog modal-large">
-                                                      <div class="modal-content">
-                                                          <div class="modal-header">
-                                                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                          </div>
-                                                          <div class="modal-body">
-                                                              <h3>Editar Datos del Proveedor</h3><br><br>
-                                                              <div class="typography-hd-cr-4" ><h2>Datos Personales</h2></div>
-                                                                <hr style="width:100%;border-color:light-gray 25px;"><br>
-                                                                  <div class="cmp-tb-hd bcs-hd">
-                                                                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                          <div class="form-group ic-cmp-int">
-                                                                              <div class="form-ic-cmp">
-                                                                                  <i class="notika-icon notika-support"></i>
-                                                                              </div>
-                                                                              <div class="nk-int-st">
-                                                                                  <input type="text" class="form-control" placeholder="Nombre:" disabled="disabled">
-                                                                              </div>
-                                                                          </div>
-                                                                      </div>
-                                                                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                          <div class="form-group ic-cmp-int">
-                                                                              <div class="form-ic-cmp">
-                                                                                  <i class="fas fa-user-circle"></i>
-                                                                              </div>
-                                                                              <div class="nk-int-st">
-                                                                                  <input type="text" class="form-control" placeholder="Contraseña">
-                                                                              </div>
-                                                                          </div>
-                                                                      </div>
-                                                                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                          <div class="form-group ic-cmp-int">
-                                                                              <div class="form-ic-cmp">
-                                                                                <i class="fas fa-user-circle"></i>
-                                                                              </div>
-                                                                              <div class="nk-int-st">
-                                                                                  <input type="text" class="form-control" placeholder="Correo">
-                                                                              </div>
-                                                                          </div>
-                                                                      </div>
-                                                                      <br><br><br>
-                                                                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                          <div class="form-group ic-cmp-int">
-                                                                              <div class="form-ic-cmp">
-                                                                                <i class="fas fa-map-marker"></i>
-                                                                              </div>
-                                                                              <div class="nk-int-st">
-                                                                                  <input type="text" class="form-control" placeholder="Rol">
-                                                                              </div>
-                                                                          </div>
-                                                                      </div>
-                                                          </div>
-                                                        </div><br><br><br>
-
-                                                          <div class="modal-footer">
-                                                              <button type="button" class="btn btn-default" data-dismiss="modal">Guardar Cambios</button>
-                                                              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                                          </div>
-                                                      </div>
-                                                  </div>
-                                              </div>
-
-
-                                          </tr>
-                                      </tbody>
-                                      <tfoot>
-                                          <tr>
-
-                                          </tr>
-                                      </tfoot>
-                                  </table>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <!--FIN TABLA-->
-
-        </div>
         </div>
         </div>
     <!-- Inbox area End-->
+    <!-- Data Table area Start-->
+    <div class="data-table-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="data-table-list">
+                      <div class="pull-right">
+                          <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button>
+                      </div>
+                        <div class="basic-tb-hd">
+                            <h2>Clientes</h2>
+                        </div>
+                        <div class="table-responsive">
+                            <table id="data-table-basic" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Apellidos</th>
+                                        <th>Usuario</th>
+                                        <th>Ver</th>
+                                        <th>Modificar</th>
+                                        <th>Dar Baja</th>
+                                        <th>Reporte</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Blanca</td>
+                                        <td>Melara</td>
+                                        <td>blme</td>
+                                        <td><center><button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center></td>
+                                        <th><center><button class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button></center></th>
+                                        <th><center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-arrow-alt-circle-down"></i></button></center></th>
+                                        <td><center><button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-print"></i></button></center></td>
+                                    </tr>
+                                        <div class="modal fade" id="modalEditar" role="dialog">
+                                            <div class="modal-dialog modal-large">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h3>Editar Datos del Usuario</h3><br><br>
+                                                        <div class="typography-hd-cr-4" ><h2>Datos Personales</h2></div>
+                                                          <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                          <div class="cmp-tb-hd bcs-hd">
+                                                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                  <div class="form-group ic-cmp-int">
+                                                                      <div class="form-ic-cmp">
+                                                                          <i class="notika-icon notika-support"></i>
+                                                                      </div>
+                                                                      <div class="nk-int-st">
+                                                                          <input type="text" class="form-control" placeholder="Nombre" disabled="disabled">
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                  <div class="form-group ic-cmp-int">
+                                                                      <div class="form-ic-cmp">
+                                                                          <i class="fas fa-user-circle"></i>
+                                                                      </div>
+                                                                      <div class="nk-int-st">
+                                                                          <input type="text" class="form-control" placeholder="Apellido" disabled="disabled">
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                  <div class="form-group ic-cmp-int">
+                                                                      <div class="form-ic-cmp">
+                                                                        <i class="fas fa-user-circle"></i>
+                                                                      </div>
+                                                                      <div class="nk-int-st">
+                                                                          <input type="text" class="form-control" placeholder="Correo">
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                              <br><br><br>
+                                                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                  <div class="form-group ic-cmp-int">
+                                                                      <div class="form-ic-cmp">
+                                                                        <i class="fas fa-map-marked-alt"></i>
+                                                                      </div>
+                                                                      <div class="nk-int-st">
+                                                                          <input type="text" class="form-control" placeholder="Usuario" disabled="disabled">
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                  <div class="form-group ic-cmp-int">
+                                                                      <div class="form-ic-cmp">
+                                                                          <i class="	fas fa-phone"></i>
+                                                                      </div>
+                                                                      <div class="nk-int-st">
+                                                                          <input type="text" class="form-control" placeholder="Contraseña">
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                  </div><br><br><br><br>
+                                                        <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Guardar Cambios</button>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div class="modal fade" id="modalVer" role="dialog">
+                                            <div class="modal-dialog modal-large">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h3>Editar Datos del Usuario</h3><br><br>
+                                                        <div class="typography-hd-cr-4" ><h2>Datos Personales</h2></div>
+                                                          <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                          <div class="cmp-tb-hd bcs-hd">
+                                                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                  <div class="form-group ic-cmp-int">
+                                                                      <div class="form-ic-cmp">
+                                                                          <i class="notika-icon notika-support"></i>
+                                                                      </div>
+                                                                      <div class="nk-int-st">
+                                                                          <input type="text" class="form-control" placeholder="Nombre" disabled="disabled">
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                  <div class="form-group ic-cmp-int">
+                                                                      <div class="form-ic-cmp">
+                                                                          <i class="fas fa-user-circle"></i>
+                                                                      </div>
+                                                                      <div class="nk-int-st">
+                                                                          <input type="text" class="form-control" placeholder="Apellido" disabled="disabled">
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                  <div class="form-group ic-cmp-int">
+                                                                      <div class="form-ic-cmp">
+                                                                        <i class="fas fa-user-circle"></i>
+                                                                      </div>
+                                                                      <div class="nk-int-st">
+                                                                          <input type="text" class="form-control" placeholder="Correo" disabled="disabled">
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                              <br><br><br>
+                                                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                  <div class="form-group ic-cmp-int">
+                                                                      <div class="form-ic-cmp">
+                                                                        <i class="fas fa-map-marked-alt"></i>
+                                                                      </div>
+                                                                      <div class="nk-int-st">
+                                                                          <input type="text" class="form-control" placeholder="Usuario" disabled="disabled">
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                  <div class="form-group ic-cmp-int">
+                                                                      <div class="form-ic-cmp">
+                                                                          <i class="	fas fa-phone"></i>
+                                                                      </div>
+                                                                      <div class="nk-int-st">
+                                                                          <input type="text" class="form-control" placeholder="Contraseña" disabled="disabled">
+                                                                      </div>
+                                                                  </div>
+                                                              </div>
+                                                  </div><br><br><br><br>
+                                                        <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--FIN TABLA-->
     <!-- Start Footer area-->
     <div class="footer-copyright-area">
         <div class="container">

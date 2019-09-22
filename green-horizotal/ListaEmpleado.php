@@ -48,12 +48,10 @@
                           <table id="data-table-basic" class="table table-striped">
                               <thead>
                                   <tr>
+                                      <th>Dui</th>
                                       <th>Nombres</th>
                                       <th>Apellidos</th>
-                                      <th>Dui</th>
                                       <th>Cargo</th>
-                                      <th>Telefono</th>
-                                      <th>Estado</th>
                                       <th>Ver</th>
                                       <th>Modificar</th>
                                       <th>Dar Baja</th>
@@ -62,12 +60,10 @@
                               </thead>
                               <tbody>
                                   <tr>
-                                      <td>Daniela Cecilia</td>
-                                      <td>Orellana Castillo</td>
                                       <td>02156848-9</td>
+                                      <td>Esteban Xavier</td>
+                                      <td>Orellana Castillo</td>
                                       <td>Vendedor</td>
-                                      <td>7856-9585</td>
-                                      <td><center> <button class="btn btn-primary notika-btn-primary"><i class="fas fa-toggle-on"></i></button></center></td>
                                       <td><center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center></td>
                                       <th><center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button></center></th>
                                       <th><center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-arrow-alt-circle-down"></i></button></center></th>
@@ -75,17 +71,16 @@
 
                                   </tr>
                                   <tr>
-                                      <td>Esteban Xavier</td>
-                                      <td>Orellana Castillo</td>
                                       <td>49865398-1</td>
+                                      <td>Pedro</td>
+                                      <td>Oliva Perez</td>
                                       <td>Motorista</td>
-                                      <td>2896-5554</td>
-                                    <td><center> <button class="btn btn-primary notika-btn-primary"><i class="fas fa-toggle-on"></i></button></center></td>
-                                    <td><center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center></td>
-                                    <th><center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button></center></th>
-                                    <th><center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-arrow-alt-circle-down"></i></button></center></th>
-                                    <td><center><button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-print"></i></button></center></td>
-
+                                      <td><center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center></td>
+                                      <th><center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button></center></th>
+                                      <th><center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-arrow-alt-circle-down"></i></button></center></th>
+                                      <td><center><button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-print"></i></button></center></td>
+                                   </tr>
+                                    <!-- INICIO MODALES-->
                                     <div class="modal fade" id="modalEditar" role="dialog">
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
@@ -97,17 +92,27 @@
                                                     <div class="typography-hd-cr-4" ><h2>Datos Personales</h2></div>
                                                       <hr style="width:100%;border-color:light-gray 25px;"><br>
                                                         <div class="cmp-tb-hd bcs-hd">
-                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                              <div class="form-group ic-cmp-int">
+                                                                  <div class="form-ic-cmp">
+                                                                    <i class="fas fa-user-circle"></i>
+                                                                  </div>
+                                                                  <div class="nk-int-st">
+                                                                      <input type="text" class="form-control" placeholder="DUI 99999999-9" disabled="disabled">
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                                 <div class="form-group ic-cmp-int">
                                                                     <div class="form-ic-cmp">
                                                                         <i class="notika-icon notika-support"></i>
                                                                     </div>
                                                                     <div class="nk-int-st">
-                                                                        <input type="text" class="form-control" placeholder="Nombres: " disabled="disabled">
+                                                                        <input type="text" class="form-control" placeholder="Nombres" disabled="disabled">
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                          </div>
+                                                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                                 <div class="form-group ic-cmp-int">
                                                                     <div class="form-ic-cmp">
                                                                         <i class="fas fa-user-circle"></i>
@@ -116,53 +121,134 @@
                                                                         <input type="text" class="form-control" placeholder="Apellidos" disabled="disabled">
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                          </div><br><br><br>
+                                                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                                 <div class="form-group ic-cmp-int">
                                                                     <div class="form-ic-cmp">
-                                                                      <i class="fas fa-user-circle"></i>
+                                                                        <i class="fas fa-user-circle"></i>
                                                                     </div>
                                                                     <div class="nk-int-st">
-                                                                        <input type="text" class="form-control" placeholder="DUI: 07895478-9" disabled="disabled">
+                                                                        <input type="text" class="form-control" placeholder="Dirección">
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <br><br><br>
-                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                          </div>
+                                                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                                 <div class="form-group ic-cmp-int">
                                                                     <div class="form-ic-cmp">
-                                                                      <i class="fas fa-map-marker"></i>
+                                                                        <i class="fas fa-user-circle"></i>
                                                                     </div>
                                                                     <div class="nk-int-st">
-                                                                        <input type="text" class="form-control" placeholder="Cargo">
+                                                                        <input type="text" class="form-control" placeholder="Teléfono">
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                <div class="form-group ic-cmp-int">
-                                                                    <div class="form-ic-cmp">
-                                                                        <i class="	fas fa-phone"></i>
-                                                                    </div>
-                                                                    <div class="nk-int-st">
-                                                                        <input type="text" class="form-control" placeholder="Teléfono: 9999-9999">
-                                                                    </div>
+                                                          </div>
+                                                      </div><br><br><br>
+                                                      <div class="typography-hd-cr-4" ><h2>Cargo a Asignar</h2></div>
+                                                        <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                  <i class="fas fa-map-marker"></i>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control" placeholder="Cargo">
                                                                 </div>
                                                             </div>
-                                                            </div>
-                                                            </div><br><br><br>
-
+                                                    </div><br><br><br><br><br><br>
+                                                    </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Guardar Cambios</button>
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                                                 </div>
-                                            </div>
                                         </div>
                                     </div>
-                                  </tr>
+                                    </div>
+
+                                    <div class="modal fade" id="modalVer" role="dialog">
+                                        <div class="modal-dialog modal-large">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h3>Datos del Empleado</h3><br><br>
+                                                    <div class="typography-hd-cr-4" ><h2>Datos Personales</h2></div>
+                                                      <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                        <div class="cmp-tb-hd bcs-hd">
+                                                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                              <div class="form-group ic-cmp-int">
+                                                                  <div class="form-ic-cmp">
+                                                                    <i class="fas fa-user-circle"></i>
+                                                                  </div>
+                                                                  <div class="nk-int-st">
+                                                                      <input type="text" class="form-control" placeholder="DUI 99999999-9" disabled="disabled">
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <i class="notika-icon notika-support"></i>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control" placeholder="Nombres" disabled="disabled">
+                                                                    </div>
+                                                                </div>
+                                                          </div>
+                                                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <i class="fas fa-user-circle"></i>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control" placeholder="Apellidos" disabled="disabled">
+                                                                    </div>
+                                                                </div>
+                                                          </div><br><br><br>
+                                                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <i class="fas fa-user-circle"></i>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control" placeholder="Dirección" disabled="disabled">
+                                                                    </div>
+                                                                </div>
+                                                          </div>
+                                                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <i class="fas fa-user-circle"></i>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control" placeholder="Teléfono" disabled="disabled">
+                                                                    </div>
+                                                                </div>
+                                                          </div>
+                                                      </div><br><br><br>
+                                                      <div class="typography-hd-cr-4" ><h2>Cargo a Asignar</h2></div>
+                                                        <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                  <i class="fas fa-map-marker"></i>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control" placeholder="Cargo" disabled="disabled">
+                                                                </div>
+                                                            </div>
+                                                    </div><br><br><br><br><br><br>
+                                                    </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <!-- INICIO MODALES-->
                               </tbody>
                               <tfoot>
                                   <tr>
-
                                   </tr>
                               </tfoot>
                           </table>
