@@ -180,7 +180,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="footer-copy-right">
-                        <p>Derechos Reservados 2019 -- UES-FMP/DSI2                   </div>
+                        <p>Derechos Reservados 2019 -- UES-FMP/DSI2 </div>
                 </div>
             </div>
         </div>
