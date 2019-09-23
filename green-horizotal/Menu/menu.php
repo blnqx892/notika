@@ -13,8 +13,30 @@
         <div class="header-top-menu">
           <ul class="nav navbar-nav notika-top-nav">
             </li>
-            <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span><i class="notika-icon notika-settings"></i></span></a>
+            <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fas fa-user-alt"> Blanca Melara</i></a>
               <div role="menu" class="dropdown-menu message-dd chat-dd animated zoomIn">
+                <div class="hd-message-info">
+                    <a href="#">
+                        <div class="hd-message-sn">
+                            <div class="hd-message-img">
+                              <i class="fas fa-user-cog"></i>
+                            </div>
+                            <div class="hd-mg-ctn">
+                                <h3>Mi Perfil</h3>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="Login.php">
+                        <div class="hd-message-sn">
+                            <div class="hd-message-img">
+                                <i class="fas fa-power-off"></i>
+                            </div>
+                            <div class="hd-mg-ctn">
+                                <h3>Cerrar Sesión</h3>
+                            </div>
+                        </div>
+                    </a>
+                </div>
               </div>
             </li>
             </ul>

@@ -61,6 +61,7 @@
     <div class="login-content">
         <!-- Login -->
         <div class="nk-block toggled" id="l-login">
+             <center><image src="img/logo/funlogo.png"/></center>
             <div class="nk-form">
                 <div class="input-group">
                     <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-support"></i></span>
@@ -81,7 +82,7 @@
                 <a href="#" data-ma-action="nk-login-switch" data-ma-block="#l-forget-password"><i>?</i><span>Olvido Contraseña</span></a>
             </div>
         </div>
-
+</div>
     <!-- jquery
 		============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>

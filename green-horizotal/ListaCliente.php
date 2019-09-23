@@ -81,7 +81,7 @@
                                       <th><center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button></center></th>
                                       <th><center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-arrow-alt-circle-down"></i></button></center></th>
                                       <td><center><button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-print"></i></button></center></td>
-
+                                  </tr>
                                       <div class="modal fade" id="modalEditar" role="dialog">
                                           <div class="modal-dialog modal-large">
                                               <div class="modal-content">
@@ -289,7 +289,7 @@
                                               </div>
                                           </div>
                                       </div>
-                                  </tr>
+
                               </tbody>
                               <tfoot>
                                   <tr>

@@ -20,7 +20,7 @@
 										<i class="notika-icon notika-form"></i>
 									</div>
 									<div class="breadcomb-ctn">
-										<h2></h2>
+										<h2>BITACORA</h2>
 									</div>
 								</div>
 							</div>
@@ -32,9 +32,6 @@
 	</div>
 	<!-- Breadcomb area End-->
     <!-- Inbox area Start-->
-    <div class="inbox-area">
-        <div class="container">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
   <!-- Data Table area Start-->
           <div class="data-table-area">
@@ -42,6 +39,9 @@
                   <div class="row">
                       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                           <div class="data-table-list">
+                            <div class="pull-right">
+                                <button class="btn btn-success notika-btn-success">Reportes <i class="fas fa-print"></i></button>
+                            </div>
                               <div class="basic-tb-hd">
                                   <h2>BITACORA</h2>
                               </div>
@@ -52,28 +52,17 @@
                                               <th>Usuario</th>
                                               <th>Fecha y Hora</th>
                                               <th>Actividad</th>
-                                              <th>Reporte</th>
                                           </tr>
                                       </thead>
                                       <tbody>
                                           <tr>
-                                              <td>Daniela Cecilia</td>
-                                              <td>Dany17@gmail.com</td>
-                                              <td>Compras</td>
-
-                                              <td><center><button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-print"></i></button></center></td>
-                                          </tr>
-                                          <tr>
-                                              <td>Esteban Xavier</td>
-                                              <td>Xavier58@gmail.com</td>
-                                              <td>ventas</td>
-
-                                            <td><center><button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-print"></i></button></center></td>
-                                       </tr>
+                                              <td>blme</td>
+                                              <td>22-9-2019//2:00PM</td>
+                                              <td>Inicio Sesión</td>
+                                              </tr>
                                       </tbody>
                                       <tfoot>
                                           <tr>
-
                                           </tr>
                                       </tfoot>
                                   </table>

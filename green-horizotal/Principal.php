@@ -18,7 +18,6 @@
         <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
           <div class="breadcomb-list">
             <div class="row">
-
                <center><image src="img/logo/img2.png"/></center>
             </div>
           </div>

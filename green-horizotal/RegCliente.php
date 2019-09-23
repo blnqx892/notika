@@ -45,7 +45,7 @@
                                             <i class="notika-icon notika-support"></i>
                                         </div>
                                         <div class="nk-int-st">
-                                            <input type="text" class="form-control" placeholder="DUI: 99999999-9" disabled="disabled">
+                                            <input type="text" class="form-control" placeholder="DUI: 99999999-9">
                                         </div>
                                     </div>
                                 </div>

@@ -39,13 +39,23 @@
                   <div class="typography-hd-cr-4" ><h4>Datos Personales</h4></div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                       <div class="cmp-tb-hd bcs-hd">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="fas fa-id-badge"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="DUI 99999999-9">
+                                </div>
+                            </div>
+                        </div>
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
                                       <i class="fas fa-user-circle"></i>
                                   </div>
                                   <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="Nombre: ">
+                                      <input type="text" class="form-control" placeholder="Nombres">
                                   </div>
                               </div>
                           </div>
@@ -55,21 +65,32 @@
                                       <i class="fas fa-user-circle"></i>
                                   </div>
                                   <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="Apellido">
+                                      <input type="text" class="form-control" placeholder="Apellidos">
                                   </div>
                               </div>
                           </div>
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                      <i class="fas fa-id-badge"></i>
+                                      <i class="fas fa-user-circle"></i>
                                   </div>
                                   <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="Dui"  9999-9999>
+                                      <input type="text" class="form-control" placeholder="Dirección">
                                   </div>
                               </div>
                           </div>
-                          <br><br><br>
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                              <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                    <i class="fas fa-phone-volume"></i>
+                                  </div>
+                                  <div class="nk-int-st">
+                                      <input type="number" class="form-control" placeholder="Teléfono 9999-9999">
+                                  </div>
+                              </div>
+                          </div><br><br><br><br><br><br><br><br>
+                          <div class="typography-hd-cr-4" ><h4>Cargo a Asignar</h4></div>
+                            <hr style="width:100%;border-color:light-gray 25px;"><br>
                           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
@@ -80,19 +101,7 @@
                                   </div>
                               </div>
                           </div>
-                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                    <i class="fas fa-phone-volume"></i>
-                                  </div>
-                                  <div class="nk-int-st">
-                                      <input type="number" class="form-control" placeholder="Teléfono: 9999-9999">
-                                  </div>
-                              </div>
-                          </div>
-                          <br><br><br><br>
-              </div>
-
+              </div><br><br><br><br><br><br><br>
               <center>
                   <button class="btn btn-success notika-btn-success">Guardar  <i class="notika-icon notika-checked"></i></button>
                   <button class="btn btn-danger notika-btn-danger">Cancelar  <i class="notika-icon notika-close"></i></button>

@@ -48,12 +48,10 @@
                           <table id="data-table-basic" class="table table-striped">
                               <thead>
                                   <tr>
-                                      <th>Nombres</th>
-                                      <th>NombreResponsable</th>
-                                      <th>TelefonoResponable</th>
+                                      <th>Nombre</th>
+                                      <th>Teléfono</th>
                                       <th>Empresa</th>
-                                      <th>DireccionEmpresa</th>
-                                      <th>Estado</th>
+                                      <th>Dirección</th>
                                       <th>Ver</th>
                                       <th>Modificar</th>
                                       <th>Dar Baja</th>
@@ -63,11 +61,9 @@
                               <tbody>
                                   <tr>
                                       <td>Daniela Cecilia</td>
-                                      <td>Oscar Castillo</td>
                                       <td>7856-9585</td>
                                       <td>Panaderia Tamayo</td>
                                       <td>10 Calle Oriente, Av. Lourdes #2, San Salvador</td>
-                                      <td><center> <button class="btn btn-primary notika-btn-primary"><i class="fas fa-toggle-on"></i></button></center></td>
                                       <td><center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center></td>
                                       <th><center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button></center></th>
                                       <th><center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-arrow-alt-circle-down"></i></button></center></th>
@@ -75,104 +71,174 @@
                                   </tr>
                                   <tr>
                                       <td>Esteban Xavier</td>
-                                      <td>Armando Castillo</td>
                                       <td>7898-8751</td>
                                       <td>El Taller</td>
                                       <td>10 Calle Oriente, Av. Lourdes #2, San Salvador</td>
-                                    <td><center> <button class="btn btn-primary notika-btn-primary"><i class="fas fa-toggle-on"></i></button></center></td>
                                     <td><center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center></td>
                                     <th><center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button></center></th>
                                     <th><center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-arrow-alt-circle-down"></i></button></center></th>
                                     <td><center><button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-print"></i></button></center></td>
 
-                                      <div class="modal fade" id="modalEditar" role="dialog">
-                                          <div class="modal-dialog modal-large">
-                                              <div class="modal-content">
-                                                  <div class="modal-header">
-                                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                  </div>
-                                                  <div class="modal-body">
-                                                      <h3>Editar Datos del Proveedor</h3><br><br>
-                                                      <div class="typography-hd-cr-4" ><h2>Datos Personales</h2></div>
-                                                        <hr style="width:100%;border-color:light-gray 25px;"><br>
-                                                          <div class="cmp-tb-hd bcs-hd">
-                                                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                  <div class="form-group ic-cmp-int">
-                                                                      <div class="form-ic-cmp">
-                                                                          <i class="notika-icon notika-support"></i>
-                                                                      </div>
-                                                                      <div class="nk-int-st">
-                                                                          <input type="text" class="form-control" placeholder="Nombre:" disabled="disabled">
-                                                                      </div>
-                                                                  </div>
-                                                              </div>
-                                                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                  <div class="form-group ic-cmp-int">
-                                                                      <div class="form-ic-cmp">
-                                                                          <i class="fas fa-user-circle"></i>
-                                                                      </div>
-                                                                      <div class="nk-int-st">
-                                                                          <input type="text" class="form-control" placeholder="NombreResponsable">
-                                                                      </div>
-                                                                  </div>
-                                                              </div>
-                                                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                  <div class="form-group ic-cmp-int">
-                                                                      <div class="form-ic-cmp">
+                                    <!-- INICIO MODALES-->
+                                    <div class="modal fade" id="modalEditar" role="dialog">
+                                        <div class="modal-dialog modal-large">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h3>Editar Datos del Proveedor</h3><br><br>
+                                                    <div class="typography-hd-cr-4" ><h2>Datos Personales del Responsable</h2></div>
+                                                      <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                        <div class="cmp-tb-hd bcs-hd">
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <i class="notika-icon notika-support"></i>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control" placeholder="Nombre Completo">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                      <i class="fas fa-user-circle"></i>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control" placeholder="Telefono 9999-9999">
+                                                                    </div>
+                                                                </div>
+                                                            </div><br><br><br><br><br>
+                                                            <div class="typography-hd-cr-4" ><h2>Datos de la Empresa</h2></div>
+                                                              <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
                                                                         <i class="fas fa-user-circle"></i>
-                                                                      </div>
-                                                                      <div class="nk-int-st">
-                                                                          <input type="text" class="form-control" placeholder="TelefonoResponable">
-                                                                      </div>
-                                                                  </div>
-                                                              </div>
-                                                              <br><br><br>
-                                                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                  <div class="form-group ic-cmp-int">
-                                                                      <div class="form-ic-cmp">
-                                                                        <i class="fas fa-map-marker"></i>
-                                                                      </div>
-                                                                      <div class="nk-int-st">
-                                                                          <input type="text" class="form-control" placeholder="Empresa">
-                                                                      </div>
-                                                                  </div>
-                                                              </div>
-                                                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                  <div class="form-group ic-cmp-int">
-                                                                      <div class="form-ic-cmp">
-                                                                          <i class="	fas fa-phone"></i>
-                                                                      </div>
-                                                                      <div class="nk-int-st">
-                                                                          <input type="text" class="form-control" placeholder="DireccionEmpresa">
-                                                                      </div>
-                                                                  </div>
-                                                              </div>
-                                                  </div>
-                                                </div><br><br><br>
-
-                                                  <div class="modal-footer">
-                                                      <button type="button" class="btn btn-default" data-dismiss="modal">Guardar Cambios</button>
-                                                      <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                                  </div>
-                                              </div>
-                                          </div>
-                                      </div>
-
-
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control" placeholder="Empresa" disabled="disabled">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                      <i class="fas fa-map-marker"></i>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control" placeholder="Dirección">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                      <i class="fas fa-user-circle"></i>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control" placeholder="Teléfono 9999-9999">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <br><br><br>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Guardar Cambios</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="modal fade" id="modalVer" role="dialog">
+                                        <div class="modal-dialog modal-large">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <h3>Datos del Proveedor</h3><br><br>
+                                                    <div class="typography-hd-cr-4" ><h2>Datos Personales del Responsable</h2></div>
+                                                      <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                        <div class="cmp-tb-hd bcs-hd">
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <i class="notika-icon notika-support"></i>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control" placeholder="Nombre Completo" disabled="disabled">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                      <i class="fas fa-user-circle"></i>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control" placeholder="Telefono 9999-9999" disabled="disabled">
+                                                                    </div>
+                                                                </div>
+                                                            </div><br><br><br><br><br>
+                                                            <div class="typography-hd-cr-4" ><h2>Datos de la Empresa</h2></div>
+                                                              <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <i class="fas fa-user-circle"></i>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control" placeholder="Empresa" disabled="disabled">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                      <i class="fas fa-map-marker"></i>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control" placeholder="Dirección" disabled="disabled">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                      <i class="fas fa-user-circle"></i>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control" placeholder="Teléfono 9999-9999" disabled="disabled">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <br><br><br>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                                  <!-- FIN MODALES-->
                                   </tr>
                               </tbody>
                               <tfoot>
                                   <tr>
-
                                   </tr>
                               </tfoot>
                           </table>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
   <!--FIN TABLA-->
 
     <!-- Start Footer area-->
