@@ -106,7 +106,9 @@
           </div>
           <div id="servicios" class="tab-pane notika-tab-menu-bg animated flipInX">
             <ul class="notika-main-menu-dropdown">
-              <li><a href="">Control Servicios</a>
+              <li><a href="RegServicio.php">Registrar Servicios</a>
+              </li>
+              <li><a href="ListaServicios.php">Control Servicios</a>
               </li>
               <li><a href="">Catalogo</a>
               </li>
