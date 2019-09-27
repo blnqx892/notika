@@ -90,9 +90,9 @@
           </div>
           <div id="compras" class="tab-pane  notika-tab-menu-bg animated flipInX">
             <ul class="notika-main-menu-dropdown">
-              <li><a href="">Registrar</a>
+              <li><a href="RegCompra.php">Registrar</a>
               </li>
-              <li><a href="">Compras</a>
+              <li><a href="ListaCompra.php">Compras</a>
               </li>
             </ul>
           </div>
@@ -124,11 +124,11 @@
           </div>
           <div id="inventario" class="tab-pane notika-tab-menu-bg animated flipInX">
             <ul class="notika-main-menu-dropdown">
-              <li><a href="">Registrar</a>
+              <li><a href="RegInventario.php">Registrar</a>
               </li>
-              <li><a href="">Producto</a>
+              <li><a href="ListaProductos.php">Producto</a>
               </li>
-              <li><a href="">Equipo</a>
+              <li><a href="ListaEquipo.php">Equipo</a>
               </li>
             </ul>
           </div>
