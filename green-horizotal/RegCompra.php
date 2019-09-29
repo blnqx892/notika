@@ -3,130 +3,151 @@
 <!--IMPORTE head desde Menu/apertura-->
 <?php include("Menu/apertura.php"); ?>
 <!--IMPORTE head desde Menu/apertura-->
+
 <body>
-  <!-- Importe menu desde Menu/menu-->
- <?php include("Menu/menu.php"); ?>
-   <!-- End Header Top Area -->
-  <!-- Breadcomb area Start-->
-	<div class="breadcomb-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<div class="breadcomb-list">
-						<div class="row">
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<div class="breadcomb-wp">
-									<div class="breadcomb-icon">
-										<i class="notika-icon notika-form"></i>
-									</div>
-									<div class="breadcomb-ctn">
-										<h2>REGISTRAR COMPRAS</h2>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Breadcomb area End-->
+    <!-- Importe menu desde Menu/menu-->
+    <?php include("Menu/menu.php"); ?>
+    <!-- End Header Top Area -->
+    <!-- Breadcomb area Start-->
+    <div class="breadcomb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="breadcomb-list">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="breadcomb-wp">
+                                    <div class="breadcomb-icon">
+                                        <i class="notika-icon notika-form"></i>
+                                    </div>
+                                    <div class="breadcomb-ctn">
+                                        <h2>REGISTRAR COMPRAS</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcomb area End-->
     <!-- Inbox area Start-->
     <div class="inbox-area">
         <div class="container">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                  <div class="form-element-list">
-                  <div class="typography-hd-cr-4" ><h4>Proveedor</h4></div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-element-list">
+                    <div class="typography-hd-cr-4">
+                        <h4>Proveedor</h4>
+                    </div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
-                      <div class="cmp-tb-hd bcs-hd">
+                    <div class="cmp-tb-hd bcs-hd">
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                             <div class="nk-int-mk sl-dp-mn">
                                 <h2>Seleccionar Proveedor</h2>
                             </div>
                             <div class="chosen-select-act fm-cmp-mg">
                                 <select class="chosen" data-placeholder="Elegir Proveedor...">
-                  <option value="United States">Natalie Castillo</option>
-                </select>
+                                    <option value="United States">Natalie Castillo</option>
+                                </select>
                             </div>
                         </div>
-                          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                              <div class="nk-int-mk">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="nk-int-mk">
                                 <h6>Fecha</h6>
-                              </div>
-                              <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                      <i class="notika-icon notika-calendar"></i>
-                                  </div>
-                                  <div class="nk-int-st">
-                                      <input type="text" class="form-control" data-mask="99/99/9999" placeholder="dd/mm/yyyy">
-                                  </div>
-                              </div>
-                          </div>
-
-                          </div><br><br><br><br>
-                          <div class="typography-hd-cr-4" ><h4>Producto</h4></div>
-                            <hr style="width:100%;border-color:light-gray 25px;"><br>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <i class="fas fa-building"></i>
-                                    </div>
-                                    <div class="nk-int-st">
-                                        <input type="text" class="form-control" placeholder="Producto" >
-                                    </div>
+                            </div>
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="notika-icon notika-calendar"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" data-mask="99/99/9999"
+                                        placeholder="dd/mm/yyyy">
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <div class="chosen-select-act fm-cmp-mg">
-                           <select class="chosen" data-placeholder="Tipo ...">
-                           <option value="United States">Equipo</option>
-                           <option value="United States">Producto</option>
-                           </select>
-                                </div>
+                        </div>
+
+                    </div><br><br><br><br>
+                    <div class="typography-hd-cr-4">
+                        <h4>Producto</h4>
+                    </div>
+                    <hr style="width:100%;border-color:light-gray 25px;"><br>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                        <div class="form-group ic-cmp-int">
+                            <div class="form-ic-cmp">
+                                <i class="fas fa-building"></i>
                             </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                    <i class="fas fa-route"></i>
-                                    </div>
-                                    <div class="nk-int-st">
-                                        <input type="text" class="form-control" placeholder="Cantidad" >
-                                    </div>
-                                </div>
+                            <div class="nk-int-st">
+                                <input type="text" class="form-control" placeholder="Producto">
                             </div>
-                          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                      <i class="fas fa-phone-square-alt"></i>
-                                  </div>
-                                  <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="Precio Compra $">
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                      <i class="fas fa-phone-square-alt"></i>
-                                  </div>
-                                  <div class="nk-int-st">
-                                      <input type="text" class="form-control" placeholder="Precio total $">
-                                  </div>
-                              </div>
-                          </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="chosen-select-act fm-cmp-mg">
+                            <select class="chosen" data-placeholder="Categoria ...">
+                                <option value="">Equipo</option>
+                                <option value="value">Feretro</option>
+                                <option value="">Comestibles</option>
+                                <option value="">Desechables</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="chosen-select-act fm-cmp-mg">
+                            <select class="chosen" data-placeholder="Tipo ...">
+                                <option value="">sillas</option>
+                                <option value="">Cortinas</option>
+                                <option value="">Candelabros</option>
+                                <option value="">Candelas</option>
+                                <option value="">Crucifijos</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                        <div class="form-group ic-cmp-int">
+                            <div class="form-ic-cmp">
+                                <i class="fas fa-route"></i>
+                            </div>
+                            <div class="nk-int-st">
+                                <input type="text" class="form-control" placeholder="Cantidad">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                        <div class="form-group ic-cmp-int">
+                            <div class="form-ic-cmp">
+                                <i class="fas fa-phone-square-alt"></i>
+                            </div>
+                            <div class="nk-int-st">
+                                <input type="text" class="form-control" placeholder="$ Precio Unitario">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                        <div class="form-group ic-cmp-int">
+                            <div class="form-ic-cmp">
+                                <i class="fas fa-phone-square-alt"></i>
+                            </div>
+                            <div class="nk-int-st">
+                                <input type="text" class="form-control" placeholder="$ Precio total">
+                            </div>
+                        </div>
+                    </div>
 
 
-                            <br><br><br><br>
-                            <center>
-                                <button class="btn btn-success notika-btn-success">Guardar  <i class="notika-icon notika-checked"></i></button>
-                                <button class="btn btn-danger notika-btn-danger">Cancelar  <i class="notika-icon notika-close"></i></button>
-                              </center>
-              </div>
+                    <br><br><br><br>
+                    <center>
+                        <button class="btn btn-success notika-btn-success">Guardar <i
+                                class="notika-icon notika-checked"></i></button>
+                        <button class="btn btn-danger notika-btn-danger">Cancelar <i
+                                class="notika-icon notika-close"></i></button>
+                    </center>
+                </div>
 
-          </div>
+            </div>
 
         </div>
-        </div>
+    </div>
     <!-- Inbox area End-->
     <!-- Start Footer area-->
     <div class="footer-copyright-area">
@@ -134,7 +155,8 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="footer-copy-right">
-                        <p>Derechos Reservados 2019 -- UES-FMP/DSI2                   </div>
+                        <p>Derechos Reservados 2019 -- UES-FMP/DSI2
+                    </div>
                 </div>
             </div>
         </div>
@@ -234,7 +256,7 @@
     <!-- main JS
     ============================================ -->
     <script src="js/main.js"></script>
-  <!-- tawk chat JS
+    <!-- tawk chat JS
     ============================================ -->
 
 </body>

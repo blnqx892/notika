@@ -13,33 +13,34 @@
         <div class="header-top-menu">
           <ul class="nav navbar-nav notika-top-nav">
             </li>
-            <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fas fa-user-alt"> Blanca Melara</i></a>
+            <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false"
+                class="nav-link dropdown-toggle"><i class="fas fa-user-alt"> Blanca Melara</i></a>
               <div role="menu" class="dropdown-menu message-dd chat-dd animated zoomIn">
                 <div class="hd-message-info">
-                    <a href="#">
-                        <div class="hd-message-sn">
-                            <div class="hd-message-img">
-                              <i class="fas fa-user-cog"></i>
-                            </div>
-                            <div class="hd-mg-ctn">
-                                <h3>Mi Perfil</h3>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="Login.php">
-                        <div class="hd-message-sn">
-                            <div class="hd-message-img">
-                                <i class="fas fa-power-off"></i>
-                            </div>
-                            <div class="hd-mg-ctn">
-                                <h3>Cerrar Sesión</h3>
-                            </div>
-                        </div>
-                    </a>
+                  <a href="#">
+                    <div class="hd-message-sn">
+                      <div class="hd-message-img">
+                        <i class="fas fa-user-cog"></i>
+                      </div>
+                      <div class="hd-mg-ctn">
+                        <h3>Mi Perfil</h3>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="Login.php">
+                    <div class="hd-message-sn">
+                      <div class="hd-message-img">
+                        <i class="fas fa-power-off"></i>
+                      </div>
+                      <div class="hd-mg-ctn">
+                        <h3>Cerrar Sesión</h3>
+                      </div>
+                    </div>
+                  </a>
                 </div>
               </div>
             </li>
-            </ul>
+          </ul>
         </div>
       </div>
     </div>
@@ -68,15 +69,15 @@
           </li>
           <li><a data-toggle="tab" href="#seguridad"><i class="fas fa-users-cog"></i> Seguridad</a>
           </li>
-          <li><a data-toggle="tab" href="Principal.php">Ayuda <i class="fas fa-question-circle"></i></a>
+          <li><a data-toggle="tab" href="#ayuda">Ayuda <i class="fas fa-question-circle"></i></a>
           </li>
         </ul>
         <div class="tab-content active custom-menu-content">
           <div id="ventas" class="tab-pane in notika-tab-menu-bg animated flipInX">
             <ul class="notika-main-menu-dropdown">
-              <li><a href="">Registrar</a>
+              <li><a href="RegVenta.php">Registrar</a>
               </li>
-              <li><a href="">Ventas</a>
+              <li><a href="ListaVenta.php">Ventas</a>
               </li>
             </ul>
           </div>
@@ -126,7 +127,7 @@
             <ul class="notika-main-menu-dropdown">
               <li><a href="RegInventario.php">Registrar</a>
               </li>
-              <li><a href="ListaProductos.php">Producto</a>
+              <li><a href="ListaProductos.php">Feretros</a>
               </li>
               <li><a href="ListaEquipo.php">Equipo</a>
               </li>
@@ -134,11 +135,17 @@
           </div>
           <div id="seguridad" class="tab-pane notika-tab-menu-bg animated flipInX">
             <ul class="notika-main-menu-dropdown">
-              <li><a href="">Administrar Backup</a>
+              <li><a href="AdminBackup.php">Administrar Backup</a>
               </li>
               <li><a href="RegUsuario.php">Control Usuario</a>
               </li>
               <li><a href="Bitacora.php">Bitacora</a>
+              </li>
+            </ul>
+          </div>
+          <div id="ayuda" class="tab-pane notika-tab-menu-bg animated flipInX">
+            <ul class="notika-main-menu-dropdown">
+              <li><a href="Ayuda.php">Ayuda</a>
               </li>
             </ul>
           </div>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>carga</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  </head>
+  <body>
+    <div class="center" id="circulo">
+      <div class="preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div><div class="gap-patch">
+        <div class="circle"></div>
+      </div><div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+    </div>
+
+    <div class="hide" id="vamo">
+      <h1 class="blue-text">HOLA CARGA</h1>
+    </div>
+  </body>
+
+
+  <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+      window.addEventListener('load', () => {
+      setTimeout(carga, 2000);
+
+       function carga(){
+            document.getElementById('circulo').className = 'hide';
+            document.getElementById('vamo').className = '';
+        }
+
+      })
+    </script>
+
+</html>

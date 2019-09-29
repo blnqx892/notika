@@ -21,7 +21,7 @@
                                         <i class="notika-icon notika-form"></i>
                                     </div>
                                     <div class="breadcomb-ctn">
-                                        <h2>LISTADO DE EMPLEADO</h2>
+                                        <h2>LISTADO DE VENTAS</h2>
                                     </div>
                                 </div>
                             </div>
@@ -39,76 +39,50 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="data-table-list">
-                        <div class="pull-right">
-                            <button class="btn btn-success notika-btn-success">Dar Altas <i
-                                    class="fas fa-arrow-alt-circle-up"></i></button>
-                            <button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg">Reporte <i
-                                    class="fas fa-print"></i></button>
-                        </div>
+                    <div class="pull-right">
+              <button class="btn btn-success notika-btn-success">Dar Altas <i
+                  class="fas fa-arrow-alt-circle-up"></i></button>
+                  <button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg">Reporte <i
+                            class="fas fa-print"></i></button>
+            </div>
                         <div class="basic-tb-hd">
-                            <h2>Empleados</h2>
+                            <h2>Ventas</h2>
                         </div>
                         <div class="table-responsive">
                             <table id="data-table-basic" class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Dui</th>
-                                        <th>Nombres</th>
-                                        <th>Apellidos</th>
-                                        <th>Cargo</th>
+                                        <th>N° Venta</th>
+                                        <th>Cliente</th>
+                                        <th>Contrato</th>
+                                        <th>Servicio Funebre</th>
+                                        <th>$ Precio</th>
                                         <th>Ver</th>
-                                        <th>Modificar</th>
                                         <th>Dar Baja</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>02156848-9</td>
-                                        <td>Esteban Xavier</td>
-                                        <td>Orellana Castillo</td>
-                                        <td>Vendedor</td>
+                                        <td>17</td>
+                                        <td>Miguel Prado</td>
+                                        <td>Contado</td>
+                                        <td>Jardín Normal</td>
+                                        <td>$ 1,250</td>
                                         <td>
-                                            <center> <button
+                                            <center><button
                                                     class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                                                     data-toggle="modal" data-target="#modalVer"><i
-                                                        class="fas fa-eye"></i></button></center>
+                                                        class="fas fa-eye"></i></button>
+                                            </center>
                                         </td>
-                                        <th>
-                                            <center><button type="button"
-                                                    class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalEditar"><i
-                                                        class="fas fa-edit"></i></button></center>
-                                        </th>
                                         <th>
                                             <center><button
                                                     class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                                                        class="fas fa-arrow-alt-circle-down"></i></button></center>
+                                                        class="fas fa-arrow-alt-circle-down"></i></button>
+                                            </center>
                                         </th>
                                     </tr>
-                                    <tr>
-                                        <td>49865398-1</td>
-                                        <td>Pedro</td>
-                                        <td>Oliva Perez</td>
-                                        <td>Motorista</td>
-                                        <td>
-                                            <center> <button
-                                                    class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalVer"><i
-                                                        class="fas fa-eye"></i></button></center>
-                                        </td>
-                                        <th>
-                                            <center><button type="button"
-                                                    class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalEditar"><i
-                                                        class="fas fa-edit"></i></button></center>
-                                        </th>
-                                        <th>
-                                            <center><button
-                                                    class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                                                        class="fas fa-arrow-alt-circle-down"></i></button></center>
-                                        </th>
-                                    </tr>
-                                    <!-- INICIO MODALES-->
+                                    
                                     <div class="modal fade" id="modalEditar" role="dialog">
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
@@ -117,7 +91,7 @@
                                                         data-dismiss="modal">&times;</button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <h3>Editar Datos del Empleado</h3><br><br>
+                                                    <h3>Editar Datos del Cliente</h3><br><br>
                                                     <div class="typography-hd-cr-4">
                                                         <h2>Datos Personales</h2>
                                                     </div>
@@ -126,11 +100,11 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <i class="fas fa-user-circle"></i>
+                                                                    <i class="notika-icon notika-support"></i>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="DUI 99999999-9"
+                                                                        placeholder="DUI: 99999999-9"
                                                                         disabled="disabled">
                                                                 </div>
                                                             </div>
@@ -138,11 +112,11 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <i class="notika-icon notika-support"></i>
+                                                                    <i class="fas fa-user-circle"></i>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Nombres" disabled="disabled">
+                                                                        placeholder="Nombres">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -153,14 +127,15 @@
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Apellidos" disabled="disabled">
+                                                                        placeholder="Apellidos">
                                                                 </div>
                                                             </div>
-                                                        </div><br><br><br>
+                                                        </div>
+                                                        <br><br><br>
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <i class="fas fa-user-circle"></i>
+                                                                    <i class="fas fa-map-marker"></i>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -171,31 +146,54 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <i class="fas fa-user-circle"></i>
+                                                                    <i class="	fas fa-phone"></i>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Teléfono">
+                                                                        placeholder="Teléfono: 9999-9999">
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div><br><br><br>
+                                                    </div><br><br><br><br>
                                                     <div class="typography-hd-cr-4">
-                                                        <h2>Cargo a Asignar</h2>
+                                                        <h2>Datos de los Beneficiarios</h2>
                                                     </div>
                                                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                                <i class="fas fa-map-marker"></i>
+                                                                <i class="fas fa-user-circle"></i>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
-                                                                    placeholder="Cargo">
+                                                                    placeholder="Nombre beneficiario 1">
                                                             </div>
                                                         </div>
-                                                    </div><br><br><br><br><br><br>
-                                                </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="form-group ic-cmp-int">
+                                                            <div class="form-ic-cmp">
+                                                                <i class="fas fa-user-circle"></i>
+                                                            </div>
+                                                            <div class="nk-int-st">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Nombre beneficiario 2">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="form-group ic-cmp-int">
+                                                            <div class="form-ic-cmp">
+                                                                <i class="fas fa-user-circle"></i>
+                                                            </div>
+                                                            <div class="nk-int-st">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Nombre beneficiario 3">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><br><br><br>
+
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-default"
                                                         data-dismiss="modal">Guardar Cambios</button>
@@ -205,7 +203,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="modal fade" id="modalVer" role="dialog">
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
@@ -214,7 +211,7 @@
                                                         data-dismiss="modal">&times;</button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <h3>Datos del Empleado</h3><br><br>
+                                                    <h3>Datos Cliente</h3><br><br>
                                                     <div class="typography-hd-cr-4">
                                                         <h2>Datos Personales</h2>
                                                     </div>
@@ -223,11 +220,11 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <i class="fas fa-user-circle"></i>
+                                                                    <i class="notika-icon notika-support"></i>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="DUI 99999999-9"
+                                                                        placeholder="DUI: 99999999-9"
                                                                         disabled="disabled">
                                                                 </div>
                                                             </div>
@@ -235,7 +232,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <i class="notika-icon notika-support"></i>
+                                                                    <i class="fas fa-user-circle"></i>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -253,11 +250,12 @@
                                                                         placeholder="Apellidos" disabled="disabled">
                                                                 </div>
                                                             </div>
-                                                        </div><br><br><br>
+                                                        </div>
+                                                        <br><br><br>
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <i class="fas fa-user-circle"></i>
+                                                                    <i class="fas fa-map-marker"></i>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -268,31 +266,58 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <i class="fas fa-user-circle"></i>
+                                                                    <i class="	fas fa-phone"></i>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Teléfono" disabled="disabled">
+                                                                        placeholder="Teléfono: 9999-9999"
+                                                                        disabled="disabled">
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div><br><br><br>
+                                                    </div><br><br><br><br>
                                                     <div class="typography-hd-cr-4">
-                                                        <h2>Cargo a Asignar</h2>
+                                                        <h2>Datos de los Beneficiarios</h2>
                                                     </div>
                                                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                                <i class="fas fa-map-marker"></i>
+                                                                <i class="fas fa-user-circle"></i>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
-                                                                    placeholder="Cargo" disabled="disabled">
+                                                                    placeholder="Nombre beneficiario 1"
+                                                                    disabled="disabled">
                                                             </div>
                                                         </div>
-                                                    </div><br><br><br><br><br><br>
-                                                </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="form-group ic-cmp-int">
+                                                            <div class="form-ic-cmp">
+                                                                <i class="fas fa-user-circle"></i>
+                                                            </div>
+                                                            <div class="nk-int-st">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Nombre beneficiario 2"
+                                                                    disabled="disabled">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="form-group ic-cmp-int">
+                                                            <div class="form-ic-cmp">
+                                                                <i class="fas fa-user-circle"></i>
+                                                            </div>
+                                                            <div class="nk-int-st">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Nombre beneficiario 3"
+                                                                    disabled="disabled">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><br><br><br>
+
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-default"
                                                         data-dismiss="modal">Cerrar</button>
@@ -300,7 +325,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- INICIO MODALES-->
+
                                 </tbody>
                                 <tfoot>
                                     <tr>

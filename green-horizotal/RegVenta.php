@@ -21,7 +21,7 @@
                                         <i class="notika-icon notika-form"></i>
                                     </div>
                                     <div class="breadcomb-ctn">
-                                        <h2>REGISTRAR PRODUCTOS</h2>
+                                        <h2>REGISTRAR VENTA</h2>
                                     </div>
                                 </div>
                             </div>
@@ -38,60 +38,123 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-element-list">
                     <div class="typography-hd-cr-4">
-                        <h4>Datos Producto</h4>
                     </div>
-                    <hr style="width:100%;border-color:light-gray 25px;"><br>
                     <div class="cmp-tb-hd bcs-hd">
-
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="nk-int-mk">
+                                <h5>Fecha</h5>
+                            </div>
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="notika-icon notika-calendar"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" data-mask="99/99/9999"
+                                        placeholder="dd/mm/yyyy">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>N° Venta</h5>
+                            </div>
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="Elegir Local...">
+                                    <option value="United States">1</option>
+                                    <option value="United States">2</option>
+                                    <option value="United States">..</option>
+                                </select>
+                            </div>
+                        </div>
+                        <hr style="width:100%;border-color:light-gray 25px;"><br>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="fm-checkbox">
+                                <label><input type="checkbox" checked="" class="i-checks"> <i></i>CONTADO</label>
+                            </div>
+                            <div class="fm-checkbox">
+                                <label><input type="checkbox" class="i-checks"> <i></i>CREDITO</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Cliente">
+                                </div>
+                            </div>
+                        </div><br><br><br><br><br><br><br>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Servicio Funebre</h5>
+                            </div>
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="Seleccionar...">
+                                    <option value="United States">Jardín Reformado Completo</option>
+                                    <option value="United States">Jardín Completo</option>
+                                    <option value="United States">Romano Completo</option>
+                                    <option value="United States">Jardín Normal</option>
+                                    <option value="United States">Duquesa Completo</option>
+                                    <option value="United States">Duquesa Normal</option>
+                                    <option value="United States">Ejecutivo Completo</option>
+                                    <option value="United States">Ejecutivo Normal</option>
+                                </select>
+                            </div>
+                        </div><br>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                    <i class="fas fa-route"></i>
+                                    <i class="fas fa-user-circle"></i>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Nombre:">
+                                    <input type="text" class="form-control" placeholder="$ Precio">
+                                </div>
+                            </div>
+                        </div>
+                    </div><br><br><br>
+                    <div class="cmp-tb-hd bcs-hd">
+                        <div class="typography-hd-cr-4">
+                            <h3>Cancelación</h3>
+                        </div>
+                        <hr style="width:100%;border-color:light-gray 25px;"><br>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="$ Total">
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                    <i class="fas fa-phone-square-alt"></i>
+                                    <i class="fas fa-user-circle"></i>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Descripcion:">
+                                    <input type="text" class="form-control" placeholder="$ Abono 1">
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                    <i class="fas fa-phone-square-alt"></i>
+                                    <i class="fas fa-user-circle"></i>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Stock:">
+                                    <input type="text" class="form-control" placeholder="$ Abono 2">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                    <i class="fas fa-phone-square-alt"></i>
-                                </div>
-                                <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Precio:$">
-                                </div>
-                            </div>
-                        </div>
-                        <br><br><br><br>
                         <center>
                             <button class="btn btn-success notika-btn-success">Guardar <i
                                     class="notika-icon notika-checked"></i></button>
                             <button class="btn btn-danger notika-btn-danger">Cancelar <i
                                     class="notika-icon notika-close"></i></button>
                         </center>
-                    </div>
-
+                    </div><br>
                 </div>
 
             </div>
@@ -206,7 +269,5 @@
         <script src="js/main.js"></script>
         <!-- tawk chat JS
     ============================================ -->
-
-</body>
 
 </html>

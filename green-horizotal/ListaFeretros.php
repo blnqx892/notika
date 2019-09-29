@@ -21,7 +21,7 @@
                     <i class="notika-icon notika-form"></i>
                   </div>
                   <div class="breadcomb-ctn">
-                    <h2>LISTADO DE EQUIPO</h2>
+                    <h2>LISTADO DE FERETROS</h2>
                   </div>
                 </div>
               </div>
@@ -42,10 +42,10 @@
             <div class="pull-right">
               <button class="btn btn-success notika-btn-success">Dar Altas <i
                   class="fas fa-arrow-alt-circle-up"></i></button>
-              <button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg">Reporte <i class="fas fa-print"></i></button>
+                  <button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg">Reporte <i class="fas fa-print"></i></button>
             </div>
             <div class="basic-tb-hd">
-              <h2>Equipo</h2>
+              <h2>Producto</h2>
             </div>
             <div class="table-responsive">
               <table id="data-table-basic" class="table table-striped">
@@ -63,11 +63,11 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Sillas Magna Azul</td>
-                    <td>Sillas</td>
-                    <td>Sillas de plastico color azul</td>
+                    <td>Caja imperial</td>
+                    <td>Feretro</td>
+                    <td>Ataud de madera laqueado al Naatural</td>
                     <td>$100</td>
-                    <td>20</td>
+                    <td>5</td>
                     <td>
                       <center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                           data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center>
@@ -82,11 +82,11 @@
                     </th>
                   </tr>
                   <tr>
-                    <td>Crusifijos</td>
-                    <td>Crusifijo</td>
-                    <td>Crusifijo de madera</td>
-                    <td>$50</td>
-                    <td>5</td>
+                    <td>Caja Romana</td>
+                    <td>Feretro</td>
+                    <td>Ataud de madera laqueado al Naatural</td>
+                    <td>$150</td>
+                    <td>20</td>
                     <td>
                       <center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                           data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center>
