@@ -55,15 +55,15 @@
         <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
           <li><a data-toggle="tab" href="#ventas"><i class="fas fa-dollar-sign"></i> Ventas</a>
           </li>
-          <li><a data-toggle="tab" href="#clientes"><i class="fas fa-address-book"></i> Clientes</a>
-          </li>
           <li><a data-toggle="tab" href="#compras"><i class="fas fa-shopping-cart"></i> Compras</a>
+          </li>
+          <li><a data-toggle="tab" href="#clientes"><i class="fas fa-address-book"></i> Clientes</a>
           </li>
           <li><a data-toggle="tab" href="#proveedores"><i class="fas fa-dolly"></i> Proveedor</a>
           </li>
-          <li><a data-toggle="tab" href="#servicios"><i class="fas fa-church"></i> Servicios</a>
-          </li>
           <li><a data-toggle="tab" href="#empleados"><i class="fas fa-user-friends"></i> Empleados</a>
+          </li>
+          <li><a data-toggle="tab" href="#servicios"><i class="fas fa-church"></i> Servicios</a>
           </li>
           <li><a data-toggle="tab" href="#inventario"><i class="fas fa-boxes"></i> Inventario</a>
           </li>
@@ -127,7 +127,7 @@
             <ul class="notika-main-menu-dropdown">
               <li><a href="RegInventario.php">Registrar</a>
               </li>
-              <li><a href="ListaProductos.php">Feretros</a>
+              <li><a href="ListaFeretros.php">Feretros</a>
               </li>
               <li><a href="ListaEquipo.php">Equipo</a>
               </li>
@@ -156,3 +156,4 @@
 </div>
 <!-- Main Menu area End-->
 <!---------------------------------------------------------------------------------------->
+

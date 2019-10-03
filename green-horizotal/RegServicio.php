@@ -42,19 +42,9 @@
                     </div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                     <div class="cmp-tb-hd bcs-hd">
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                    <i class="fas fa-user-circle"></i>
-                                </div>
-                                <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Cliente">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                             <div class="nk-int-mk sl-dp-mn">
-                                <h6>Servicio Funerario</h6>
+                                <h5>Servicio Funerario</h5>
                             </div>
                             <div class="chosen-select-act fm-cmp-mg">
                                 <select class="chosen" data-placeholder="Elegir Servicio...">
@@ -63,34 +53,54 @@
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <div class="nk-int-mk">
-                                <h6>Desde</h6>
-                            </div>
-                            <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                    <i class="notika-icon notika-calendar"></i>
-                                </div>
-                                <div class="nk-int-st">
-                                    <input type="text" class="form-control" data-mask="99/99/9999"
-                                        placeholder="dd/mm/yyyy">
+                            <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
+                                <h5>Desde</h5>
+                                <div class="input-group date nk-int-st">
+                                    <span class="input-group-addon"></span>
+                                    <input type="text" class="form-control" value="02/10/2019">
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <div class="nk-int-mk">
-                                <h6>Hasta</h6>
+                            <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
+                                <h5>Hasta</h5>
+                                <div class="input-group date nk-int-st">
+                                    <span class="input-group-addon"></span>
+                                    <input type="text" class="form-control" value="02/10/2019">
+                                </div>
                             </div>
+                        </div><br><br><br><br>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Seleccionar Cliente</h5>
+                            </div>
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="Elegir Cliente...">
+                                    <option value="United States">Natalie Castillo</option>
+                                </select>
+                            </div>
+                        </div><br>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                    <i class="notika-icon notika-calendar"></i>
+                                    <i class="fas fa-building"></i>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" data-mask="99/99/9999"
-                                        placeholder="dd/mm/yyyy">
+                                    <input type="text" class="form-control" placeholder="Dirección">
                                 </div>
                             </div>
                         </div>
-                    </div><br><br><br><br>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                        <div class="form-group ic-cmp-int">
+                            <div class="form-ic-cmp">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="nk-int-st">
+                                <input type="text" class="form-control" placeholder="Telefóno">
+                            </div>
+                        </div>
+                    </div>
+                    </div><br><br>
                     <div class="typography-hd-cr-4">
                         <h4>Equipo</h4>
                     </div>
@@ -168,7 +178,7 @@
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                         <div class="form-group ic-cmp-int">
                             <div class="form-ic-cmp">
-                            <i class="fas fa-book-reader"></i>
+                                <i class="fas fa-book-reader"></i>
                             </div>
                             <div class="nk-int-st">
                                 <input type="text" class="form-control" placeholder="Carro Funebre">

@@ -37,14 +37,22 @@
     <div class="data-table-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                    <div class="inbox-left-sd">
+                        <div class="inbox-status">
+                            <ul class="inbox-st-nav inbox-ft">
+                                <li><a href="#"><button class="btn btn-success notika-btn-success">Dar Altas
+                                            <i class="fas fa-arrow-alt-circle-up"></i></button></a></li>
+                                <li><a href="#"><button
+                                            class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg">Reporte
+                                            <i class="fas fa-print"></i></button></a></li>
+                            </ul>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
                     <div class="data-table-list">
-                    <div class="pull-right">
-              <button class="btn btn-success notika-btn-success">Dar Altas <i
-                  class="fas fa-arrow-alt-circle-up"></i></button>
-                  <button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg">Reporte <i
-                            class="fas fa-print"></i></button>
-            </div>
                         <div class="basic-tb-hd">
                             <h2>Ventas</h2>
                         </div>
@@ -54,7 +62,7 @@
                                     <tr>
                                         <th>N° Venta</th>
                                         <th>Cliente</th>
-                                        <th>Contrato</th>
+                                        <th>Tipo</th>
                                         <th>Servicio Funebre</th>
                                         <th>$ Precio</th>
                                         <th>Ver</th>
@@ -82,7 +90,7 @@
                                             </center>
                                         </th>
                                     </tr>
-                                    
+
                                     <div class="modal fade" id="modalEditar" role="dialog">
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">

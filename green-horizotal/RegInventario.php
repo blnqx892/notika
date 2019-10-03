@@ -42,14 +42,45 @@
                     </div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                     <div class="cmp-tb-hd bcs-hd">
-
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="form-group ic-cmp-int float-lb floating-lb">
+                                <div class="form-ic-cmp">
+                                    <i class="fas fa-tag"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control">
+                                    <label class="nk-label">Nombre</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="Categoria ...">
+                                    <option value="">Equipo</option>
+                                    <option value="value">Feretro</option>
+                                    <option value="">Comestibles</option>
+                                    <option value="">Desechables</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="Tipo ...">
+                                    <option value="">sillas</option>
+                                    <option value="">Cortinas</option>
+                                    <option value="">Candelabros</option>
+                                    <option value="">Candelas</option>
+                                    <option value="">Crucifijos</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
                                     <i class="fas fa-route"></i>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Nombre:">
+                                    <input type="text" class="form-control" placeholder="Stock">
                                 </div>
                             </div>
                         </div>
@@ -59,7 +90,7 @@
                                     <i class="fas fa-phone-square-alt"></i>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Descripcion:">
+                                    <input type="text" class="form-control" placeholder="$ Precio Unitario">
                                 </div>
                             </div>
                         </div>
@@ -69,29 +100,43 @@
                                     <i class="fas fa-phone-square-alt"></i>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Stock:">
+                                    <input type="text" class="form-control" placeholder="$ Precio total">
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                    <i class="fas fa-phone-square-alt"></i>
-                                </div>
+                        </div><br><br><br><br>
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                            <div class="form-group">
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Precio:$">
+                                    <textarea class="form-control auto-size" rows="2"
+                                        placeholder="Descripción..."></textarea>
                                 </div>
                             </div>
                         </div>
-                        <br><br><br><br>
-                        <center>
-                            <button class="btn btn-success notika-btn-success">Guardar <i
-                                    class="notika-icon notika-checked"></i></button>
-                            <button class="btn btn-danger notika-btn-danger">Cancelar <i
-                                    class="notika-icon notika-close"></i></button>
-                        </center>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="dropdone-nk mg-t-30">
+                                <div class="cmp-tb-hd">
+                                    <h2>Cargar Imagen del Producto</h2>
+                                </div>
+                                <div id="dropzone1" class="multi-uploader-cs">
+                                    <form action="/upload" class="dropzone dropzone-nk needsclick" id="demo1-upload">
+                                        <div class="dz-message needsclick download-custom">
+                                            <i class="notika-icon notika-cloud"></i>
+                                            <h2>Suelte los archivos aquí o haga clic para cargar.</h2>
+                                            <p><span class="note needsclick"></span>
+                                            </p>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
+                    <br><br><br><br><br><br><br><br><br><br><br><br>
+                    <center>
+                        <button class="btn btn-success notika-btn-success">Guardar <i
+                                class="notika-icon notika-checked"></i></button>
+                        <button class="btn btn-danger notika-btn-danger">Cancelar <i
+                                class="notika-icon notika-close"></i></button>
+                    </center>
                 </div>
 
             </div>

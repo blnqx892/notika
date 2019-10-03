@@ -42,9 +42,18 @@
                     </div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                     <div class="cmp-tb-hd bcs-hd">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
+                                <h5>Fecha</h5>
+                                <div class="input-group date nk-int-st">
+                                    <span class="input-group-addon"></span>
+                                    <input type="text" class="form-control" value="02/10/2019">
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                             <div class="nk-int-mk sl-dp-mn">
-                                <h2>Seleccionar Proveedor</h2>
+                                <h5>Seleccionar Proveedor</h5>
                             </div>
                             <div class="chosen-select-act fm-cmp-mg">
                                 <select class="chosen" data-placeholder="Elegir Proveedor...">
@@ -52,37 +61,23 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <div class="nk-int-mk">
-                                <h6>Fecha</h6>
-                            </div>
-                            <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                    <i class="notika-icon notika-calendar"></i>
-                                </div>
-                                <div class="nk-int-st">
-                                    <input type="text" class="form-control" data-mask="99/99/9999"
-                                        placeholder="dd/mm/yyyy">
-                                </div>
-                            </div>
-                        </div>
-
                     </div><br><br><br><br>
                     <div class="typography-hd-cr-4">
                         <h4>Producto</h4>
                     </div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="fas fa-building"></i>
+                                <div class="form-group ic-cmp-int float-lb floating-lb">
+                                    <div class="form-ic-cmp">
+                                        <i class="fas fa-tag"></i>
+                                    </div>
+                                    <div class="nk-int-st">
+                                        <input type="text" class="form-control">
+                                        <label class="nk-label">Producto</label>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Producto">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                         <div class="chosen-select-act fm-cmp-mg">
                             <select class="chosen" data-placeholder="Categoria ...">
                                 <option value="">Equipo</option>
@@ -92,7 +87,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                         <div class="chosen-select-act fm-cmp-mg">
                             <select class="chosen" data-placeholder="Tipo ...">
                                 <option value="">sillas</option>

@@ -42,6 +42,16 @@
                     </div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                     <div class="cmp-tb-hd bcs-hd">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="notika-icon notika-support"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="DUI: 99999999-9">
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
@@ -61,7 +71,7 @@
                                     <input type="text" class="form-control" placeholder="Apellido">
                                 </div>
                             </div>
-                        </div>
+                        </div><br><br><br>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
@@ -72,7 +82,6 @@
                                 </div>
                             </div>
                         </div>
-                        <br><br><br>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
@@ -93,6 +102,23 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="dropdone-nk mg-t-30">
+                                <div class="cmp-tb-hd">
+                                    <h2>Cargar Imagen del Usuario</h2>
+                                </div>
+                                <div id="dropzone1" class="multi-uploader-cs">
+                                    <form action="/upload" class="dropzone dropzone-nk needsclick" id="demo1-upload">
+                                        <div class="dz-message needsclick download-custom">
+                                            <i class="notika-icon notika-cloud"></i>
+                                            <h2>Suelte los archivos aquí o haga clic para cargar.</h2>
+                                            <p><span class="note needsclick"></span>
+                                            </p>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
                     </div><br><br><br><br>
                     <center>
                         <button class="btn btn-success notika-btn-success">Guardar <i
@@ -109,14 +135,24 @@
     <div class="data-table-area">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="data-table-list">
-                        <div class="pull-right">
-                            <button class="btn btn-success notika-btn-success">Dar Altas <i
-                                    class="fas fa-arrow-alt-circle-up"></i></button>
+                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                    <div class="inbox-left-sd">
+                        <div class="inbox-status">
+                            <ul class="inbox-st-nav inbox-ft">
+                                <li><a href="#"><button class="btn btn-success notika-btn-success">Dar Altas
+                                            <i class="fas fa-arrow-alt-circle-up"></i></button></a></li>
+                                <li><a href="#"><button
+                                            class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg">Reporte
+                                            <i class="fas fa-print"></i></button></a></li>
+                            </ul>
                         </div>
+                        <hr>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                    <div class="data-table-list">
                         <div class="basic-tb-hd">
-                            <h2>Clientes</h2>
+                            <h2>Usuarios Registrados</h2>
                         </div>
                         <div class="table-responsive">
                             <table id="data-table-basic" class="table table-striped">
@@ -128,7 +164,6 @@
                                         <th>Ver</th>
                                         <th>Modificar</th>
                                         <th>Dar Baja</th>
-                                        <th>Reporte</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -153,11 +188,6 @@
                                                     class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
                                                         class="fas fa-arrow-alt-circle-down"></i></button></center>
                                         </th>
-                                        <td>
-                                            <center><button
-                                                    class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg"><i
-                                                        class="fas fa-print"></i></button></center>
-                                        </td>
                                     </tr>
                                     <div class="modal fade" id="modalEditar" role="dialog">
                                         <div class="modal-dialog modal-large">
@@ -167,12 +197,28 @@
                                                         data-dismiss="modal">&times;</button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <h3>Editar Datos del Usuario</h3><br><br>
+                                                    <center>
+                                                        <div class="typography-hd-cr-4">
+                                                            <h3>Editar Datos del Usuario</h3>
+                                                        </div>
+                                                    </center>
                                                     <div class="typography-hd-cr-4">
                                                         <h2>Datos Personales</h2>
                                                     </div>
                                                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                                                     <div class="cmp-tb-hd bcs-hd">
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                    <i class="notika-icon notika-support"></i>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="DUI: 99999999-9"
+                                                                        disabled="disabled">
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
@@ -194,7 +240,7 @@
                                                                         placeholder="Apellido" disabled="disabled">
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div><br><br><br>
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
@@ -206,7 +252,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <br><br><br>
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
@@ -229,6 +274,11 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div>
+                                                            <center>
+                                                                <image src="img/logo/usuario.png" />
+                                                            </center>
+                                                        </div>
                                                     </div><br><br><br><br>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-default"
@@ -248,12 +298,28 @@
                                                         data-dismiss="modal">&times;</button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <h3>Editar Datos del Usuario</h3><br><br>
+                                                    <center>
+                                                        <div class="typography-hd-cr-4">
+                                                            <h3>Información del Usuario</h3>
+                                                        </div>
+                                                    </center>
                                                     <div class="typography-hd-cr-4">
                                                         <h2>Datos Personales</h2>
                                                     </div>
                                                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                                                     <div class="cmp-tb-hd bcs-hd">
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                    <i class="notika-icon notika-support"></i>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="DUI: 99999999-9"
+                                                                        disabled="disabled">
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
@@ -275,7 +341,7 @@
                                                                         placeholder="Apellido" disabled="disabled">
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div><br><br><br>
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
@@ -287,7 +353,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <br><br><br>
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
@@ -310,7 +375,12 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div><br><br><br><br>
+                                                        <div>
+                                                            <center>
+                                                                <image src="img/logo/usuario.png" />
+                                                            </center>
+                                                        </div>
+                                                    </div><br>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-default"
                                                             data-dismiss="modal">Cerrar</button>

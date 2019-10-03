@@ -41,16 +41,11 @@
                     </div>
                     <div class="cmp-tb-hd bcs-hd">
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <div class="nk-int-mk">
-                                <h5>Fecha</h5>
-                            </div>
-                            <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                    <i class="notika-icon notika-calendar"></i>
-                                </div>
-                                <div class="nk-int-st">
-                                    <input type="text" class="form-control" data-mask="99/99/9999"
-                                        placeholder="dd/mm/yyyy">
+                            <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
+                                <h5>N° Venta</h5>
+                                <div class="input-group date nk-int-st">
+                                    <span class="input-group-addon"></span>
+                                    <input type="text" class="form-control" value="02/10/2019">
                                 </div>
                             </div>
                         </div>
@@ -72,7 +67,32 @@
                                 <label><input type="checkbox" checked="" class="i-checks"> <i></i>CONTADO</label>
                             </div>
                             <div class="fm-checkbox">
-                                <label><input type="checkbox" class="i-checks"> <i></i>CREDITO</label>
+                                <label><input type="checkbox" class="i-checks"> <i></i>CONTRATO</label>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Cliente</h5>
+                            </div>
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="Seleccionar...">
+                                    <option value="United States">Hector Peréz</option>
+                                    <option value="United States">Juana María Godoy</option>
+                                    <option value="United States"></option>
+                                </select>
+                            </div>
+                        </div><br>
+                        <button class="btn btn-success notika-btn-success">Nuevo <i
+                                class="fas fa-user-plus"></i>
+                        </button><br><br><br><br>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="notika-icon notika-support"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="DUI: 99999999-9" disabled="disabled">
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -81,10 +101,20 @@
                                     <i class="fas fa-user-circle"></i>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Cliente">
+                                    <input type="text" class="form-control" placeholder="Dirección" disabled="disabled">
                                 </div>
                             </div>
-                        </div><br><br><br><br><br><br><br>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <i class="fas fa-user-circle"></i>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Teléfono" disabled="disabled">
+                                </div>
+                            </div>
+                        </div><br><br><br><br>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="nk-int-mk sl-dp-mn">
                                 <h5>Servicio Funebre</h5>
@@ -149,7 +179,7 @@
                             </div>
                         </div>
                         <center>
-                            <button class="btn btn-success notika-btn-success">Guardar <i
+                            <button class="btn btn-success notika-btn-success">Facturar <i
                                     class="notika-icon notika-checked"></i></button>
                             <button class="btn btn-danger notika-btn-danger">Cancelar <i
                                     class="notika-icon notika-close"></i></button>
