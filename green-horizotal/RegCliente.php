@@ -76,12 +76,10 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
-<<<<<<< HEAD
+
                 <i class="fas fa-directions"></i>
-=======
                 <i class="fas fa-amp-guitar"></i>
->>>>>>> ba00855c95bbf188d083f2fa071af45a6c3ccf13
-                </div>
+              </div>
                 <div class="nk-int-st">
                   <input type="text" class="form-control" placeholder="Dirección">
                 </div>
