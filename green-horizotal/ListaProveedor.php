@@ -39,15 +39,14 @@
       <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
           <div class="inbox-left-sd">
-            <div class="inbox-status">
-              <ul class="inbox-st-nav inbox-ft">
-                <li><a href="#"><button class="btn btn-success notika-btn-success">Dar Altas
-                      <i class="fas fa-arrow-alt-circle-up"></i></button></a></li>
-                <li><a href="#"><button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg">Reporte
-                      <i class="fas fa-print"></i></button></a></li>
-              </ul>
-            </div>
-            <hr>
+          <hr>
+                        <div class="inbox-status">
+                            <ul class="inbox-st-nav inbox-ft">
+                            <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button><br><br>
+                            <button class="btn btn-success notika-btn-success">Reporte   <i class="fas fa-print"></i> </button><br><br>
+                            </ul>
+                        </div>
+                        <hr>
           </div>
         </div>
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">

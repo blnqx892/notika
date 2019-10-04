@@ -7,6 +7,13 @@
   <title>FUNESI</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- Place your kit's code here -->
+ <script src="https://kit.fontawesome.com/16cea9a08c.js" crossorigin="anonymous"></script>
+
+ 
+  <script src = "https.: // use.fontawesome com / c3679deced.js"> </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel='stylesheet' id='line-awesome-css'
@@ -135,5 +142,6 @@
  ============================================ -->
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
-  
+  <!-- Place your kit's code here -->
+ <script src="https://kit.fontawesome.com/16cea9a08c.js" crossorigin="anonymous"></script>
 </head>

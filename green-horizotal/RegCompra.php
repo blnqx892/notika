@@ -67,16 +67,16 @@
                     </div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                <div class="form-group ic-cmp-int float-lb floating-lb">
-                                    <div class="form-ic-cmp">
-                                        <i class="fas fa-tag"></i>
-                                    </div>
-                                    <div class="nk-int-st">
-                                        <input type="text" class="form-control">
-                                        <label class="nk-label">Producto</label>
-                                    </div>
-                                </div>
+                        <div class="form-group ic-cmp-int float-lb floating-lb">
+                            <div class="form-ic-cmp">
+                                <i class="fas fa-tag"></i>
                             </div>
+                            <div class="nk-int-st">
+                                <input type="text" class="form-control">
+                                <label class="nk-label">Producto</label>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                         <div class="chosen-select-act fm-cmp-mg">
                             <select class="chosen" data-placeholder="Categoria ...">

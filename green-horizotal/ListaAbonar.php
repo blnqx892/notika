@@ -1,8 +1,10 @@
 <!doctype html>
-<html >
-    <head> <!-- Place your kit's code here -->
- <script src="https://kit.fontawesome.com/16cea9a08c.js" crossorigin="anonymous"></script>
- <script src="https://kit.fontawesome.com/16cea9a08c.js" crossorigin="anonymous"></script>
+<html>
+
+<head>
+    <!-- Place your kit's code here -->
+    <script src="https://kit.fontawesome.com/16cea9a08c.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/16cea9a08c.js" crossorigin="anonymous"></script>
 
 </head>
 <!--IMPORTE head desde Menu/apertura-->
@@ -26,7 +28,7 @@
                                         <i class="notika-icon notika-form"></i>
                                     </div>
                                     <div class="breadcomb-ctn">
-                                        <h2>LISTADO DE CLIENTES</h2>
+                                        <h2>CONTROL DE PAGOS</h2>
                                     </div>
                                 </div>
                             </div>
@@ -44,12 +46,12 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
                     <div class="inbox-left-sd">
-                        <hr>
-                        <div class="inbox-status">
+                    <hr>
+                    <div class="inbox-status">
                             <ul class="inbox-st-nav inbox-ft">
                             <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button><br><br>
                             <button class="btn btn-success notika-btn-success">Reporte   <i class="fas fa-print"></i> </button><br><br>
-                            <a href="ListaAbonar.php"><button class="btn btn-success notika-btn-success">Abonar    <i class="	fas fa-dollar-sign">  </i></button></a>
+                            <a href="ListaCliente.php"><button class="btn btn-success notika-btn-success">Clientes    <i class="	fas fa-dollar-sign">  </i></button></a>
                             </ul>
                         </div>
                         <hr>
@@ -58,7 +60,7 @@
                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
                     <div class="data-table-list">
                         <div class="basic-tb-hd">
-                            <h2>Clientes</h2>
+                            <h2>Abonos</h2>
                         </div>
                         <div class="table-responsive">
                             <table id="data-table-basic" class="table table-striped">
@@ -67,11 +69,10 @@
                                         <th>DUI</th>
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
-                                        <th>Dirección</th>
-                                        <th>Teléfono</th>
-                                        <th>Ver</th>
-                                        <th>Modificar</th>
-                                        <th>Dar Baja</th>
+                                        <th>Fecha</th>
+                                        <th>Abono</th>
+                                        <th>Abonar</th>
+                                        <th>Contrato</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -79,26 +80,18 @@
                                         <td>02156848-9</td>
                                         <td>Miguel Eduardo</td>
                                         <td>Carvajal Fuentes</td>
-                                        <td>10 Calle Oriente, Av. Lourdes #2, San Salvador</td>
-                                        <td>7856-9585</td>
+                                        <td>3/10/2019</td>
+                                        <td>$ 999 </td>
                                         <td>
                                             <center><button
                                                     class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalVer"><i
-                                                        class="fas fa-eye"></i></button>
+                                                    data-toggle="modal" data-target="#modalVer"><i class="fas fa-hand-holding-usd"></i></button>
                                             </center>
                                         </td>
                                         <th>
                                             <center><button
                                                     class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalEditar"><i
-                                                        class="fas fa-edit"></i></button>
-                                            </center>
-                                        </th>
-                                        <th>
-                                            <center><button
-                                                    class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                                                        class="fas fa-arrow-alt-circle-down"></i></button>
+                                                    data-toggle="modal" data-target="#modal"><i class="fas fa-handshake"></i></button>
                                             </center>
                                         </th>
                                     </tr>
@@ -106,26 +99,18 @@
                                         <td>49865398-1</td>
                                         <td>Ana María</td>
                                         <td>Montes García</td>
-                                        <td>Av. Paz, Pasaje D #45, San Salvador</td>
-                                        <td>2896-5554</td>
+                                        <td>12/05/2019</td>
+                                        <td>$ 999</td>
                                         <td>
-                                            <center> <button
+                                        <center><button
                                                     class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalVer"><i
-                                                        class="fas fa-eye"></i></button>
+                                                    data-toggle="modal" data-target="#modalVer"><i class="fas fa-hand-holding-usd"></i></button>
                                             </center>
                                         </td>
                                         <th>
-                                            <center><button type="button"
+                                        <center><button
                                                     class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalEditar"><i
-                                                        class="fas fa-edit"></i></button>
-                                            </center>
-                                        </th>
-                                        <th>
-                                            <center><button
-                                                    class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                                                        class="fas fa-arrow-alt-circle-down"></i></button>
+                                                    data-toggle="modal" data-target="#modal"><i class="fas fa-handshake"></i></button>
                                             </center>
                                         </th>
                                     </tr>
@@ -137,7 +122,7 @@
                                                         data-dismiss="modal">&times;</button>
                                                 </div>
                                                 <div class="modal-body">
-                                                <center>
+                                                    <center>
                                                         <div class="typography-hd-cr-4">
                                                             <h3>Editar Datos del Cliente</h3>
                                                         </div>
@@ -196,7 +181,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <i class="fas fa-phone"></i>
+                                                                    <i class="fas fa-phone"></i>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -261,7 +246,7 @@
                                                         data-dismiss="modal">&times;</button>
                                                 </div>
                                                 <div class="modal-body">
-                                                <center>
+                                                    <center>
                                                         <div class="typography-hd-cr-4">
                                                             <h3>Información del Cliente</h3>
                                                         </div>
@@ -379,7 +364,132 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="modal fade" id="modalAbono" role="dialog">
+                                        <div class="modal-dialog modal-large">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <center>
+                                                        <div class="typography-hd-cr-4">
+                                                            <h3>Abonar</h3>
+                                                        </div>
+                                                    </center>
+                                                    <div class="typography-hd-cr-4">
+                                                        <h2></h2>
+                                                    </div>
+                                                    <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                    <div class="cmp-tb-hd bcs-hd">
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                    <i class="notika-icon notika-support"></i>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="DUI: 99999999-9"
+                                                                        disabled="disabled">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                    <i class="fas fa-user-circle"></i>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="Nombres" disabled="disabled">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                    <i class="fas fa-user-circle"></i>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="Apellidos" disabled="disabled">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br><br><br>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                    <i class="fas fa-map-marker"></i>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="Dirección" disabled="disabled">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                    <i class="	fas fa-phone"></i>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="Teléfono: 9999-9999"
+                                                                        disabled="disabled">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><br><br><br><br>
+                                                    <div class="typography-hd-cr-4">
+                                                        <h2>Datos de los Beneficiarios</h2>
+                                                    </div>
+                                                    <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="form-group ic-cmp-int">
+                                                            <div class="form-ic-cmp">
+                                                                <i class="fas fa-user-circle"></i>
+                                                            </div>
+                                                            <div class="nk-int-st">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Nombre beneficiario 1"
+                                                                    disabled="disabled">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="form-group ic-cmp-int">
+                                                            <div class="form-ic-cmp">
+                                                                <i class="fas fa-user-circle"></i>
+                                                            </div>
+                                                            <div class="nk-int-st">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Nombre beneficiario 2"
+                                                                    disabled="disabled">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="form-group ic-cmp-int">
+                                                            <div class="form-ic-cmp">
+                                                                <i class="fas fa-user-circle"></i>
+                                                            </div>
+                                                            <div class="nk-int-st">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Nombre beneficiario 3"
+                                                                    disabled="disabled">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><br><br><br>
 
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">Cerrar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -476,7 +586,6 @@
     <script src="js/data-table/data-table-act.js"></script>
     <!-- main JS
         ============================================ -->
-        
 
 
 
@@ -488,7 +597,8 @@
 
 
 
-        <!-- jquery
+
+    <!-- jquery
 		============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <!-- bootstrap JS
@@ -572,7 +682,7 @@
     <!--  chosen JS
 		============================================ -->
     <script src="js/chosen/chosen.jquery.js"></script>
-       
+
 </body>
 
 </html>
