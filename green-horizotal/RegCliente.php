@@ -76,7 +76,9 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
-                <span class="fas fa-map-marker-alt"></span>
+                <i class="fas fa-amp-guitar"></i>
+              </div>
+              <span class="fas fa-map-marker-alt"></span>
                 </div>
                 <div class="nk-int-st">
                   <input type="text" class="form-control" placeholder="Dirección">
