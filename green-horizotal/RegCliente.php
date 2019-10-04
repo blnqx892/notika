@@ -45,7 +45,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
-                <span class="icon-user"></span>
+                <span class="fas fa-id-card"></span>
                 </div>
                 <div class="nk-int-st">
                   <input type="text" class="form-control" placeholder="DUI: 99999999-9">
@@ -102,7 +102,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
-                  <i class="fas fa-user-circle"></i>
+                <span class="fas fa-user-check"></span>
                 </div>
                 <div class="nk-int-st">
                   <input type="text" class="form-control" placeholder="Nombre beneficiario 1">
@@ -112,7 +112,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
-                  <i class="fas fa-user-circle"></i>
+                <span class="fas fa-user-check"></span>
                 </div>
                 <div class="nk-int-st">
                   <input type="text" class="form-control" placeholder="Nombre beneficiario 2">
@@ -122,7 +122,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
-                  <i class="fas fa-user-circle"></i>
+                <span class="fas fa-user-check"></span>
                 </div>
                 <div class="nk-int-st">
                   <input type="text" class="form-control" placeholder="Nombre beneficiario 3">
