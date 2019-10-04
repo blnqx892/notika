@@ -69,25 +69,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Daniela Cecilia</td>
-                    <td>7856-9585</td>
-                    <td>Panaderia Tamayo</td>
-                    <td>10 Calle Oriente, Av. Lourdes #2, San Salvador</td>
-                    <td>
-                      <center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center>
-                    </td>
-                    <th>
-                      <center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button></center>
-                    </th>
-                    <th>
-                      <center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                            class="fas fa-arrow-alt-circle-down"></i></button></center>
-                    </th>
-                  </tr>
-                  <tr>
-                    <td>Esteban Xavier</td>
+                    <td>Natalie Castillo</td>
                     <td>7898-8751</td>
                     <td>El Taller</td>
                     <td>10 Calle Oriente, Av. Lourdes #2, San Salvador</td>

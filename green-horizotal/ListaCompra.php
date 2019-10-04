@@ -68,26 +68,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Amilcar Valladares</td>
-                                        <td>Feretro</td>
-                                        <td>Feretro Romano</td>
-                                        <th>$ 450.00</th>
-                                        <td>
-                                            <center><button
-                                                    class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalVer"><i
-                                                        class="fas fa-eye"></i></button>
-                                            </center>
-                                        </td>
-                                        <th>
-                                            <center><button
-                                                    class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                                                        class="fas fa-arrow-alt-circle-down"></i></button>
-                                            </center>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>Ana María</td>
+                                        <td>Natalie Castillo</td>
                                         <td>Sillas</td>
                                         <td>Silla Magna Azul</td>
                                         <th>$ 125.65</th>
