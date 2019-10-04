@@ -76,7 +76,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
-                  <i class="fas fa-map-marked-alt"></i>
+                <i class="fas fa-directions"></i>
                 </div>
                 <div class="nk-int-st">
                   <input type="text" class="form-control" placeholder="Dirección">
