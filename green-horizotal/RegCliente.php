@@ -42,7 +42,7 @@
           </div>
           <hr style="width:100%;border-color:light-gray 25px;"><br>
           <div class="cmp-tb-hd bcs-hd">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
                 <span class="fas fa-id-card"></span>
@@ -52,7 +52,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
                 <span class="icon-user"></span>
@@ -62,7 +62,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
                 <span class="icon-user"></span>
@@ -72,30 +72,27 @@
                 </div>
               </div>
             </div>
-            <br><br><br>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
-                <i class="fas fa-amp-guitar"></i>
-              </div>
-              <span class="fas fa-map-marker-alt"></span>
+                <span class="icon-user"></span>
                 </div>
                 <div class="nk-int-st">
                   <input type="text" class="form-control" placeholder="Dirección">
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
                 <span class="fas fa-phone-alt"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Teléfono: 9999-9999">
+                  <input type="text" class="form-control" placeholder="Telf: 9999-9999">
                 </div>
               </div>
             </div>
-          </div><br><br><br><br><br><br>
+          </div><br><br><br><br><br>
           <div class="cmp-tb-hd bcs-hd">
             <div class="typography-hd-cr-4">
               <h3>Datos de los Beneficiarios</h3>
@@ -137,9 +134,8 @@
                 class="notika-icon notika-checked"></i></button>
             <button class="btn btn-danger notika-btn-danger">Cancelar <i class="notika-icon notika-close"></i></button>
           </center>
-        </div><br><br><br><br>
+        </div>
       </div>
-
     </div>
   </div>
   <!-- Inbox area End-->
