@@ -39,13 +39,11 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
                     <div class="inbox-left-sd">
+                    <hr>
                         <div class="inbox-status">
                             <ul class="inbox-st-nav inbox-ft">
-                                <li><a href="#"><button class="btn btn-success notika-btn-success">Dar Altas
-                                            <i class="fas fa-arrow-alt-circle-up"></i></button></a></li>
-                                <li><a href="#"><button
-                                            class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg">Reporte
-                                            <i class="fas fa-print"></i></button></a></li>
+                            <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button><br><br>
+                            <button class="btn btn-success notika-btn-success">Reporte   <i class="fas fa-print"></i> </button><br><br>
                             </ul>
                         </div>
                         <hr>
@@ -91,126 +89,7 @@
                                         </th>
                                     </tr>
 
-                                    <div class="modal fade" id="modalEditar" role="dialog">
-                                        <div class="modal-dialog modal-large">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close"
-                                                        data-dismiss="modal">&times;</button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <h3>Editar Datos del Cliente</h3><br><br>
-                                                    <div class="typography-hd-cr-4">
-                                                        <h2>Datos Personales</h2>
-                                                    </div>
-                                                    <hr style="width:100%;border-color:light-gray 25px;"><br>
-                                                    <div class="cmp-tb-hd bcs-hd">
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <i class="notika-icon notika-support"></i>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="DUI: 99999999-9"
-                                                                        disabled="disabled">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <i class="fas fa-user-circle"></i>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Nombres">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <i class="fas fa-user-circle"></i>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Apellidos">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <br><br><br>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <i class="fas fa-map-marker"></i>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Dirección">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <i class="	fas fa-phone"></i>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Teléfono: 9999-9999">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div><br><br><br><br>
-                                                    <div class="typography-hd-cr-4">
-                                                        <h2>Datos de los Beneficiarios</h2>
-                                                    </div>
-                                                    <hr style="width:100%;border-color:light-gray 25px;"><br>
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <div class="form-group ic-cmp-int">
-                                                            <div class="form-ic-cmp">
-                                                                <i class="fas fa-user-circle"></i>
-                                                            </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Nombre beneficiario 1">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <div class="form-group ic-cmp-int">
-                                                            <div class="form-ic-cmp">
-                                                                <i class="fas fa-user-circle"></i>
-                                                            </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Nombre beneficiario 2">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <div class="form-group ic-cmp-int">
-                                                            <div class="form-ic-cmp">
-                                                                <i class="fas fa-user-circle"></i>
-                                                            </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Nombre beneficiario 3">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div><br><br><br>
-
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default"
-                                                        data-dismiss="modal">Guardar Cambios</button>
-                                                    <button type="button" class="btn btn-default"
-                                                        data-dismiss="modal">Cancelar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                     <div class="modal fade" id="modalVer" role="dialog">
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
@@ -219,111 +98,14 @@
                                                         data-dismiss="modal">&times;</button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <h3>Datos Cliente</h3><br><br>
-                                                    <div class="typography-hd-cr-4">
-                                                        <h2>Datos Personales</h2>
-                                                    </div>
+                                                       <center>
+                                                        <div class="typography-hd-cr-4">
+                                                            <h3>Información de la Venta</h3>
+                                                        </div>
+                                                    </center>
                                                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                                                     <div class="cmp-tb-hd bcs-hd">
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <i class="notika-icon notika-support"></i>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="DUI: 99999999-9"
-                                                                        disabled="disabled">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <i class="fas fa-user-circle"></i>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Nombres" disabled="disabled">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <i class="fas fa-user-circle"></i>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Apellidos" disabled="disabled">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <br><br><br>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <i class="fas fa-map-marker"></i>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Dirección" disabled="disabled">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <i class="	fas fa-phone"></i>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Teléfono: 9999-9999"
-                                                                        disabled="disabled">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div><br><br><br><br>
-                                                    <div class="typography-hd-cr-4">
-                                                        <h2>Datos de los Beneficiarios</h2>
-                                                    </div>
-                                                    <hr style="width:100%;border-color:light-gray 25px;"><br>
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <div class="form-group ic-cmp-int">
-                                                            <div class="form-ic-cmp">
-                                                                <i class="fas fa-user-circle"></i>
-                                                            </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Nombre beneficiario 1"
-                                                                    disabled="disabled">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <div class="form-group ic-cmp-int">
-                                                            <div class="form-ic-cmp">
-                                                                <i class="fas fa-user-circle"></i>
-                                                            </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Nombre beneficiario 2"
-                                                                    disabled="disabled">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <div class="form-group ic-cmp-int">
-                                                            <div class="form-ic-cmp">
-                                                                <i class="fas fa-user-circle"></i>
-                                                            </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Nombre beneficiario 3"
-                                                                    disabled="disabled">
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                        
                                                 </div><br><br><br>
 
                                                 <div class="modal-footer">

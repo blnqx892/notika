@@ -42,7 +42,7 @@
           <div class="inbox-left-sd">
             <div class="inbox-status">
               <ul class="inbox-st-nav inbox-ft">
-                <li><a href="#"><button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg">Reporte
+                <li><a href="Reporte.php"><button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg">Reporte
                       <i class="fas fa-print"></i></button></a></li>
               </ul>
             </div>
@@ -58,15 +58,15 @@
               <table id="data-table-basic" class="table table-striped">
                 <thead>
                   <tr>
-                    <th>Usuario</th>
                     <th>Fecha y Hora</th>
+                    <th>Usuario</th>
                     <th>Actividad</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
+                  <td>22/9/2019 - 2:00PM</td>
                     <td>blme</td>
-                    <td>22-9-2019//2:00PM</td>
                     <td>Inicio Sesión</td>
                   </tr>
                 </tbody>

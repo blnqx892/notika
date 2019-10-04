@@ -42,7 +42,7 @@
                     <div class="cmp-tb-hd bcs-hd">
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
-                                <h5>N° Venta</h5>
+                                <h5>Fecha</h5>
                                 <div class="input-group date nk-int-st">
                                     <span class="input-group-addon"></span>
                                     <input type="text" class="form-control" value="02/10/2019">
@@ -63,14 +63,6 @@
                         </div>
                         <hr style="width:100%;border-color:light-gray 25px;"><br>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="fm-checkbox">
-                                <label><input type="checkbox" checked="" class="i-checks"> <i></i>CONTADO</label>
-                            </div>
-                            <div class="fm-checkbox">
-                                <label><input type="checkbox" class="i-checks"> <i></i>CONTRATO</label>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="nk-int-mk sl-dp-mn">
                                 <h5>Cliente</h5>
                             </div>
@@ -82,13 +74,12 @@
                                 </select>
                             </div>
                         </div><br>
-                        <button class="btn btn-success notika-btn-success">Nuevo <i
-                                class="fas fa-user-plus"></i>
+                        <button class="btn btn-success notika-btn-success">Nuevo <i class="fas fa-user-plus"></i>
                         </button><br><br><br><br>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                    <i class="notika-icon notika-support"></i>
+                                <i class="fas fa-user-circle"></i>
                                 </div>
                                 <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="DUI: 99999999-9" disabled="disabled">
@@ -135,7 +126,7 @@
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                    <i class="fas fa-user-circle"></i>
+                                <i class="fab fa-speakap"></i>
                                 </div>
                                 <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="$ Precio">
@@ -151,7 +142,7 @@
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                    <i class="fas fa-user-circle"></i>
+                                <i class="fab fa-speakap"></i>
                                 </div>
                                 <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="$ Total">
@@ -161,7 +152,7 @@
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                    <i class="fas fa-user-circle"></i>
+                                <i class="fab fa-speakap"></i>
                                 </div>
                                 <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="$ Abono 1">
@@ -171,7 +162,7 @@
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                    <i class="fas fa-user-circle"></i>
+                                <i class="fab fa-speakap"></i>
                                 </div>
                                 <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="$ Abono 2">
@@ -179,8 +170,7 @@
                             </div>
                         </div>
                         <center>
-                            <button class="btn btn-success notika-btn-success">Facturar <i
-                                    class="notika-icon notika-checked"></i></button>
+                            <button class="btn btn-success notika-btn-success">Facturar <i class="fas fa-receipt"></i></button>
                             <button class="btn btn-danger notika-btn-danger">Cancelar <i
                                     class="notika-icon notika-close"></i></button>
                         </center>
