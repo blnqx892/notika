@@ -45,7 +45,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
-                  <i class="notika-icon notika-support"></i>
+                <span class="icon-user"></span>
                 </div>
                 <div class="nk-int-st">
                   <input type="text" class="form-control" placeholder="DUI: 99999999-9">
@@ -55,7 +55,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
-                  <i class="fas fa-user-circle"></i>
+                <span class="icon-user"></span>
                 </div>
                 <div class="nk-int-st">
                   <input type="text" class="form-control" placeholder="Nombres">
@@ -65,7 +65,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
-                  <i class="fas fa-user-circle"></i>
+                <span class="icon-user"></span>
                 </div>
                 <div class="nk-int-st">
                   <input type="text" class="form-control" placeholder="Apellidos">
@@ -76,10 +76,10 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
-
-                <i class="fas fa-directions"></i>
                 <i class="fas fa-amp-guitar"></i>
               </div>
+              <span class="fas fa-map-marker-alt"></span>
+                </div>
                 <div class="nk-int-st">
                   <input type="text" class="form-control" placeholder="Dirección">
                 </div>
@@ -88,7 +88,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
-                  <i class="	fas fa-phone"></i>
+                <span class="fas fa-phone-alt"></span>
                 </div>
                 <div class="nk-int-st">
                   <input type="text" class="form-control" placeholder="Teléfono: 9999-9999">
