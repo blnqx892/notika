@@ -22,6 +22,8 @@
                   </div>
                   <div class="breadcomb-ctn">
                     <h2>CATALOGO</h2>
+                    <div style="text-align: right;width:1030px" ><button class="btn btn-success notika-btn-success">Nuevo <i class="fas fa-images"></i>
+                        </button></div>
                   </div>
                 </div>
               </div>
@@ -33,11 +35,11 @@
   </div>
   <!-- Breadcomb area End-->
   <!-- Inbox area Start-->
-  <div class="inbox-area">
+  <div><center> <div class="inbox-area">
     <div class="container">
       <div class="col-lg-14 col-md-14 col-sm-14 col-xs-14">
         <div class="form-element-list">
-        <div><center><div class="container">
+        <div class="container">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -62,22 +64,22 @@
     </div></center>
 
     <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <center><a class="left carousel-control" href="#myCarousel" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left"></span>
       <span class="sr-only">Anterior</span>
     </a>
     <a class="right carousel-control" href="#myCarousel" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right"></span>
       <span class="sr-only">Siguiente</span>
-    </a>
+    </a></center>
   </div>
 </div>
 
-        </div></center></div>
+        </div>
 
       </div>
     </div>
-  </div>
+  </div></center></div>
   <!-- Inbox area End-->
   <!-- Start Footer area-->
   <div class="footer-copyright-area">

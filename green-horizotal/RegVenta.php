@@ -74,7 +74,7 @@
                                 </select>
                             </div>
                         </div><br>
-                        <button class="btn btn-success notika-btn-success">Nuevo <i class="fas fa-user-plus"></i>
+                        <button class="btn btn-success notika-btn-success" data-toggle="modal" data-target="#modalNuevo">Nuevo <i class="fas fa-user-plus"></i>
                         </button><br><br><br><br>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="form-group ic-cmp-int">
@@ -178,6 +178,93 @@
                 </div>
 
             </div>
+
+            <div class="modal fade" id="modalNuevo" role="dialog">
+                                        <div class="modal-dialog modal-large">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                <center>
+                                                        <div class="typography-hd-cr-4">
+                                                            <h3>Editar Datos del Cliente</h3>
+                                                        </div>
+                                                    </center>
+                                                    <div class="typography-hd-cr-4">
+                                                        <h2>Datos Personales</h2>
+                                                    </div>
+                                                    <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                    <div class="cmp-tb-hd bcs-hd">
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                <span class="fas fa-id-card"></span>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="DUI: 99999999-9"
+                                                                        >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                <span class="icon-user"></span>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="Nombres">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                <span class="icon-user"></span>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="Apellidos">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br><br><br>
+                                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                <span class="fas fa-map-marker-alt"></span>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="Dirección">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                <span class="fas fa-phone-alt"></span>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="Telf: 9999-9999">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><br><br><br>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">Registrar</button>
+                                                    <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">Cancelar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- FIN-->
         </div>
         <!-- Inbox area End-->
         <!-- Start Footer area-->
