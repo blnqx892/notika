@@ -59,6 +59,7 @@
                                 <thead>
                                     <tr>
                                         <th>Proveedor</th>
+                                        <th>Categoria</th>
                                         <th>Tipo</th>
                                         <th>Producto</th>
                                         <th>$ Precio total</th>
@@ -69,6 +70,7 @@
                                 <tbody>
                                     <tr>
                                         <td>Natalie Castillo</td>
+                                        <td>Equipo</td>
                                         <td>Sillas</td>
                                         <td>Silla Magna Azul</td>
                                         <th>$ 125.65</th>

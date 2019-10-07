@@ -51,6 +51,18 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>N° Compra</h5>
+                            </div>
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="Elegir Local...">
+                                    <option value="United States">1</option>
+                                    <option value="United States">2</option>
+                                    <option value="United States">..</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                             <div class="nk-int-mk sl-dp-mn">
                                 <h5>Seleccionar Proveedor</h5>
@@ -81,8 +93,8 @@
                             <select class="chosen" data-placeholder="Categoria ...">
                                 <option value="">Equipo</option>
                                 <option value="value">Feretro</option>
-                                <option value="">Comestibles</option>
-                                <option value="">Desechables</option>
+                                <option value="value">Comestibles</option>
+                                <option value="value">Desechables</option>
                             </select>
                         </div>
                     </div>

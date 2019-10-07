@@ -42,7 +42,26 @@
           </div>
           <hr style="width:100%;border-color:light-gray 25px;"><br>
           <div class="cmp-tb-hd bcs-hd">
-          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                        <div class="cmp-tb-hd bcs-hd">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
+                                <h5>Fecha De Ingreso</h5>
+                                <div class="input-group date nk-int-st">
+                                    <span class="input-group-addon"></span>
+                                    <input type="text" class="form-control" value="02/10/2019">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
+                                <h5>Fecha de Nacimiento</h5>
+                                <div class="input-group date nk-int-st">
+                                    <span class="input-group-addon"></span>
+                                    <input type="text" class="form-control" value="02/10/2019">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
                 <span class="fas fa-id-card"></span>

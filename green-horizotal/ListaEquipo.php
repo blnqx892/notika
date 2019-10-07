@@ -89,9 +89,9 @@
                     </th>
                   </tr>
                   <tr>
-                    <td>Crusifijos</td>
-                    <td>Crusifijo</td>
-                    <td>Crusifijo de madera</td>
+                    <td>Crucifijos</td>
+                    <td>Crucifijo</td>
+                    <td>Crucifijo de madera</td>
                     <td>5</td>
                     <td>0</td>
                     <td>

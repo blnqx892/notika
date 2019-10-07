@@ -58,8 +58,6 @@
                                 <select class="chosen" data-placeholder="Categoria ...">
                                     <option value="">Equipo</option>
                                     <option value="value">Feretro</option>
-                                    <option value="">Comestibles</option>
-                                    <option value="">Desechables</option>
                                 </select>
                             </div>
                         </div>
@@ -84,16 +82,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <div class="form-group ic-cmp-int">
-                <div class="form-ic-cmp">
-                <span class="fas fa-dollar-sign"></span>
-                </div>
-                <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Precio Unitario">
-                </div>
-              </div>
-            </div>
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">

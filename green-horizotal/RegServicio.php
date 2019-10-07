@@ -76,7 +76,7 @@
                                     <span class="fas fa-church"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Servicio Funerario">
+                                    <input type="text" class="form-control" placeholder="Servicio Funerario" disabled="disabled">
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                                 <span class="fas fa-map-marker-alt"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Dirección">
+                                    <input type="text" class="form-control" placeholder="Dirección" disabled="disabled">
                                 </div>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                             <span class="fas fa-phone-alt"></span>
                             </div>
                             <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Telf:9999-9999">
+                                <input type="text" class="form-control" placeholder="Telf:9999-9999" disabled="disabled">
                             </div>
                         </div>
                     </div>
