@@ -111,7 +111,7 @@
               </li>
               <li><a href="ListaServicios.php">Control Servicios</a>
               </li>
-              <li><a href="">Catalogo</a>
+              <li><a href="Catalogo.php">Catalogo</a>
               </li>
             </ul>
           </div>
