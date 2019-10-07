@@ -21,7 +21,7 @@
                     <i class="notika-icon notika-form"></i>
                   </div>
                   <div class="breadcomb-ctn">
-                    <h2>BACKUP</h2>
+                    <h2>ADMINISTRACIÓN DE BACKUP</h2>
                   </div>
                 </div>
               </div>
@@ -32,18 +32,48 @@
     </div>
   </div>
   <!-- Breadcomb area End-->
-  <!-- Inbox area Start-->
-  <div class="inbox-area">
-    <div class="container">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="form-element-list">
-          <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <!-- Data Table area Start-->
+  <div class="data-table-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="data-table-list"><br>
+                        <div class="basic-tb-hd">
+                            <h2>Backup</h2>
+                        </div>
+                        <div class="table-responsive">
+                            <table id="data-table-basic" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                    <th><center>Generar Backup</center></th>
+                                        <th><center>Importar Backup</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>
+                                            <center><button
+                                                    class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
+                                                    data-toggle="modal" data-target="#modalEditar"><i class="fas fa-download"></i></button></center>
+                                        </th>
+                                        <th>
+                                            <center><button
+                                                    class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i class="fas fa-upload"></i></button></center>
+                                        </th>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div><br><br><br><br>
+                </div>
+            </div>
         </div>
-
-      </div>
     </div>
-  </div>
-  <!-- Inbox area End-->
+    <!--FIN TABLA-->
   <!-- Start Footer area-->
   <div class="footer-copyright-area">
     <div class="container">
@@ -116,14 +146,8 @@
   <script src="js/todo/jquery.todo.js"></script>
   <!-- plugins JS
 		============================================ -->
-  <script src="js/plugins.js"></script>
-  <!-- main JS
-		============================================ -->
-  <script src="js/plugins.js"></script>
-  <!-- Data Table JS
-    ============================================ -->
-  <script src="js/data-table/jquery.dataTables.min.js"></script>
-  <script src="js/data-table/data-table-act.js"></script>
+ 
+  
   <!-- main JS
     ============================================ -->
 </body>

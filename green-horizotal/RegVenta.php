@@ -79,7 +79,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <i class="fas fa-user-circle"></i>
+                                <span class="fas fa-id-card"></span>
                                 </div>
                                 <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="DUI: 99999999-9" disabled="disabled">
@@ -89,7 +89,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                    <i class="fas fa-user-circle"></i>
+                                <span class="fas fa-map-marker-alt"></span>
                                 </div>
                                 <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Dirección" disabled="disabled">
@@ -99,10 +99,10 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                    <i class="fas fa-user-circle"></i>
+                                <span class="fas fa-phone-alt"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Teléfono" disabled="disabled">
+                                    <input type="text" class="form-control" placeholder="Telf:9999-9999" disabled="disabled">
                                 </div>
                             </div>
                         </div><br><br><br><br>
@@ -129,7 +129,7 @@
                                 <i class="fab fa-speakap"></i>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="$ Precio">
+                                    <input type="text" class="form-control" placeholder="Precio" disabled="disabled">
                                 </div>
                             </div>
                         </div>
@@ -145,7 +145,7 @@
                                 <i class="fab fa-speakap"></i>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="$ Total">
+                                    <input type="text" class="form-control" placeholder="Total">
                                 </div>
                             </div>
                         </div>
@@ -155,7 +155,7 @@
                                 <i class="fab fa-speakap"></i>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="$ Abono 1">
+                                    <input type="text" class="form-control" placeholder="Abono 1">
                                 </div>
                             </div>
                         </div>
@@ -165,7 +165,7 @@
                                 <i class="fab fa-speakap"></i>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="$ Abono 2">
+                                    <input type="text" class="form-control" placeholder="Abono 2">
                                 </div>
                             </div>
                         </div>

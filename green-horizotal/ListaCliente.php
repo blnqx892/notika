@@ -150,7 +150,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <i class="notika-icon notika-support"></i>
+                                                                <span class="fas fa-id-card"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -162,7 +162,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <i class="fas fa-user-circle"></i>
+                                                                <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -173,7 +173,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <i class="fas fa-user-circle"></i>
+                                                                <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -185,7 +185,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <i class="fas fa-map-marker"></i>
+                                                                <span class="fas fa-map-marker-alt"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -196,7 +196,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <i class="fas fa-phone"></i>
+                                                                <span class="fas fa-phone-alt"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -212,7 +212,7 @@
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                                <i class="fas fa-user-circle"></i>
+                                                            <span class="fas fa-user-check"></span>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
@@ -223,7 +223,7 @@
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                                <i class="fas fa-user-circle"></i>
+                                                            <span class="fas fa-user-check"></span>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
@@ -234,7 +234,7 @@
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                                <i class="fas fa-user-circle"></i>
+                                                            <span class="fas fa-user-check"></span>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
@@ -274,7 +274,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <i class="notika-icon notika-support"></i>
+                                                                <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -286,7 +286,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <i class="fas fa-user-circle"></i>
+                                                                <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -297,7 +297,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <i class="fas fa-user-circle"></i>
+                                                                <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -309,7 +309,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <i class="fas fa-map-marker"></i>
+                                                                <span class="fas fa-map-marker-alt"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -320,7 +320,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <i class="	fas fa-phone"></i>
+                                                                <span class="fas fa-phone-alt"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -337,7 +337,7 @@
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                                <i class="fas fa-user-circle"></i>
+                                                            <span class="fas fa-user-check"></span>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
@@ -349,7 +349,7 @@
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                                <i class="fas fa-user-circle"></i>
+                                                            <span class="fas fa-user-check"></span>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
@@ -361,7 +361,7 @@
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                                <i class="fas fa-user-circle"></i>
+                                                            <span class="fas fa-user-check"></span>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"

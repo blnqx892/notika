@@ -42,16 +42,6 @@
                     </div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                     <div class="cmp-tb-hd bcs-hd">
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <div class="nk-int-mk sl-dp-mn">
-                                <h5>Servicio Funerario</h5>
-                            </div>
-                            <div class="chosen-select-act fm-cmp-mg">
-                                <select class="chosen" data-placeholder="Elegir Servicio...">
-                                    <option value="United States">Jardín Completo</option>
-                                </select>
-                            </div>
-                        </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
                                 <h5>Desde</h5>
@@ -83,7 +73,17 @@
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                    <i class="fas fa-building"></i>
+                                    <span class="fas fa-church"></span>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Servicio Funerario">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                <span class="fas fa-map-marker-alt"></span>
                                 </div>
                                 <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Dirección">
@@ -93,10 +93,10 @@
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                         <div class="form-group ic-cmp-int">
                             <div class="form-ic-cmp">
-                                <i class="fas fa-building"></i>
+                            <span class="fas fa-phone-alt"></span>
                             </div>
                             <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Telefóno">
+                                <input type="text" class="form-control" placeholder="Telf:9999-9999">
                             </div>
                         </div>
                     </div>
@@ -105,165 +105,165 @@
                         <h4>Equipo</h4>
                     </div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="fas fa-building"></i>
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Sillas</h5>
                             </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Cantidad de Sillas">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="fas fa-route"></i>
-                            </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Cantidad de Altares">
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="...">
+                                    <option value="United States">1</option>
+                                </select>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="fas fa-phone-square-alt"></i>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Altares</h5>
                             </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Crucifijos">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="fas fa-phone-square-alt"></i>
-                            </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Candelabros">
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="...">
+                                    <option value="United States">1</option>
+                                </select>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="fas fa-phone-square-alt"></i>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Crucifijos</h5>
                             </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Lamparas Electricas">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="fas fa-phone-square-alt"></i>
-                            </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Cafetera">
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="...">
+                                    <option value="United States">1</option>
+                                </select>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="fas fa-phone-square-alt"></i>
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Candelabros</h5>
                             </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Floreros">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="fas fa-book-reader"></i>
-                            </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Carro Funebre">
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="...">
+                                    <option value="United States">1</option>
+                                </select>
                             </div>
                         </div>
-                    </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Cafetera</h5>
+                            </div>
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="...">
+                                    <option value="United States">1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Floreros</h5>
+                            </div>
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="...">
+                                    <option value="United States">1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Carro Funebre</h5>
+                            </div>
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="...">
+                                    <option value="United States">Placa</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Lamparas Electricas</h5>
+                            </div>
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="...">
+                                    <option value="United States">1</option>
+                                </select>
+                            </div>
+                        </div>
                     <br><br><br><br><br><br>
                     <div class="typography-hd-cr-4">
                         <h4>Comestibles</h4>
                     </div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="fas fa-building"></i>
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Cantidad Pan</h5>
                             </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Porciones de Pan">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="fas fa-route"></i>
-                            </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Porciones de Café">
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="...">
+                                    <option value="United States">1</option>
+                                </select>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="fas fa-route"></i>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Cantidad Café</h5>
                             </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Cantidad Azucar">
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="...">
+                                    <option value="United States">1</option>
+                                </select>
                             </div>
                         </div>
-                    </div><br><br><br>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Cantidad Azucar</h5>
+                            </div>
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="...">
+                                    <option value="United States">1</option>
+                                </select>
+                            </div>
+                        </div><br><br><br><br><br>
                     <div class="typography-hd-cr-4">
                         <h4>Desechables</h4>
                     </div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="fas fa-building"></i>
+                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Vasos</h5>
                             </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Vasos">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="fas fa-route"></i>
-                            </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Platos">
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="...">
+                                    <option value="United States">1</option>
+                                </select>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="fas fa-route"></i>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Platos</h5>
                             </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Cubiertos">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                                <i class="fas fa-route"></i>
-                            </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Candelas">
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="...">
+                                    <option value="United States">1</option>
+                                </select>
                             </div>
                         </div>
-                    </div><br><br><br><br><br>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Cubiertos</h5>
+                            </div>
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="...">
+                                    <option value="United States">1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn">
+                                <h5>Candelas</h5>
+                            </div>
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="...">
+                                    <option value="United States">1</option>
+                                </select>
+                            </div>
+                        </div><br><br><br><br><br>
                     <div class="typography-hd-cr-4">
                         <h4>Personal Y Local</h4>
                     </div>

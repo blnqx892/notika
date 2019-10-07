@@ -44,7 +44,7 @@
   <div class="data-table-area">
     <div class="container">
       <div class="row">
-        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
           <div class="data-table-list">
             <div class="basic-tb-hd">
               <h2>Clientes</h2>
@@ -55,20 +55,10 @@
                   <tr>
                     <th>DUI</th>
                     <th>Nombres</th>
-                    <th>Apellidos</th>
-                    <th>Dirección</th>
-                    <th>Teléfono</th>
-                    <th>Ver</th>
-                    <th>Modificar</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>02156848-9</td>
-                    <td>Miguel Eduardo</td>
-                    <td>Carvajal Fuentes</td>
-                    <td>10 Calle Oriente, Av. Lourdes #2, San Salvador</td>
-                    <td>7856-9585</td>
                     <td>
                       <center><button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                           data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button>
@@ -76,123 +66,10 @@
                     </td>
                     <th>
                       <center><button class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button>
+                          data-toggle="modal" data-target="#modalEd"><i class="fas fa-edit"></i></button>
                       </center>
                     </th>
                   </tr>
-                  <tr>
-                    <td>49865398-1</td>
-                    <td>Ana María</td>
-                    <td>Montes García</td>
-                    <td>Av. Paz, Pasaje D #45, San Salvador</td>
-                    <td>2896-5554</td>
-                    <td>
-                      <center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button>
-                      </center>
-                    </td>
-                    <th>
-                      <center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalAbono"><i class="fas fa-edit"></i></button>
-                      </center>
-                    </th>
-                    <div class="modal fade" id="modalAbono" role="dialog">
-    <div class="modal-dialog modal-large">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <center>
-            <div class="typography-hd-cr-4">
-              <h3>Abonar</h3>
-            </div>
-          </center>
-          <div class="typography-hd-cr-4">
-            <h2></h2>
-          </div>
-          <hr style="width:100%;border-color:light-gray 25px;"><br>
-          <div class="cmp-tb-hd bcs-hd">
-            <div class="data-table-area">
-              <div class="container">
-                <div class="row">
-                  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                    <div class="data-table-list">
-                      <div class="basic-tb-hd">
-                        <h2>Clientes</h2>
-                      </div>
-                      <div class="table-responsive">
-                        <table id="data-table-basic" class="table table-striped">
-                          <thead>
-                            <tr>
-                              <th>DUI</th>
-                              <th>Nombres</th>
-                              <th>Apellidos</th>
-                              <th>Dirección</th>
-                              <th>Teléfono</th>
-                              <th>Ver</th>
-                              <th>Modificar</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>02156848-9</td>
-                              <td>Miguel Eduardo</td>
-                              <td>Carvajal Fuentes</td>
-                              <td>10 Calle Oriente, Av. Lourdes #2, San Salvador</td>
-                              <td>7856-9585</td>
-                              <td>
-                                <center><button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                    data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button>
-                                </center>
-                              </td>
-                              <th>
-                                <center><button class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                                    data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button>
-                                </center>
-                              </th>
-                            </tr>
-                            <tr>
-                              <td>49865398-1</td>
-                              <td>Ana María</td>
-                              <td>Montes García</td>
-                              <td>Av. Paz, Pasaje D #45, San Salvador</td>
-                              <td>2896-5554</td>
-                              <td>
-                                <center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                    data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button>
-                                </center>
-                              </td>
-                              <th>
-                                <center><button type="button"
-                                    class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                                    data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button>
-                                </center>
-                              </th>
-                            </tr>
-                          </tbody>
-                          <tfoot>
-                            <tr>
-                            </tr>
-                          </tfoot>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div><br><br><br>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-                  </tr>
-                  
                 </tbody>
                 <tfoot>
                   <tr>
@@ -207,8 +84,72 @@
   </div>
   <!--FIN TABLA-->
 
-
-
+  <div class="modal fade" id="modalVer" role="dialog">
+                      <div class="modal-dialog modal-large">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          </div>
+                          <div class="modal-body">
+                            <center>
+                              <div class="typography-hd-cr-4">
+                                <h3>Información del Servicio</h3>
+                              </div>
+                            </center>
+                            <div class="typography-hd-cr-4">
+                              <h4>Servicio</h4>
+                            </div>
+                            <hr style="width:100%;border-color:light-gray 25px;"><br>
+                            <!-- Data Table area Start-->
+  <div class="data-table-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <div class="data-table-list">
+            <div class="basic-tb-hd">
+              <h2>Clientes</h2>
+            </div>
+            <div class="table-responsive">
+              <table id="data-table-basic" class="table table-striped">
+              <thead>
+                  <tr>
+                    <th>Servicio</th>
+                    <th>Cantidad</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Crucifijo</td>
+                    <th><center><div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="...">
+                                    <option value="United States">1</option>
+                                    <option value="United States">2</option>
+                                    <option value="United States">3</option>
+                                </select>
+                            </div>
+                        </div></center></th>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--FIN TABLA-->
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
 
   
@@ -394,6 +335,81 @@
   <!--  chosen JS
 		============================================ -->
   <script src="js/chosen/chosen.jquery.js"></script>
+
+
+
+
+
+         <!-- mCustomScrollbar JS
+    ============================================ -->
+    <script src="js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+        <!-- sparkline JS
+    ============================================ -->
+        <script src="js/sparkline/jquery.sparkline.min.js"></script>
+        <script src="js/sparkline/sparkline-active.js"></script>
+        <!-- flot JS
+    ============================================ -->
+        <script src="js/flot/jquery.flot.js"></script>
+        <script src="js/flot/jquery.flot.resize.js"></script>
+        <script src="js/flot/flot-active.js"></script>
+        <!-- knob JS
+    ============================================ -->
+        <script src="js/knob/jquery.knob.js"></script>
+        <script src="js/knob/jquery.appear.js"></script>
+        <script src="js/knob/knob-active.js"></script>
+        <!-- Input Mask JS
+    ============================================ -->
+        <script src="js/jasny-bootstrap.min.js"></script>
+        <!-- icheck JS
+    ============================================ -->
+        <script src="js/icheck/icheck.min.js"></script>
+        <script src="js/icheck/icheck-active.js"></script>
+        <!-- rangle-slider JS
+    ============================================ -->
+        <script src="js/rangle-slider/jquery-ui-1.10.4.custom.min.js"></script>
+        <script src="js/rangle-slider/jquery-ui-touch-punch.min.js"></script>
+        <script src="js/rangle-slider/rangle-active.js"></script>
+        <!-- datapicker JS
+    ============================================ -->
+        <script src="js/datapicker/bootstrap-datepicker.js"></script>
+        <script src="js/datapicker/datepicker-active.js"></script>
+        <!-- bootstrap select JS
+    ============================================ -->
+        <script src="js/bootstrap-select/bootstrap-select.js"></script>
+        <!--  color-picker JS
+    ============================================ -->
+        <script src="js/color-picker/farbtastic.min.js"></script>
+        <script src="js/color-picker/color-picker.js"></script>
+        <!--  notification JS
+    ============================================ -->
+        <script src="js/notification/bootstrap-growl.min.js"></script>
+        <script src="js/notification/notification-active.js"></script>
+        <!--  summernote JS
+    ============================================ -->
+        <script src="js/summernote/summernote-updated.min.js"></script>
+        <script src="js/summernote/summernote-active.js"></script>
+        <!-- dropzone JS
+    ============================================ -->
+        <script src="js/dropzone/dropzone.js"></script>
+        <!--  wave JS
+    ============================================ -->
+        <script src="js/wave/waves.min.js"></script>
+        <script src="js/wave/wave-active.js"></script>
+        <!--  chosen JS
+    ============================================ -->
+        <script src="js/chosen/chosen.jquery.js"></script>
+
+        <!--  todo JS
+    ============================================ -->
+        <script src="js/todo/jquery.todo.js"></script>
+        <!-- plugins JS
+    ============================================ -->
+        <script src="js/plugins.js"></script>
+        <!-- main JS
+    ============================================ -->
+        <script src="js/main.js"></script>
+        <!-- tawk chat JS
+    ============================================ -->
 
 </body>
 

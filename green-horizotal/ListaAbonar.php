@@ -51,7 +51,7 @@
                             <ul class="inbox-st-nav inbox-ft">
                             <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button><br><br>
                             <button class="btn btn-success notika-btn-success">Reporte   <i class="fas fa-print"></i> </button><br><br>
-                            <a href="ListaCliente.php"><button class="btn btn-success notika-btn-success">Clientes    <i class="	fas fa-dollar-sign">  </i></button></a>
+                            <a href="ListaCliente.php"><button class="btn btn-success notika-btn-success">Clientes    <i class="fas fa-address-book">  </i></button></a>
                             </ul>
                         </div>
                         <hr>
@@ -85,7 +85,7 @@
                                         <td>
                                             <center><button
                                                     class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalVer"><i class="fas fa-hand-holding-usd"></i></button>
+                                                    data-toggle="modal" data-target="#modal"><i class="fas fa-hand-holding-usd"></i></button>
                                             </center>
                                         </td>
                                         <th>
@@ -104,7 +104,7 @@
                                         <td>
                                         <center><button
                                                     class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalVer"><i class="fas fa-hand-holding-usd"></i></button>
+                                                    data-toggle="modal" data-target="#modal"><i class="fas fa-hand-holding-usd"></i></button>
                                             </center>
                                         </td>
                                         <th>

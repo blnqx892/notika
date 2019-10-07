@@ -107,7 +107,7 @@
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                    <i class="notika-icon notika-support"></i>
+                                  <span class="icon-user"></span>
                                   </div>
                                   <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Nombre Completo">
@@ -117,10 +117,10 @@
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                    <i class="fas fa-user-circle"></i>
+                                  <span class="fas fa-phone-alt"></span>
                                   </div>
                                   <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Telefono 9999-9999">
+                                    <input type="text" class="form-control" placeholder="Telf:9999-9999">
                                   </div>
                                 </div>
                               </div><br><br><br><br><br>
@@ -131,7 +131,7 @@
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                    <i class="fas fa-user-circle"></i>
+                                  <span class="fas fa-building"></span>
                                   </div>
                                   <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Empresa" disabled="disabled">
@@ -141,7 +141,7 @@
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                    <i class="fas fa-map-marker"></i>
+                                  <span class="fas fa-map-marker-alt"></span>
                                   </div>
                                   <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Dirección">
@@ -151,10 +151,10 @@
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                    <i class="fas fa-user-circle"></i>
+                                  <span class="fas fa-phone-alt"></span>
                                   </div>
                                   <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Teléfono 9999-9999">
+                                    <input type="text" class="form-control" placeholder="Telf:9999-9999">
                                   </div>
                                 </div>
                               </div>
@@ -189,7 +189,7 @@
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                    <i class="notika-icon notika-support"></i>
+                                  <span class="icon-user"></span>
                                   </div>
                                   <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Nombre Completo"
@@ -200,7 +200,7 @@
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                    <i class="fas fa-user-circle"></i>
+                                  <span class="fas fa-phone-alt"></span>
                                   </div>
                                   <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Telefono 9999-9999"
@@ -215,7 +215,7 @@
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                    <i class="fas fa-user-circle"></i>
+                                  <span class="fas fa-building"></span>
                                   </div>
                                   <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Empresa" disabled="disabled">
@@ -225,7 +225,7 @@
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                    <i class="fas fa-map-marker"></i>
+                                  <span class="fas fa-map-marker-alt"></span>
                                   </div>
                                   <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Dirección" disabled="disabled">
@@ -235,7 +235,7 @@
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                    <i class="fas fa-user-circle"></i>
+                                  <span class="fas fa-phone-alt"></span>
                                   </div>
                                   <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Teléfono 9999-9999"

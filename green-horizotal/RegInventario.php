@@ -45,7 +45,7 @@
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="form-group ic-cmp-int float-lb floating-lb">
                                 <div class="form-ic-cmp">
-                                    <i class="fas fa-tag"></i>
+                                <span class="icon-barcode"></span>
                                 </div>
                                 <div class="nk-int-st">
                                     <input type="text" class="form-control">
@@ -77,7 +77,7 @@
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                    <i class="fas fa-route"></i>
+                                <span class="icon-list-numbered"></span>
                                 </div>
                                 <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Stock">
@@ -85,25 +85,25 @@
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                    <i class="fas fa-phone-square-alt"></i>
-                                </div>
-                                <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="$ Precio Unitario">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                    <i class="fas fa-phone-square-alt"></i>
-                                </div>
-                                <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="$ Precio total">
-                                </div>
-                            </div>
-                        </div><br><br><br><br>
+              <div class="form-group ic-cmp-int">
+                <div class="form-ic-cmp">
+                <span class="fas fa-dollar-sign"></span>
+                </div>
+                <div class="nk-int-st">
+                  <input type="text" class="form-control" placeholder="Precio Unitario">
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              <div class="form-group ic-cmp-int">
+                <div class="form-ic-cmp">
+                <span class="fas fa-dollar-sign"></span>
+                </div>
+                <div class="nk-int-st">
+                  <input type="text" class="form-control" placeholder="Precio Total">
+                </div>
+              </div>
+            </div><br><br><br><br>
                         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                             <div class="form-group">
                                 <div class="nk-int-st">

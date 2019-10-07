@@ -117,20 +117,19 @@
                                                                         value="02/10/2019" disabled="disabled">
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                            <div class="nk-int-mk sl-dp-mn">
-                                                                <h5>Seleccionar Proveedor</h5>
+                                                        </div><br>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="form-group ic-cmp-int float-lb floating-lb">
+                                                            <div class="form-ic-cmp">
+                                                            <span class="fas fa-dolly"></span>
                                                             </div>
-                                                            <div class="chosen-select-act fm-cmp-mg">
-                                                                <select class="chosen"
-                                                                    data-placeholder="Elegir Proveedor..."
+                                                            <div class="nk-int-st">
+                                                                <input type="text" class="form-control"
                                                                     disabled="disabled">
-                                                                    <option value="United States">Natalie Castillo
-                                                                    </option>
-                                                                </select>
+                                                                <label class="nk-label">Proveedor</label>
                                                             </div>
                                                         </div>
+                                                    </div>
                                                     </div><br><br><br><br>
                                                     <div class="typography-hd-cr-4">
                                                         <h4>Producto</h4>
@@ -139,7 +138,7 @@
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int float-lb floating-lb">
                                                             <div class="form-ic-cmp">
-                                                                <i class="fas fa-tag"></i>
+                                                            <span class="icon-barcode"></span>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
@@ -148,33 +147,34 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                        <div class="chosen-select-act fm-cmp-mg">
-                                                            <select class="chosen" data-placeholder="Categoria ..."
-                                                                disabled="disabled">
-                                                                <option value="">Equipo</option>
-                                                                <option value="value">Feretro</option>
-                                                                <option value="">Comestibles</option>
-                                                                <option value="">Desechables</option>
-                                                            </select>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="form-group ic-cmp-int float-lb floating-lb">
+                                                            <div class="form-ic-cmp">
+                                                            <span class="fas fa-boxes"></span>
+                                                            </div>
+                                                            <div class="nk-int-st">
+                                                                <input type="text" class="form-control"
+                                                                    disabled="disabled">
+                                                                <label class="nk-label">Categoria</label>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                        <div class="chosen-select-act fm-cmp-mg">
-                                                            <select class="chosen" data-placeholder="Tipo ..."
-                                                                disabled="disabled">
-                                                                <option value="">sillas</option>
-                                                                <option value="">Cortinas</option>
-                                                                <option value="">Candelabros</option>
-                                                                <option value="">Candelas</option>
-                                                                <option value="">Crucifijos</option>
-                                                            </select>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="form-group ic-cmp-int float-lb floating-lb">
+                                                            <div class="form-ic-cmp">
+                                                            <span class="fas fa-layer-group"></span>
+                                                            </div>
+                                                            <div class="nk-int-st">
+                                                                <input type="text" class="form-control"
+                                                                    disabled="disabled">
+                                                                <label class="nk-label">Tipo</label>
+                                                            </div>
                                                         </div>
                                                     </div><br> <br> <br> <br>
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                                <i class="fas fa-route"></i>
+                                                            <span class="icon-sort-numeric-asc"></span>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
@@ -185,7 +185,7 @@
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                                <i class="fas fa-phone-square-alt"></i>
+                                                            <span class="fas fa-dollar-sign"></span>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
@@ -196,7 +196,7 @@
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                                <i class="fas fa-phone-square-alt"></i>
+                                                            <span class="fas fa-dollar-sign"></span>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"

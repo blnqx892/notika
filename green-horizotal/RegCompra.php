@@ -96,7 +96,7 @@
                                 <option value="">Crucifijos</option>
                             </select>
                         </div>
-                    </div>
+                    </div><br><br><br><br>
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
@@ -127,7 +127,6 @@
                 </div>
               </div>
             </div>
-                    <br><br><br><br>
                     <center>
                         <button class="btn btn-success notika-btn-success">Guardar <i
                                 class="notika-icon notika-checked"></i></button>

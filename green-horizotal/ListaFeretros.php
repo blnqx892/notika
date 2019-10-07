@@ -127,7 +127,7 @@
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                               <div class="form-group ic-cmp-int float-lb floating-lb">
                                 <div class="form-ic-cmp">
-                                  <i class="fas fa-tag"></i>
+                                <span class="icon-barcode"></span>
                                 </div>
                                 <div class="nk-int-st">
                                   <input type="text" class="form-control">
@@ -135,54 +135,57 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <div class="chosen-select-act fm-cmp-mg">
-                                <select class="chosen" data-placeholder="Categoria ..." disabled="disabled">
-                                  <option value="">Equipo</option>
-                                  <option value="value">Feretro</option>
-                                  <option value="">Comestibles</option>
-                                  <option value="">Desechables</option>
-                                </select>
-                              </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <div class="chosen-select-act fm-cmp-mg">
-                                <select class="chosen" data-placeholder="Tipo ..." disabled="disabled">
-                                  <option value="">sillas</option>
-                                  <option value="">Cortinas</option>
-                                  <option value="">Candelabros</option>
-                                  <option value="">Candelas</option>
-                                  <option value="">Crucifijos</option>
-                                </select>
-                              </div>
-                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="form-group ic-cmp-int float-lb floating-lb">
+                                                            <div class="form-ic-cmp">
+                                                            <span class="fas fa-boxes"></span>
+                                                            </div>
+                                                            <div class="nk-int-st">
+                                                                <input type="text" class="form-control"
+                                                                    disabled="disabled">
+                                                                <label class="nk-label">Categoria</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="form-group ic-cmp-int float-lb floating-lb">
+                                                            <div class="form-ic-cmp">
+                                                            <span class="fas fa-layer-group"></span>
+                                                            </div>
+                                                            <div class="nk-int-st">
+                                                                <input type="text" class="form-control"
+                                                                    disabled="disabled">
+                                                                <label class="nk-label">Tipo</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                  <i class="fas fa-route"></i>
+                                <span class="icon-list-numbered"></span>
                                 </div>
                                 <div class="nk-int-st">
                                   <input type="text" class="form-control" placeholder="Stock">
                                 </div>
                               </div>
                             </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                  <i class="fas fa-phone-square-alt"></i>
+                                <span class="fas fa-dollar-sign"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="$ Precio Unitario">
+                                  <input type="text" class="form-control" placeholder="Precio Unitario">
                                 </div>
                               </div>
                             </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                  <i class="fas fa-phone-square-alt"></i>
+                                <span class="fas fa-dollar-sign"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="$ Precio total">
+                                  <input type="text" class="form-control" placeholder="Precio total">
                                 </div>
                               </div>
                             </div><br><br><br><br><br><br><br>
@@ -228,64 +231,62 @@
                             </div>
                             <hr style="width:100%;border-color:light-gray 25px;"><br>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int float-lb floating-lb">
+                              <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                  <i class="fas fa-tag"></i>
+                                <span class="icon-barcode"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control">
-                                  <label class="nk-label" disabled="disabled" disabled="disabled">Nombre</label>
+                                  <input type="text" class="form-control" placeholder="Nombre" disabled="disabled">
                                 </div>
                               </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <div class="chosen-select-act fm-cmp-mg">
-                                <select class="chosen" data-placeholder="Categoria ..." disabled="disabled">
-                                  <option value="">Equipo</option>
-                                  <option value="value">Feretro</option>
-                                  <option value="">Comestibles</option>
-                                  <option value="">Desechables</option>
-                                </select>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                              <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                <span class="fas fa-boxes"></span>
+                                </div>
+                                <div class="nk-int-st">
+                                  <input type="text" class="form-control" placeholder="Categoria" disabled="disabled">
+                                </div>
                               </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <div class="chosen-select-act fm-cmp-mg">
-                                <select class="chosen" data-placeholder="Tipo ..." disabled="disabled">
-                                  <option value="">sillas</option>
-                                  <option value="">Cortinas</option>
-                                  <option value="">Candelabros</option>
-                                  <option value="">Candelas</option>
-                                  <option value="">Crucifijos</option>
-                                </select>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                              <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                <span class="fas fa-layer-group"></span>
+                                </div>
+                                <div class="nk-int-st">
+                                  <input type="text" class="form-control" placeholder="Tipo" disabled="disabled">
+                                </div>
                               </div>
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                  <i class="fas fa-route"></i>
+                                <span class="icon-list-numbered"></span>
                                 </div>
                                 <div class="nk-int-st">
                                   <input type="text" class="form-control" placeholder="Stock" disabled="disabled">
                                 </div>
                               </div>
                             </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                  <i class="fas fa-phone-square-alt"></i>
+                                <span class="fas fa-dollar-sign"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="$ Precio Unitario" disabled="disabled">
+                                  <input type="text" class="form-control" placeholder="Precio Unitario" disabled="disabled">
                                 </div>
                               </div>
                             </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                  <i class="fas fa-phone-square-alt"></i>
+                                <span class="fas fa-dollar-sign"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="$ Precio total" disabled="disabled">
+                                  <input type="text" class="form-control" placeholder="Precio total" disabled="disabled">
                                 </div>
                               </div>
                             </div><br><br><br><br><br><br><br>
