@@ -7,7 +7,7 @@
 
 	//Basic
 	$('#sa-basic').on('click', function(){
-		swal("Here's a message!");
+		swal("¡HECHO!");
 	});
 
 	//A title with a text under
@@ -17,7 +17,7 @@
 
 	//Success Message
 	$('#sa-success').on('click', function(){
-		swal("Good job!", "Lorem ipsum dolor cry sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, Spensaduran pellentesque maximus eniman. Mauriseleifend ex semper, lobortis purus.", "success")
+		swal("Good job.....!", "Lorem ipsum dolor cry sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, Spensaduran pellentesque maximus eniman. Mauriseleifend ex semper, lobortis purus.", "success")
 	});
 
 	//Warning Message

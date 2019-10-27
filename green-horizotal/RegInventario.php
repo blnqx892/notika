@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="nk-int-st">
                                     <input type="text" class="form-control">
-                                    <label class="nk-label">Nombre</label>
+                                    <label class="nk-label">Nombre - Modelo</label>
                                 </div>
                             </div>
                         </div>
@@ -96,7 +96,7 @@
                             <div class="form-group">
                                 <div class="nk-int-st">
                                     <textarea class="form-control auto-size" rows="2"
-                                        placeholder="Descripción..."></textarea>
+                                        placeholder="Caracteristicas"></textarea>
                                 </div>
                             </div>
                         </div>

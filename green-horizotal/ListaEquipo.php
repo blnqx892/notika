@@ -60,7 +60,7 @@
                   <tr>
                     <th>Nombre</th>
                     <th>Tipo</th>
-                    <th>Descripcion</th>
+                    <th>Caracteristicas</th>
                     <th>Bodega</th>
                     <th>En Servicio</th>
                     <th>Ver</th>

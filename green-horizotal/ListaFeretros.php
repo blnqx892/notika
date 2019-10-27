@@ -58,9 +58,9 @@
               <table id="data-table-basic" class="table table-striped">
                 <thead>
                   <tr>
-                    <th>Nombre</th>
+                    <th>Modelo</th>
                     <th>Tipo</th>
-                    <th>Descripcion</th>
+                    <th>Caracteristicas</th>
                     <th>Precio</th>
                     <th>Stock</th>
                     <th>Ver</th>
@@ -70,7 +70,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Caja imperial</td>
+                    <td>Imperial</td>
                     <td>Feretro</td>
                     <td>Ataud de madera laqueado al Naatural</td>
                     <td>$100</td>
@@ -89,9 +89,9 @@
                     </th>
                   </tr>
                   <tr>
-                    <td>Caja Romana</td>
+                    <td>Catedral</td>
                     <td>Feretro</td>
-                    <td>Ataud de madera laqueado al Naatural</td>
+                    <td>Armado con madera de Cedro</td>
                     <td>$150</td>
                     <td>20</td>
                     <td>

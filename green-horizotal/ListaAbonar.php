@@ -73,6 +73,7 @@
                                         <th>Abono</th>
                                         <th>Abonar</th>
                                         <th>Contrato</th>
+                                        <th>Venta</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -94,6 +95,12 @@
                                                     data-toggle="modal" data-target="#modal"><i class="fas fa-handshake"></i></button>
                                             </center>
                                         </th>
+                                        <th>
+                                        <center><button
+                                        class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"
+                                                    data-toggle="modal" data-target="#modal"><i class="fas fa-dollar-sign"></i></button>
+                                            </center>
+                                        </th>
                                     </tr>
                                     <tr>
                                         <td>49865398-1</td>
@@ -111,6 +118,12 @@
                                         <center><button
                                                     class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
                                                     data-toggle="modal" data-target="#modal"><i class="fas fa-handshake"></i></button>
+                                            </center>
+                                        </th>
+                                        <th>
+                                        <center><button
+                                        class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"
+                                                    data-toggle="modal" data-target="#modal"><i class="fas fa-dollar-sign"></i></button>
                                             </center>
                                         </th>
                                     </tr>

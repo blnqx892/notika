@@ -112,14 +112,7 @@
                             </div>
                             <div class="chosen-select-act fm-cmp-mg">
                                 <select class="chosen" data-placeholder="Seleccionar...">
-                                    <option value="United States">Jardín Reformado Completo</option>
                                     <option value="United States">Jardín Completo</option>
-                                    <option value="United States">Romano Completo</option>
-                                    <option value="United States">Jardín Normal</option>
-                                    <option value="United States">Duquesa Completo</option>
-                                    <option value="United States">Duquesa Normal</option>
-                                    <option value="United States">Ejecutivo Completo</option>
-                                    <option value="United States">Ejecutivo Normal</option>
                                 </select>
                             </div>
                         </div><br>
