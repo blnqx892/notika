@@ -178,8 +178,7 @@
                 </div>
               </center>
             </div>
-                class="notika-icon notika-checked"></i></button>
-            <button class="btn btn-danger notika-btn-danger">Cancelar <i class="notika-icon notika-close"></i></button>
+          </div>
         </div>
       </div>
     </center>
