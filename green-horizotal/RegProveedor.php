@@ -33,10 +33,48 @@
   </div>
   <!-- Breadcomb area End-->
   <!-- Inbox area Start-->
+  <form action="Controladores/ProveedorC.php" method="POST">
+    <center>
   <div class="inbox-area">
     <div class="container">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="form-element-list">
+
+              <h4>Datos de la Empresa</h4>
+            </div>
+            <hr style="width:100%;border-color:light-gray 15px;"><br>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <div class="form-group ic-cmp-int">
+                <div class="form-ic-cmp">
+                  <span class="fas fa-building"></span>
+                </div>
+                <div class="nk-int-st">
+                  <input type="text" class="form-control" placeholder="Nombre de la Empresa" name="nomEmp"id="nomEmp">
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <div class="form-group ic-cmp-int">
+                <div class="form-ic-cmp">
+                <span class="fas fa-map-marker-alt"></span>
+                </div>
+                <div class="nk-int-st">
+                  <input type="text" class="form-control" placeholder="Dirección" name="dirEmp" id="dirEmp">
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <div class="form-group ic-cmp-int">
+                <div class="form-ic-cmp">
+                <span class="fas fa-phone-alt"></span>
+                </div>
+                <div class="nk-int-st">
+                  <input type="text" class="form-control" placeholder="Telefono: 9999-9999" name="telEmp" id="telEmp">
+                </div>
+              </div>
+            </div>
+            <br><br><br>
+          </div>
           <div class="typography-hd-cr-4">
             <h4>Datos Personales del Responsable</h4>
           </div>
@@ -48,7 +86,7 @@
                 <span class="icon-user"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Nombre Completo">
+                  <input type="text" class="form-control" placeholder="Nombre" name="nomRes" id="nomRes">
                 </div>
               </div>
             </div>
@@ -58,48 +96,13 @@
                 <span class="fas fa-phone-alt"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Telf:9999-9999">
+                  <input type="text" class="form-control" placeholder="Telefono: 9999-9999" name="telRes" id="telRes">
                 </div>
               </div>
             </div><br><br><br><br><br>
             <div class="typography-hd-cr-4">
-              <h4>Datos de la Empresa</h4>
-            </div>
-            <hr style="width:100%;border-color:light-gray 25px;"><br>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <div class="form-group ic-cmp-int">
-                <div class="form-ic-cmp">
-                  <span class="fas fa-building"></span>
-                </div>
-                <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Empresa">
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <div class="form-group ic-cmp-int">
-                <div class="form-ic-cmp">
-                <span class="fas fa-map-marker-alt"></span>
-                </div>
-                <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Dirección">
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-              <div class="form-group ic-cmp-int">
-                <div class="form-ic-cmp">
-                <span class="fas fa-phone-alt"></span>
-                </div>
-                <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Telf:9999-9999">
-                </div>
-              </div>
-            </div>
-            <br><br><br>
-          </div>
           <center>
-            <button class="btn btn-success notika-btn-success">Guardar <i
+            <button class="btn btn-success notika-btn-success" type="submit">Guardar <i
                 class="notika-icon notika-checked"></i></button>
             <button class="btn btn-danger notika-btn-danger">Cancelar <i class="notika-icon notika-close"></i></button>
           </center>
@@ -108,6 +111,8 @@
       </div>
     </div>
   </div>
+</center>
+</form>
   <!-- Inbox area End-->
   <!-- Start Footer area-->
   <div class="footer-copyright-area">
