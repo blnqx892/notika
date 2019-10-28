@@ -33,6 +33,7 @@
   </div>
   <!-- Breadcomb area End-->
   <!-- Inbox area Start-->
+  <form action="Controladores/EmpleadoE.php" method="POST">
   <div class="inbox-area">
     <div class="container">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -127,8 +128,8 @@
               </div>
             </div><br><br><br><br>
             <center>
-              <button class="btn btn-success notika-btn-success">Guardar <i
-                  class="notika-icon notika-checked"></i></button>
+            <button class="btn btn-success notika-btn-success" type="submit" >Guardar <i
+                      class="notika-icon notika-checked"></i></button>
               <button class="btn btn-danger notika-btn-danger">Cancelar <i
                   class="notika-icon notika-close"></i></button>
             </center>
