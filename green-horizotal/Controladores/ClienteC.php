@@ -14,7 +14,8 @@ $conexion = conectarMysql();
 	$bene1C = $_POST["bene1"];
 	$bene2C = $_POST["bene2"];
 	$bene3C = $_POST["bene3"];
-	$sql = "INSERT INTO cliente (Dui_cli,nombre_cli,apellidos_Cli,direccion_cli,telefono_Cli,ben1_Cli,ben2_Cli,ben3_Cli,fecha_Cli) VALUES ('$duiC','$nombresC','$apellidosC','$direccionC','$telefonoC','$bene1C','$bene2C','$bene3C','$fechaC')";
+	$sql = "INSERT INTO cliente (Dui_cli,nombre_cli,apellidos_Cli,direccion_cli,telefono_Cli,ben1_Cli,ben2_Cli,ben3_Cli,fecha_Cli) VALUES 
+	('$duiC','$nombresC','$apellidosC','$direccionC','$telefonoC','$bene1C','$bene2C','$bene3C','$fechaC')";
 
 	mysqli_query($conexion,$sql) or die ("Error no conecta".mysqli_connect_error());
 
