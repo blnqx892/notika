@@ -32,9 +32,6 @@
     </div>
   </div>
   <!-- Breadcomb area End-->
-  <?php
-            $sql="SELECT * from cliente order by nombre_Cli ASC";
-            $clientes= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
   <!-- Inbox area Start-->
   <form action="Controladores/EmpleadoE.php" method="POST">
     <div class="inbox-area">
@@ -42,25 +39,6 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="form-element-list">
             <div class="cmp-tb-hd bcs-hd">
-              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
-                  <?php
-                                        
-                                        date_default_timezone_set('america/el_salvador');
-                                        $hora1 = date("A");
-                                        $hoy = getdate();
-                                        $hora = date("g");
-                                        $dia = date("d");
-                                         $fech = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
-                                    ?>
-                  <h5>Fecha de Ingreso</h5>
-                  <div class="input-group date nk-int-st">
-                    <span class="input-group-addon"></span>
-                    <input type="text" class="form-control" value="<?php echo $fech?>" min="01/01/2000"
-                      max="<?php echo $fech?>" name="fecha" id="fech">
-                  </div>
-                </div>
-              </div><br><br><br><br><b><br>
                 <div class="typography-hd-cr-4">
                   <h4>Datos Personales</h4>
                 </div>
@@ -71,8 +49,8 @@
                       <span class="fas fa-id-card"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="DUI: 99999999-9" name="dui"
-                      data-mask="99999999-9" id="duii">
+                    <input type="text" class="form-control" placeholder="DUI: 99999999-9" name="dui"
+                        data-mask="99999999-9" id="duii">
                     </div>
                   </div>
                 </div>
@@ -131,7 +109,26 @@
                     </div>
                   </div>
                 </div>
-            </div><br><br><br><br>
+            </div><br><br>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
+                  <?php
+                                        
+                                        date_default_timezone_set('america/el_salvador');
+                                        $hora1 = date("A");
+                                        $hoy = getdate();
+                                        $hora = date("g");
+                                        $dia = date("d");
+                                         $fech = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
+                                    ?>
+                  <h5>Fecha de Ingreso</h5>
+                  <div class="input-group date nk-int-st">
+                    <span class="input-group-addon"></span>
+                    <input type="text" class="form-control" value="<?php echo $fech?>" min="01/01/2000"
+                      max="<?php echo $fech?>" name="fecha" id="fech">
+                  </div>
+                </div>
+              </div><br><br><br>
             <center>
               <button class="btn btn-success notika-btn-success" type="submit">Guardar <i
                   class="notika-icon notika-checked"></i></button>
@@ -233,6 +230,14 @@
     ============================================ -->
   <script src="js/datapicker/bootstrap-datepicker.js"></script>
   <script src="js/datapicker/datepicker-active.js"></script>
+   <!-- datapicker JS
+    ============================================ -->
+  <script src="js/datapicker/bootstrap-datepicker.js"></script>
+  <script src="js/datapicker/datepicker-active.js"></script>
+
+  <!-- Input Mask JS
+    ============================================ -->
+    <script src="js/jasny-bootstrap.min.js"></script>
 </body>
 
 </html>

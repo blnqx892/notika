@@ -12,13 +12,11 @@ $conexion = conectarMysql();
         $telefonoE = $_POST["telefono"];
         $cargoE = $_POST["cargo"];
        
-        $sql = "INSERT INTO empleado (fecha_Emple, Dui_Emple, nombres_Emple, apellidos_Emple, telefono_Emple, cargo_Emple) VALUES 
+        $sql = "INSERT INTO empleado (fecha_Emple, Dui_Emple, nombres_Emple, apellidos_Emple, telefono_Emple, direccion_Emple, cargo_Emple) VALUES 
         ('$fechaE','$duiE','$nombresE','$apellidosE','$telefonoE','$direccionE','$cargoE')";
     
         mysqli_query($conexion,$sql) or die ("Error no conectaaa".mysqli_connect_error());
     
         #$_SESSION['mensaje'] ="Registro guardado exitosamente";
         header("location: /Funesi/notika/green-horizotal/RegEmpleado.php");
-    
-    
 ?>
