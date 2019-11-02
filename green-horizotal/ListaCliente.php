@@ -1,8 +1,10 @@
 <!doctype html>
-<html >
-    <head> <!-- Place your kit's code here -->
- <script src="https://kit.fontawesome.com/16cea9a08c.js" crossorigin="anonymous"></script>
- <script src="https://kit.fontawesome.com/16cea9a08c.js" crossorigin="anonymous"></script>
+<html>
+
+<head>
+    <!-- Place your kit's code here -->
+    <script src="https://kit.fontawesome.com/16cea9a08c.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/16cea9a08c.js" crossorigin="anonymous"></script>
 
 </head>
 <!--IMPORTE head desde Menu/apertura-->
@@ -37,7 +39,6 @@
         </div>
     </div>
     <!-- Breadcomb area End-->
-
     <!-- Data Table area Start-->
     <div class="data-table-area">
         <div class="container">
@@ -47,9 +48,12 @@
                         <hr>
                         <div class="inbox-status">
                             <ul class="inbox-st-nav inbox-ft">
-                            <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button><br><br>
-                            <button class="btn btn-success notika-btn-success">Reporte   <i class="fas fa-print"></i> </button><br><br>
-                            <a href="ListaAbonar.php"><button class="btn btn-success notika-btn-success">Abonar    <i class="	fas fa-dollar-sign">  </i></button></a>
+                                <button class="btn btn-success notika-btn-success">Dar Altas <i
+                                        class="fas fa-arrow-alt-circle-up"></i></button><br><br>
+                                <button class="btn btn-success notika-btn-success">Reporte <i class="fas fa-print"></i>
+                                </button><br><br>
+                                <a href="ListaAbonar.php"><button class="btn btn-success notika-btn-success">Abonar <i
+                                            class="	fas fa-dollar-sign"> </i></button></a>
                             </ul>
                         </div>
                         <hr>
@@ -75,12 +79,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php 
+                                    $conexion=mysqli_connect('localhost','root', '', 'funesi');
+            $sql="SELECT * from cliente order by nombre_cli ASC";
+            $clientes= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
+                                    <?php While($mostrar=mysqli_fetch_assoc($clientes)){?>
                                     <tr>
-                                        <td>02156848-9</td>
-                                        <td>Miguel Eduardo</td>
-                                        <td>Carvajal Fuentes</td>
-                                        <td>10 Calle Oriente, Av. Lourdes #2, San Salvador</td>
-                                        <td>7856-9585</td>
+                                        <td><?php echo $mostrar['Dui_cli'] ?></td>
+                                        <td><?php echo $mostrar['nombre_cli'] ?></td>
+                                        <td><?php echo $mostrar['apellidos_Cli'] ?></td>
+                                        <td><?php echo $mostrar['direccion_cli'] ?></td>
+                                        <td><?php echo $mostrar['telefono_Cli'] ?></td>
                                         <td>
                                             <center><button
                                                     class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
@@ -90,33 +99,6 @@
                                         </td>
                                         <th>
                                             <center><button
-                                                    class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalEditar"><i
-                                                        class="fas fa-edit"></i></button>
-                                            </center>
-                                        </th>
-                                        <th>
-                                            <center><button
-                                                    class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                                                        class="fas fa-arrow-alt-circle-down"></i></button>
-                                            </center>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>49865398-1</td>
-                                        <td>Ana María</td>
-                                        <td>Montes García</td>
-                                        <td>Av. Paz, Pasaje D #45, San Salvador</td>
-                                        <td>2896-5554</td>
-                                        <td>
-                                            <center> <button
-                                                    class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalVer"><i
-                                                        class="fas fa-eye"></i></button>
-                                            </center>
-                                        </td>
-                                        <th>
-                                            <center><button type="button"
                                                     class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
                                                     data-toggle="modal" data-target="#modalEditar"><i
                                                         class="fas fa-edit"></i></button>
@@ -137,7 +119,7 @@
                                                         data-dismiss="modal">&times;</button>
                                                 </div>
                                                 <div class="modal-body">
-                                                <center>
+                                                    <center>
                                                         <div class="typography-hd-cr-4">
                                                             <h3>Editar Datos del Cliente</h3>
                                                         </div>
@@ -150,7 +132,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="fas fa-id-card"></span>
+                                                                    <span class="fas fa-id-card"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -162,7 +144,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="icon-user"></span>
+                                                                    <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -173,7 +155,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="icon-user"></span>
+                                                                    <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -185,7 +167,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="fas fa-map-marker-alt"></span>
+                                                                    <span class="fas fa-map-marker-alt"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -196,7 +178,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="fas fa-phone-alt"></span>
+                                                                    <span class="fas fa-phone-alt"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -212,7 +194,7 @@
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                            <span class="fas fa-user-check"></span>
+                                                                <span class="fas fa-user-check"></span>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
@@ -223,7 +205,7 @@
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                            <span class="fas fa-user-check"></span>
+                                                                <span class="fas fa-user-check"></span>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
@@ -234,7 +216,7 @@
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                            <span class="fas fa-user-check"></span>
+                                                                <span class="fas fa-user-check"></span>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
@@ -261,7 +243,7 @@
                                                         data-dismiss="modal">&times;</button>
                                                 </div>
                                                 <div class="modal-body">
-                                                <center>
+                                                    <center>
                                                         <div class="typography-hd-cr-4">
                                                             <h3>Información del Cliente</h3>
                                                         </div>
@@ -274,7 +256,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="icon-user"></span>
+                                                                    <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -286,7 +268,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="icon-user"></span>
+                                                                    <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -297,7 +279,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="icon-user"></span>
+                                                                    <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -309,7 +291,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="fas fa-map-marker-alt"></span>
+                                                                    <span class="fas fa-map-marker-alt"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -320,7 +302,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="fas fa-phone-alt"></span>
+                                                                    <span class="fas fa-phone-alt"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -337,7 +319,7 @@
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                            <span class="fas fa-user-check"></span>
+                                                                <span class="fas fa-user-check"></span>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
@@ -349,7 +331,7 @@
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                            <span class="fas fa-user-check"></span>
+                                                                <span class="fas fa-user-check"></span>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
@@ -361,7 +343,7 @@
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                            <span class="fas fa-user-check"></span>
+                                                                <span class="fas fa-user-check"></span>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
@@ -379,7 +361,7 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <?php } ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -476,7 +458,6 @@
     <script src="js/data-table/data-table-act.js"></script>
     <!-- main JS
         ============================================ -->
-        
 
 
 
@@ -488,7 +469,8 @@
 
 
 
-        <!-- jquery
+
+    <!-- jquery
 		============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <!-- bootstrap JS
@@ -572,7 +554,7 @@
     <!--  chosen JS
 		============================================ -->
     <script src="js/chosen/chosen.jquery.js"></script>
-       
+
 </body>
 
 </html>

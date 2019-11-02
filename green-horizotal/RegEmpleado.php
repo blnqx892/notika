@@ -32,6 +32,9 @@
     </div>
   </div>
   <!-- Breadcomb area End-->
+  <?php
+            $sql="SELECT * from cliente order by nombre_Cli ASC";
+            $clientes= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
   <!-- Inbox area Start-->
   <form action="Controladores/EmpleadoE.php" method="POST">
     <div class="inbox-area">
