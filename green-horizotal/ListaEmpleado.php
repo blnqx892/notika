@@ -1,5 +1,14 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html html class="no-js" lang="">
+
+<head>
+    <!-- Place your kit's code here -->
+    <script src="https://kit.fontawesome.com/16cea9a08c.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/16cea9a08c.js" crossorigin="anonymous"></script>
+
+</head>
+
+
 <!--IMPORTE head desde Menu/apertura-->
 <?php include("Menu/apertura.php"); ?>
 <!--IMPORTE head desde Menu/apertura-->
@@ -39,11 +48,13 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
                     <div class="inbox-left-sd">
-                    <hr>
+                        <hr>
                         <div class="inbox-status">
                             <ul class="inbox-st-nav inbox-ft">
-                            <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button><br><br>
-                            <button class="btn btn-success notika-btn-success">Reporte   <i class="fas fa-print"></i> </button><br><br>
+                                <button class="btn btn-success notika-btn-success">Dar Altas <i
+                                        class="fas fa-arrow-alt-circle-up"></i></button><br><br>
+                                <button class="btn btn-success notika-btn-success">Reporte <i class="fas fa-print"></i>
+                                </button><br><br>
                             </ul>
                         </div>
                         <hr>
@@ -58,48 +69,34 @@
                             <table id="data-table-basic" class="table table-striped">
                                 <thead>
                                     <tr>
+                                        
+                                        <th>Fecha Ingreso</th>
                                         <th>Dui</th>
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
                                         <th>Cargo</th>
-                                        <th>Disponibilidad</th>
                                         <th>Ver</th>
                                         <th>Modificar</th>
                                         <th>Dar Baja</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php 
+                                    $conexion=mysqli_connect('localhost','root', '', 'funesi');
+                                    $sql="SELECT * from empleado order by nombres_Emple ASC";
+                                    $empleados= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
+                                    <?php While($mostrar=mysqli_fetch_assoc($empleados)){?>
                                     <tr>
-                                        <td>02156848-9</td>
-                                        <td>Esteban Xavier</td>
-                                        <td>Orellana Castillo</td>
-                                        <td>Vendedor</td>
-                                        <td>Disponible</td>
                                         <td>
-                                            <center> <button
-                                                    class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalVer"><i
-                                                        class="fas fa-eye"></i></button></center>
-                                        </td>
-                                        <th>
-                                            <center><button type="button"
-                                                    class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalEditar"><i
-                                                        class="fas fa-edit"></i></button></center>
-                                        </th>
-                                        <th>
-                                            <center><button
-                                                    class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                                                        class="fas fa-arrow-alt-circle-down"></i></button></center>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>49865398-1</td>
-                                        <td>Pedro</td>
-                                        <td>Oliva Perez</td>
-                                        <td>Motorista</td>
-                                        <td>Disponible</td>
+                                            <?php echo $mostrar['fecha_Emple'] ?>
+                                            <td><?php echo $mostrar['Dui_Emple'] ?></td>
+                                            <td><?php echo $mostrar['nombres_Emple'] ?></td>
+                                            <td><?php echo $mostrar['apellidos_Emple'] ?></td>
+                                             <td><?php echo $mostrar['cargo_Emple'] ?></td>
+                                       
                                         <td>
+
+
                                             <center> <button
                                                     class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                                                     data-toggle="modal" data-target="#modalVer"><i
@@ -139,7 +136,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="fas fa-id-card"></span>
+                                                                    <span class="fas fa-id-card"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -151,7 +148,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="icon-user"></span>
+                                                                    <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -162,7 +159,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="icon-user"></span>
+                                                                    <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -173,7 +170,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="fas fa-map-marker-alt"></span>
+                                                                    <span class="fas fa-map-marker-alt"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -184,7 +181,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="fas fa-phone-alt"></span>
+                                                                    <span class="fas fa-phone-alt"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -200,7 +197,7 @@
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                            <span class="fas fa-address-card"></span>
+                                                                <span class="fas fa-address-card"></span>
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
@@ -240,7 +237,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="fas fa-id-card"></span>
+                                                                    <span class="fas fa-id-card"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -252,7 +249,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="icon-user"></span>
+                                                                    <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -263,7 +260,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="icon-user"></span>
+                                                                    <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -274,7 +271,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="fas fa-map-marker-alt"></span>
+                                                                    <span class="fas fa-map-marker-alt"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -285,7 +282,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="fas fa-phone-alt"></span>
+                                                                    <span class="fas fa-phone-alt"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -301,22 +298,23 @@
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
-                                                            <span class="fas fa-address-card"></span>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Cargo" disabled="disabled">
+                                                                <span class="fas fa-address-card"></span>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="Cargo" disabled="disabled">
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </div><br><br><br><br><br><br>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default"
-                                                        data-dismiss="modal">Cerrar</button>
+                                                        </div><br><br><br><br><br><br>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default"
+                                                            data-dismiss="modal">Cerrar</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- INICIO MODALES-->
+                                      
+                                  <?php } ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -413,6 +411,98 @@
     <script src="js/data-table/data-table-act.js"></script>
     <!-- main JS
 		============================================ -->
+
+
+
+
+
+
+<!-- jquery
+		============================================ -->
+        <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- wow JS
+		============================================ -->
+    <script src="js/wow.min.js"></script>
+    <!-- price-slider JS
+		============================================ -->
+    <script src="js/jquery-price-slider.js"></script>
+    <!-- owl.carousel JS
+		============================================ -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="js/meanmenu/jquery.meanmenu.js"></script>
+    <!-- counterup JS
+		============================================ -->
+    <script src="js/counterup/jquery.counterup.min.js"></script>
+    <script src="js/counterup/waypoints.min.js"></script>
+    <script src="js/counterup/counterup-active.js"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- sparkline JS
+		============================================ -->
+    <script src="js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="js/sparkline/sparkline-active.js"></script>
+    <!-- flot JS
+		============================================ -->
+    <script src="js/flot/jquery.flot.js"></script>
+    <script src="js/flot/jquery.flot.resize.js"></script>
+    <script src="js/flot/flot-active.js"></script>
+    <!-- knob JS
+		============================================ -->
+    <script src="js/knob/jquery.knob.js"></script>
+    <script src="js/knob/jquery.appear.js"></script>
+    <script src="js/knob/knob-active.js"></script>
+    <!-- Input Mask JS
+		============================================ -->
+    <script src="js/jasny-bootstrap.min.js"></script>
+    <!-- icheck JS
+		============================================ -->
+    <script src="js/icheck/icheck.min.js"></script>
+    <script src="js/icheck/icheck-active.js"></script>
+    <!-- rangle-slider JS
+		============================================ -->
+    <script src="js/rangle-slider/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="js/rangle-slider/jquery-ui-touch-punch.min.js"></script>
+    <script src="js/rangle-slider/rangle-active.js"></script>
+    <!-- datapicker JS
+		============================================ -->
+    <script src="js/datapicker/bootstrap-datepicker.js"></script>
+    <script src="js/datapicker/datepicker-active.js"></script>
+    <!-- bootstrap select JS
+		============================================ -->
+    <script src="js/bootstrap-select/bootstrap-select.js"></script>
+    <!--  color-picker JS
+		============================================ -->
+    <script src="js/color-picker/farbtastic.min.js"></script>
+    <script src="js/color-picker/color-picker.js"></script>
+    <!--  notification JS
+		============================================ -->
+    <script src="js/notification/bootstrap-growl.min.js"></script>
+    <script src="js/notification/notification-active.js"></script>
+    <!--  summernote JS
+		============================================ -->
+    <script src="js/summernote/summernote-updated.min.js"></script>
+    <script src="js/summernote/summernote-active.js"></script>
+    <!-- dropzone JS
+		============================================ -->
+    <script src="js/dropzone/dropzone.js"></script>
+    <!--  wave JS
+		============================================ -->
+    <script src="js/wave/waves.min.js"></script>
+    <script src="js/wave/wave-active.js"></script>
+    <!--  chosen JS
+		============================================ -->
+    <script src="js/chosen/chosen.jquery.js"></script>
+
+
 </body>
 
 </html>
