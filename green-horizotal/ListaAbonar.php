@@ -69,20 +69,21 @@
                                         <th>DUI</th>
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
-                                        <th>Fecha</th>
-                                        <th>Abono</th>
                                         <th>Abonar</th>
                                         <th>Contrato</th>
                                         <th>Venta</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <?php 
+                                    $conexion=mysqli_connect('localhost','root', '', 'funesi');
+            $sql="SELECT * from cliente order by nombre_cli ASC";
+            $clientes= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
+                                    <?php While($mostrar=mysqli_fetch_assoc($clientes)){?>
                                     <tr>
-                                        <td>02156848-9</td>
-                                        <td>Miguel Eduardo</td>
-                                        <td>Carvajal Fuentes</td>
-                                        <td>3/10/2019</td>
-                                        <td>$ 999 </td>
+                                    <td><?php echo $mostrar['Dui_cli'] ?></td>
+                                        <td><?php echo $mostrar['nombre_cli'] ?></td>
+                                        <td><?php echo $mostrar['apellidos_Cli'] ?></td>
                                         <td>
                                             <center><button
                                                     class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
@@ -91,31 +92,6 @@
                                         </td>
                                         <th>
                                             <center><button
-                                                    class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modal"><i class="fas fa-handshake"></i></button>
-                                            </center>
-                                        </th>
-                                        <th>
-                                        <center><button
-                                        class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modal"><i class="fas fa-dollar-sign"></i></button>
-                                            </center>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <td>49865398-1</td>
-                                        <td>Ana María</td>
-                                        <td>Montes García</td>
-                                        <td>12/05/2019</td>
-                                        <td>$ 999</td>
-                                        <td>
-                                        <center><button
-                                                    class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modal"><i class="fas fa-hand-holding-usd"></i></button>
-                                            </center>
-                                        </td>
-                                        <th>
-                                        <center><button
                                                     class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
                                                     data-toggle="modal" data-target="#modal"><i class="fas fa-handshake"></i></button>
                                             </center>
@@ -504,6 +480,7 @@
                                         </div>
                                     </div>
                                 </tbody>
+                                <?php } ?>
                                 <tfoot>
                                     <tr>
                                     </tr>

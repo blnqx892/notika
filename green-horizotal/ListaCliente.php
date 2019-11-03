@@ -71,7 +71,6 @@
                                         <th>DUI</th>
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
-                                        <th>Dirección</th>
                                         <th>Teléfono</th>
                                         <th>Ver</th>
                                         <th>Modificar</th>
@@ -88,7 +87,6 @@
                                         <td><?php echo $mostrar['Dui_cli'] ?></td>
                                         <td><?php echo $mostrar['nombre_cli'] ?></td>
                                         <td><?php echo $mostrar['apellidos_Cli'] ?></td>
-                                        <td><?php echo $mostrar['direccion_cli'] ?></td>
                                         <td><?php echo $mostrar['telefono_Cli'] ?></td>
                                         <td>
                                             <center><button
