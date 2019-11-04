@@ -83,6 +83,10 @@
             $sql="SELECT * from cliente order by nombre_cli ASC";
             $clientes= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
                                     <?php While($mostrar=mysqli_fetch_assoc($clientes)){?>
+
+                                    <?php $fechaCli = explode("-",$mostrar['fecha_Cli']);
+                                        $fechaCli = $fechaCli[2].'/'.$fechaCli[1].'/'.$fechaCli[0];
+                                        echo $fechac ?>
                                     <tr>
                                         <td><?php echo $mostrar['Dui_cli'] ?></td>
                                         <td><?php echo $mostrar['nombre_cli'] ?></td>
@@ -91,7 +95,8 @@
                                         <td>
                                             <center><button
                                                     class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalVer"><i
+                                                    data-toggle="modal" data-target="#modalVerCliente"
+                                                    onclick="mostraCliente('<?php echo $mostrar['Dui_cli']?>','<?php echo $mostrar['nombre_cli']?>','<?php echo $mostrar['apellidos_Cli']?>','<?php echo $mostrar['direccion_cli']?>','<?php echo $mostrar['telefono_Cli']?>','<?php echo $mostrar['ben1_Cli']?>','<?php echo $mostrar['ben2_Cli']?>','<?php echo $mostrar['ben3_Cli']?>','<?php echo $mostrar['fecha_Cli']?>')"><i
                                                         class="fas fa-eye"></i></button>
                                             </center>
                                         </td>
@@ -109,7 +114,10 @@
                                             </center>
                                         </th>
                                     </tr>
-                                    <div class="modal fade" id="modalEditar" role="dialog">
+
+                                    <!--INICIO MODAL EDITAR-->
+                                    <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog"
+                                        aria-labelledby="myModalLabel">
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -223,7 +231,6 @@
                                                         </div>
                                                     </div>
                                                 </div><br><br><br>
-
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-default"
                                                         data-dismiss="modal">Guardar Cambios</button>
@@ -233,7 +240,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal fade" id="modalVer" role="dialog">
+                                    <!--FIN MODAL EDITAR-->
+
+                                    <!--INICIO MODAL VER-->
+                                    <div class="modal fade" id="modalVerCliente" tabindex="-1" role="dialog"
+                                        aria-labelledby="myModalLabel">
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -251,15 +262,15 @@
                                                     </div>
                                                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                                                     <div class="cmp-tb-hd bcs-hd">
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
                                                                     <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="DUI: 99999999-9"
-                                                                        disabled="disabled">
+                                                                    <input type="text" class="form-control" id="duic"
+                                                                        readonly="readonly" aria-required="true"
+                                                                        value="">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -270,7 +281,8 @@
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Nombres" disabled="disabled">
+                                                                        id="nombresc" readonly="readonly"
+                                                                        aria-required="true" value="">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -281,31 +293,33 @@
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Apellidos" disabled="disabled">
+                                                                        id="apellidosc" readonly="readonly"
+                                                                        aria-required="true" value="">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <br><br><br>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
                                                                     <span class="fas fa-map-marker-alt"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Dirección" disabled="disabled">
+                                                                        id="direccionc" readonly="readonly"
+                                                                        aria-required="true" value="">
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
                                                                     <span class="fas fa-phone-alt"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Teléfono: 9999-9999"
-                                                                        disabled="disabled">
+                                                                        id="telefonoc" readonly="readonly"
+                                                                        aria-required="true" value="">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -320,9 +334,8 @@
                                                                 <span class="fas fa-user-check"></span>
                                                             </div>
                                                             <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Nombre beneficiario 1"
-                                                                    disabled="disabled">
+                                                                <input type="text" class="form-control" id="bene1c"
+                                                                    readonly="readonly" aria-required="true" value="">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -332,9 +345,8 @@
                                                                 <span class="fas fa-user-check"></span>
                                                             </div>
                                                             <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Nombre beneficiario 2"
-                                                                    disabled="disabled">
+                                                                <input type="text" class="form-control" id="bene2c"
+                                                                    readonly="readonly" aria-required="true" value="">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -344,12 +356,50 @@
                                                                 <span class="fas fa-user-check"></span>
                                                             </div>
                                                             <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Nombre beneficiario 3"
-                                                                    disabled="disabled">
+                                                                <input type="text" class="form-control" id="bene3c"
+                                                                    readonly="readonly" aria-required="true" value="">
                                                             </div>
                                                         </div>
+                                                    </div><br><br><br><br>
+                                                    <div class="typography-hd-cr-4">
+                                                        <h2>Paquete</h2>
                                                     </div>
+                                                    <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                    <center>
+                                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                                            <div class="form-group nk-datapk-ctm form-elet-mg"
+                                                                id="data_1">
+                                                                <?php
+                                        
+                                        date_default_timezone_set('america/el_salvador');
+                                        $hora1 = date("A");
+                                        $hoy = getdate();
+                                        $hora = date("g");
+                                        $dia = date("d");
+                                         $fech = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
+                                    ?>
+                                                                <h5>Fecha de Adquisicón</h5>
+                                                                <div class="input-group date nk-int-st">
+                                                                    <span class="input-group-addon"></span>
+                                                                    <input type="text" class="form-control"
+                                                                        value="01/01/2018" name="fecha" id="fechac"
+                                                                        readonly="readonly" aria-required="true"
+                                                                        disabled="true">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="nk-int-mk sl-dp-mn">
+                                                                <h5>Servicio Funebre</h5>
+                                                            </div>
+                                                            <div class="chosen-select-act fm-cmp-mg">
+                                                                <select class="chosen"
+                                                                    data-placeholder="Seleccionar..." disabled="true">
+                                                                    <option value="United States">Jardín Completo
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
                                                 </div><br><br><br>
 
                                                 <div class="modal-footer">
@@ -359,7 +409,10 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!--FIN MODAL VER-->
+
                                     <?php } ?>
+
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -371,6 +424,7 @@
                 </div>
             </div>
         </div>
+        <script src="js/Validaciones/jsCliente.js"></script>
     </div>
     <!--FIN TABLA-->
 
@@ -552,6 +606,160 @@
     <!--  chosen JS
 		============================================ -->
     <script src="js/chosen/chosen.jquery.js"></script>
+
+    <!-- bootstrap select JS
+    ============================================ -->
+    <script src="js/bootstrap-select/bootstrap-select.js"></script>
+
+
+
+
+
+    <!-- jquery
+		============================================ -->
+  <script src="js/vendor/jquery-1.12.4.min.js"></script>
+  <!-- bootstrap JS
+		============================================ -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- wow JS
+		============================================ -->
+  <script src="js/wow.min.js"></script>
+  <!-- price-slider JS
+		============================================ -->
+  <script src="js/jquery-price-slider.js"></script>
+  <!-- owl.carousel JS
+		============================================ -->
+  <script src="js/owl.carousel.min.js"></script>
+  <!-- scrollUp JS
+		============================================ -->
+  <script src="js/jquery.scrollUp.min.js"></script>
+  <!-- meanmenu JS
+		============================================ -->
+  <script src="js/meanmenu/jquery.meanmenu.js"></script>
+  <!-- counterup JS
+		============================================ -->
+  <script src="js/counterup/jquery.counterup.min.js"></script>
+  <script src="js/counterup/waypoints.min.js"></script>
+  <script src="js/counterup/counterup-active.js"></script>
+  <!-- mCustomScrollbar JS
+		============================================ -->
+  <script src="js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+  <!-- sparkline JS
+		============================================ -->
+  <script src="js/sparkline/jquery.sparkline.min.js"></script>
+  <script src="js/sparkline/sparkline-active.js"></script>
+  <!-- flot JS
+		============================================ -->
+  <script src="js/flot/jquery.flot.js"></script>
+  <script src="js/flot/jquery.flot.resize.js"></script>
+  <script src="js/flot/flot-active.js"></script>
+  <!-- knob JS
+		============================================ -->
+  <script src="js/knob/jquery.knob.js"></script>
+  <script src="js/knob/jquery.appear.js"></script>
+  <script src="js/knob/knob-active.js"></script>
+  <!--  wave JS
+		============================================ -->
+  <script src="js/wave/waves.min.js"></script>
+  <script src="js/wave/wave-active.js"></script>
+  <!-- icheck JS
+		============================================ -->
+  <script src="js/icheck/icheck.min.js"></script>
+  <script src="js/icheck/icheck-active.js"></script>
+  <!--  Chat JS
+		============================================ -->
+  <script src="js/chat/jquery.chat.js"></script>
+  <!--  todo JS
+		============================================ -->
+  <script src="js/todo/jquery.todo.js"></script>
+  <!-- plugins JS
+		============================================ -->
+  <script src="js/plugins.js"></script>
+  <!-- main JS
+		============================================ -->
+  <script src="js/plugins.js"></script>
+  
+  <!-- main JS
+    ============================================ -->
+
+
+
+    <script src="js/dialog/dialog-active.js"></script>
+    <!--  dialogo
+		============================================ -->
+
+
+
+  <!-- mCustomScrollbar JS
+    ============================================ -->
+  <script src="js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+  <!-- sparkline JS
+    ============================================ -->
+  <script src="js/sparkline/jquery.sparkline.min.js"></script>
+  <script src="js/sparkline/sparkline-active.js"></script>
+  <!-- flot JS
+    ============================================ -->
+  <script src="js/flot/jquery.flot.js"></script>
+  <script src="js/flot/jquery.flot.resize.js"></script>
+  <script src="js/flot/flot-active.js"></script>
+  <!-- knob JS
+    ============================================ -->
+  <script src="js/knob/jquery.knob.js"></script>
+  <script src="js/knob/jquery.appear.js"></script>
+  <script src="js/knob/knob-active.js"></script>
+  <!-- Input Mask JS
+    ============================================ -->
+  <script src="js/jasny-bootstrap.min.js"></script>
+  <!-- icheck JS
+    ============================================ -->
+  <script src="js/icheck/icheck.min.js"></script>
+  <script src="js/icheck/icheck-active.js"></script>
+  <!-- rangle-slider JS
+    ============================================ -->
+  <script src="js/rangle-slider/jquery-ui-1.10.4.custom.min.js"></script>
+  <script src="js/rangle-slider/jquery-ui-touch-punch.min.js"></script>
+  <script src="js/rangle-slider/rangle-active.js"></script>
+  <!-- datapicker JS
+    ============================================ -->
+  <script src="js/datapicker/bootstrap-datepicker.js"></script>
+  <script src="js/datapicker/datepicker-active.js"></script>
+  <!-- bootstrap select JS
+    ============================================ -->
+  <script src="js/bootstrap-select/bootstrap-select.js"></script>
+  <!--  color-picker JS
+    ============================================ -->
+  <script src="js/color-picker/farbtastic.min.js"></script>
+  <script src="js/color-picker/color-picker.js"></script>
+  <!--  notification JS
+    ============================================ -->
+  <script src="js/notification/bootstrap-growl.min.js"></script>
+  <script src="js/notification/notification-active.js"></script>
+  <!--  summernote JS
+    ============================================ -->
+  <script src="js/summernote/summernote-updated.min.js"></script>
+  <script src="js/summernote/summernote-active.js"></script>
+  <!-- dropzone JS
+    ============================================ -->
+  <script src="js/dropzone/dropzone.js"></script>
+  <!--  wave JS
+    ============================================ -->
+  <script src="js/wave/waves.min.js"></script>
+  <script src="js/wave/wave-active.js"></script>
+  <!--  chosen JS
+    ============================================ -->
+  <script src="js/chosen/chosen.jquery.js"></script>
+
+  <!--  todo JS
+    ============================================ -->
+  <script src="js/todo/jquery.todo.js"></script>
+  <!-- plugins JS
+    ============================================ -->
+  <script src="js/plugins.js"></script>
+  <!-- main JS
+    ============================================ -->
+  <script src="js/main.js"></script>
+  <!-- tawk chat JS
+    ============================================ -->
 
 </body>
 
