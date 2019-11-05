@@ -34,6 +34,7 @@
   <!-- Breadcomb area End-->
   <!-- Inbox area Start-->
   <form action="Controladores/ClienteC.php" method="POST">
+  <input type="hidden" value="GuardarCliente" name="bandera">
   <center>
       <div class="inbox-area">
         <div class="container">

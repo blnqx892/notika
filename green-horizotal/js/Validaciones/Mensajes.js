@@ -1,5 +1,4 @@
 function notaError(sms){
-
 new PNotify({
     title: '  ¡ERROR!',
     text: sms,
