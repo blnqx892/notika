@@ -58,22 +58,30 @@
               <table id="data-table-basic" class="table table-striped">
                 <thead>
                   <tr>
-                    <th>Nombre</th>
-                    <th>Teléfono</th>
                     <th>Empresa</th>
-                    <th>Dirección</th>
+                    <th>TeléfonoResponsable</th>
+                    <th>Direccion Empresa</th>
+                    <th>Nombre Proveedor</th>
                     <th>Ver</th>
                     <th>Modificar</th>
                     <th>Dar Baja</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Natalie Castillo</td>
-                    <td>7898-8751</td>
-                    <td>El Taller</td>
-                    <td>10 Calle Oriente, Av. Lourdes #2, San Salvador</td>
-                    <td>
+                <?php 
+            $conexion=mysqli_connect('localhost','root', '', 'funesi');
+            $sql="SELECT * from proveedor order by nombre_prov ASC";
+            $proveedor= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
+                                    <?php While($mostrar=mysqli_fetch_assoc($proveedor)){?>
+                                    <tr>
+                                        <td><?php echo $mostrar['nombre_prov'] ?></td>
+                                        <td><?php echo $mostrar['telefonoResp_Prov'] ?></td>
+                                        <td><?php echo $mostrar['direccion_Prov'] ?></td>
+                                        <td><?php echo $mostrar['nombreEmpr'] ?></td>
+                                        
+                                        <td>
+                 
+    
                       <center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                           data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center>
                     </td>
@@ -254,6 +262,7 @@
                     </div>
                     <!-- FIN MODALES-->
                   </tr>
+                  <?php } ?>
                 </tbody>
                 <tfoot>
                   <tr>

@@ -106,9 +106,11 @@
                                                         class="fas fa-eye"></i></button></center>
                                         </td>
                                         <th>
-                                            <center><button type="button"
-                                                    class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalEditar"><i
+                                            <center><button <?php $fechaEmp = explode("-",$mostrar['fecha_Emple']);
+                                              $fechaEmp = $fechaEmp[2].'/'.$fechaEmp[1].'/'.$fechaEmp[0];
+                                            ?>class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
+                                                    data-toggle="modal" data-target="#modalEditar"
+                                                    onclick="editarEmpleado('<?php echo $mostrar['Dui_Emple']?>','<?php echo $mostrar['nombres_Emple']?>','<?php echo $mostrar['apellidos_Emple']?>','<?php echo $mostrar['direccion_Emple']?>','<?php echo $mostrar['telefono_Emple']?>','<?php echo $mostrar['cargo_Emple']?>','<?php echo $fechaEmp?>')"><i
                                                         class="fas fa-edit"></i></button></center>
                                         </th>
                                         <th>
@@ -118,10 +120,14 @@
                                         </th>
                                     </tr>
                                     <!-- INICIO MODAL EDITAR-->
-                                    <div class="modal fade" id="modalEditar" role="dialog">
+                                    <div class="modal fade" id="modalEditar" tabindex="-1"  role="dialog"
+                                    aria-labelledby="myModalLabel">
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
-                                                <div class="modal-header">
+                                            <form action="Controladores/EmpleadoE.php" method="POST" id="editarEmpleado">
+                                                <input type="hidden" value="EditarEmpleado" name="bandera">
+                                                        <input type="hidden" value="" name="idempleado" id="idempleado" />
+                                                    <div class="modal-header">
                                                     <button type="button" class="close"
                                                         data-dismiss="modal">&times;</button>
                                                 </div>
@@ -143,8 +149,8 @@
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="DUI 99999999-9"
-                                                                        disabled="disabled">
+                                                                    id="duied" name="duiee" readonly="readonly"
+                                                                            data-mask="99999999-9" >
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -155,7 +161,8 @@
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Nombres" disabled="disabled">
+                                                                    id="nombresed" name="nombresee"
+                                                                            aria-required="true" value="">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -166,7 +173,8 @@
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Apellidos" disabled="disabled">
+                                                                    id="apellidosed" name="apellidosee"
+                                                                            aria-required="true" value="">
                                                                 </div>
                                                             </div>
                                                         </div><br><br><br>
@@ -177,7 +185,8 @@
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Dirección">
+                                                                    id="direccioned" name="direccionee"
+                                                                            aria-required="true" value="">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -188,7 +197,8 @@
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Teléfono">
+                                                                    id="telefonoed" name="telefonoee" value=""
+                                                                             data-mask="9999-9999">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -197,6 +207,28 @@
                                                         <h2>Cargo a Asignar</h2>
                                                     </div>
                                                     <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
+                                                            <?php
+                                        
+                                        date_default_timezone_set('america/el_salvador');
+                                        $hora1 = date("A");
+                                        $hoy = getdate();
+                                        $hora = date("g");
+                                        $dia = date("d");
+                                         $fech = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
+                                    ?>
+                                                            <h5>Fecha de Ingreso</h5>
+                                                            <div class="input-group date nk-int-st">
+                                                                <span class="input-group-addon"></span>
+                                                                <input type="text" class="form-control"
+                                                                    value="<?php echo $fech?>" min="01/01/2000"
+                                                                    max="<?php echo $fech?>" name="fechaee" id="fechaed"
+                                                                    disabled="true">
+                                                            </div>
+                                                        </div>
+                                                    </div><br>
+                                                    
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
@@ -204,17 +236,18 @@
                                                             </div>
                                                             <div class="nk-int-st">
                                                                 <input type="text" class="form-control"
-                                                                    placeholder="Cargo">
+                                                                id="cargoed" name="cargoee" value="">
                                                             </div>
                                                         </div>
                                                     </div><br><br><br><br><br><br>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default"
-                                                        data-dismiss="modal">Guardar Cambios</button>
-                                                    <button type="button" class="btn btn-default"
-                                                        data-dismiss="modal">Cancelar</button>
+                                                <button class="btn btn-default" type="submit">Guardar
+                                                            Cambios</button>
+                                                        <button type="button" class="btn btn-default"
+                                                            data-dismiss="modal">Cancelar</button>
                                                 </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
