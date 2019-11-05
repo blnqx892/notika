@@ -39,78 +39,67 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="form-element-list">
             <div class="cmp-tb-hd bcs-hd">
-                <div class="typography-hd-cr-4">
-                  <h4>Datos Personales</h4>
-                </div>
-                <hr style="width:100%;border-color:light-gray 25px;"><br>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                  <div class="form-group ic-cmp-int">
-                    <div class="form-ic-cmp">
-                      <span class="fas fa-id-card"></span>
-                    </div>
-                    <div class="nk-int-st">
+              <div class="typography-hd-cr-4">
+                <h4>Datos Personales</h4>
+              </div>
+              <hr style="width:100%;border-color:light-gray 25px;"><br>
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                <div class="form-group ic-cmp-int">
+                  <div class="form-ic-cmp">
+                    <span class="fas fa-id-card"></span>
+                  </div>
+                  <div class="nk-int-st">
                     <input type="text" class="form-control" placeholder="DUI: 99999999-9" name="dui"
-                        data-mask="99999999-9" id="duii">
-                    </div>
+                      data-mask="99999999-9" id="duii">
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                  <div class="form-group ic-cmp-int">
-                    <div class="form-ic-cmp">
-                      <span class="icon-user"></span>
-                    </div>
-                    <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Nombres" name="nombres">
-                    </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="form-group ic-cmp-int">
+                  <div class="form-ic-cmp">
+                    <span class="icon-user"></span>
+                  </div>
+                  <div class="nk-int-st">
+                    <input type="text" class="form-control" placeholder="Nombres" name="nombres">
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                  <div class="form-group ic-cmp-int">
-                    <div class="form-ic-cmp">
-                      <span class="icon-user"></span>
-                    </div>
-                    <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Apellidos" name="apellidos">
-                    </div>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="form-group ic-cmp-int">
+                  <div class="form-ic-cmp">
+                    <span class="icon-user"></span>
                   </div>
-                </div><br><br><br><br>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <div class="form-group ic-cmp-int">
-                    <div class="form-ic-cmp">
-                      <span class="fas fa-map-marker-alt"></span>
-                    </div>
-                    <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Dirección" name="direccion">
-                    </div>
+                  <div class="nk-int-st">
+                    <input type="text" class="form-control" placeholder="Apellidos" name="apellidos">
                   </div>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                  <div class="form-group ic-cmp-int">
-                    <div class="form-ic-cmp">
-                      <span class="fas fa-phone-alt"></span>
-                    </div>
-                    <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Telf:9999-9999" name="telefono"
-                        data-mask="9999-9999">
-                    </div>
+              </div><br><br><br><br>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group ic-cmp-int">
+                  <div class="form-ic-cmp">
+                    <span class="fas fa-map-marker-alt"></span>
                   </div>
-                </div><br><br><br><br><br><br>
-                <div class="typography-hd-cr-4">
-                  <h4>Cargo a Asignar</h4>
-                </div>
-                <hr style="width:100%;border-color:light-gray 25px;"><br>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                  <div class="form-group ic-cmp-int">
-                    <div class="form-ic-cmp">
-                      <span class="fas fa-address-card"></span>
-                    </div>
-                    <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Cargo" name="cargo">
-                    </div>
+                  <div class="nk-int-st">
+                    <input type="text" class="form-control" placeholder="Dirección" name="direccion">
                   </div>
                 </div>
-            </div><br><br>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+              </div>
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                <div class="form-group ic-cmp-int">
+                  <div class="form-ic-cmp">
+                    <span class="fas fa-phone-alt"></span>
+                  </div>
+                  <div class="nk-int-st">
+                    <input type="text" class="form-control" placeholder="Telf:9999-9999" name="telefono"
+                      data-mask="9999-9999">
+                  </div>
+                </div>
+              </div><br><br><br><br><br><br>
+              <div class="typography-hd-cr-4">
+                <h4>Cargo a Asignar</h4>
+              </div>
+              <hr style="width:100%;border-color:light-gray 25px;"><br>
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                 <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
                   <?php
                                         
@@ -128,7 +117,18 @@
                       max="<?php echo $fech?>" name="fecha" id="fech">
                   </div>
                 </div>
-              </div><br><br><br>
+              </div><br>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="form-group ic-cmp-int">
+                  <div class="form-ic-cmp">
+                    <span class="fas fa-address-card"></span>
+                  </div>
+                  <div class="nk-int-st">
+                    <input type="text" class="form-control" placeholder="Cargo" name="cargo">
+                  </div>
+                </div>
+              </div>
+            </div> <br><br><br><br><br><br>
             <center>
               <button class="btn btn-success notika-btn-success" type="submit">Guardar <i
                   class="notika-icon notika-checked"></i></button>
@@ -230,14 +230,14 @@
     ============================================ -->
   <script src="js/datapicker/bootstrap-datepicker.js"></script>
   <script src="js/datapicker/datepicker-active.js"></script>
-   <!-- datapicker JS
+  <!-- datapicker JS
     ============================================ -->
   <script src="js/datapicker/bootstrap-datepicker.js"></script>
   <script src="js/datapicker/datepicker-active.js"></script>
 
   <!-- Input Mask JS
     ============================================ -->
-    <script src="js/jasny-bootstrap.min.js"></script>
+  <script src="js/jasny-bootstrap.min.js"></script>
 </body>
 
 </html>

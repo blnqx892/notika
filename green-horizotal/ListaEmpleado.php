@@ -69,9 +69,8 @@
                             <table id="data-table-basic" class="table table-striped">
                                 <thead>
                                     <tr>
-                                        
+
                                         <th>Fecha Ingreso</th>
-                                        <th>Dui</th>
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
                                         <th>Cargo</th>
@@ -87,19 +86,23 @@
                                     $empleados= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
                                     <?php While($mostrar=mysqli_fetch_assoc($empleados)){?>
                                     <tr>
-                                        <td>
-                                            <?php echo $mostrar['fecha_Emple'] ?>
-                                            <td><?php echo $mostrar['Dui_Emple'] ?></td>
-                                            <td><?php echo $mostrar['nombres_Emple'] ?></td>
-                                            <td><?php echo $mostrar['apellidos_Emple'] ?></td>
-                                             <td><?php echo $mostrar['cargo_Emple'] ?></td>
-                                       
+                                        <td><?php $fechaEmp = explode("-",$mostrar['fecha_Emple']);
+                                                                        $fechaEmp = $fechaEmp[2].'/'.$fechaEmp[1].'/'.$fechaEmp[0];
+                                                                        echo $fechaEmp 
+                                            ?>
+                                        </td>
+                                        <td><?php echo $mostrar['nombres_Emple'] ?></td>
+                                        <td><?php echo $mostrar['apellidos_Emple'] ?></td>
+                                        <td><?php echo $mostrar['cargo_Emple'] ?></td>
+
                                         <td>
 
 
-                                            <center> <button
-                                                    class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalVer"><i
+                                            <center> <button <?php $fechaEmp = explode("-",$mostrar['fecha_Emple']);
+                                              $fechaEmp = $fechaEmp[2].'/'.$fechaEmp[1].'/'.$fechaEmp[0];
+                                            ?> class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
+                                                    data-toggle="modal" data-target="#modalVerEmpleado"
+                                                    onclick="mostrarEmpleado('<?php echo $mostrar['Dui_Emple']?>','<?php echo $mostrar['nombres_Emple']?>','<?php echo $mostrar['apellidos_Emple']?>','<?php echo $mostrar['direccion_Emple']?>','<?php echo $mostrar['telefono_Emple']?>','<?php echo $mostrar['cargo_Emple']?>','<?php echo $fechaEmp?>')"><i
                                                         class="fas fa-eye"></i></button></center>
                                         </td>
                                         <th>
@@ -114,7 +117,7 @@
                                                         class="fas fa-arrow-alt-circle-down"></i></button></center>
                                         </th>
                                     </tr>
-                                    <!-- INICIO MODALES-->
+                                    <!-- INICIO MODAL EDITAR-->
                                     <div class="modal fade" id="modalEditar" role="dialog">
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
@@ -215,8 +218,11 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- FIN MODAL EDITAR-->
 
-                                    <div class="modal fade" id="modalVer" role="dialog">
+                                    <!-- INICIO MODAL VER-->
+                                    <div class="modal fade" id="modalVerEmpleado" tabindex="-1" role="dialog"
+                                        aria-labelledby="myModalLabel">
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -241,8 +247,9 @@
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="DUI 99999999-9"
-                                                                        disabled="disabled">
+                                                                        placeholder="DUI 99999999-9" readonly="readonly"
+                                                                        aria-required="true" value="" id="dui"
+                                                                        name="duic">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -253,7 +260,9 @@
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Nombres" disabled="disabled">
+                                                                        placeholder="Nombres" readonly="readonly"
+                                                                        aria-required="true" value="" id="nombres"
+                                                                        name="nombresc">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -264,18 +273,22 @@
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Apellidos" disabled="disabled">
+                                                                        placeholder="Apellidos" readonly="readonly"
+                                                                        aria-required="true" value="" id="apellidos"
+                                                                        name="apellidosc">
                                                                 </div>
                                                             </div>
                                                         </div><br><br><br>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
                                                                     <span class="fas fa-map-marker-alt"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Dirección" disabled="disabled">
+                                                                        placeholder="Dirección" readonly="readonly"
+                                                                        aria-required="true" value="" id="direccion"
+                                                                        name="direccionc">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -286,7 +299,9 @@
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Teléfono" disabled="disabled">
+                                                                        placeholder="Teléfono" readonly="readonly"
+                                                                        aria-required="true" value="" id="telefono"
+                                                                        name="telefonoc">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -295,37 +310,64 @@
                                                         <h2>Cargo a Asignar</h2>
                                                     </div>
                                                     <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
+                                                            <?php
+                                        
+                                        date_default_timezone_set('america/el_salvador');
+                                        $hora1 = date("A");
+                                        $hoy = getdate();
+                                        $hora = date("g");
+                                        $dia = date("d");
+                                         $fech = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
+                                    ?>
+                                                            <h5>Fecha de Ingreso</h5>
+                                                            <div class="input-group date nk-int-st">
+                                                                <span class="input-group-addon"></span>
+                                                                <input type="text" class="form-control"
+                                                                    value="<?php echo $fech?>" min="01/01/2000"
+                                                                    max="<?php echo $fech?>" name="fecha" id="fech"
+                                                                    disabled="true">
+                                                            </div>
+                                                        </div>
+                                                    </div><br>
                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                             <div class="form-ic-cmp">
                                                                 <span class="fas fa-address-card"></span>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Cargo" disabled="disabled">
-                                                                </div>
                                                             </div>
-                                                        </div><br><br><br><br><br><br>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default"
-                                                            data-dismiss="modal">Cerrar</button>
-                                                    </div>
+                                                            <div class="nk-int-st">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Cargo" readonly="readonly"
+                                                                    aria-required="true" value="" id="cargo"
+                                                                    name="cargoc">
+                                                            </div>
+                                                        </div>
+                                                    </div><br><br><br><br><br><br>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">Cerrar</button>
                                                 </div>
                                             </div>
                                         </div>
-                                      
-                                  <?php } ?>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                                    </div>
                         </div>
+                        <!-- FIN MODAL VER-->
+
+                        <?php } ?>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                            </tr>
+                        </tfoot>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <script src="js/Validaciones/jsEmpleado.js"></script>
     </div>
     <!--FIN TABLA-->
 
@@ -417,9 +459,9 @@
 
 
 
-<!-- jquery
+    <!-- jquery
 		============================================ -->
-        <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
     <!-- bootstrap JS
 		============================================ -->
     <script src="js/bootstrap.min.js"></script>

@@ -83,10 +83,6 @@
             $sql="SELECT * from cliente order by nombre_cli ASC";
             $clientes= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
                                     <?php While($mostrar=mysqli_fetch_assoc($clientes)){?>
-
-                                    <?php $fechaCli = explode("-",$mostrar['fecha_Cli']);
-                                        $fechaCli = $fechaCli[2].'/'.$fechaCli[1].'/'.$fechaCli[0];
-                                        echo $fechac ?>
                                     <tr>
                                         <td><?php echo $mostrar['Dui_cli'] ?></td>
                                         <td><?php echo $mostrar['nombre_cli'] ?></td>
@@ -94,9 +90,12 @@
                                         <td><?php echo $mostrar['telefono_Cli'] ?></td>
                                         <td>
                                             <center><button
+                                            <?php $fechaCli = explode("-",$mostrar['fecha_Cli']);
+                                              $fechaCli = $fechaCli[2].'/'.$fechaCli[1].'/'.$fechaCli[0];
+                                            ?>
                                                     class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                                                     data-toggle="modal" data-target="#modalVerCliente"
-                                                    onclick="mostraCliente('<?php echo $mostrar['Dui_cli']?>','<?php echo $mostrar['nombre_cli']?>','<?php echo $mostrar['apellidos_Cli']?>','<?php echo $mostrar['direccion_cli']?>','<?php echo $mostrar['telefono_Cli']?>','<?php echo $mostrar['ben1_Cli']?>','<?php echo $mostrar['ben2_Cli']?>','<?php echo $mostrar['ben3_Cli']?>','<?php echo $mostrar['fecha_Cli']?>')"><i
+                                                    onclick="mostraCliente('<?php echo $mostrar['Dui_cli']?>','<?php echo $mostrar['nombre_cli']?>','<?php echo $mostrar['apellidos_Cli']?>','<?php echo $mostrar['direccion_cli']?>','<?php echo $mostrar['telefono_Cli']?>','<?php echo $mostrar['ben1_Cli']?>','<?php echo $mostrar['ben2_Cli']?>','<?php echo $mostrar['ben3_Cli']?>','<?php echo $fechaCli?>')"><i
                                                         class="fas fa-eye"></i></button>
                                             </center>
                                         </td>
@@ -104,7 +103,7 @@
                                             <center><button
                                                     class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
                                                     data-toggle="modal" data-target="#modalEditarCliente"
-                                                    onclick="editarCliente('<?php echo $mostrar['Dui_cli']?>','<?php echo $mostrar['nombre_cli']?>','<?php echo $mostrar['apellidos_Cli']?>','<?php echo $mostrar['direccion_cli']?>','<?php echo $mostrar['telefono_Cli']?>','<?php echo $mostrar['ben1_Cli']?>','<?php echo $mostrar['ben2_Cli']?>','<?php echo $mostrar['ben3_Cli']?>','<?php echo $mostrar['fecha_Cli']?>','<?php echo $mostrar['idCliente']?>')"><i
+                                                    onclick="editarCliente('<?php echo $mostrar['Dui_cli']?>','<?php echo $mostrar['nombre_cli']?>','<?php echo $mostrar['apellidos_Cli']?>','<?php echo $mostrar['direccion_cli']?>','<?php echo $mostrar['telefono_Cli']?>','<?php echo $mostrar['ben1_Cli']?>','<?php echo $mostrar['ben2_Cli']?>','<?php echo $mostrar['ben3_Cli']?>','<?php echo $fechaCli?>','<?php echo $mostrar['idCliente']?>')"><i
                                                         class="fas fa-edit"></i></button>
                                             </center>
                                         </th>
@@ -243,11 +242,10 @@
                                                         </div>
                                                         <hr style="width:100%;border-color:light-gray 25px;"><br>
                                                         <center>
-                                                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                                 <div class="form-group nk-datapk-ctm form-elet-mg"
                                                                     id="data_1">
                                                                     <?php
-                                        
                                                                    date_default_timezone_set('america/el_salvador');
                                                                    $hora1 = date("A");
                                                                    $hoy = getdate();
@@ -259,7 +257,7 @@
                                                                     <div class="input-group date nk-int-st">
                                                                         <span class="input-group-addon"></span>
                                                                         <input type="text" class="form-control"
-                                                                            value="01/01/2018" name="fechaed"
+                                                                            value="<?php echo $fech?>" name="fechaed"
                                                                             id="fechae" disabled="true"
                                                                             aria-required="true">
                                                                     </div>
@@ -416,7 +414,7 @@
                                                     </div>
                                                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                                                     <center>
-                                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                             <div class="form-group nk-datapk-ctm form-elet-mg"
                                                                 id="data_1">
                                                                 <?php
@@ -426,15 +424,16 @@
                                         $hoy = getdate();
                                         $hora = date("g");
                                         $dia = date("d");
-                                         $fech = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
+                                         $fechac = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
                                        ?>
                                                                 <h5>Fecha de Adquisicón</h5>
                                                                 <div class="input-group date nk-int-st">
                                                                     <span class="input-group-addon"></span>
                                                                     <input type="text" class="form-control"
-                                                                        value="01/01/2018" name="fecha" id="fechac"
+                                                                        value="<?php echo $fechac?>" min="01/01/2000"
+                                                                        max="<?php echo $fechac?>" name="fecha" id="fechac"
                                                                         disabled="true" aria-required="true"
-                                                                        >
+                                                                    >
                                                                 </div>
                                                             </div>
                                                         </div>

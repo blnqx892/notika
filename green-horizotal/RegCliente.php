@@ -148,13 +148,13 @@
                                         $hoy = getdate();
                                         $hora = date("g");
                                         $dia = date("d");
-                                         $fech = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
-                                    ?>
+                                         $fech = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];   ?>
+
                     <h5>Fecha de Adquisicón</h5>
                     <div class="input-group date nk-int-st">
                       <span class="input-group-addon"></span>
                       <input type="text" class="form-control" value="<?php echo $fech?>" min="01/01/2000"
-                        max="<?php echo $fech?>" name="fecha" id="fech">
+                        max="<?php echo $fech?>" name="fecha" id="fec">
                     </div>
                   </div>
                 </div>
