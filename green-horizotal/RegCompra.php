@@ -43,12 +43,21 @@
                         </div>
                         <hr style="width:100%;border-color:light-gray 25px;"><br>
                         <div class="cmp-tb-hd bcs-hd">
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                 <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
-                                    <h5>Fecha</h5>
+                                    <?php
+                                                                   date_default_timezone_set('america/el_salvador');
+                                                                   $hora1 = date("A");
+                                                                   $hoy = getdate();
+                                                                   $hora = date("g");
+                                                                   $dia = date("d");
+                                                                   $fech = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
+                                                                ?>
+                                    <h5>Fecha de Compra</h5>
                                     <div class="input-group date nk-int-st">
                                         <span class="input-group-addon"></span>
-                                        <input type="text" class="form-control" value="02/10/2019">
+                                        <input type="text" class="form-control" value="<?php echo $fech?>"
+                                            name="fechaed" id="fechae" disabled="true" aria-required="true">
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +121,7 @@
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="fas fa-shapes"></span>
+                                    <span class="fas fa-shapes"></span>
                                 </div>
                                 <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Tipo">
@@ -138,7 +147,56 @@
                                     <input type="text" class="form-control" placeholder="Precio Unitario">
                                 </div>
                             </div>
-                        </div><br><br><br><br><br>
+                        </div><br>
+                        <div><button class="btn btn-success notika-btn-primary">Agregar <span class="fas fa-cart-plus"></span></button></div><br><br>
+                        <center>
+                            <div class="data-table-area">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+                                            <div class="data-table-list">
+                                                <div class="basic-tb-hd">
+                                                    <h2>Compras</h2>
+                                                </div>
+                                                <div class="table-responsive">
+                                                    <table id="data-table-basic" class="table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Producto</th>
+                                                                <th>Categoria</th>
+                                                                <th>Cantidad</th>
+                                                                <th>Precio Unitario</th>
+                                                                <th>Sub-Total</th>
+                                                                <th>Eliminar</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Sillas Magna Azul</td>
+                                                                <td>Equipo</td>
+                                                                <td>45</td>
+                                                                <th>12.50</th>
+                                                                <th>562.5</th>
+                                                                <td>
+                                                                    <center> <button
+                                                                            class="btn btn-danger danger-icon-notika waves-effect"
+                                                                            data-toggle="modal" data-target="#modalVer"><span class="fas fa-trash-alt"></span></button>
+                                                                    </center>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </center>
                         <center>
                             <button class="btn btn-success notika-btn-success">Guardar <i
                                     class="notika-icon notika-checked"></i></button>
@@ -150,7 +208,6 @@
             </div>
         </div>
     </form>
-
     <!-- Inbox area End-->
     <!-- Start Footer area-->
     <div class="footer-copyright-area">

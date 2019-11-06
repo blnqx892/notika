@@ -89,11 +89,9 @@
                                         <td><?php echo $mostrar['apellidos_Cli'] ?></td>
                                         <td><?php echo $mostrar['telefono_Cli'] ?></td>
                                         <td>
-                                            <center><button
-                                            <?php $fechaCli = explode("-",$mostrar['fecha_Cli']);
+                                            <center><button <?php $fechaCli = explode("-",$mostrar['fecha_Cli']);
                                               $fechaCli = $fechaCli[2].'/'.$fechaCli[1].'/'.$fechaCli[0];
-                                            ?>
-                                                    class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
+                                            ?> class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                                                     data-toggle="modal" data-target="#modalVerCliente"
                                                     onclick="mostraCliente('<?php echo $mostrar['Dui_cli']?>','<?php echo $mostrar['nombre_cli']?>','<?php echo $mostrar['apellidos_Cli']?>','<?php echo $mostrar['direccion_cli']?>','<?php echo $mostrar['telefono_Cli']?>','<?php echo $mostrar['ben1_Cli']?>','<?php echo $mostrar['ben2_Cli']?>','<?php echo $mostrar['ben3_Cli']?>','<?php echo $fechaCli?>')"><i
                                                         class="fas fa-eye"></i></button>
@@ -120,9 +118,9 @@
                                         aria-labelledby="myModalLabel">
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
-                                                <form action="Controladores/ClienteC.php" method="POST" >
-                                                <input type="hidden" value="EditarCliente" name="bandera">
-                                                        <input type="hidden" value="" name="idcliente" id="idcliente" />
+                                                <form action="Controladores/ClienteC.php" method="POST">
+                                                    <input type="hidden" value="EditarCliente" name="bandera">
+                                                    <input type="hidden" value="" name="idcliente" id="idcliente" />
                                                     <div class="modal-header">
                                                         <button type="button" class="close"
                                                             data-dismiss="modal">&times;</button>
@@ -146,7 +144,7 @@
                                                                     <div class="nk-int-st">
                                                                         <input type="text" class="form-control"
                                                                             id="duie" name="duied" readonly="readonly"
-                                                                            data-mask="99999999-9" >
+                                                                            data-mask="99999999-9">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -195,7 +193,7 @@
                                                                     <div class="nk-int-st">
                                                                         <input type="text" class="form-control"
                                                                             id="telefonoe" name="telefonoed" value=""
-                                                                             data-mask="9999-9999">
+                                                                            data-mask="9999-9999">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -278,7 +276,7 @@
 
                                                     </div><br><br><br>
                                                     <div class="modal-footer">
-                                                      
+
                                                         <button class="btn btn-default" type="submit">Guardar
                                                             Cambios</button>
                                                         <button type="button" class="btn btn-default"
@@ -419,21 +417,21 @@
                                                                 id="data_1">
                                                                 <?php
                                         
-                                        date_default_timezone_set('america/el_salvador');
-                                        $hora1 = date("A");
-                                        $hoy = getdate();
-                                        $hora = date("g");
-                                        $dia = date("d");
-                                         $fechac = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
-                                       ?>
+                                                                    date_default_timezone_set('america/el_salvador');
+                                                                    $hora1 = date("A");
+                                                                    $hoy = getdate();
+                                                                    $hora = date("g");
+                                                                    $dia = date("d");
+                                                                     $fechac = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
+                                                                ?>
                                                                 <h5>Fecha de Adquisicón</h5>
                                                                 <div class="input-group date nk-int-st">
                                                                     <span class="input-group-addon"></span>
                                                                     <input type="text" class="form-control"
                                                                         value="<?php echo $fechac?>" min="01/01/2000"
-                                                                        max="<?php echo $fechac?>" name="fecha" id="fechac"
-                                                                        disabled="true" aria-required="true"
-                                                                    >
+                                                                        max="<?php echo $fechac?>" name="fecha"
+                                                                        id="fechac" disabled="true"
+                                                                        aria-required="true">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -442,7 +440,8 @@
                                                                 <h5>Servicio Funebre</h5>
                                                             </div>
                                                             <div class="chosen-select-act fm-cmp-mg">
-                                                                <select class="chosen" data-placeholder="Seleccionar..." disabled="true">
+                                                                <select class="chosen" data-placeholder="Seleccionar..."
+                                                                    disabled="true">
                                                                     <option value="United States">Jardín Completo
                                                                     </option>
                                                                 </select>
