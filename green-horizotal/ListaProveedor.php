@@ -82,12 +82,15 @@
 
                     <td>
                       <center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalVerProveedor" onclick="mostraProveedor('<?php echo $mostrar['nombre_prov']?>','<?php echo $mostrar['direccion_Prov']?>','<?php echo $mostrar['telefonoResp_Prov']?>','<?php echo $mostrar['nombreEmpr']?>','<?php echo $mostrar['telefEmp']?>')"><i class="fas fa-eye"></i></button>
+                          data-toggle="modal" data-target="#modalVerProveedor"
+                          onclick="mostraProveedor('<?php echo $mostrar['nombre_prov']?>','<?php echo $mostrar['direccion_Prov']?>','<?php echo $mostrar['telefonoResp_Prov']?>','<?php echo $mostrar['nombreEmpr']?>','<?php echo $mostrar['telefEmp']?>')"><i
+                            class="fas fa-eye"></i></button>
                       </center>
                     </td>
                     <th>
                       <center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button></center>
+                          data-toggle="modal" data-target="#modalEditarProveedor" onclick="editarProveedor('<?php echo $mostrar['nombre_prov']?>','<?php echo $mostrar['direccion_Prov']?>','<?php echo $mostrar['telefonoResp_Prov']?>','<?php echo $mostrar['nombreEmpr']?>','<?php echo $mostrar['telefEmp']?>','<?php echo $mostrar['idProveedor']?>')"><i class="fas fa-edit"></i></button>
+                      </center>
                     </th>
                     <th>
                       <center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
@@ -98,40 +101,18 @@
                     <div class="modal fade" id="modalEditarProveedor" role="dialog">
                       <div class="modal-dialog modal-large">
                         <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          </div>
-                          <div class="modal-body">
-                            <center>
-                              <div class="typography-hd-cr-4">
-                                <h3>Editar Datos del Proveedor</h3>
-                              </div>
-                            </center><br>
-                            <div class="typography-hd-cr-4">
-                              <h2>Datos Personales del Responsable</h2>
+                          <form action="Controladores/ProveedorC.php" method="POST">
+                            <input type="hidden" value="EditarProveedor" name="bandera">
+                            <input type="hidden" value="" name="idproveedor" id="idproveedor" />
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
-                            <hr style="width:100%;border-color:light-gray 25px;"><br>
-                            <div class="cmp-tb-hd bcs-hd">
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                    <span class="icon-user"></span>
-                                  </div>
-                                  <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Nombre Completo">
-                                  </div>
+                            <div class="modal-body">
+                              <center>
+                                <div class="typography-hd-cr-4">
+                                  <h3>Editar Datos del Proveedor</h3>
                                 </div>
-                              </div>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                    <span class="fas fa-phone-alt"></span>
-                                  </div>
-                                  <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Telf:9999-9999">
-                                  </div>
-                                </div>
-                              </div><br><br><br><br><br>
+                              </center><br>
                               <div class="typography-hd-cr-4">
                                 <h2>Datos de la Empresa</h2>
                               </div>
@@ -142,17 +123,19 @@
                                     <span class="fas fa-building"></span>
                                   </div>
                                   <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Empresa" disabled="disabled">
+                                    <input type="text" class="form-control" id="nombreEmpreE"
+                                      name="nombreEmpreC"  aria-required="true" value="">
                                   </div>
                                 </div>
                               </div>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
                                     <span class="fas fa-map-marker-alt"></span>
                                   </div>
                                   <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Dirección">
+                                    <input type="text" class="form-control" id="direccionEmpreE"
+                                      name="direccionEmpreC" aria-required="true" value="">
                                   </div>
                                 </div>
                               </div>
@@ -162,18 +145,44 @@
                                     <span class="fas fa-phone-alt"></span>
                                   </div>
                                   <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Telf:9999-9999">
+                                    <input type="text" class="form-control"  id="telEmpreE" aria-required="true" value="" name="telEmpreC">
                                   </div>
                                 </div>
+                              </div><br><br><br><br><br>
+                              <div class="typography-hd-cr-4">
+                                <h2>Datos Personales del Responsable</h2>
                               </div>
-                              <br><br><br>
+                              <hr style="width:100%;border-color:light-gray 25px;"><br>
+                              <div class="cmp-tb-hd bcs-hd">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                  <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                      <span class="icon-user"></span>
+                                    </div>
+                                    <div class="nk-int-st">
+                                      <input type="text" class="form-control" id="nombreResE" name="nombreResC" aria-required="true" value="">
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                  <div class="form-group ic-cmp-int">
+                                    <div class="form-ic-cmp">
+                                      <span class="fas fa-phone-alt"></span>
+                                    </div>
+                                    <div class="nk-int-st">
+                                      <input type="text" class="form-control" aria-required="true" value="" id="telResE"
+                                        name="telResC">
+                                    </div>
+                                  </div>
+                                </div><br><br><br><br><br>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="submit" class="btn btn-default">Guardar
+                                  Cambios</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                              </div>
                             </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Guardar
-                                Cambios</button>
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                            </div>
-                          </div>
+                          </form>
                         </div>
                       </div>
                     </div>
@@ -192,44 +201,44 @@
                                 <h3>Información del Proveedor</h3>
                               </div>
                             </center><br>
-                              <div class="typography-hd-cr-4">
-                                <h2>Datos de la Empresa</h2>
-                              </div>
-                              <hr style="width:100%;border-color:light-gray 25px;"><br>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                    <span class="fas fa-building"></span>
-                                  </div>
-                                  <div class="nk-int-st">
-                                    <input type="text" class="form-control" readonly="readonly" aria-required="true"
-                                      value="" id="nombreEmpre">
-                                  </div>
+                            <div class="typography-hd-cr-4">
+                              <h2>Datos de la Empresa</h2>
+                            </div>
+                            <hr style="width:100%;border-color:light-gray 25px;"><br>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                              <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                  <span class="fas fa-building"></span>
+                                </div>
+                                <div class="nk-int-st">
+                                  <input type="text" class="form-control" readonly="readonly" aria-required="true"
+                                    value="" id="nombreEmpre">
                                 </div>
                               </div>
-                              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                    <span class="fas fa-map-marker-alt"></span>
-                                  </div>
-                                  <div class="nk-int-st">
-                                    <input type="text" class="form-control" readonly="readonly" aria-required="true"
-                                      id="direccionEmpre">
-                                  </div>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                              <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                  <span class="fas fa-map-marker-alt"></span>
+                                </div>
+                                <div class="nk-int-st">
+                                  <input type="text" class="form-control" readonly="readonly" aria-required="true"
+                                    id="direccionEmpre">
                                 </div>
                               </div>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                    <span class="fas fa-phone-alt"></span>
-                                  </div>
-                                  <div class="nk-int-st">
-                                    <input type="text" class="form-control" readonly="readonly" aria-required="true"
-                                      id="telEmpre" disabled="disabled">
-                                  </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                              <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                  <span class="fas fa-phone-alt"></span>
                                 </div>
-                              </div><br><br><br><br><br><br><br><br>
-                              <div class="typography-hd-cr-4">
+                                <div class="nk-int-st">
+                                  <input type="text" class="form-control" readonly="readonly" aria-required="true"
+                                    id="telEmpre" disabled="disabled">
+                                </div>
+                              </div>
+                            </div><br><br><br><br><br><br><br><br>
+                            <div class="typography-hd-cr-4">
                               <h2>Datos Personales del Responsable</h2>
                             </div>
                             <hr style="width:100%;border-color:light-gray 25px;"><br>
