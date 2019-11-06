@@ -30,14 +30,11 @@ if ($bandera=="EditarCliente") {
 	$apellidosE = $_POST["apellidosed"];
 	$direccionE = $_POST["direccioned"];
 	$telefonoE = $_POST["telefonoed"];
-	$fechaE = $_POST["fechaed"];
-	$fechaE =explode("/",$fechaE);
-	$fechaE=$fechaE[2].'-'.$fechaE[1].'-'.$fechaE[0];
 	$bene1E = $_POST["bene1ed"];
 	$bene2E = $_POST["bene2ed"];
 	$bene3E = $_POST["bene3ed"];
 	$idcliente = $_POST["idcliente"];
-	$sql = "UPDATE cliente set nombre_cli='$nombresE',apellidos_Cli='$apellidosE',direccion_cli='$direccionE',telefono_Cli='$telefonoE',ben1_Cli='$bene1E',ben2_Cli='$bene2E',ben3_Cli='$bene3E',fecha_Cli='$fechaE' where idCliente ='$idcliente'";
+	$sql = "UPDATE cliente set nombre_cli='$nombresE',apellidos_Cli='$apellidosE',direccion_cli='$direccionE',telefono_Cli='$telefonoE',ben1_Cli='$bene1E',ben2_Cli='$bene2E',ben3_Cli='$bene3E' where idCliente ='$idcliente'";
 
 	mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
 	

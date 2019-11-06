@@ -9,13 +9,13 @@ function mostrarEmpleado(dui, nombres, apellidos, direccion, telefono, cargo, fe
 }
 
 function editarEmpleado(duiee, nombresee, apellidosee, direccionee, telefonoee, cargoee, fechaee, idempleado) {
-    $("#duied").val(duiee);
-    $("#nombresed").val(nombresee);
-    $("#apellidosed").val(apellidosee);
-    $("#direccioned").val(direccionee);
-    $("#telefonoed").val(telefonoee);
-    $("#cargoed").val(cargoee);
-    $("#fechaed").val(fechaee);
+    $("#duia").val(duiee);
+    $("#nombresa").val(nombresee);
+    $("#apellidosa").val(apellidosee);
+    $("#direcciona").val(direccionee);
+    $("#telefonoa").val(telefonoee);
+    $("#cargoa").val(cargoee);
+    $("#fechaa").val(fechaee);
     $("#idempleado").val(idempleado);
     //$("#anterior").val(nombresee);
 }

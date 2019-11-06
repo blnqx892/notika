@@ -110,7 +110,7 @@
                                               $fechaEmp = $fechaEmp[2].'/'.$fechaEmp[1].'/'.$fechaEmp[0];
                                             ?>class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
                                                     data-toggle="modal" data-target="#modalEditar"
-                                                    onclick="editarEmpleado('<?php echo $mostrar['Dui_Emple']?>','<?php echo $mostrar['nombres_Emple']?>','<?php echo $mostrar['apellidos_Emple']?>','<?php echo $mostrar['direccion_Emple']?>','<?php echo $mostrar['telefono_Emple']?>','<?php echo $mostrar['cargo_Emple']?>','<?php echo $fechaEmp?>')"><i
+                                                    onclick="editarEmpleado('<?php echo $mostrar['Dui_Emple']?>','<?php echo $mostrar['nombres_Emple']?>','<?php echo $mostrar['apellidos_Emple']?>','<?php echo $mostrar['direccion_Emple']?>','<?php echo $mostrar['telefono_Emple']?>','<?php echo $mostrar['cargo_Emple']?>','<?php echo $fechaEmp?>','<?php echo $mostrar['idEmpleado']?>')"><i
                                                         class="fas fa-edit"></i></button></center>
                                         </th>
                                         <th>
@@ -120,96 +120,97 @@
                                         </th>
                                     </tr>
                                     <!-- INICIO MODAL EDITAR-->
-                                    <div class="modal fade" id="modalEditar" tabindex="-1"  role="dialog"
-                                    aria-labelledby="myModalLabel">
+                                    <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog"
+                                        aria-labelledby="myModalLabel">
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
-                                            <form action="Controladores/EmpleadoE.php" method="POST" id="editarEmpleado">
-                                                <input type="hidden" value="EditarEmpleado" name="bandera">
-                                                        <input type="hidden" value="" name="idempleado" id="idempleado" />
+                                                <form action="Controladores/EmpleadoE.php" method="POST">
+                                                    <input type="hidden" value="EditarEmpleado" name="bandera">
+                                                    <input type="hidden" value="" name="idempleado" id="idempleado" />
                                                     <div class="modal-header">
-                                                    <button type="button" class="close"
-                                                        data-dismiss="modal">&times;</button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <center>
-                                                        <div class="typography-hd-cr-4">
-                                                            <h3>Editar Datos del Empleado</h3>
-                                                        </div>
-                                                    </center>
-                                                    <div class="typography-hd-cr-4">
-                                                        <h2>Datos Personales</h2>
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
                                                     </div>
-                                                    <hr style="width:100%;border-color:light-gray 25px;"><br>
-                                                    <div class="cmp-tb-hd bcs-hd">
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="fas fa-id-card"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                    id="duied" name="duiee" readonly="readonly"
-                                                                            data-mask="99999999-9" >
+                                                    <div class="modal-body">
+                                                        <center>
+                                                            <div class="typography-hd-cr-4">
+                                                                <h3>Editar Datos del Empleado</h3>
+                                                            </div>
+                                                        </center>
+                                                        <div class="typography-hd-cr-4">
+                                                            <h2>Datos Personales</h2>
+                                                        </div>
+                                                        <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                        <div class="cmp-tb-hd bcs-hd">
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <span class="fas fa-id-card"></span>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control"
+                                                                            id="duia" name="duib" readonly="readonly"
+                                                                            data-mask="99999999-9">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="icon-user"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                    id="nombresed" name="nombresee"
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <span class="icon-user"></span>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control"
+                                                                            id="nombresa" name="nombresb"
                                                                             aria-required="true" value="">
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="icon-user"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                    id="apellidosed" name="apellidosee"
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <span class="icon-user"></span>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control"
+                                                                            id="apellidosa" name="apellidosb"
                                                                             aria-required="true" value="">
+                                                                    </div>
+                                                                </div>
+                                                            </div><br><br><br>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <span class="fas fa-map-marker-alt"></span>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control"
+                                                                            id="direcciona" name="direccionb"
+                                                                            aria-required="true" value="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <span class="fas fa-phone-alt"></span>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control"
+                                                                            id="telefonoa" name="telefonob" aria-required="true" value=""
+                                                                            data-mask="9999-9999">
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div><br><br><br>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="fas fa-map-marker-alt"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                    id="direccioned" name="direccionee"
-                                                                            aria-required="true" value="">
-                                                                </div>
-                                                            </div>
+                                                        <div class="typography-hd-cr-4">
+                                                            <h2>Cargo a Asignar</h2>
                                                         </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="fas fa-phone-alt"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                    id="telefonoed" name="telefonoee" value=""
-                                                                             data-mask="9999-9999">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div><br><br><br>
-                                                    <div class="typography-hd-cr-4">
-                                                        <h2>Cargo a Asignar</h2>
-                                                    </div>
-                                                    <hr style="width:100%;border-color:light-gray 25px;"><br>
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                        <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
-                                                            <?php
+                                                        <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                            <div class="form-group nk-datapk-ctm form-elet-mg"
+                                                                id="data_1">
+                                                                <?php
                                         
                                         date_default_timezone_set('america/el_salvador');
                                         $hora1 = date("A");
@@ -218,35 +219,35 @@
                                         $dia = date("d");
                                          $fech = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
                                     ?>
-                                                            <h5>Fecha de Ingreso</h5>
-                                                            <div class="input-group date nk-int-st">
-                                                                <span class="input-group-addon"></span>
-                                                                <input type="text" class="form-control"
-                                                                    value="<?php echo $fech?>" min="01/01/2000"
-                                                                    max="<?php echo $fech?>" name="fechaee" id="fechaed"
-                                                                    disabled="true">
+                                                                <h5>Fecha de Ingreso</h5>
+                                                                <div class="input-group date nk-int-st">
+                                                                    <span class="input-group-addon"></span>
+                                                                    <input type="text" class="form-control"
+                                                                        value="<?php echo $fech?>" min="01/01/2000"
+                                                                        max="<?php echo $fech?>" name="fechab"
+                                                                        id="fechaa" disabled="true">
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </div><br>
-                                                    
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <div class="form-group ic-cmp-int">
-                                                            <div class="form-ic-cmp">
-                                                                <span class="fas fa-address-card"></span>
+                                                        </div><br>
+
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                    <span class="fas fa-address-card"></span>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control" id="cargoa"
+                                                                        name="cargob" aria-required="true" value="">
+                                                                </div>
                                                             </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                id="cargoed" name="cargoee" value="">
-                                                            </div>
-                                                        </div>
-                                                    </div><br><br><br><br><br><br>
-                                                </div>
-                                                <div class="modal-footer">
-                                                <button class="btn btn-default" type="submit">Guardar
+                                                        </div><br><br><br><br><br><br>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button class="btn btn-default" type="submit">Guardar
                                                             Cambios</button>
                                                         <button type="button" class="btn btn-default"
                                                             data-dismiss="modal">Cancelar</button>
-                                                </div>
+                                                    </div>
                                                 </form>
                                             </div>
                                         </div>

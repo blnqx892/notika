@@ -26,16 +26,13 @@ if ($bandera=="GuardarEmpleado") {
 }
 
         if ($bandera=="EditarEmpleado") {
-                $nombresE = $_POST["nombresee"];
-                $apellidosE = $_POST["apellidosee"];
-                $direccionE = $_POST["direccionee"];
-                $telefonoE = $_POST["telefonoee"];
-                $fechaE = $_POST["fechaee"];
-                $fechaE =explode("/",$fechaE);
-                $fechaE=$fechaE[2].'-'.$fechaE[1].'-'.$fechaE[0];
-                $cargoE = $_POST["cargoee"];
-                $idempleado = $_POST["idempledo"];
-                $sql = "UPDATE empleado set nombres_Emple='$nombresE',apellidos_Emple='$apellidosE',direccion_Emple='$direccionE',telefono_Emple='$telefonoE',cargo_Emple='$cargoE',fecha_Emple='$fechaE' where idempleado ='$idempleado'";
+                $nombresE = $_POST["nombresb"];
+                $apellidosE = $_POST["apellidosb"];
+                $direccionE = $_POST["direccionb"];
+                $telefonoE = $_POST["telefonob"];
+                $cargoE = $_POST["cargob"];
+                $idempleado = $_POST["idempleado"];
+                $sql = "UPDATE empleado set nombres_Emple='$nombresE',apellidos_Emple='$apellidosE',direccion_Emple='$direccionE',telefono_Emple='$telefonoE',cargo_Emple='$cargoE' where idEmpleado ='$idempleado'";
         
                 mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
                 
