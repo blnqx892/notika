@@ -120,7 +120,7 @@
                                         aria-labelledby="myModalLabel">
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
-                                                <form action="Controladores/ClienteC.php" method="POST" id="editarCliente">
+                                                <form action="Controladores/ClienteC.php" method="POST" >
                                                 <input type="hidden" value="EditarCliente" name="bandera">
                                                         <input type="hidden" value="" name="idcliente" id="idcliente" />
                                                     <div class="modal-header">
