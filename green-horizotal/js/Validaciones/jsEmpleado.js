@@ -7,3 +7,15 @@ function mostrarEmpleado(dui, nombres, apellidos, direccion, telefono, cargo, fe
     $("#cargo").val(cargo);
     $("#fech").val(fecha);
 }
+
+function editarEmpleado(duiee, nombresee, apellidosee, direccionee, telefonoee, cargoee, fechaee, idempleado) {
+    $("#duied").val(duiee);
+    $("#nombresed").val(nombresee);
+    $("#apellidosed").val(apellidosee);
+    $("#direccioned").val(direccionee);
+    $("#telefonoed").val(telefonoee);
+    $("#cargoed").val(cargoee);
+    $("#fechaed").val(fechaee);
+    $("#idempleado").val(idempleado);
+    //$("#anterior").val(nombresee);
+}
