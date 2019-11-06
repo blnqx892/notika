@@ -39,14 +39,16 @@
       <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
           <div class="inbox-left-sd">
-          <hr>
-                        <div class="inbox-status">
-                            <ul class="inbox-st-nav inbox-ft">
-                            <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button><br><br>
-                            <button class="btn btn-success notika-btn-success">Reporte   <i class="fas fa-print"></i> </button><br><br>
-                            </ul>
-                        </div>
-                        <hr>
+            <hr>
+            <div class="inbox-status">
+              <ul class="inbox-st-nav inbox-ft">
+                <button class="btn btn-success notika-btn-success">Dar Altas <i
+                    class="fas fa-arrow-alt-circle-up"></i></button><br><br>
+                <button class="btn btn-success notika-btn-success">Reporte <i class="fas fa-print"></i>
+                </button><br><br>
+              </ul>
+            </div>
+            <hr>
           </div>
         </div>
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
@@ -59,31 +61,29 @@
                 <thead>
                   <tr>
                     <th>Empresa</th>
-                    <th>TeléfonoResponsable</th>
-                    <th>Direccion Empresa</th>
-                    <th>Nombre Proveedor</th>
+                    <th>Dirección</th>
+                    <th>Responsable</th>
                     <th>Ver</th>
                     <th>Modificar</th>
                     <th>Dar Baja</th>
                   </tr>
                 </thead>
                 <tbody>
-                <?php 
-            $conexion=mysqli_connect('localhost','root', '', 'funesi');
-            $sql="SELECT * from proveedor order by nombre_prov ASC";
-            $proveedor= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
-                                    <?php While($mostrar=mysqli_fetch_assoc($proveedor)){?>
-                                    <tr>
-                                        <td><?php echo $mostrar['nombre_prov'] ?></td>
-                                        <td><?php echo $mostrar['telefonoResp_Prov'] ?></td>
-                                        <td><?php echo $mostrar['direccion_Prov'] ?></td>
-                                        <td><?php echo $mostrar['nombreEmpr'] ?></td>
-                                        
-                                        <td>
-                 
-    
+                  <?php 
+                                $conexion=mysqli_connect('localhost','root', '', 'funesi');
+                                $sql="SELECT * from proveedor order by nombre_prov ASC";
+                                $proveedor= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
+                              ?>
+                  <?php While($mostrar=mysqli_fetch_assoc($proveedor)){?>
+                  <tr>
+                    <td><?php echo $mostrar['nombre_prov'] ?></td>
+                    <td><?php echo $mostrar['direccion_Prov'] ?></td>
+                    <td><?php echo $mostrar['nombreEmpr'] ?></td>
+
+                    <td>
                       <center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center>
+                          data-toggle="modal" data-target="#modalVerProveedor" onclick="mostraProveedor('<?php echo $mostrar['nombre_prov']?>','<?php echo $mostrar['direccion_Prov']?>','<?php echo $mostrar['telefonoResp_Prov']?>','<?php echo $mostrar['nombreEmpr']?>','<?php echo $mostrar['telefEmp']?>')"><i class="fas fa-eye"></i></button>
+                      </center>
                     </td>
                     <th>
                       <center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
@@ -94,8 +94,8 @@
                             class="fas fa-arrow-alt-circle-down"></i></button></center>
                     </th>
 
-                    <!-- INICIO MODALES-->
-                    <div class="modal fade" id="modalEditar" role="dialog">
+                    <!-- INICIO MODAL EDITAR-->
+                    <div class="modal fade" id="modalEditarProveedor" role="dialog">
                       <div class="modal-dialog modal-large">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -115,7 +115,7 @@
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                  <span class="icon-user"></span>
+                                    <span class="icon-user"></span>
                                   </div>
                                   <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Nombre Completo">
@@ -125,7 +125,7 @@
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                  <span class="fas fa-phone-alt"></span>
+                                    <span class="fas fa-phone-alt"></span>
                                   </div>
                                   <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Telf:9999-9999">
@@ -139,7 +139,7 @@
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                  <span class="fas fa-building"></span>
+                                    <span class="fas fa-building"></span>
                                   </div>
                                   <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Empresa" disabled="disabled">
@@ -149,7 +149,7 @@
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                  <span class="fas fa-map-marker-alt"></span>
+                                    <span class="fas fa-map-marker-alt"></span>
                                   </div>
                                   <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Dirección">
@@ -159,7 +159,7 @@
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                  <span class="fas fa-phone-alt"></span>
+                                    <span class="fas fa-phone-alt"></span>
                                   </div>
                                   <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Telf:9999-9999">
@@ -177,7 +177,10 @@
                         </div>
                       </div>
                     </div>
-                    <div class="modal fade" id="modalVer" role="dialog">
+                    <!-- FIN MODAL EDITAR-->
+
+                    <!-- INICIO MODAL VER-->
+                    <div class="modal fade" id="modalVerProveedor" role="dialog">
                       <div class="modal-dialog modal-large">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -189,33 +192,6 @@
                                 <h3>Información del Proveedor</h3>
                               </div>
                             </center><br>
-                            <div class="typography-hd-cr-4">
-                              <h2>Datos Personales del Responsable</h2>
-                            </div>
-                            <hr style="width:100%;border-color:light-gray 25px;"><br>
-                            <div class="cmp-tb-hd bcs-hd">
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                  <span class="icon-user"></span>
-                                  </div>
-                                  <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Nombre Completo"
-                                      disabled="disabled">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                  <span class="fas fa-phone-alt"></span>
-                                  </div>
-                                  <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Telefono 9999-9999"
-                                      disabled="disabled">
-                                  </div>
-                                </div>
-                              </div><br><br><br><br><br>
                               <div class="typography-hd-cr-4">
                                 <h2>Datos de la Empresa</h2>
                               </div>
@@ -223,35 +199,63 @@
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                  <span class="fas fa-building"></span>
+                                    <span class="fas fa-building"></span>
                                   </div>
                                   <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Empresa" disabled="disabled">
+                                    <input type="text" class="form-control" readonly="readonly" aria-required="true"
+                                      value="" id="nombreEmpre">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                    <span class="fas fa-map-marker-alt"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="text" class="form-control" readonly="readonly" aria-required="true"
+                                      id="direccionEmpre">
                                   </div>
                                 </div>
                               </div>
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                  <span class="fas fa-map-marker-alt"></span>
+                                    <span class="fas fa-phone-alt"></span>
                                   </div>
                                   <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Dirección" disabled="disabled">
+                                    <input type="text" class="form-control" readonly="readonly" aria-required="true"
+                                      id="telEmpre" disabled="disabled">
+                                  </div>
+                                </div>
+                              </div><br><br><br><br><br><br><br><br>
+                              <div class="typography-hd-cr-4">
+                              <h2>Datos Personales del Responsable</h2>
+                            </div>
+                            <hr style="width:100%;border-color:light-gray 25px;"><br>
+                            <div class="cmp-tb-hd bcs-hd">
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                    <span class="icon-user"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="text" class="form-control" readonly="readonly" aria-required="true"
+                                      value="" id="nombreRes">
                                   </div>
                                 </div>
                               </div>
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                   <div class="form-ic-cmp">
-                                  <span class="fas fa-phone-alt"></span>
+                                    <span class="fas fa-phone-alt"></span>
                                   </div>
                                   <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Teléfono 9999-9999"
-                                      disabled="disabled">
+                                    <input type="text" class="form-control" readonly="readonly" aria-required="true"
+                                      value="" id="telRes">
                                   </div>
                                 </div>
-                              </div>
-                              <br><br><br>
+                              </div><br><br><br><br><br>
                             </div>
                             <div class="modal-footer">
                               <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -260,7 +264,7 @@
                         </div>
                       </div>
                     </div>
-                    <!-- FIN MODALES-->
+                    <!-- FIN MODAL VER-->
                   </tr>
                   <?php } ?>
                 </tbody>
@@ -274,6 +278,7 @@
         </div>
       </div>
     </div>
+    <script src="js/Validaciones/jsProveedor.js"></script>
   </div>
   <!--FIN TABLA-->
 
