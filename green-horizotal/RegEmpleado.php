@@ -34,6 +34,7 @@
   <!-- Breadcomb area End-->
   <!-- Inbox area Start-->
   <form action="Controladores/EmpleadoE.php" method="POST">
+  <input type="hidden" value="GuardarEmpleado" name="bandera">
     <div class="inbox-area">
       <div class="container">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
