@@ -33,124 +33,124 @@
     </div>
     <!-- Breadcomb area End-->
     <!-- Inbox area Start-->
-    <div class="inbox-area">
-        <div class="container">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="form-element-list">
-                    <div class="typography-hd-cr-4">
-                        <h4>Proveedor</h4>
-                    </div>
-                    <hr style="width:100%;border-color:light-gray 25px;"><br>
-                    <div class="cmp-tb-hd bcs-hd">
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
-                                <h5>Fecha</h5>
-                                <div class="input-group date nk-int-st">
-                                    <span class="input-group-addon"></span>
-                                    <input type="text" class="form-control" value="02/10/2019">
+    <form action="#" name="formulario1">
+        <div class="inbox-area">
+            <div class="container">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-element-list">
+                        <div class="typography-hd-cr-4">
+                            <h4>Detalles</h4>
+                        </div>
+                        <hr style="width:100%;border-color:light-gray 25px;"><br>
+                        <div class="cmp-tb-hd bcs-hd">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
+                                    <h5>Fecha</h5>
+                                    <div class="input-group date nk-int-st">
+                                        <span class="input-group-addon"></span>
+                                        <input type="text" class="form-control" value="02/10/2019">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <?php 
+                                 $conexion=mysqli_connect('localhost','root', '', 'funesi');
+                                 $sql="SELECT * from proveedor order by nombre_prov ASC";
+                                  $proveedores = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
+                            ?>
+                                <div class="nk-int-mk sl-dp-mn">
+                                    <h5>Seleccionar Proveedor</h5>
+                                </div>
+                                <div class="chosen-select-act fm-cmp-mg">
+                                    <select class="chosen" data-placeholder="Elegir Proveedor...">
+                                        <option value=""></option>
+                                        <?php
+                                                While($proveedor=mysqli_fetch_array($proveedores)){
+                                                     echo '<option value="'.$proveedor['idProveedor'].'">'.$proveedor['nombre_prov'].'</option>';
+                                                }
+                                    ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <span class="fas fa-file-invoice-dollar"></span>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="# Factura Compra">
+                                </div>
+                            </div>
+                        </div><br><br><br><br>
+                        <div class="typography-hd-cr-4">
+                            <h4>Producto</h4>
+                        </div>
+                        <hr style="width:100%;border-color:light-gray 25px;"><br>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <span class="icon-barcode"></span>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Producto">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" name="categoria" id="categoria"
+                                    data-placeholder="Seleccione Categoria">
+                                    <option value=""></option>
+                                    <option value="1">Equipo</option>
+                                    <option value="2">Feretro</option>
+                                    <option value="3">Comestibles</option>
+                                    <option value="4">Desechables</option>
+                                </select>
+                            </div>
+                        </div><br><br><br><br>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                <span class="fas fa-shapes"></span>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Tipo">
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <div class="nk-int-mk sl-dp-mn">
-                                <h5>N° Compra</h5>
-                            </div>
-                            <div class="chosen-select-act fm-cmp-mg">
-                                <select class="chosen" data-placeholder="Elegir Local...">
-                                    <option value="United States">1</option>
-                                    <option value="United States">2</option>
-                                    <option value="United States">..</option>
-                                </select>
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <span class="icon-sort-numeric-asc"></span>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Cantidad">
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <div class="nk-int-mk sl-dp-mn">
-                                <h5>Seleccionar Proveedor</h5>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <span class="fas fa-dollar-sign"></span>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Precio Unitario">
+                                </div>
                             </div>
-                            <div class="chosen-select-act fm-cmp-mg">
-                                <select class="chosen" data-placeholder="Elegir Proveedor...">
-                                    <option value="United States">Natalie Castillo</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div><br><br><br><br>
-                    <div class="typography-hd-cr-4">
-                        <h4>Producto</h4>
+                        </div><br><br><br><br><br>
+                        <center>
+                            <button class="btn btn-success notika-btn-success">Guardar <i
+                                    class="notika-icon notika-checked"></i></button>
+                            <button class="btn btn-danger notika-btn-danger">Cancelar <i
+                                    class="notika-icon notika-close"></i></button>
+                        </center>
                     </div>
-                    <hr style="width:100%;border-color:light-gray 25px;"><br>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-              <div class="form-group ic-cmp-int">
-                <div class="form-ic-cmp">
-                <span class="icon-barcode"></span>
                 </div>
-                <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Producto">
-                </div>
-              </div>
             </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="chosen-select-act fm-cmp-mg">
-                            <select class="chosen" data-placeholder="Categoria ...">
-                                <option value="">Equipo</option>
-                                <option value="value">Feretro</option>
-                                <option value="value">Comestibles</option>
-                                <option value="value">Desechables</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="chosen-select-act fm-cmp-mg">
-                            <select class="chosen" data-placeholder="Tipo ...">
-                                <option value="">sillas</option>
-                                <option value="">Cortinas</option>
-                                <option value="">Candelabros</option>
-                                <option value="">Candelas</option>
-                                <option value="">Crucifijos</option>
-                            </select>
-                        </div>
-                    </div><br><br><br><br>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <div class="form-group ic-cmp-int">
-                <div class="form-ic-cmp">
-                <span class="icon-sort-numeric-asc"></span>
-                </div>
-                <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Cantidad">
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <div class="form-group ic-cmp-int">
-                <div class="form-ic-cmp">
-                <span class="fas fa-dollar-sign"></span>
-                </div>
-                <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Precio Unitario">
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <div class="form-group ic-cmp-int">
-                <div class="form-ic-cmp">
-                <span class="fas fa-dollar-sign"></span>
-                </div>
-                <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Precio Total">
-                </div>
-              </div>
-            </div>
-                    <center>
-                        <button class="btn btn-success notika-btn-success">Guardar <i
-                                class="notika-icon notika-checked"></i></button>
-                        <button class="btn btn-danger notika-btn-danger">Cancelar <i
-                                class="notika-icon notika-close"></i></button>
-                    </center>
-                </div>
-
-            </div>
-
         </div>
-    </div>
+    </form>
+
     <!-- Inbox area End-->
     <!-- Start Footer area-->
     <div class="footer-copyright-area">
@@ -165,6 +165,7 @@
         </div>
     </div>
     <!-- End Footer area-->
+
     <!-- jquery
     ============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
@@ -261,7 +262,6 @@
     <script src="js/main.js"></script>
     <!-- tawk chat JS
     ============================================ -->
-
 </body>
 
 </html>
