@@ -52,7 +52,7 @@
                     </div>
                     <div class="nk-int-st">
                       <input type="text" class="form-control" placeholder="DUI: 99999999-9" name="dui"
-                        data-mask="99999999-9" id="duii">
+                        data-mask="99999999-9" id="duii" aria-hidden="true">
                     </div>
                   </div>
                 </div>
@@ -62,7 +62,7 @@
                       <span class="icon-user"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Nombres" name="nombres" id="nombre">
+                      <input type="text" class="form-control" placeholder="Nombres" name="nombres" id="nombre" aria-hidden="true">
                     </div>
                   </div>
                 </div>
@@ -72,7 +72,7 @@
                       <span class="icon-user"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Apellidos" name="apellidos" id="apellido">
+                      <input type="text" class="form-control" placeholder="Apellidos" name="apellidos" id="apellido" aria-hidden="true">
                     </div>
                   </div>
                 </div>
@@ -83,7 +83,7 @@
                     </div>
                     <div class="nk-int-st">
                       <input type="text" class="form-control" placeholder="Telf: 9999-9999" name="telefono"
-                        data-mask="9999-9999" id="telfo">
+                        data-mask="9999-9999" id="telfo" aria-hidden="true">
                     </div>
                   </div>
                 </div>
@@ -93,7 +93,7 @@
                       <span class="fas fa-map-marker-alt"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Dirección" name="direccion" id="direcci">
+                      <input type="text" class="form-control" placeholder="Dirección" name="direccion" id="direcci" aria-hidden="true">
                     </div>
                   </div>
                 </div>
@@ -109,7 +109,7 @@
                       <span class="fas fa-user-check"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Nombre beneficiario 1" name="bene1" id="ben1">
+                      <input type="text" class="form-control" placeholder="Nombre beneficiario 1" name="bene1" id="ben1" aria-hidden="true">
                     </div>
                   </div>
                 </div>
@@ -119,7 +119,7 @@
                       <span class="fas fa-user-check"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Nombre beneficiario 2" name="bene2" id="ben2">
+                      <input type="text" class="form-control" placeholder="Nombre beneficiario 2" name="bene2" id="ben2" aria-hidden="true">
                     </div>
                   </div>
                 </div>
@@ -129,7 +129,7 @@
                       <span class="fas fa-user-check"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Nombre beneficiario 3" name="bene3" id="ben3">
+                      <input type="text" class="form-control" placeholder="Nombre beneficiario 3" name="bene3" id="ben3" aria-hidden="true">
                     </div>
                   </div>
                 </div>
@@ -154,7 +154,7 @@
                     <div class="input-group date nk-int-st">
                       <span class="input-group-addon"></span>
                       <input type="text" class="form-control" value="<?php echo $fech?>" min="01/01/2000"
-                        max="<?php echo $fech?>" name="fecha" id="fec">
+                        max="<?php echo $fech?>" name="fecha" id="fec" aria-hidden="true">
                     </div>
                   </div>
                 </div>

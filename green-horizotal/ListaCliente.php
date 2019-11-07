@@ -39,6 +39,15 @@
         </div>
     </div>
     <!-- Breadcomb area End-->
+    <?php if (!isset($_GET['tipo'])) {
+			$tipo=1;
+		}else{
+			$tipo = $_GET['tipo'];
+		}?>
+    <?php 
+        $conexion=mysqli_connect('localhost','root', '', 'funesi');
+        $sql="SELECT * from cliente where estado_Cli='$tipo' order by nombre_cli ASC";
+        $clientes= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
     <!-- Data Table area Start-->
     <div class="data-table-area">
         <div class="container">
@@ -48,8 +57,16 @@
                         <hr>
                         <div class="inbox-status">
                             <ul class="inbox-st-nav inbox-ft">
-                                <button class="btn btn-success notika-btn-success">Dar Altas <i
-                                        class="fas fa-arrow-alt-circle-up"></i></button><br><br>
+                                <?php  if ($tipo == 1) { ?>
+                                <a href="/Funesi/notika/green-horizotal/ListaCliente.php?tipo=0"><button
+                                        class="btn btn-success notika-btn-success">Inactivos <i
+                                            class="fas fa-arrow-alt-circle-down"></i></button> &nbsp; </a>
+                                <?php  }else{ ?>
+                                <a href="/Funesi/notika/green-horizotal/ListaCliente.php?tipo=1"><button
+                                        class="btn btn-success notika-btn-success">Activos <i
+                                            class="fas fa-arrow-alt-circle-up"></i></button>&nbsp;</a>
+                                <?php } ?>
+                                <br><br>
                                 <button class="btn btn-success notika-btn-success">Reporte <i class="fas fa-print"></i>
                                 </button><br><br>
                                 <a href="ListaAbonar.php"><button class="btn btn-success notika-btn-success">Abonar <i
@@ -72,45 +89,50 @@
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
                                         <th>Teléfono</th>
-                                        <th>Ver</th>
-                                        <th>Modificar</th>
-                                        <th>Dar Baja</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php 
-                                    $conexion=mysqli_connect('localhost','root', '', 'funesi');
-            $sql="SELECT * from cliente order by nombre_cli ASC";
-            $clientes= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
                                     <?php While($mostrar=mysqli_fetch_assoc($clientes)){?>
+                                    <?php if($mostrar['idCliente'] != 28){ ?>
                                     <tr>
                                         <td><?php echo $mostrar['Dui_cli'] ?></td>
                                         <td><?php echo $mostrar['nombre_cli'] ?></td>
                                         <td><?php echo $mostrar['apellidos_Cli'] ?></td>
                                         <td><?php echo $mostrar['telefono_Cli'] ?></td>
                                         <td>
-                                            <center><button <?php $fechaCli = explode("-",$mostrar['fecha_Cli']);
+                                            <button <?php $fechaCli = explode("-",$mostrar['fecha_Cli']);
                                               $fechaCli = $fechaCli[2].'/'.$fechaCli[1].'/'.$fechaCli[0];
                                             ?> class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalVerCliente"
-                                                    onclick="mostraCliente('<?php echo $mostrar['Dui_cli']?>','<?php echo $mostrar['nombre_cli']?>','<?php echo $mostrar['apellidos_Cli']?>','<?php echo $mostrar['direccion_cli']?>','<?php echo $mostrar['telefono_Cli']?>','<?php echo $mostrar['ben1_Cli']?>','<?php echo $mostrar['ben2_Cli']?>','<?php echo $mostrar['ben3_Cli']?>','<?php echo $fechaCli?>')"><i
-                                                        class="fas fa-eye"></i></button>
-                                            </center>
+                                                data-toggle="modal" title="Ver" data-target="#modalVerCliente"
+                                                onclick="mostraCliente('<?php echo $mostrar['Dui_cli']?>','<?php echo $mostrar['nombre_cli']?>','<?php echo $mostrar['apellidos_Cli']?>','<?php echo $mostrar['direccion_cli']?>','<?php echo $mostrar['telefono_Cli']?>','<?php echo $mostrar['ben1_Cli']?>','<?php echo $mostrar['ben2_Cli']?>','<?php echo $mostrar['ben3_Cli']?>','<?php echo $fechaCli?>')"><i
+                                                    class="fas fa-eye"></i></button>
+                                            <?php  if ($tipo == 1) {
+                                                ?>
+                                            <button class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
+                                                data-toggle="modal" title="Modificar" data-target="#modalEditarCliente"
+                                                onclick="editarCliente('<?php echo $mostrar['Dui_cli']?>','<?php echo $mostrar['nombre_cli']?>','<?php echo $mostrar['apellidos_Cli']?>','<?php echo $mostrar['direccion_cli']?>','<?php echo $mostrar['telefono_Cli']?>','<?php echo $mostrar['ben1_Cli']?>','<?php echo $mostrar['ben2_Cli']?>','<?php echo $mostrar['ben3_Cli']?>','<?php echo $fechaCli?>','<?php echo $mostrar['idCliente']?>')"><i
+                                                    class="fas fa-edit"></i></button>
+                                            <?php  }else{ }?>
+                                            <?php  if($tipo == 1) { ?>
+                                            <button
+                                            type="button" class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg" title="Dar de baja"><span
+                                                    class="fas fa-arrow-alt-circle-down"
+                                                    onclick="baja(<?php echo $mostrar['idCliente'] ?>)"></span></button>
+
+                                            <?php  }else{ ?>
+                                            <button
+                                            type="button" class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect" title="Dar de alta"><i
+                                                    class="fas fa-arrow-alt-circle-up"
+                                                    onclick="alta(<?php echo $mostrar['idCliente'] ?>)"></i></button>
+                                            <?php } ?>
+                                            <?php  }else{ if($tipo == 0){?>
+                                            <button
+                                            type="button" class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect" title="Dar de alta"><i
+                                                    class="fas fa-arrow-alt-circle-up"
+                                                    onclick="alta(<?php echo $mostrar['idCliente'] ?>)"></i></button>
+                                            <?php } }?>
                                         </td>
-                                        <th>
-                                            <center><button
-                                                    class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalEditarCliente"
-                                                    onclick="editarCliente('<?php echo $mostrar['Dui_cli']?>','<?php echo $mostrar['nombre_cli']?>','<?php echo $mostrar['apellidos_Cli']?>','<?php echo $mostrar['direccion_cli']?>','<?php echo $mostrar['telefono_Cli']?>','<?php echo $mostrar['ben1_Cli']?>','<?php echo $mostrar['ben2_Cli']?>','<?php echo $mostrar['ben3_Cli']?>','<?php echo $fechaCli?>','<?php echo $mostrar['idCliente']?>')"><i
-                                                        class="fas fa-edit"></i></button>
-                                            </center>
-                                        </th>
-                                        <th>
-                                            <center><button
-                                                    class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                                                        class="fas fa-arrow-alt-circle-down"></i></button>
-                                            </center>
-                                        </th>
                                     </tr>
 
                                     <!--INICIO MODAL EDITAR-->
@@ -459,7 +481,6 @@
                                     <!--FIN MODAL VER-->
 
                                     <?php } ?>
-
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -488,6 +509,70 @@
         </div>
     </div>
     <!-- End Footer area-->
+
+    <!-------------------------------------------------------------------------------------->
+    <form method="POST" id="cambioCli">
+        <input type="hidden" name="id" id="idCli" />
+        <input type="hidden" name="bandera" id="banderaCli" />
+        <input type="hidden" name="valor" id="valorCli" />
+    </form>
+    </div>
+    <!-- DAR DE BAJA -->
+    <script type="text/javascript">
+        function baja(id) {
+            swal({
+                title: '¿Está seguro en dar de baja?',
+                // text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si',
+                cancelButtonText: 'No',
+
+            }).then((result) => {
+                if (result.value) {
+                    $('#idCli').val(id);
+                    $('#banderaCli').val('cambio');
+                    $('#valorCli').val('0');
+                    var dominio = window.location.host;
+                    $('#cambioCli').attr('action', 'http://' + dominio + '/Funesi/notika/green-horizotal/Controladores/ClienteC.php');
+                    $('#cambioCli').submit();
+                } else {
+
+                }
+            })
+        }
+        //DAR DE ALTA
+        function alta(id) {
+            swal({
+                title: '¿Está seguro en dar de alta?',
+                // text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si',
+                cancelButtonText: 'No',
+
+            }).then((result) => {
+                if (result.value) {
+                    $('#idCli').val(id);
+                    $('#banderaCli').val('cambio');
+                    $('#valorCli').val('1');
+                    var dominio = window.location.host;
+                    $('#cambioCli').attr('action', 'http://' + dominio + '/Funesi/notika/green-horizotal/Controladores/ClienteC.php');
+                    $('#cambioCli').submit();
+                } else {
+
+                }
+            })
+        }
+    </script>
+    <!-------------------------------------------------------------------------------------->
+
+
+
     <!-- jquery
 		============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>

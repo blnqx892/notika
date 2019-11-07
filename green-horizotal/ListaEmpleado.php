@@ -41,6 +41,15 @@
         </div>
     </div>
     <!-- Breadcomb area End-->
+    <?php if (!isset($_GET['tipo'])) {
+			$tipo=1;
+		}else{
+			$tipo = $_GET['tipo'];
+		}?>
+    <?php 
+        $conexion=mysqli_connect('localhost','root', '', 'funesi');
+        $sql="SELECT * from empleado where estado_Emple='$tipo' order by nombres_Emple ASC";
+        $empleados= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
 
     <!-- Data Table area Start-->
     <div class="data-table-area">
@@ -51,8 +60,15 @@
                         <hr>
                         <div class="inbox-status">
                             <ul class="inbox-st-nav inbox-ft">
-                                <button class="btn btn-success notika-btn-success">Dar Altas <i
-                                        class="fas fa-arrow-alt-circle-up"></i></button><br><br>
+                                <?php  if ($tipo == 1) { ?>
+                                <a href="/Funesi/notika/green-horizotal/ListaEmpleado.php?tipo=0"><button
+                                        class="btn btn-success notika-btn-success">Inactivos <i
+                                            class="fas fa-arrow-alt-circle-down"></i></button> &nbsp; </a>
+                                <?php  }else{ ?>
+                                <a href="/Funesi/notika/green-horizotal/ListaEmpleado.php?tipo=1"><button
+                                        class="btn btn-success notika-btn-success">Activos <i
+                                            class="fas fa-arrow-alt-circle-up"></i></button>&nbsp;</a>
+                                <?php } ?></button><br><br>
                                 <button class="btn btn-success notika-btn-success">Reporte <i class="fas fa-print"></i>
                                 </button><br><br>
                             </ul>
@@ -74,50 +90,57 @@
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
                                         <th>Cargo</th>
-                                        <th>Ver</th>
-                                        <th>Modificar</th>
-                                        <th>Dar Baja</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php 
-                                    $conexion=mysqli_connect('localhost','root', '', 'funesi');
-                                    $sql="SELECT * from empleado order by nombres_Emple ASC";
-                                    $empleados= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
                                     <?php While($mostrar=mysqli_fetch_assoc($empleados)){?>
+                                    <?php if($mostrar['idEmpleado'] != 28){ ?>
                                     <tr>
                                         <td><?php $fechaEmp = explode("-",$mostrar['fecha_Emple']);
                                                                         $fechaEmp = $fechaEmp[2].'/'.$fechaEmp[1].'/'.$fechaEmp[0];
-                                                                        echo $fechaEmp 
-                                            ?>
+                                                                        echo $fechaEmp ?>
                                         </td>
                                         <td><?php echo $mostrar['nombres_Emple'] ?></td>
                                         <td><?php echo $mostrar['apellidos_Emple'] ?></td>
                                         <td><?php echo $mostrar['cargo_Emple'] ?></td>
-
                                         <td>
-
-
-                                            <center> <button <?php $fechaEmp = explode("-",$mostrar['fecha_Emple']);
+                                            <button <?php $fechaEmp = explode("-",$mostrar['fecha_Emple']);
                                               $fechaEmp = $fechaEmp[2].'/'.$fechaEmp[1].'/'.$fechaEmp[0];
                                             ?> class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                                                     data-toggle="modal" data-target="#modalVerEmpleado"
                                                     onclick="mostrarEmpleado('<?php echo $mostrar['Dui_Emple']?>','<?php echo $mostrar['nombres_Emple']?>','<?php echo $mostrar['apellidos_Emple']?>','<?php echo $mostrar['direccion_Emple']?>','<?php echo $mostrar['telefono_Emple']?>','<?php echo $mostrar['cargo_Emple']?>','<?php echo $fechaEmp?>')"><i
-                                                        class="fas fa-eye"></i></button></center>
-                                        </td>
-                                        <th>
-                                            <center><button <?php $fechaEmp = explode("-",$mostrar['fecha_Emple']);
+                                                        class="fas fa-eye"></i>
+                                            </button>
+                                            <?php  if ($tipo == 1) {
+                                                ?>
+                                            <button <?php $fechaEmp = explode("-",$mostrar['fecha_Emple']);
                                               $fechaEmp = $fechaEmp[2].'/'.$fechaEmp[1].'/'.$fechaEmp[0];
                                             ?>class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
                                                     data-toggle="modal" data-target="#modalEditar"
                                                     onclick="editarEmpleado('<?php echo $mostrar['Dui_Emple']?>','<?php echo $mostrar['nombres_Emple']?>','<?php echo $mostrar['apellidos_Emple']?>','<?php echo $mostrar['direccion_Emple']?>','<?php echo $mostrar['telefono_Emple']?>','<?php echo $mostrar['cargo_Emple']?>','<?php echo $fechaEmp?>','<?php echo $mostrar['idEmpleado']?>')"><i
-                                                        class="fas fa-edit"></i></button></center>
-                                        </th>
-                                        <th>
-                                            <center><button
-                                                    class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                                                        class="fas fa-arrow-alt-circle-down"></i></button></center>
-                                        </th>
+                                                        class="fas fa-edit"></i>
+                                             </button>
+                                             <?php  }else{ }?>
+                                            <?php  if($tipo == 1) { ?>
+                                            <button
+                                            type="button" class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg" title="Dar de baja"><span
+                                                    class="fas fa-arrow-alt-circle-down"
+                                                    onclick="baja(<?php echo $mostrar['idEmpleado'] ?>)"></span></button>
+
+                                            <?php  }else{ ?>
+                                            <button
+                                            type="button" class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect" title="Dar de alta"><i
+                                                    class="fas fa-arrow-alt-circle-up"
+                                                    onclick="alta(<?php echo $mostrar['idEmpleado'] ?>)"></i></button>
+                                            <?php } ?>
+                                            <?php  }else{ if($tipo == 0){?>
+                                            <button
+                                            type="button" class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect" title="Dar de alta"><i
+                                                    class="fas fa-arrow-alt-circle-up"
+                                                    onclick="alta(<?php echo $mostrar['idEmpleado'] ?>)"></i></button>
+                                            <?php } }?>
+                                        </td>
                                     </tr>
                                     <!-- INICIO MODAL EDITAR-->
                                     <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog"
@@ -178,7 +201,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div><br><br><br>
-                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                                                                 <div class="form-group ic-cmp-int">
                                                                     <div class="form-ic-cmp">
                                                                         <span class="fas fa-map-marker-alt"></span>
@@ -197,7 +220,8 @@
                                                                     </div>
                                                                     <div class="nk-int-st">
                                                                         <input type="text" class="form-control"
-                                                                            id="telefonoa" name="telefonob" aria-required="true" value=""
+                                                                            id="telefonoa" name="telefonob"
+                                                                            aria-required="true" value=""
                                                                             data-mask="9999-9999">
                                                                     </div>
                                                                 </div>
@@ -211,14 +235,13 @@
                                                             <div class="form-group nk-datapk-ctm form-elet-mg"
                                                                 id="data_1">
                                                                 <?php
-                                        
-                                        date_default_timezone_set('america/el_salvador');
-                                        $hora1 = date("A");
-                                        $hoy = getdate();
-                                        $hora = date("g");
-                                        $dia = date("d");
-                                         $fech = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
-                                    ?>
+                                                                        date_default_timezone_set('america/el_salvador');
+                                                                        $hora1 = date("A");
+                                                                        $hoy = getdate();
+                                                                        $hora = date("g");
+                                                                        $dia = date("d");
+                                                                        $fech = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
+                                                                ?>
                                                                 <h5>Fecha de Ingreso</h5>
                                                                 <div class="input-group date nk-int-st">
                                                                     <span class="input-group-addon"></span>
@@ -347,14 +370,13 @@
                                                     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                         <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
                                                             <?php
-                                        
-                                        date_default_timezone_set('america/el_salvador');
-                                        $hora1 = date("A");
-                                        $hoy = getdate();
-                                        $hora = date("g");
-                                        $dia = date("d");
-                                         $fech = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
-                                    ?>
+                                                                    date_default_timezone_set('america/el_salvador');
+                                                                    $hora1 = date("A");
+                                                                    $hoy = getdate();
+                                                                    $hora = date("g");
+                                                                    $dia = date("d");
+                                                                    $fech = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
+                                                            ?>
                                                             <h5>Fecha de Ingreso</h5>
                                                             <div class="input-group date nk-int-st">
                                                                 <span class="input-group-addon"></span>
@@ -386,22 +408,20 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!-- FIN MODAL VER-->
+                                    <?php } ?>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
-                        <!-- FIN MODAL VER-->
-
-                        <?php } ?>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                            </tr>
-                        </tfoot>
-                        </table>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="js/Validaciones/jsEmpleado.js"></script>
+        <script src="js/Validaciones/jsEmpleado.js"></script>
     </div>
     <!--FIN TABLA-->
 
@@ -418,6 +438,71 @@
         </div>
     </div>
     <!-- End Footer area-->
+
+
+    <!-------------------------------------------------------------------------------------->
+    <form method="POST" id="cambioCli">
+        <input type="hidden" name="id" id="idCli" />
+        <input type="hidden" name="bandera" id="banderaCli" />
+        <input type="hidden" name="valor" id="valorCli" />
+    </form>
+    </div>
+    <!-- DAR DE BAJA -->
+    <script type="text/javascript">
+        function baja(id) {
+            swal({
+                title: '¿Está seguro en dar de baja?',
+                // text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si',
+                cancelButtonText: 'No',
+
+            }).then((result) => {
+                if (result.value) {
+                    $('#idCli').val(id);
+                    $('#banderaCli').val('cambio');
+                    $('#valorCli').val('0');
+                    var dominio = window.location.host;
+                    $('#cambioCli').attr('action', 'http://' + dominio +
+                        '/Funesi/notika/green-horizotal/Controladores/EmpleadoE.php');
+                    $('#cambioCli').submit();
+                } else {
+
+                }
+            })
+        }
+        //DAR DE ALTA
+        function alta(id) {
+            swal({
+                title: '¿Está seguro en dar de alta?',
+                // text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si',
+                cancelButtonText: 'No',
+
+            }).then((result) => {
+                if (result.value) {
+                    $('#idCli').val(id);
+                    $('#banderaCli').val('cambio');
+                    $('#valorCli').val('1');
+                    var dominio = window.location.host;
+                    $('#cambioCli').attr('action', 'http://' + dominio +
+                        '/Funesi/notika/green-horizotal/Controladores/EmpleadoE.php');
+                    $('#cambioCli').submit();
+                } else {
+
+                }
+            })
+        }
+    </script>
+    <!-------------------------------------------------------------------------------------->
+
     <!-- jquery
 		============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>

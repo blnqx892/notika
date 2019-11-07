@@ -16,8 +16,8 @@ if ($bandera=="GuardarEmpleado") {
         $telefonoE = $_POST["telefono"];
         $cargoE = $_POST["cargo"];
        
-        $sql = "INSERT INTO empleado (fecha_Emple, Dui_Emple, nombres_Emple, apellidos_Emple, telefono_Emple, direccion_Emple, cargo_Emple) VALUES 
-        ('$fechaE','$duiE','$nombresE','$apellidosE','$telefonoE','$direccionE','$cargoE')";
+        $sql = "INSERT INTO empleado (fecha_Emple, Dui_Emple, nombres_Emple, apellidos_Emple, telefono_Emple, direccion_Emple, cargo_Emple,estado_Emple) VALUES 
+        ('$fechaE','$duiE','$nombresE','$apellidosE','$telefonoE','$direccionE','$cargoE',1)";
     
         mysqli_query($conexion,$sql) or die ("Error no conectaaa".mysqli_connect_error());
     
@@ -38,4 +38,30 @@ if ($bandera=="GuardarEmpleado") {
                 
                 header("location: /Funesi/notika/green-horizotal/ListaEmpleado.php");
         }
+
+        if ($bandera=="cambio") {
+
+                $sql = "UPDATE empleado set estado_Emple='".$_POST["valor"]."' where idEmpleado = '".$_POST["id"]."'";
+                $mostrar = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+                if ($_POST["valor"]==1) {
+                $aux = 0;
+                //	$_SESSION['mensaje'] ="Cliente dado de alta exitosamente";
+        
+            //////////CAPTURA DATOS PARA BITACORA
+           // $usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+           // $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Dio de alta a un cliente')";
+           // mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
+            ///////////////////////////////////////////////
+                }else{
+                        $aux = 1;
+                //	$_SESSION['mensaje'] ="Cliente dado de baja exitosamente";
+        
+            //////////CAPTURA DATOS PARA BITACORA
+           // $usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+           // $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Dio de baja a un cliente')";
+           // mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
+                }
+                header("location: /Funesi/notika/green-horizotal/ListaEmpleado.php?tipo=".$aux."");
+                
+         }
 ?>

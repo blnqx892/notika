@@ -156,7 +156,8 @@
 
 
 
- 
+ <link href="../green-horizotal/package/dist/sweetalert2.css" rel="stylesheet">
+    <script src="../green-horizotal/package/dist/sweetalert2.js"></script>
 
 
 </head>

@@ -51,7 +51,7 @@
                   </div>
                   <div class="nk-int-st">
                     <input type="text" class="form-control" placeholder="DUI: 99999999-9" name="dui"
-                      data-mask="99999999-9" id="duii">
+                      data-mask="99999999-9" id="duii" aria-hidden="true">
                   </div>
                 </div>
               </div>
@@ -61,7 +61,7 @@
                     <span class="icon-user"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" class="form-control" placeholder="Nombres" name="nombres">
+                    <input type="text" class="form-control" placeholder="Nombres" name="nombres" aria-hidden="true">
                   </div>
                 </div>
               </div>
@@ -71,7 +71,7 @@
                     <span class="icon-user"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" class="form-control" placeholder="Apellidos" name="apellidos">
+                    <input type="text" class="form-control" placeholder="Apellidos" name="apellidos" aria-hidden="true">
                   </div>
                 </div>
               </div><br><br><br><br>
@@ -81,7 +81,7 @@
                     <span class="fas fa-map-marker-alt"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" class="form-control" placeholder="Dirección" name="direccion">
+                    <input type="text" class="form-control" placeholder="Dirección" name="direccion" aria-hidden="true">
                   </div>
                 </div>
               </div>
@@ -92,7 +92,7 @@
                   </div>
                   <div class="nk-int-st">
                     <input type="text" class="form-control" placeholder="Telf:9999-9999" name="telefono"
-                      data-mask="9999-9999">
+                      data-mask="9999-9999" aria-hidden="true">
                   </div>
                 </div>
               </div><br><br><br><br><br><br>
@@ -115,7 +115,7 @@
                   <div class="input-group date nk-int-st">
                     <span class="input-group-addon"></span>
                     <input type="text" class="form-control" value="<?php echo $fech?>" min="01/01/2000"
-                      max="<?php echo $fech?>" name="fecha" id="fech">
+                      max="<?php echo $fech?>" name="fecha" id="fech" aria-hidden="true">
                   </div>
                 </div>
               </div><br>
@@ -125,7 +125,7 @@
                     <span class="fas fa-address-card"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" class="form-control" placeholder="Cargo" name="cargo">
+                    <input type="text" class="form-control" placeholder="Cargo" name="cargo" aria-hidden="true">
                   </div>
                 </div>
               </div>
