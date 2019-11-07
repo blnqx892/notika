@@ -9,8 +9,8 @@ if ($bandera=="GuardarProveedor") {
 	$telEmp = $_POST["telEmp"];
     $nomRes = $_POST["nomRes"];
 	$telRes = $_POST["telRes"];
-	$sql = "INSERT INTO proveedor (nombre_prov, telefonoResp_prov, direccion_Prov, nombreEmpr, telefEmp) VALUES
-	 ('$nomEmp','$telEmp','$dirEmp','$nomRes','$telRes')";
+	$sql = "INSERT INTO proveedor (nombre_prov, telefonoResp_prov, direccion_Prov, nombreEmpr, telefEmp,estado_Provee) VALUES
+	 ('$nomEmp','$telEmp','$dirEmp','$nomRes','$telRes',1)";
 
 	mysqli_query($conexion,$sql) or die ("Error no conecta".mysqli_connect_error());
 
@@ -31,4 +31,30 @@ if ($bandera=="EditarProveedor") {
 	
 	header("location: /Funesi/notika/green-horizotal/ListaProveedor.php");
 }
+
+if ($bandera=="cambio") {
+
+	$sql = "UPDATE proveedor set estado_Provee='".$_POST["valor"]."' where idProveedor = '".$_POST["id"]."'";
+	$mostrar = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+	if ($_POST["valor"]==1) {
+	$aux = 0;
+	//	$_SESSION['mensaje'] ="Cliente dado de alta exitosamente";
+
+    //////////CAPTURA DATOS PARA BITACORA
+   // $usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+   // $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Dio de alta a un cliente')";
+   // mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
+    ///////////////////////////////////////////////
+	}else{
+		$aux = 1;
+	//	$_SESSION['mensaje'] ="Cliente dado de baja exitosamente";
+
+    //////////CAPTURA DATOS PARA BITACORA
+   // $usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+   // $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Dio de baja a un cliente')";
+   // mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
+	}
+	header("location: /Funesi/notika/green-horizotal/ListaProveedor.php?tipo=".$aux."");
+	
+ }
 ?>

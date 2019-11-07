@@ -105,8 +105,8 @@
                                         <td><?php echo $mostrar['apellidos_Emple'] ?></td>
                                         <td><?php echo $mostrar['cargo_Emple'] ?></td>
                                         <td>
-                                            <button <?php $fechaEmp = explode("-",$mostrar['fecha_Emple']);
-                                              $fechaEmp = $fechaEmp[2].'/'.$fechaEmp[1].'/'.$fechaEmp[0];
+                                            <button title="Ver" <?php $fechaEmp = explode("-",$mostrar['fecha_Emple']);
+                                              $fechaEmp = $fechaEmp[2].'/'.$fechaEmp[1].'/'.$fechaEmp[0]; 
                                             ?> class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                                                     data-toggle="modal" data-target="#modalVerEmpleado"
                                                     onclick="mostrarEmpleado('<?php echo $mostrar['Dui_Emple']?>','<?php echo $mostrar['nombres_Emple']?>','<?php echo $mostrar['apellidos_Emple']?>','<?php echo $mostrar['direccion_Emple']?>','<?php echo $mostrar['telefono_Emple']?>','<?php echo $mostrar['cargo_Emple']?>','<?php echo $fechaEmp?>')"><i
@@ -114,7 +114,7 @@
                                             </button>
                                             <?php  if ($tipo == 1) {
                                                 ?>
-                                            <button <?php $fechaEmp = explode("-",$mostrar['fecha_Emple']);
+                                            <button title="Modificar" <?php $fechaEmp = explode("-",$mostrar['fecha_Emple']);
                                               $fechaEmp = $fechaEmp[2].'/'.$fechaEmp[1].'/'.$fechaEmp[0];
                                             ?>class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
                                                     data-toggle="modal" data-target="#modalEditar"

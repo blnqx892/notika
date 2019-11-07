@@ -49,7 +49,7 @@
                   <span class="fas fa-building"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Nombre de la Empresa" name="nomEmp" id="nomEmp">
+                  <input type="text" class="form-control" placeholder="Nombre de la Empresa" name="nomEmp" id="nomEmp" aria-hidden="true">
                 </div>
               </div>
             </div>
@@ -59,7 +59,7 @@
                   <span class="fas fa-map-marker-alt"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Dirección" name="dirEmp" id="dirEmp">
+                  <input type="text" class="form-control" placeholder="Dirección" name="dirEmp" id="dirEmp" aria-hidden="true">
                 </div>
               </div>
             </div>
@@ -69,7 +69,7 @@
                   <span class="fas fa-phone-alt"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Telf: 9999-9999" name="telEmp" id="telEmp" data-mask="9999-9999">
+                  <input type="text" class="form-control" placeholder="Telf: 9999-9999" name="telEmp" id="telEmp" data-mask="9999-9999" aria-hidden="true">
                 </div>
               </div>
             </div><br><br><br><br><br>
@@ -83,7 +83,7 @@
                   <span class="icon-user"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Nombre Completo" name="nomRes" id="nomRes">
+                  <input type="text" class="form-control" placeholder="Nombre Completo" name="nomRes" id="nomRes" aria-hidden="true">
                 </div>
               </div>
             </div>
@@ -93,7 +93,7 @@
                   <span class="fas fa-phone-alt"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Telf: 9999-9999" name="telRes" id="telRes" data-mask="9999-9999">
+                  <input type="text" class="form-control" placeholder="Telf: 9999-9999" name="telRes" id="telRes" data-mask="9999-9999" aria-hidden="true">
                 </div>
               </div>
             </div><br><br><br><br><br>

@@ -32,6 +32,16 @@
     </div>
   </div>
   <!-- Breadcomb area End-->
+  <?php if (!isset($_GET['tipo'])) {
+			$tipo=1;
+		}else{
+			$tipo = $_GET['tipo'];
+		}?>
+  <?php 
+       $conexion=mysqli_connect('localhost','root', '', 'funesi');
+       $sql="SELECT * from proveedor where estado_Provee='$tipo' order by nombre_prov ASC";
+       $proveedor= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
+  ?>
 
   <!-- Data Table area Start-->
   <div class="data-table-area">
@@ -42,8 +52,15 @@
             <hr>
             <div class="inbox-status">
               <ul class="inbox-st-nav inbox-ft">
-                <button class="btn btn-success notika-btn-success">Dar Altas <i
-                    class="fas fa-arrow-alt-circle-up"></i></button><br><br>
+                <?php  if ($tipo == 1) { ?>
+                <a href="/Funesi/notika/green-horizotal/ListaProveedor.php?tipo=0"><button
+                    class="btn btn-success notika-btn-success">Inactivos <i
+                      class="fas fa-arrow-alt-circle-down"></i></button> &nbsp; </a>
+                <?php  }else{ ?>
+                <a href="/Funesi/notika/green-horizotal/ListaProveedor.php?tipo=1"><button
+                    class="btn btn-success notika-btn-success">Activos <i
+                      class="fas fa-arrow-alt-circle-up"></i></button>&nbsp;</a>
+                <?php } ?><br><br>
                 <button class="btn btn-success notika-btn-success">Reporte <i class="fas fa-print"></i>
                 </button><br><br>
               </ul>
@@ -63,39 +80,45 @@
                     <th>Empresa</th>
                     <th>Dirección</th>
                     <th>Responsable</th>
-                    <th>Ver</th>
-                    <th>Modificar</th>
-                    <th>Dar Baja</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php 
-                                $conexion=mysqli_connect('localhost','root', '', 'funesi');
-                                $sql="SELECT * from proveedor order by nombre_prov ASC";
-                                $proveedor= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
-                              ?>
                   <?php While($mostrar=mysqli_fetch_assoc($proveedor)){?>
+                  <?php if($mostrar['idCliente'] != 28){ ?>
                   <tr>
                     <td><?php echo $mostrar['nombre_prov'] ?></td>
                     <td><?php echo $mostrar['direccion_Prov'] ?></td>
                     <td><?php echo $mostrar['nombreEmpr'] ?></td>
 
                     <td>
-                      <center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalVerProveedor"
-                          onclick="mostraProveedor('<?php echo $mostrar['nombre_prov']?>','<?php echo $mostrar['direccion_Prov']?>','<?php echo $mostrar['telefonoResp_Prov']?>','<?php echo $mostrar['nombreEmpr']?>','<?php echo $mostrar['telefEmp']?>')"><i
-                            class="fas fa-eye"></i></button>
-                      </center>
+                      <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal"
+                        data-target="#modalVerProveedor" title="Ver"
+                        onclick="mostraProveedor('<?php echo $mostrar['nombre_prov']?>','<?php echo $mostrar['direccion_Prov']?>','<?php echo $mostrar['telefonoResp_Prov']?>','<?php echo $mostrar['nombreEmpr']?>','<?php echo $mostrar['telefEmp']?>')"><i
+                          class="fas fa-eye"></i></button>
+                      <?php  if ($tipo == 1) {
+                                                ?>
+                      <button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
+                        data-toggle="modal" data-target="#modalEditarProveedor" title="Modificar"
+                        onclick="editarProveedor('<?php echo $mostrar['nombre_prov']?>','<?php echo $mostrar['direccion_Prov']?>','<?php echo $mostrar['telefonoResp_Prov']?>','<?php echo $mostrar['nombreEmpr']?>','<?php echo $mostrar['telefEmp']?>','<?php echo $mostrar['idProveedor']?>')"><i
+                          class="fas fa-edit"></i></button>
+                      <?php  }else{ }?>
+                      <?php  if($tipo == 1) { ?>
+                      <button type="button" class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"
+                        title="Dar de baja"><span class="fas fa-arrow-alt-circle-down"
+                          onclick="baja(<?php echo $mostrar['idProveedor'] ?>)"></span></button>
+
+                      <?php  }else{ ?>
+                      <button type="button" class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect"
+                        title="Dar de alta"><i class="fas fa-arrow-alt-circle-up"
+                          onclick="alta(<?php echo $mostrar['idProveedor'] ?>)"></i></button>
+                      <?php } ?>
+                      <?php  }else{ if($tipo == 0){?>
+                      <button type="button" class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect"
+                        title="Dar de alta"><i class="fas fa-arrow-alt-circle-up"
+                          onclick="alta(<?php echo $mostrar['idProveedor'] ?>)"></i></button>
+                      <?php } }?>
                     </td>
-                    <th>
-                      <center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalEditarProveedor" onclick="editarProveedor('<?php echo $mostrar['nombre_prov']?>','<?php echo $mostrar['direccion_Prov']?>','<?php echo $mostrar['telefonoResp_Prov']?>','<?php echo $mostrar['nombreEmpr']?>','<?php echo $mostrar['telefEmp']?>','<?php echo $mostrar['idProveedor']?>')"><i class="fas fa-edit"></i></button>
-                      </center>
-                    </th>
-                    <th>
-                      <center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                            class="fas fa-arrow-alt-circle-down"></i></button></center>
-                    </th>
 
                     <!-- INICIO MODAL EDITAR-->
                     <div class="modal fade" id="modalEditarProveedor" role="dialog">
@@ -123,8 +146,8 @@
                                     <span class="fas fa-building"></span>
                                   </div>
                                   <div class="nk-int-st">
-                                    <input type="text" class="form-control" id="nombreEmpreE"
-                                      name="nombreEmpreC"  aria-required="true" value="">
+                                    <input type="text" class="form-control" id="nombreEmpreE" name="nombreEmpreC"
+                                      aria-required="true" value="">
                                   </div>
                                 </div>
                               </div>
@@ -134,8 +157,8 @@
                                     <span class="fas fa-map-marker-alt"></span>
                                   </div>
                                   <div class="nk-int-st">
-                                    <input type="text" class="form-control" id="direccionEmpreE"
-                                      name="direccionEmpreC" aria-required="true" value="">
+                                    <input type="text" class="form-control" id="direccionEmpreE" name="direccionEmpreC"
+                                      aria-required="true" value="">
                                   </div>
                                 </div>
                               </div>
@@ -145,7 +168,8 @@
                                     <span class="fas fa-phone-alt"></span>
                                   </div>
                                   <div class="nk-int-st">
-                                    <input type="text" class="form-control"  id="telEmpreE" aria-required="true" value="" name="telEmpreC">
+                                    <input type="text" class="form-control" id="telEmpreE" aria-required="true" value=""
+                                      name="telEmpreC">
                                   </div>
                                 </div>
                               </div><br><br><br><br><br>
@@ -160,7 +184,8 @@
                                       <span class="icon-user"></span>
                                     </div>
                                     <div class="nk-int-st">
-                                      <input type="text" class="form-control" id="nombreResE" name="nombreResC" aria-required="true" value="">
+                                      <input type="text" class="form-control" id="nombreResE" name="nombreResC"
+                                        aria-required="true" value="">
                                     </div>
                                   </div>
                                 </div>
@@ -304,6 +329,70 @@
     </div>
   </div>
   <!-- End Footer area-->
+
+  <!-------------------------------------------------------------------------------------->
+  <form method="POST" id="cambioCli">
+    <input type="hidden" name="id" id="idCli" />
+    <input type="hidden" name="bandera" id="banderaCli" />
+    <input type="hidden" name="valor" id="valorCli" />
+  </form>
+  </div>
+  <!-- DAR DE BAJA -->
+  <script type="text/javascript">
+    function baja(id) {
+      swal({
+        title: '¿Está seguro en dar de baja?',
+        // text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No',
+
+      }).then((result) => {
+        if (result.value) {
+          $('#idCli').val(id);
+          $('#banderaCli').val('cambio');
+          $('#valorCli').val('0');
+          var dominio = window.location.host;
+          $('#cambioCli').attr('action', 'http://' + dominio +
+            '/Funesi/notika/green-horizotal/Controladores/ProveedorC.php');
+          $('#cambioCli').submit();
+        } else {
+
+        }
+      })
+    }
+    //DAR DE ALTA
+    function alta(id) {
+      swal({
+        title: '¿Está seguro en dar de alta?',
+        // text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No',
+
+      }).then((result) => {
+        if (result.value) {
+          $('#idCli').val(id);
+          $('#banderaCli').val('cambio');
+          $('#valorCli').val('1');
+          var dominio = window.location.host;
+          $('#cambioCli').attr('action', 'http://' + dominio +
+            '/Funesi/notika/green-horizotal/Controladores/ProveedorC.php');
+          $('#cambioCli').submit();
+        } else {
+
+        }
+      })
+    }
+  </script>
+  <!-------------------------------------------------------------------------------------->
+
   <!-- jquery
 		============================================ -->
   <script src="js/vendor/jquery-1.12.4.min.js"></script>
