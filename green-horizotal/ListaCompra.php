@@ -105,7 +105,7 @@
                                         <?php $fechaCom = explode("-",$mostrar['fecha_Com']);
                                               $fechaCom = $fechaCom[2].'/'.$fechaCom[1].'/'.$fechaCom[0];
                                             ?>
-                                            <button title=Ver" class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
+                                            <button title="Ver" class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                                                 data-toggle="modal" data-target="#modalVerCompra"
                                                 onclick="mostraCompra('<?php echo $fechaCom?>','<?php echo $mostrar['id_Proveedor']?>','<?php echo $mostrar['fac_Com']?>','<?php echo $mostrar['producto_Com']?>','<?php echo $mostrar['cate_Com']?>','<?php echo $mostrar['tipo_Comp']?>','<?php echo $mostrar['cantidad_Com']?>','<?php echo $mostrar['unitario_Com']?>','<?php echo $mostrar['id_Proveedor']?>')"><i
                                                     class="fas fa-eye"></i></button>

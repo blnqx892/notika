@@ -101,7 +101,7 @@
                                         <td><?php echo $mostrar['apellidos_Cli'] ?></td>
                                         <td><?php echo $mostrar['telefono_Cli'] ?></td>
                                         <td>
-                                            <button <?php $fechaCli = explode("-",$mostrar['fecha_Cli']);
+                                            <button title="Ver" <?php $fechaCli = explode("-",$mostrar['fecha_Cli']);
                                               $fechaCli = $fechaCli[2].'/'.$fechaCli[1].'/'.$fechaCli[0];
                                             ?> class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                                                 data-toggle="modal" title="Ver" data-target="#modalVerCliente"
