@@ -3,6 +3,7 @@
 <!--IMPORTE head desde Menu/apertura-->
 <?php include("Menu/apertura.php"); ?>
 <!--IMPORTE head desde Menu/apertura-->
+<?php $cate = array(1 => "Equipo", 2 => "Feretro",3 => "Comestibles",4 => "Desechables"); ?>
 
 <body>
     <!-- Importe menu desde Menu/menu-->
@@ -32,6 +33,15 @@
         </div>
     </div>
     <!-- Breadcomb area End-->
+    <?php if (!isset($_GET['tipo'])) {
+			$tipo=1;
+		}else{
+			$tipo = $_GET['tipo'];
+		}?>
+    <?php 
+        $conexion=mysqli_connect('localhost','root', '', 'funesi');
+        $sql="SELECT * from compras where estado_Com='$tipo' order by producto_Com ASC";
+        $compras= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
 
     <!-- Data Table area Start-->
     <div class="data-table-area">
@@ -39,11 +49,20 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
                     <div class="inbox-left-sd">
-                    <hr>
+                        <hr>
                         <div class="inbox-status">
                             <ul class="inbox-st-nav inbox-ft">
-                            <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button><br><br>
-                            <button class="btn btn-success notika-btn-success">Reporte   <i class="fas fa-print"></i> </button><br><br>
+                            <?php  if ($tipo == 1) { ?>
+                                <a href="/Funesi/notika/green-horizotal/ListaCompra.php?tipo=0"><button
+                                        class="btn btn-success notika-btn-success">Inactivos <i
+                                            class="fas fa-arrow-alt-circle-down"></i></button> &nbsp; </a>
+                                <?php  }else{ ?>
+                                <a href="/Funesi/notika/green-horizotal/ListaCompra.php?tipo=1"><button
+                                        class="btn btn-success notika-btn-success">Activos <i
+                                            class="fas fa-arrow-alt-circle-up"></i></button>&nbsp;</a>
+                                <?php } ?><br><br>
+                                <button class="btn btn-success notika-btn-success">Reporte <i class="fas fa-print"></i>
+                                </button><br><br>
                             </ul>
                         </div>
                         <hr>
@@ -58,40 +77,66 @@
                             <table id="data-table-basic" class="table table-striped">
                                 <thead>
                                     <tr>
+                                        <th>Fecha de Compra</th>
                                         <th>Proveedor</th>
-                                        <th>Categoria</th>
-                                        <th>Tipo</th>
                                         <th>Producto</th>
-                                        <th>$ Precio total</th>
-                                        <th>Ver</th>
-                                        <th>Dar Baja</th>
+                                        <th>$ Precio Unitario</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php While($mostrar=mysqli_fetch_assoc($compras)){?>
+                                        <?php if($mostrar['idCompra'] != 28){ ?>
                                     <tr>
-                                        <td>Natalie Castillo</td>
-                                        <td>Equipo</td>
-                                        <td>Sillas</td>
-                                        <td>Silla Magna Azul</td>
-                                        <th>$ 125.65</th>
-                                        <td>
-                                            <center> <button
-                                                    class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalVer"><i
-                                                        class="fas fa-eye"></i></button>
-                                            </center>
+                                        <td><?php $fechaCom = explode("-",$mostrar['fecha_Com']);
+                                                                        $fechaCom = $fechaCom[2].'/'.$fechaCom[1].'/'.$fechaCom[0];
+                                                                        echo $fechaCom ?>
                                         </td>
-                                        <th>
-                                            <center><button
-                                                    class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                                                        class="fas fa-arrow-alt-circle-down"></i></button>
-                                            </center>
-                                        </th>
+                                        <td><?php
+                                                $aux = $mostrar['id_Proveedor'];
+                                                $sql1 = "SELECT nombre_prov FROM proveedor where idProveedor = '$aux'";
+                                                $proveedor = mysqli_query($conexion, $sql1) or die("No se puedo ejecutar la consulta");
+                                                $proveedor = mysqli_fetch_array($proveedor);
+                                                echo $proveedor['nombre_prov'];
+                                        ?></td>
+                                        <td><?php echo $mostrar['producto_Com'] ?></td>
+                                        <td><?php echo $mostrar['unitario_Com'] ?></td>
+                                        <td>
+                                        <?php $fechaCom = explode("-",$mostrar['fecha_Com']);
+                                              $fechaCom = $fechaCom[2].'/'.$fechaCom[1].'/'.$fechaCom[0];
+                                            ?>
+                                            <button title=Ver" class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
+                                                data-toggle="modal" data-target="#modalVerCompra"
+                                                onclick="mostraCompra('<?php echo $fechaCom?>','<?php echo $mostrar['id_Proveedor']?>','<?php echo $mostrar['fac_Com']?>','<?php echo $mostrar['producto_Com']?>','<?php echo $mostrar['cate_Com']?>','<?php echo $mostrar['tipo_Comp']?>','<?php echo $mostrar['cantidad_Com']?>','<?php echo $mostrar['unitario_Com']?>','<?php echo $mostrar['id_Proveedor']?>')"><i
+                                                    class="fas fa-eye"></i></button>
+                                                    <?php  if($tipo == 1) { ?>
+                                                        <button
+                                            type="button" class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg" title="Dar de baja"><span
+                                                    class="fas fa-arrow-alt-circle-down"
+                                                    onclick="baja(<?php echo $mostrar['idCompra'] ?>)"></span></button>
+                                                    <?php  }else{ ?>
+                                            <button
+                                            type="button" class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect" title="Dar de alta"><i
+                                                    class="fas fa-arrow-alt-circle-up"
+                                                    onclick="alta(<?php echo $mostrar['idCompra'] ?>)"></i></button>
+                                            <?php } ?>
+                                            <?php  }else{ if($tipo == 0){?>
+                                            <button
+                                            type="button" class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect" title="Dar de alta"><i
+                                                    class="fas fa-arrow-alt-circle-up"
+                                                    onclick="alta(<?php echo $mostrar['idCompra'] ?>)"></i></button>
+                                            <?php } }?>
+                                            </th>
                                     </tr>
 
 
                                     <!-- INICIO MODAL VER-->
-                                    <div class="modal fade" id="modalVer" role="dialog">
+                                    <div class="modal fade" id="modalVerCompra" tabindex="-1" role="dialog"
+                                        aria-labelledby="myModalLabel">
+                                        <?php
+                            $sql="SELECT * from proveedor order by nombre_prov ASC";
+                            $proveedores= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+                            ?>
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -105,117 +150,138 @@
                                                         </div>
                                                     </center>
                                                     <div class="typography-hd-cr-4">
-                                                            <h4>Producto</h4>
-                                                        </div>
+                                                        <h4>Detalles</h4>
+                                                    </div>
                                                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                                                     <div class="cmp-tb-hd bcs-hd">
-                                                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                             <div class="form-group nk-datapk-ctm form-elet-mg"
                                                                 id="data_1">
-                                                                <h5>Fecha</h5>
+                                                                <?php
+                                        
+                                                                    date_default_timezone_set('america/el_salvador');
+                                                                    $hora1 = date("A");
+                                                                    $hoy = getdate();
+                                                                    $hora = date("g");
+                                                                    $dia = date("d");
+                                                                     $fechac = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
+                                                                ?>
+                                                                <h5>Fecha de Compra</h5>
                                                                 <div class="input-group date nk-int-st">
                                                                     <span class="input-group-addon"></span>
                                                                     <input type="text" class="form-control"
-                                                                        value="02/10/2019" disabled="disabled">
+                                                                        value="<?php echo $fechac?>" min="01/01/2000"
+                                                                        max="<?php echo $fechac?>" name="fecha"
+                                                                        id="fechac" disabled="true"
+                                                                        aria-required="true">
                                                                 </div>
                                                             </div>
-                                                        </div><br>
+                                                        </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <div class="form-group ic-cmp-int float-lb floating-lb">
-                                                            <div class="form-ic-cmp">
-                                                            <span class="fas fa-dolly"></span>
+                                                            <div class="nk-int-mk sl-dp-mn">
+                                                                <h5>Proveedor</h5>
                                                             </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    disabled="disabled">
-                                                                <label class="nk-label">Proveedor</label>
+                                                            <div class="chosen-select-act fm-cmp-mg">
+                                                                <select class="chosen" id="proveedorc" name="id_Proveedor" disabled="true">
+                                                                    <?php
+                                                                            While($proveedor=mysqli_fetch_array($proveedores)){
+                                                                            echo '<option value="'.$proveedor['idProveedor'].'">'.$proveedor['nombre_prov'].'</option>';
+                                                                        }
+                                                                    ?>
+                                                                </select>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    </div><br><br><br><br>
-                                                    <div class="typography-hd-cr-4">
-                                                        <h4>Producto</h4>
-                                                    </div>
-                                                    <hr style="width:100%;border-color:light-gray 25px;"><br>
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <div class="form-group ic-cmp-int float-lb floating-lb">
-                                                            <div class="form-ic-cmp">
-                                                            <span class="icon-barcode"></span>
-                                                            </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    disabled="disabled">
-                                                                <label class="nk-label">Producto</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <div class="form-group ic-cmp-int float-lb floating-lb">
-                                                            <div class="form-ic-cmp">
-                                                            <span class="fas fa-boxes"></span>
-                                                            </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    disabled="disabled">
-                                                                <label class="nk-label">Categoria</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <div class="form-group ic-cmp-int float-lb floating-lb">
-                                                            <div class="form-ic-cmp">
-                                                            <span class="fas fa-layer-group"></span>
-                                                            </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    disabled="disabled">
-                                                                <label class="nk-label">Tipo</label>
-                                                            </div>
-                                                        </div>
-                                                    </div><br> <br> <br> <br>
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        </div><br>
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
-                                                            <div class="form-ic-cmp">
-                                                            <span class="icon-sort-numeric-asc"></span>
+                                                                <div class="form-ic-cmp">
+                                                                    <span class="icon-barcode"></span>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        disabled="disabled" id="facturac">
+                                                                </div>
                                                             </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Cantidad" disabled="disabled">
-                                                            </div>
+                                                        </div><br><br><br><br>
+                                                        <div class="typography-hd-cr-4">
+                                                            <h4>Producto</h4>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
-                                                            <div class="form-ic-cmp">
-                                                            <span class="fas fa-dollar-sign"></span>
-                                                            </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="$ Precio Unitario" disabled="disabled">
+                                                                <div class="form-ic-cmp">
+                                                                    <span class="icon-barcode"></span>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        disabled="disabled" id="productoc">
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                            <div class="chosen-select-act fm-cmp-mg">
+                                                                <select class="chosen" name="proveedor" id="categoriac"
+                                                                    data-placeholder="Categoria">
+                                                                    <option value=""></option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
-                                                            <div class="form-ic-cmp">
-                                                            <span class="fas fa-dollar-sign"></span>
+                                                                <div class="form-ic-cmp">
+                                                                    <span class="fas fa-layer-group"></span>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        disabled="disabled" id="tipoc">
+                                                                </div>
                                                             </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="$ Precio total" disabled="disabled">
+                                                        </div><br> <br> <br> <br>
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                    <span class="icon-sort-numeric-asc"></span>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        disabled="disabled" id="cantidadc">
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </div><br><br><br>
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                    <span class="fas fa-dollar-sign"></span>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        disabled="disabled" id="unitarioc">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                            <div class="form-group ic-cmp-int">
+                                                                <div class="form-ic-cmp">
+                                                                    <span class="fas fa-dollar-sign"></span>
+                                                                </div>
+                                                                <div class="nk-int-st">
+                                                                    <input type="text" class="form-control"
+                                                                        placeholder="$ Precio total"
+                                                                        disabled="disabled">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div><br><br><br>
 
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default"
-                                                        data-dismiss="modal">Cerrar</button>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default"
+                                                            data-dismiss="modal">Cerrar</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- FIN MODAL VER-->
+                                        <!-- FIN MODAL VER-->
+
+                                        <?php } ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -227,6 +293,7 @@
                 </div>
             </div>
         </div>
+        <script src="js/Validaciones/jsCompra.js"></script>
     </div>
     <!--FIN TABLA-->
 
@@ -243,6 +310,70 @@
         </div>
     </div>
     <!-- End Footer area-->
+
+<!-------------------------------------------------------------------------------------->
+<form method="POST" id="cambioCli">
+        <input type="hidden" name="id" id="idCli" />
+        <input type="hidden" name="bandera" id="banderaCli" />
+        <input type="hidden" name="valor" id="valorCli" />
+    </form>
+    </div>
+    <!-- DAR DE BAJA -->
+    <script type="text/javascript">
+        function baja(id) {
+            swal({
+                title: '¿Está seguro en dar de baja?',
+                // text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si',
+                cancelButtonText: 'No',
+
+            }).then((result) => {
+                if (result.value) {
+                    $('#idCli').val(id);
+                    $('#banderaCli').val('cambio');
+                    $('#valorCli').val('0');
+                    var dominio = window.location.host;
+                    $('#cambioCli').attr('action', 'http://' + dominio + '/Funesi/notika/green-horizotal/Controladores/Compra.php');
+                    $('#cambioCli').submit();
+                } else {
+
+                }
+            })
+        }
+        //DAR DE ALTA
+        function alta(id) {
+            swal({
+                title: '¿Está seguro en dar de alta?',
+                // text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si',
+                cancelButtonText: 'No',
+
+            }).then((result) => {
+                if (result.value) {
+                    $('#idCli').val(id);
+                    $('#banderaCli').val('cambio');
+                    $('#valorCli').val('1');
+                    var dominio = window.location.host;
+                    $('#cambioCli').attr('action', 'http://' + dominio + '/Funesi/notika/green-horizotal/Controladores/Compra.php');
+                    $('#cambioCli').submit();
+                } else {
+
+                }
+            })
+        }
+    </script>
+    <!-------------------------------------------------------------------------------------->
+
+
+
     <!-- jquery
 		============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>

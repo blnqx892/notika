@@ -112,7 +112,8 @@
                                             <button class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
                                                 data-toggle="modal" title="Modificar" data-target="#modalEditarCliente"
                                                 onclick="editarCliente('<?php echo $mostrar['Dui_cli']?>','<?php echo $mostrar['nombre_cli']?>','<?php echo $mostrar['apellidos_Cli']?>','<?php echo $mostrar['direccion_cli']?>','<?php echo $mostrar['telefono_Cli']?>','<?php echo $mostrar['ben1_Cli']?>','<?php echo $mostrar['ben2_Cli']?>','<?php echo $mostrar['ben3_Cli']?>','<?php echo $fechaCli?>','<?php echo $mostrar['idCliente']?>')"><i
-                                                    class="fas fa-edit"></i></button>
+                                                    class="fas fa-edit"></i>
+                                                    </button>
                                             <?php  }else{ }?>
                                             <?php  if($tipo == 1) { ?>
                                             <button

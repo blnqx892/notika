@@ -33,7 +33,8 @@
     </div>
     <!-- Breadcomb area End-->
     <!-- Inbox area Start-->
-    <form action="#" name="formulario1">
+    <form action="Controladores/Compra.php" method="POST">
+        <input type="hidden" value="GuardarCompra" name="bandera">
         <div class="inbox-area">
             <div class="container">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -57,7 +58,7 @@
                                     <div class="input-group date nk-int-st">
                                         <span class="input-group-addon"></span>
                                         <input type="text" class="form-control" value="<?php echo $fech?>"
-                                            name="fechaed" id="fechae" disabled="true" aria-required="true">
+                                            name="fechaec" id="fechae" aria-required="true">
                                     </div>
                                 </div>
                             </div>
@@ -66,12 +67,13 @@
                                  $conexion=mysqli_connect('localhost','root', '', 'funesi');
                                  $sql="SELECT * from proveedor order by nombre_prov ASC";
                                   $proveedores = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
-                            ?>
+                                ?>
                                 <div class="nk-int-mk sl-dp-mn">
                                     <h5>Seleccionar Proveedor</h5>
                                 </div>
                                 <div class="chosen-select-act fm-cmp-mg">
-                                    <select class="chosen" data-placeholder="Elegir Proveedor...">
+                                    <select class="chosen" data-placeholder="Elegir Proveedor..." name="id_Proveedor"
+                                        id="proveedori" aria-hidden="true">
                                         <option value=""></option>
                                         <?php
                                                 While($proveedor=mysqli_fetch_array($proveedores)){
@@ -88,7 +90,8 @@
                                     <span class="fas fa-file-invoice-dollar"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="# Factura Compra">
+                                    <input type="text" class="form-control" placeholder="# Factura Compra"
+                                        name="facturaec" id="facturai" aria-hidden="true">
                                 </div>
                             </div>
                         </div><br><br><br><br>
@@ -102,14 +105,14 @@
                                     <span class="icon-barcode"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Producto">
+                                    <input type="text" class="form-control" placeholder="Producto" name="productoec"
+                                        id="productoi" aria-hidden="true">
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                             <div class="chosen-select-act fm-cmp-mg">
-                                <select class="chosen" name="categoria" id="categoria"
-                                    data-placeholder="Seleccione Categoria">
+                                <select class="chosen" name="cateec" id="catei" data-placeholder="Seleccione Categoria" aria-hidden="true">
                                     <option value=""></option>
                                     <option value="1">Equipo</option>
                                     <option value="2">Feretro</option>
@@ -124,7 +127,7 @@
                                     <span class="fas fa-shapes"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Tipo">
+                                    <input type="text" class="form-control" placeholder="Tipo" name="tipoec" id="tipoi" aria-hidden="true">
                                 </div>
                             </div>
                         </div>
@@ -134,7 +137,8 @@
                                     <span class="icon-sort-numeric-asc"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Cantidad">
+                                    <input type="text" class="form-control" placeholder="Cantidad" name="cantidadec"
+                                        id="cantidadi" aria-hidden="true"> 
                                 </div>
                             </div>
                         </div>
@@ -144,11 +148,13 @@
                                     <span class="fas fa-dollar-sign"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Precio Unitario">
+                                    <input type="text" class="form-control" placeholder="Precio Unitario"
+                                        name="unitarioec" id="precioi" aria-hidden="true">
                                 </div>
                             </div>
                         </div><br>
-                        <div><button class="btn btn-success notika-btn-primary">Agregar <span class="fas fa-cart-plus"></span></button></div><br><br>
+                        <div><button class="btn btn-success notika-btn-primary">Agregar <span
+                                    class="fas fa-cart-plus"></span></button></div><br><br>
                         <center>
                             <div class="data-table-area">
                                 <div class="container">
@@ -180,7 +186,9 @@
                                                                 <td>
                                                                     <center> <button
                                                                             class="btn btn-danger danger-icon-notika waves-effect"
-                                                                            data-toggle="modal" data-target="#modalVer"><span class="fas fa-trash-alt"></span></button>
+                                                                            data-toggle="modal"
+                                                                            data-target="#modalVer"><span
+                                                                                class="fas fa-trash-alt"></span></button>
                                                                     </center>
                                                                 </td>
                                                             </tr>
@@ -198,12 +206,12 @@
                             </div>
                         </center>
                         <center>
-                            <button class="btn btn-success notika-btn-success">Guardar <i
-                                    class="notika-icon notika-checked"></i></button>
-                            <button class="btn btn-danger notika-btn-danger">Cancelar <i
-                                    class="notika-icon notika-close"></i></button>
-                        </center>
-                    </div>
+                        <div class="dialog-pro dialog">
+                  <button class="btn btn-success notika-btn-success" type="submit" >Guardar <i
+                      class="notika-icon notika-checked"></i></button>
+                  <button class="btn btn-danger notika-btn-danger">Cancelar <i
+                      class="notika-icon notika-close"></i></button>
+                </div>
                 </div>
             </div>
         </div>
