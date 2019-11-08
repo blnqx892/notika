@@ -78,18 +78,18 @@
                 <thead>
                   <tr>
                     <th>Empresa</th>
-                    <th>Dirección</th>
                     <th>Responsable</th>
+                    <th>Telefono</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php While($mostrar=mysqli_fetch_assoc($proveedor)){?>
-                  <?php if($mostrar['idCliente'] != 28){ ?>
+                  <?php if($mostrar['idProveedor'] != 28){ ?>
                   <tr>
                     <td><?php echo $mostrar['nombre_prov'] ?></td>
-                    <td><?php echo $mostrar['direccion_Prov'] ?></td>
                     <td><?php echo $mostrar['nombreEmpr'] ?></td>
+                    <td><?php echo $mostrar['telefonoResp_Prov'] ?></td> 
 
                     <td>
                       <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal"
