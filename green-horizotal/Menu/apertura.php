@@ -14,11 +14,11 @@
 
   <link rel="stylesheet" href="fonts/style.css">
 
- <!-- Place your kit's code here -->
- <script src="https://kit.fontawesome.com/16cea9a08c.js" crossorigin="anonymous"></script>
+  <!-- Place your kit's code here -->
+  <script src="https://kit.fontawesome.com/16cea9a08c.js" crossorigin="anonymous"></script>
 
- 
-  <script src = "https.: // use.fontawesome com / c3679deced.js"> </script>
+
+  <script src="https.: // use.fontawesome com / c3679deced.js"> </script>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -151,13 +151,16 @@
   <script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
   <!-- Place your kit's code here -->
- <script src="https://kit.fontawesome.com/16cea9a08c.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/16cea9a08c.js" crossorigin="anonymous"></script>
 
 
 
 
- <link href="../green-horizotal/package/dist/sweetalert2.css" rel="stylesheet">
-    <script src="../green-horizotal/package/dist/sweetalert2.js"></script>
+  <link href="../notika/green-horizotal/package/dist/sweetalert2.css" rel="stylesheet">
+  <script src="../notika/green-horizotal/package/dist/sweetalert2.js"></script>
+  <link href="../notika/green-horizotal/pNotify/pnotify.custom.min.css" rel="stylesheet">
+
+  
 
 
 </head>

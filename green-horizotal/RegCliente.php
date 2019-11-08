@@ -3,7 +3,7 @@
 <!--IMPORTE head desde Menu/apertura-->
 <?php include("Menu/apertura.php"); ?>
 <!--IMPORTE head desde Menu/apertura-->
-
+<script src = "../notika/green-horizotal/js/Validaciones/ValidaCliente.js"></script>
 <body>
   <!-- Importe menu desde Menu/menu-->
   <?php include("Menu/menu.php"); ?>
@@ -33,7 +33,7 @@
   </div>
   <!-- Breadcomb area End-->
   <!-- Inbox area Start-->
-  <form action="Controladores/ClienteC.php" method="POST">
+  <form action="Controladores/ClienteC.php" method="POST" id="guardarCli" autocomplete="off">
   <input type="hidden" value="GuardarCliente" name="bandera">
   <center>
       <div class="inbox-area">
@@ -172,7 +172,7 @@
               <br><br><br><br><br>
               <center>
                 <div class="dialog-pro dialog">
-                  <button class="btn btn-success notika-btn-success" type="submit" >Guardar <i
+                  <button class="btn btn-success notika-btn-success" type="button" onclick="validarCliente();">Guardar <i
                       class="notika-icon notika-checked"></i></button>
                   <button class="btn btn-danger notika-btn-danger">Cancelar <i
                       class="notika-icon notika-close"></i></button>
@@ -183,6 +183,7 @@
         </div>
       </div>
     </center>
+    <script src = "../notika/green-horizotal/js/Validaciones/ValidaCliente.js"></script>
   </form>
   <!-- Inbox area End-->
   <!-- Start Footer area-->
@@ -197,6 +198,7 @@
       </div>
     </div>
   </div>
+  
   <!-- End Footer area-->
   <!-- jquery
 		============================================ -->
@@ -346,6 +348,9 @@
   <script src="js/main.js"></script>
   <!-- tawk chat JS
     ============================================ -->
+
+    <script src="../notika/green-horizotal/js/Validaciones/mensajes.js"></script>
+<script src="../notika/green-horizotal/pNotify/pnotify.custom.min.js"></script>
 </body>
 
 </html>
