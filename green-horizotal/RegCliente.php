@@ -3,7 +3,7 @@
 <!--IMPORTE head desde Menu/apertura-->
 <?php include("Menu/apertura.php"); ?>
 <!--IMPORTE head desde Menu/apertura-->
-<script src = "../notika/green-horizotal/js/Validaciones/ValidaCliente.js"></script>
+
 <body>
   <!-- Importe menu desde Menu/menu-->
   <?php include("Menu/menu.php"); ?>
@@ -33,7 +33,7 @@
   </div>
   <!-- Breadcomb area End-->
   <!-- Inbox area Start-->
-  <form action="Controladores/ClienteC.php" method="POST" id="guardarCli" autocomplete="off">
+  <form action="Controladores/ClienteC.php" method="POST">
   <input type="hidden" value="GuardarCliente" name="bandera">
   <center>
       <div class="inbox-area">
@@ -183,7 +183,6 @@
         </div>
       </div>
     </center>
-    <script src = "../notika/green-horizotal/js/Validaciones/ValidaCliente.js"></script>
   </form>
   <!-- Inbox area End-->
   <!-- Start Footer area-->
@@ -196,9 +195,9 @@
           </div>
         </div>
       </div>
+    
     </div>
   </div>
-  
   <!-- End Footer area-->
   <!-- jquery
 		============================================ -->
@@ -210,8 +209,9 @@
 		============================================ -->
   <script src="js/wow.min.js"></script>
   <!-- price-slider JS
+   <script src="js/jquery-price-nlider.js"></script>
 		============================================ -->
-  <script src="js/jquery-price-slider.js"></script>
+ 
   <!-- owl.carousel JS
 		============================================ -->
   <script src="js/owl.carousel.min.js"></script>
@@ -349,8 +349,7 @@
   <!-- tawk chat JS
     ============================================ -->
 
-    <script src="../notika/green-horizotal/js/Validaciones/mensajes.js"></script>
-<script src="../notika/green-horizotal/pNotify/pnotify.custom.min.js"></script>
+    <script src="../green-horizotal/js/Validaciones/ValidaCliente.js"></script>
 </body>
 
 </html>
