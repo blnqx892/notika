@@ -172,7 +172,7 @@
               <br><br><br><br><br>
               <center>
                 <div class="dialog-pro dialog">
-                  <button class="btn btn-success notika-btn-success" type="button" onclick="validarCliente();">Guardar <i
+                  <button class="btn btn-success notika-btn-success" type="submit" >Guardar <i
                       class="notika-icon notika-checked"></i></button>
                   <button class="btn btn-danger notika-btn-danger">Cancelar <i
                       class="notika-icon notika-close"></i></button>
