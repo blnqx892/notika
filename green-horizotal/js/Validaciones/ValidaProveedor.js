@@ -1,4 +1,4 @@
-async function validarCompra() {
+async function validarProveedor() {
     
     var nombreE = await validaNombreE();
     var Direccion = await validaDireccion();

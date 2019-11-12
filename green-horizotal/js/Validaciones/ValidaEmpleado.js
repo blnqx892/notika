@@ -1,111 +1,72 @@
-async function ValidaEmpleado() {
-    var dui = await ValidaDui();
-    var nombres = await ValidaNombres();
-    var apellidos = await ValidaApellidos();
-    var telefono = await ValidaTelefono();
-    var direccion = await ValidaDireccion();
-    var cargo = await Validacargo();
-    if (dui == 0 && nombres == 0 && apellidos == 0 && telefono == 0 && direccion && cargo == 0) {
-        $('#guardarCliente').submit();
-    };
+async function validarEmpleado() {
+    var Dui = await validaDui();
+    var nombre = await validaNombres();
+    var apellido = await validaApellidos();
+    var direccion = await validaDireccion();
+    var telefono = await validaTelefonos();
+    var Cargos = await validaCargo();
+    if (Dui== 0 && nombre == 0 && apellido == 0  && direccion == 0 && telefono == 0 && Cargos == 0 ) {
+      ('#guardarEmple').submit();
+    }
 }
 
 function validaDui() {
 
-    if ($('#duii').val().length != 10) {
-        notaError("¡El DUI debe contener 9 dígitos!");
+    if ($('#dui').val().length != 10) {
+        alert("¡El DUI debe contener 9 dígitos!");
         return true;
-    } else if ($('#duii').val().trim() == "") {
-        notaError("¡El DUI es obligatorio!");
+    } else if ($('#dui').val().trim() == "") {
+        alert("¡El DUI es obligatorio!");
         return true;
-    } else {
-        var param = {
-            nrc: $('#duii').val(),
-            bandera: "duiiC"
-        };
-
-        return $.ajax({
-            data: param,
-            url: "/Funesi/notika/green-horizotal/Controladores/EmpleadoE.php",
-            method: "post",
-            success: function (data) {
-                if (data == 0) {
-                    return true;
-                } else {
-                    notaError("¡El DUI ingresado ya ha sido registrado!");
-                    return false;
-                }
-            }
-        });
     }
 
 }
 
-function ValidaNombres() {
+function validaNombres() {
 
-    if ($('#nombre').val().trim() == "") {
-        notaError("¡El nombre es obligatorio!");
+    if ($('#nombres').val().trim() == "") {
+        alert("¡El nombre es obligatorio!");
+        return false;
+    }
+    return true;
+}
+
+function validaApellidos() {
+
+    if ($('#apellidos').val().trim() == "") {
+        alert("¡El apellido es obligatorio!");
         return false;
     }
 
     return true;
 }
 
-function ValidaApellidos() {
+function validaTelefonos() {
 
-    if ($('#apellido').val().trim() == "") {
-        notaError("¡El apellido es obligatorio!");
+    if ($('#telefono').val().length != 9) {
+        alert("¡El teléfono debe contener 8 dígitos!");
+        return true;
+    } else if ($('#telefono').val().trim() == "") {
+        alert("¡El teléfono es obligatorio!");
+        return true;
+    }
+
+}
+
+function validaDireccion() {
+
+    if ($('#direccion').val().trim() == "") {
+        alert("¡La dirección es obligatorio!");
         return false;
     }
 
     return true;
 }
 
-function ValidaTelefono() {
+function validaCargo() {
 
-    if ($('#telfo').val().length != 9) {
-        notaError("¡El teléfono debe contener 8 dígitos!");
-        return true;
-    } else if ($('#telfo').val().trim() == "") {
-        notaError("¡El teléfono es obligatorio!");
-        return true;
-    } else {
-        var param = {
-            telefono: $('#telfo').val(),
-            bandera: "telefonoC"
-        };
-
-        return $.ajax({
-            data: param,
-            url: "/Funesi/notika/green-horizotal/Controladores/EmpleadoE.php",
-            method: "post",
-            success: function (data) {
-                if (data == 0) {
-                    return true;
-                } else {
-                    notaError("¡El teléfono ingresado ya ha sido registrado!");
-                    return false;
-                }
-            }
-        });
-    }
-
-}
-
-function ValidaDireccion() {
-
-    if ($('#direcci').val().trim() == "") {
-        notaError("¡La dirección es obligatorio!");
-        return false;
-    }
-
-    return true;
-}
-
-function Validacargo() {
-
-    if ($('#cargoE').val().trim() == "") {
-        notaError("¡Al menos un beneficiario es Obligatorio!");
+    if ($('#cargo').val().trim() == "") {
+        alert("¡El cargo es Obligatorio!");
         return false;
     }
 

@@ -33,7 +33,7 @@
   </div>
   <!-- Breadcomb area End-->
   <!-- Inbox area Start-->
-  <form action="Controladores/ProveedorC.php" method="POST">
+  <form action="Controladores/ProveedorC.php" method="POST" id="guardarProve" autocomplete="off"> 
   <input type="hidden" value="GuardarProveedor" name="bandera">
     <div class="inbox-area">
       <div class="container">
@@ -43,7 +43,7 @@
               <h4>Datos de la Empresa</h4>
             </div>
             <hr style="width:100%;border-color:light-gray 25px;"><br>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
                   <span class="fas fa-building"></span>
@@ -53,7 +53,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
               <div class="form-group ic-cmp-int">
                 <div class="form-ic-cmp">
                   <span class="fas fa-map-marker-alt"></span>
@@ -99,8 +99,8 @@
             </div><br><br><br><br><br>
             <center>
               <div class="dialog-pro dialog">
-                <button class="btn btn-success notika-btn-success" type="submit">Guardar <i
-                    class="notika-icon notika-checked"></i></button>
+              <button class="btn btn-success notika-btn-success" type="Submit" >Guardar <i
+                      class="notika-icon notika-checked"></i></button>
                 <button class="btn btn-danger notika-btn-danger">Cancelar <i
                     class="notika-icon notika-close"></i></button>
               </div>
@@ -197,6 +197,8 @@
      <!-- Input Mask JS
     ============================================ -->
   <script src="js/jasny-bootstrap.min.js"></script>
+
+  <script src="../green-horizotal/js/Validaciones/ValidaProveedor.js"></script>
 </body>
 
 </html>

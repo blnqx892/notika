@@ -33,7 +33,7 @@
   </div>
   <!-- Breadcomb area End-->
   <!-- Inbox area Start-->
-  <form action="Controladores/EmpleadoE.php" method="POST">
+  <form action="Controladores/EmpleadoE.php" method="POST" id="guardarEmple" autocomplete="off">
   <input type="hidden" value="GuardarEmpleado" name="bandera">
     <div class="inbox-area">
       <div class="container">
@@ -51,7 +51,7 @@
                   </div>
                   <div class="nk-int-st">
                     <input type="text" class="form-control" placeholder="DUI: 99999999-9" name="dui"
-                      data-mask="99999999-9" id="duii" aria-hidden="true">
+                      data-mask="99999999-9" id="dui" aria-hidden="true">
                   </div>
                 </div>
               </div>
@@ -61,7 +61,7 @@
                     <span class="icon-user"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" class="form-control" placeholder="Nombres" name="nombres" aria-hidden="true">
+                    <input type="text" class="form-control" placeholder="Nombres" id="nombres" name="nombres" aria-hidden="true">
                   </div>
                 </div>
               </div>
@@ -71,7 +71,7 @@
                     <span class="icon-user"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" class="form-control" placeholder="Apellidos" name="apellidos" aria-hidden="true">
+                    <input type="text" class="form-control" placeholder="Apellidos" id="apellidos" name="apellidos" aria-hidden="true">
                   </div>
                 </div>
               </div><br><br><br><br>
@@ -81,7 +81,7 @@
                     <span class="fas fa-map-marker-alt"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" class="form-control" placeholder="Dirección" name="direccion" aria-hidden="true">
+                    <input type="text" class="form-control" placeholder="Dirección" id="direccion" name="direccion" aria-hidden="true">
                   </div>
                 </div>
               </div>
@@ -91,7 +91,7 @@
                     <span class="fas fa-phone-alt"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" class="form-control" placeholder="Telf:9999-9999" name="telefono"
+                    <input type="text" class="form-control" placeholder="Telf:9999-9999" id="telefono" name="telefono"
                       data-mask="9999-9999" aria-hidden="true">
                   </div>
                 </div>
@@ -125,14 +125,14 @@
                     <span class="fas fa-address-card"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" class="form-control" placeholder="Cargo" name="cargo" aria-hidden="true">
+                    <input type="text" class="form-control" placeholder="Cargo" id="cargo" name="cargo" aria-hidden="true">
                   </div>
                 </div>
               </div>
             </div> <br><br><br><br><br><br>
             <center>
-              <button class="btn btn-success notika-btn-success" type="submit">Guardar <i
-                  class="notika-icon notika-checked"></i></button>
+            <button class="btn btn-success notika-btn-success" type="Submit" >Guardar <i
+                      class="notika-icon notika-checked"></i></button>
               <button class="btn btn-danger notika-btn-danger">Cancelar <i
                   class="notika-icon notika-close"></i></button>
             </center>
@@ -239,6 +239,8 @@
   <!-- Input Mask JS
     ============================================ -->
   <script src="js/jasny-bootstrap.min.js"></script>
+
+  <script src="../green-horizotal/js/Validaciones/ValidaEmpleado.js"></script>
 </body>
 
 </html>

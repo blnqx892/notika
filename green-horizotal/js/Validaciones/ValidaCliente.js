@@ -84,3 +84,41 @@ function validaBenefi2() {
 
     return true;
 }
+
+function validarFecha(){
+    var f = new Date();
+    //FECHA ACTUAL
+    var diaActual = f.getDate();
+    var mesActual = f.getMonth() + 1;
+    var anioActual = f.getFullYear();
+    //FECHA SELECCIONADA
+    $fechaCom = $('#fecha').val();
+    var fechas = $fechaCom.split('/');
+    var diaSeleccionado = fechas[0];
+    var mesSeleccionado = fechas[1];
+    var anioSeleccionado = fechas[2];       
+
+    if ($('#fecha').val().trim() == "") {
+        alert("¡La fecha es obligatoria!");
+        return false;
+    }else if (anioSeleccionado > anioActual) {
+        alert("¡La fecha debe ser válida!");
+        return false;
+    }else if (diaSeleccionado > diaActual && mesSeleccionado > mesActual && anioSeleccionado > anioActual) {
+        alert("¡La fecha debe ser válida!");
+        return false;
+    }else if (diaSeleccionado > diaActual && mesSeleccionado == mesActual && anioSeleccionado == anioActual) {
+        alert("¡La fecha debe ser válida!");
+        return false;
+    }else if (diaSeleccionado == diaActual && mesSeleccionado == mesActual && anioSeleccionado > anioActual) {
+        alert("¡La fecha debe ser válida!");
+        return false;
+    }else if (diaSeleccionado == diaActual && mesSeleccionado > mesActual && anioSeleccionado == anioActual) {
+        alert("¡La fecha debe ser válida!");
+        return false;
+    }else if (mesSeleccionado > mesActual && anioSeleccionado == anioActual) {
+        alert("¡La fecha debe ser válida!");
+        return false;
+    }
+    return true;
+}

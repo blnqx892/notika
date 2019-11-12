@@ -33,7 +33,7 @@
     </div>
     <!-- Breadcomb area End-->
     <!-- Inbox area Start-->
-    <form action="Controladores/Compra.php" method="POST">
+    <form action="Controladores/Compra.php" method="POST" autocomplete="off">
         <input type="hidden" value="GuardarCompra" name="bandera">
         <div class="inbox-area">
             <div class="container">

@@ -194,7 +194,7 @@
                                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <span class="icon-barcode"></span>
+                                                                     <span class="fas fa-file-invoice-dollar"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -220,7 +220,7 @@
                                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                             <div class="chosen-select-act fm-cmp-mg">
                                                                 <select class="chosen" name="proveedor" id="categoriac"
-                                                                    data-placeholder="Categoria">
+                                                                    data-placeholder="Categoria" disabled="true">
                                                                     <option value=""></option>
                                                                 </select>
                                                             </div>
@@ -228,7 +228,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                         <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                    <span class="fas fa-layer-group"></span>
+                                                                <span class="fas fa-shapes"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -265,7 +265,7 @@
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="$ Precio total"
+                                                                        placeholder="Precio total"
                                                                         disabled="disabled">
                                                                 </div>
                                                             </div>
