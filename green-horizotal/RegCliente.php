@@ -33,7 +33,7 @@
   </div>
   <!-- Breadcomb area End-->
   <!-- Inbox area Start-->
-  <form action="Controladores/ClienteC.php" method="POST">
+  <form action="Controladores/ClienteC.php" method="POST" autocomplete="off">
   <input type="hidden" value="GuardarCliente" name="bandera">
   <center>
       <div class="inbox-area">
@@ -154,7 +154,7 @@
                     <div class="input-group date nk-int-st">
                       <span class="input-group-addon"></span>
                       <input type="text" class="form-control" value="<?php echo $fech?>" min="01/01/2000"
-                        max="<?php echo $fech?>" name="fecha" id="fec" aria-hidden="true">
+                        max="<?php echo $fech?>" name="fecha" id="fecha" aria-hidden="true">
                     </div>
                   </div>
                 </div>
@@ -172,7 +172,10 @@
               <br><br><br><br><br>
               <center>
                 <div class="dialog-pro dialog">
-                  <button class="btn btn-success notika-btn-success" type="button" onclick="validarCliente();">Guardar <i
+               <!----- <button class="btn btn-success notika-btn-success" type="button" onclick="validarCliente();">Guardar <i
+                      class="notika-icon notika-checked"></i></button>
+                      ------>
+                  <button class="btn btn-success notika-btn-success" type="Submit">Guardar <i
                       class="notika-icon notika-checked"></i></button>
                   <button class="btn btn-danger notika-btn-danger">Cancelar <i
                       class="notika-icon notika-close"></i></button>
