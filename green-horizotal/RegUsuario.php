@@ -21,7 +21,7 @@
                                         <i class="notika-icon notika-form"></i>
                                     </div>
                                     <div class="breadcomb-ctn">
-                                        <h2>REGISTRAR USUARIO</h2>
+                                        <h2>USUARIOS</h2>
                                     </div>
                                 </div>
                             </div>
@@ -32,116 +32,27 @@
         </div>
     </div>
     <!-- Breadcomb area End-->
-    <!-- Inbox area Start-->
-    <div class="inbox-area">
-        <div class="container">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="form-element-list">
-                    <div class="typography-hd-cr-4">
-                        <h3>Datos Personales</h3>
-                    </div>
-                    <hr style="width:100%;border-color:light-gray 25px;"><br>
-                    <div class="cmp-tb-hd bcs-hd">
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-              <div class="form-group ic-cmp-int">
-                <div class="form-ic-cmp">
-                <span class="fas fa-id-card"></span>
-                </div>
-                <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="DUI: 99999999-9">
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-              <div class="form-group ic-cmp-int">
-                <div class="form-ic-cmp">
-                <span class="icon-user"></span>
-                </div>
-                <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Nombre">
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-              <div class="form-group ic-cmp-int">
-                <div class="form-ic-cmp">
-                <span class="icon-user"></span>
-                </div>
-                <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Apellido">
-                </div>
-              </div>
-            </div><br><br><br>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                <span class="fas fa-at"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Correo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                <span class="icon-user"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Usuario" disabled="disabled">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                    <span class="icon-key"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Contraseña">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="dropdone-nk mg-t-30">
-                                <div class="cmp-tb-hd">
-                                    <h2>Cargar Imagen del Usuario</h2>
-                                </div>
-                                <div id="dropzone1" class="multi-uploader-cs">
-                                    <form action="/upload" class="dropzone dropzone-nk needsclick" id="demo1-upload">
-                                        <div class="dz-message needsclick download-custom">
-                                            <i class="notika-icon notika-cloud"></i>
-                                            <h2>Suelte los archivos aquí o haga clic para cargar.</h2>
-                                            <p><span class="note needsclick"></span>
-                                            </p>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div><br><br><br><br>
-                    <center>
-                        <button class="btn btn-success notika-btn-success">Guardar <i
-                                class="notika-icon notika-checked"></i></button>
-                        <button class="btn btn-danger notika-btn-danger">Cancelar <i
-                                class="notika-icon notika-close"></i></button>
-                    </center>
-                </div><br><br><br><br>
-            </div>
-        </div>
-    </div>
-    <!-- Inbox area End-->
+    <?php 
+        $conexion=mysqli_connect('localhost','root', '', 'funesi');
+        $sql="SELECT * from usuario order by nombre_Usu ASC";
+        $usuarios= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
+
     <!-- Data Table area Start-->
     <div class="data-table-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
                     <div class="inbox-left-sd">
-                    <hr>
+                        <hr>
                         <div class="inbox-status">
                             <ul class="inbox-st-nav inbox-ft">
-                            <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button><br><br>
-                            <button class="btn btn-success notika-btn-success">Reporte   <i class="fas fa-print"></i> </button><br><br>
+                                <button  class="btn btn-success notika-btn-success" data-toggle="modal"
+                                    data-target="#modalNuevoUsu">Nuevo <span class="fas fa-plus-circle"></span>
+                                </button><br><br>
+                                <button class="btn btn-success notika-btn-success">Dar Altas <i
+                                        class="fas fa-arrow-alt-circle-up"></i></button><br><br>
+                                <button class="btn btn-success notika-btn-success">Reporte <i class="fas fa-print"></i>
+                                </button><br><br>
                             </ul>
                         </div>
                         <hr>
@@ -157,7 +68,7 @@
                                 <thead>
                                     <tr>
                                         <th>Nombre</th>
-                                        <th>Apellidos</th>
+                                        <th>Apellido</th>
                                         <th>Usuario</th>
                                         <th>Ver</th>
                                         <th>Modificar</th>
@@ -166,13 +77,15 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Blanca</td>
-                                        <td>Melara</td>
-                                        <td>blme</td>
+                                        <?php While($mostrar=mysqli_fetch_assoc($usuarios)){?>
+                                        <td><?php echo $mostrar['nombre_Usu'] ?></td>
+                                        <td><?php echo $mostrar['apellido_Usu'] ?></td>
+                                        <td><?php echo $mostrar['usuario_Usu'] ?></td>
                                         <td>
                                             <center><button
                                                     class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalVer"><i
+                                                    data-toggle="modal" data-target="#modalVer" title="Ver"
+                                                    onclick="mostraUsuario('<?php echo $mostrar['Dui_Usu']?>','<?php echo $mostrar['nombre_Usu']?>','<?php echo $mostrar['apellido_Usu']?>','<?php echo $mostrar['correo_Usu']?>','<?php echo $mostrar['usuario_Usu']?>','<?php echo $mostrar['contrasena_Usu']?>')"><i
                                                         class="fas fa-eye"></i></button></center>
                                         </td>
                                         <th>
@@ -187,6 +100,7 @@
                                                         class="fas fa-arrow-alt-circle-down"></i></button></center>
                                         </th>
                                     </tr>
+                                    <!--INICIO MODAL EDITAR-->
                                     <div class="modal fade" id="modalEditar" role="dialog">
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
@@ -208,7 +122,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="fas fa-id-card"></span>
+                                                                    <span class="fas fa-id-card"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -220,7 +134,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="icon-user"></span>
+                                                                    <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -231,7 +145,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="icon-user"></span>
+                                                                    <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -242,7 +156,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="fas fa-at"></span>
+                                                                    <span class="fas fa-at"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -253,7 +167,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="icon-user"></span>
+                                                                    <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -264,7 +178,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="icon-key"></span>
+                                                                    <span class="icon-key"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -272,23 +186,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="dropdone-nk mg-t-30">
-                                <div class="cmp-tb-hd">
-                                    <h2>Cargar Imagen del Usuario</h2>
-                                </div>
-                                <div id="dropzone1" class="multi-uploader-cs">
-                                    <form action="/upload" class="dropzone dropzone-nk needsclick" id="demo1-upload">
-                                        <div class="dz-message needsclick download-custom">
-                                            <i class="notika-icon notika-cloud"></i>
-                                            <h2>Suelte los archivos aquí o haga clic para cargar.</h2>
-                                            <p><span class="note needsclick"></span>
-                                            </p>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
                                                     </div><br><br><br><br>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-default"
@@ -300,7 +197,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal fade" id="modalVer" role="dialog">
+                                    <!--FIN  MODAL EDITAR-->
+
+                                    <!--INICIO MODAL VER-->
+                                    <div class="modal fade" id="modalVer" tabindex="-1" role="dialog"
+                                        aria-labelledby="myModalLabel">
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -321,67 +222,72 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="fas fa-id-card"></span>
+                                                                    <span class="fas fa-id-card"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="DUI: 99999999-9"
-                                                                        disabled="disabled">
+                                                                    <input type="text" class="form-control" id="duiv"
+                                                                        readonly="readonly" aria-required="true"
+                                                                        value="">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="icon-user"></span>
+                                                                    <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Nombre" disabled="disabled">
+                                                                    <input type="text" class="form-control" id="nombrev"
+                                                                        readonly="readonly" aria-required="true"
+                                                                        value="">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="icon-user"></span>
+                                                                    <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Apellido" disabled="disabled">
+                                                                        readonly="readonly" aria-required="true"
+                                                                        value="" id="apellidov">
                                                                 </div>
                                                             </div>
                                                         </div><br><br><br>
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="fas fa-at"></span>
+                                                                    <span class="fas fa-at"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Correo" disabled="disabled">
+                                                                    <input type="text" class="form-control" id="correov"
+                                                                        readonly="readonly" aria-required="true"
+                                                                        value="">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="icon-user"></span>
+                                                                    <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Usuario" disabled="disabled">
+                                                                        readonly="readonly" aria-required="true"
+                                                                        value="" id="usuariov">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="icon-key"></span>
+                                                                    <span class="icon-key"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Contraseña" disabled="disabled">
+                                                                    <input type="password" class="form-control"
+                                                                        readonly="readonly" aria-required="true"
+                                                                        value="" id="contra1v">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -399,6 +305,133 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!--FIN MODAL VER-->
+
+                                    <!--INICIO MODAL NUEVO-->
+                                    <div class="modal fade" id="modalNuevoUsu"  tabindex="-1" role="dialog"
+                                        aria-labelledby="myModalLabel">
+                                        <div class="modal-dialog modal-large">
+                                            <div class="modal-content">
+                                                <form action="Controladores/UsuarioC.php" method="POST" >
+                                                    <input type="hidden" value="GuardarUsuario" name="bandera">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <center>
+                                                            <div class="typography-hd-cr-4">
+                                                                <h3>Registrar Nuevo Usuario</h3>
+                                                            </div>
+                                                        </center>
+                                                        <div class="typography-hd-cr-4">
+                                                            <h2>Datos Personales</h2>
+                                                        </div>
+                                                        <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                        <div class="cmp-tb-hd bcs-hd">
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <span class="fas fa-id-card"></span>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="DUI: 99999999-9" name="dui">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <span class="icon-user"></span>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="Nombre" name="nombre">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <span class="icon-user"></span>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="Apellido" name="apellido">
+                                                                    </div>
+                                                                </div>
+                                                            </div><br><br><br><br>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <span class="fas fa-at"></span>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="Correo" name="correo">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <span class="icon-user"></span>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="Usuario" name="usuario">
+                                                                    </div>
+                                                                </div>
+                                                            </div><br><br><br>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <span class="icon-key"></span>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="password" class="form-control"
+                                                                            placeholder="Contraseña" name="contra1">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <span class="icon-key"></span>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="password" class="form-control"
+                                                                            placeholder="Repetir Contraseña"
+                                                                            name="contra2">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                                                <div class="chosen-select-act fm-cmp-mg">
+                                                                    <select class="chosen" name="rol"
+                                                                        data-placeholder="Elegir Rol"
+                                                                        aria-hidden="true">
+                                                                        <option value=""></option>
+                                                                        <option value="1">Administrador</option>
+                                                                        <option value="2">Empleado</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div><br><br><br><br>
+                                                        <div class="modal-footer">
+                                                            <button type="submit" class="btn btn-default">Guardar
+                                                                Cambios</button>
+                                                            <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">Cancelar</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--DIN MODAL NUEVO-->
+                                    <?php } ?>
                                 </tbody>
                                 <tfoot>
                                     <tr>
@@ -410,6 +443,7 @@
                 </div>
             </div>
         </div>
+        <script src="js/Validaciones/jsUsuario.js"></script>
     </div>
     <!--FIN TABLA-->
     <!-- Start Footer area-->
@@ -425,6 +459,16 @@
         </div>
     </div>
     <!-- End Footer area-->
+    <!--  chosen JS
+    ============================================ -->
+    <script src="js/chosen/chosen.jquery.js"></script>
+    <!-- bootstrap select JS
+    ============================================ -->
+    <script src="js/bootstrap-select/bootstrap-select.js"></script>
+    <!-- datapicker JS
+    ============================================ -->
+    <script src="js/datapicker/bootstrap-datepicker.js"></script>
+    <script src="js/datapicker/datepicker-active.js"></script>
     <!-- jquery
 		============================================ -->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
@@ -494,6 +538,109 @@
     <script src="js/data-table/data-table-act.js"></script>
     <!-- main JS
     ============================================ -->
+
+
+
+
+
+
+    <!-- jquery
+    ============================================ -->
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap JS
+    ============================================ -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- wow JS
+    ============================================ -->
+    <script src="js/wow.min.js"></script>
+    <!-- price-slider JS
+    ============================================ -->
+    <script src="js/jquery-price-slider.js"></script>
+    <!-- owl.carousel JS
+    ============================================ -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- scrollUp JS
+    ============================================ -->
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <!-- meanmenu JS
+    ============================================ -->
+    <script src="js/meanmenu/jquery.meanmenu.js"></script>
+    <!-- counterup JS
+    ============================================ -->
+    <script src="js/counterup/jquery.counterup.min.js"></script>
+    <script src="js/counterup/waypoints.min.js"></script>
+    <script src="js/counterup/counterup-active.js"></script>
+    <!-- mCustomScrollbar JS
+    ============================================ -->
+    <script src="js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- sparkline JS
+    ============================================ -->
+    <script src="js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="js/sparkline/sparkline-active.js"></script>
+    <!-- flot JS
+    ============================================ -->
+    <script src="js/flot/jquery.flot.js"></script>
+    <script src="js/flot/jquery.flot.resize.js"></script>
+    <script src="js/flot/flot-active.js"></script>
+    <!-- knob JS
+    ============================================ -->
+    <script src="js/knob/jquery.knob.js"></script>
+    <script src="js/knob/jquery.appear.js"></script>
+    <script src="js/knob/knob-active.js"></script>
+    <!-- Input Mask JS
+    ============================================ -->
+    <script src="js/jasny-bootstrap.min.js"></script>
+    <!-- icheck JS
+    ============================================ -->
+    <script src="js/icheck/icheck.min.js"></script>
+    <script src="js/icheck/icheck-active.js"></script>
+    <!-- rangle-slider JS
+    ============================================ -->
+    <script src="js/rangle-slider/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="js/rangle-slider/jquery-ui-touch-punch.min.js"></script>
+    <script src="js/rangle-slider/rangle-active.js"></script>
+    <!-- datapicker JS
+    ============================================ -->
+    <script src="js/datapicker/bootstrap-datepicker.js"></script>
+    <script src="js/datapicker/datepicker-active.js"></script>
+    <!-- bootstrap select JS
+    ============================================ -->
+    <script src="js/bootstrap-select/bootstrap-select.js"></script>
+    <!--  color-picker JS
+    ============================================ -->
+    <script src="js/color-picker/farbtastic.min.js"></script>
+    <script src="js/color-picker/color-picker.js"></script>
+    <!--  notification JS
+    ============================================ -->
+    <script src="js/notification/bootstrap-growl.min.js"></script>
+    <script src="js/notification/notification-active.js"></script>
+    <!--  summernote JS
+    ============================================ -->
+    <script src="js/summernote/summernote-updated.min.js"></script>
+    <script src="js/summernote/summernote-active.js"></script>
+    <!-- dropzone JS
+    ============================================ -->
+    <script src="js/dropzone/dropzone.js"></script>
+    <!--  wave JS
+    ============================================ -->
+    <script src="js/wave/waves.min.js"></script>
+    <script src="js/wave/wave-active.js"></script>
+    <!--  chosen JS
+    ============================================ -->
+    <script src="js/chosen/chosen.jquery.js"></script>
+
+    <!--  todo JS
+    ============================================ -->
+    <script src="js/todo/jquery.todo.js"></script>
+    <!-- plugins JS
+    ============================================ -->
+    <script src="js/plugins.js"></script>
+    <!-- main JS
+    ============================================ -->
+    <script src="js/main.js"></script>
+    <!-- tawk chat JS
+    ============================================ -->
+</body>
 </body>
 
 </html>
