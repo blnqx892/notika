@@ -8,7 +8,7 @@
        $usuario=$_POST["usuario"];
        $contra=$_POST["contra1"];
        ///ALGORITMO DE ENCRIPTACION BLOWFISH, METODO PASSWORD_HASH
-       $contrasena=password_hash($contra, PASSWORD_DEFAULT);
+        $contrasena=password_hash($contra, PASSWORD_DEFAULT);
        /////////////////////////////////////////////////////////
        $nombre=$_POST["nombre"];
        $apellido=$_POST["apellido"];

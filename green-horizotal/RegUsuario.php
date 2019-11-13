@@ -46,7 +46,7 @@
                         <hr>
                         <div class="inbox-status">
                             <ul class="inbox-st-nav inbox-ft">
-                                <button  class="btn btn-success notika-btn-success" data-toggle="modal"
+                                <button class="btn btn-success notika-btn-success" data-toggle="modal"
                                     data-target="#modalNuevoUsu">Nuevo <span class="fas fa-plus-circle"></span>
                                 </button><br><br>
                                 <button class="btn btn-success notika-btn-success">Dar Altas <i
@@ -285,9 +285,9 @@
                                                                     <span class="icon-key"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
-                                                                    <input type="password" class="form-control"
-                                                                        readonly="readonly" aria-required="true"
-                                                                        value="" id="contra1v">
+                                                                    <input data-type="success" type="password"
+                                                                        class="form-control" readonly="readonly"
+                                                                        aria-required="true" value="" id="contra1v">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -308,11 +308,11 @@
                                     <!--FIN MODAL VER-->
 
                                     <!--INICIO MODAL NUEVO-->
-                                    <div class="modal fade" id="modalNuevoUsu"  tabindex="-1" role="dialog"
+                                    <div class="modal fade" id="modalNuevoUsu" tabindex="-1" role="dialog"
                                         aria-labelledby="myModalLabel">
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
-                                                <form action="Controladores/UsuarioC.php" method="POST" >
+                                                <form action="Controladores/UsuarioC.php" method="POST">
                                                     <input type="hidden" value="GuardarUsuario" name="bandera">
                                                     <div class="modal-header">
                                                         <button type="button" class="close"
@@ -640,7 +640,12 @@
     <script src="js/main.js"></script>
     <!-- tawk chat JS
     ============================================ -->
-</body>
-</body>
 
+
+    <!--  notification JS
+		============================================ -->
+    <script src="js/notification/bootstrap-growl.min.js"></script>
+    <script src="js/notification/notification-active.js"></script>
+    
+</body>
 </html>
