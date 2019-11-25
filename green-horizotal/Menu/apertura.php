@@ -160,7 +160,7 @@
   <link href="../green-horizotal/pNotify/pnotify.custom.min.css" rel="stylesheet">
 
   <script src="../green-horizotal/js/Validaciones/ValidaCliente.js"></script>
-
+  <link rel="stylesheet" href="plugins/sweetalert2/sweetalert2.min.css"> 
   
 
 

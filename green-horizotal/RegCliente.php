@@ -3,7 +3,6 @@
 <!--IMPORTE head desde Menu/apertura-->
 <?php include("Menu/apertura.php"); ?>
 <!--IMPORTE head desde Menu/apertura-->
-
 <body>
   <!-- Importe menu desde Menu/menu-->
   <?php include("Menu/menu.php"); ?>
@@ -33,7 +32,7 @@
   </div>
   <!-- Breadcomb area End-->
   <!-- Inbox area Start-->
-  <form action="Controladores/ClienteC.php" method="POST" autocomplete="off">
+  <form action="Controladores/ClienteC.php" method="POST" autocomplete="off" id="fform">
   <input type="hidden" value="GuardarCliente" name="bandera">
   <center>
       <div class="inbox-area">
@@ -51,7 +50,7 @@
                       <span class="fas fa-id-card"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="DUI: 99999999-9" name="dui"
+                      <input type="text" required class="form-control" placeholder="DUI: 99999999-9" name="dui"
                         data-mask="99999999-9" id="duii" aria-hidden="true">
                     </div>
                   </div>
@@ -62,7 +61,7 @@
                       <span class="icon-user"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Nombres" name="nombres" id="nombre" aria-hidden="true">
+                      <input type="text" required class="form-control" placeholder="Nombres" name="nombres" id="nombre" aria-hidden="true">
                     </div>
                   </div>
                 </div>
@@ -72,7 +71,7 @@
                       <span class="icon-user"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Apellidos" name="apellidos" id="apellido" aria-hidden="true">
+                      <input type="text" required class="form-control" placeholder="Apellidos" name="apellidos" id="apellido" aria-hidden="true">
                     </div>
                   </div>
                 </div>
@@ -82,7 +81,7 @@
                       <span class="fas fa-phone-alt"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Telf: 9999-9999" name="telefono"
+                      <input type="text" required class="form-control" placeholder="Telf: 9999-9999" name="telefono"
                         data-mask="9999-9999" id="telfo" aria-hidden="true">
                     </div>
                   </div>
@@ -93,7 +92,7 @@
                       <span class="fas fa-map-marker-alt"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Dirección" name="direccion" id="direcci" aria-hidden="true">
+                      <input type="text" required class="form-control" placeholder="Dirección" name="direccion" id="direcci" aria-hidden="true">
                     </div>
                   </div>
                 </div>
@@ -109,7 +108,7 @@
                       <span class="fas fa-user-check"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Nombre beneficiario 1" name="bene1" id="ben1" aria-hidden="true">
+                      <input type="text" required class="form-control" placeholder="Nombre beneficiario 1" name="bene1" id="ben1" aria-hidden="true">
                     </div>
                   </div>
                 </div>
@@ -119,7 +118,7 @@
                       <span class="fas fa-user-check"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Nombre beneficiario 2" name="bene2" id="ben2" aria-hidden="true">
+                      <input type="text" required class="form-control" placeholder="Nombre beneficiario 2" name="bene2" id="ben2" aria-hidden="true">
                     </div>
                   </div>
                 </div>
@@ -129,7 +128,7 @@
                       <span class="fas fa-user-check"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" class="form-control" placeholder="Nombre beneficiario 3" name="bene3" id="ben3" aria-hidden="true">
+                      <input type="text" required class="form-control" placeholder="Nombre beneficiario 3" name="bene3" id="ben3" aria-hidden="true">
                     </div>
                   </div>
                 </div>
@@ -153,7 +152,7 @@
                     <h5>Fecha de Adquisicón</h5>
                     <div class="input-group date nk-int-st">
                       <span class="input-group-addon"></span>
-                      <input type="text" class="form-control" value="<?php echo $fech?>" min="01/01/2000"
+                      <input type="text" required class="form-control" value="<?php echo $fech?>" min="01/01/2000"
                         max="<?php echo $fech?>" name="fecha" id="fecha" aria-hidden="true">
                     </div>
                   </div>
@@ -172,7 +171,7 @@
               <br><br><br><br><br>
               <center>
                 <div class="dialog-pro dialog">
-                  <button class="btn btn-success notika-btn-success" type="Submit">Guardar <i
+                  <button class="btn btn-success notika-btn-success" type="button" id="save-me">Guardar <i
 
                       class="notika-icon notika-checked"></i></button>
                   <button class="btn btn-danger notika-btn-danger">Cancelar <i
@@ -351,6 +350,29 @@
     ============================================ -->
 
     <script src="../green-horizotal/js/Validaciones/ValidaCliente.js"></script>
+
+    <script>
+      $("#save-me").click(function(e){
+        e.preventDefault();
+        $.ajax({
+          type: 'GET',
+          url: '/Funesi/notika/green-horizotal/Controladores/Cliente_val.php',
+          data: {
+            dui: $("#duii").val(),
+            telefono: $("#telfo").val()
+          },
+          success: function(r){
+            console.log(r);
+            if(r != 0){
+              alert('El registro ya existe');
+            }else{
+              $("#fform").submit();
+            }
+          }
+        });
+
+      });
+    </script>
 </body>
 
 </html>

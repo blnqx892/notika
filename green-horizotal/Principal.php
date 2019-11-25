@@ -1,3 +1,6 @@
+<?php
+session_start(); ?>
+
 <!DOCTYPE html>
 <html class="no-js" lang="es">
 
@@ -106,5 +109,4 @@
   ============================================ -->
 
 </body>
-
 </html>

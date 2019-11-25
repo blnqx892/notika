@@ -27,7 +27,7 @@
                       </div>
                     </div>
                   </a>
-                  <a href="Login.php">
+                  <a href="../Controladores/Cerrar.php">
                     <div class="hd-message-sn">
                       <div class="hd-message-img">
                         <i class="fas fa-power-off"></i>
