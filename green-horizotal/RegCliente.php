@@ -349,7 +349,7 @@
   <!-- tawk chat JS
     ============================================ -->
 
-    <script src="../green-horizotal/js/Validaciones/ValidaCliente.js"></script>
+    <!-- <script src="../green-horizotal/js/Validaciones/ValidaCliente.js"></script> -->
 
     <script>
       $("#save-me").click(function(e){

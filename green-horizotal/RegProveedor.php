@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html class="no-js" lang="">
 <!--IMPORTE head desde Menu/apertura-->
@@ -98,8 +99,8 @@
               </div>
             </div><br><br><br><br><br>
             <center>
-              <div class="dialog-pro dialog">
-              <button class="btn btn-success notika-btn-success" type="Submit" >Guardar <i
+              <div class="dialog-pro dialog ">
+              <button class="btn btn-success notika-btn-success" type="Submit">Guardar <i
                       class="notika-icon notika-checked"></i></button>
                 <button class="btn btn-danger notika-btn-danger">Cancelar <i
                     class="notika-icon notika-close"></i></button>
@@ -197,6 +198,23 @@
      <!-- Input Mask JS
     ============================================ -->
   <script src="js/jasny-bootstrap.min.js"></script>
+
+      <!--  notification JS
+		============================================ -->
+    <script src="js/notification/bootstrap-growl.min.js"></script>
+    <script src="js/notification/notification-active.js"></script>
+
+    <script src="../green-horizotal/js/Validaciones/Mensajes.js"></script>
+
+    <?php
+if (isset($_SESSION['mensaje'])) {
+   echo ("<script type='text/javascript'>
+    noti('".$_SESSION['mensaje']."');
+</script>");
+   unset($_SESSION['mensaje']);
+}
+?>
+
 
   <script src="../green-horizotal/js/Validaciones/ValidaProveedor.js"></script>
 </body>

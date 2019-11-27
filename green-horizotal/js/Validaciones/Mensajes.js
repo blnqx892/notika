@@ -15,3 +15,12 @@ new PNotify({
 });
 
 }
+
+function noti(sms){
+    new notify({
+        icon: icon,
+        title: ' EXCELENTE ',
+        text: sms,
+        type:'success'
+    });
+}

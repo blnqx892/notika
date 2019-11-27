@@ -1,6 +1,8 @@
 <?php
+session_start();
 include("../Confi/Conexion.php");
 $conexion = conectarMysql();
+
 
 $bandera = $_POST["bandera"];
 if ($bandera=="GuardarProveedor") {
@@ -13,7 +15,8 @@ if ($bandera=="GuardarProveedor") {
 	 ('$nomEmp','$telEmp','$dirEmp','$nomRes','$telRes',1)";
 
 	mysqli_query($conexion,$sql) or die ("Error no conecta".mysqli_connect_error());
-
+	$_SESSION['mensaje']="Datos Agregados";
+	//notaError("¡El nombre ingresado ya ha sido registrado!"); 
 	#$_SESSION['mensaje'] ="Registro guardado exitosamente";
 	header("location: /Funesi/notika/green-horizotal/RegProveedor.php");
 }
