@@ -49,7 +49,7 @@
                   <span class="fas fa-building"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Nombre de la Empresa" name="nomEmp" id="nomEmp" aria-hidden="true">
+                  <input type="text"  class="form-control" placeholder="Nombre de la Empresa" name="nomEmp" required id="nomEmp" aria-hidden="true">
                 </div>
               </div>
             </div>
@@ -59,7 +59,7 @@
                   <span class="fas fa-map-marker-alt"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Dirección" name="dirEmp" id="dirEmp" aria-hidden="true">
+                  <input type="text" class="form-control" placeholder="Dirección" name="dirEmp" required id="dirEmp" aria-hidden="true">
                 </div>
               </div>
             </div>
@@ -69,7 +69,7 @@
                   <span class="fas fa-phone-alt"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Telf: 9999-9999" name="telEmp" id="telEmp" data-mask="9999-9999" aria-hidden="true">
+                  <input type="text" class="form-control" placeholder="Telf: 9999-9999" name="telEmp"  id="telEmp" data-mask="9999-9999" aria-hidden="true" required>
                 </div>
               </div>
             </div><br><br><br><br><br>
@@ -83,7 +83,7 @@
                   <span class="icon-user"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Nombre Completo" name="nomRes" id="nomRes" aria-hidden="true">
+                  <input type="text" class="form-control" placeholder="Nombre Completo" name="nomRes" required id="nomRes" aria-hidden="true">
                 </div>
               </div>
             </div>
@@ -93,13 +93,13 @@
                   <span class="fas fa-phone-alt"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Telf: 9999-9999" name="telRes" id="telRes" data-mask="9999-9999" aria-hidden="true">
+                  <input type="text" required class="form-control" placeholder="Telf: 9999-9999" name="telRes" id="telRes" data-mask="9999-9999" aria-hidden="true">
                 </div>
               </div>
             </div><br><br><br><br><br>
             <center>
               <div class="dialog-pro dialog">
-              <button class="btn btn-success notika-btn-success" type="Submit" >Guardar <i
+              <button class="btn btn-success notika-btn-success" type="submit" >Guardar <i
                       class="notika-icon notika-checked"></i></button>
                 <button class="btn btn-danger notika-btn-danger">Cancelar <i
                     class="notika-icon notika-close"></i></button>
@@ -199,6 +199,28 @@
   <script src="js/jasny-bootstrap.min.js"></script>
 
   <script src="../green-horizotal/js/Validaciones/ValidaProveedor.js"></script>
+
+    <script>
+      $("#save-me").click(function(e){
+        e.preventDefault();
+        $.ajax({
+          type: 'GET',
+          url: '/Funesi/notika/green-horizotal/Controladores/Prove_val.php',
+          data: {
+            telefono: $("#telEmp").val()
+          },
+          success: function(r){
+            console.log(r);
+            if(r != 0){
+              alert('El registro ya existe');
+            }else{
+              $("#fform").submit();
+            }
+          }
+        });
+
+      });
+    </script>
 </body>
 
 </html>
