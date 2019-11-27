@@ -51,7 +51,7 @@
                     </div>
                     <div class="nk-int-st">
                       <input type="text" required class="form-control" placeholder="DUI: 99999999-9" name="dui"
-                        data-mask="99999999-9" id="duii" aria-hidden="true">
+                      required data-mask="99999999-9" id="duii" aria-hidden="true">
                     </div>
                   </div>
                 </div>

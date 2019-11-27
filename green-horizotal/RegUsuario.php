@@ -125,9 +125,9 @@
                                                                     <span class="fas fa-id-card"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
+                                                                    <input type="text" required class="form-control"
                                                                         placeholder="DUI: 99999999-9"
-                                                                        disabled="disabled">
+                                                                         disabled="disabled">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -137,7 +137,7 @@
                                                                     <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
+                                                                    <input type="text" required class="form-control"
                                                                         placeholder="Nombre" disabled="disabled">
                                                                 </div>
                                                             </div>
@@ -148,7 +148,7 @@
                                                                     <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
+                                                                    <input type="text" required class="form-control"
                                                                         placeholder="Apellido" disabled="disabled">
                                                                 </div>
                                                             </div>
@@ -159,7 +159,7 @@
                                                                     <span class="fas fa-at"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
+                                                                    <input type="text" required class="form-control"
                                                                         placeholder="Correo">
                                                                 </div>
                                                             </div>
@@ -170,7 +170,7 @@
                                                                     <span class="icon-user"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
+                                                                    <input type="text" required class="form-control"
                                                                         placeholder="Usuario" disabled="disabled">
                                                                 </div>
                                                             </div>
@@ -181,7 +181,7 @@
                                                                     <span class="icon-key"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
+                                                                    <input type="text" required class="form-control"
                                                                         placeholder="Contraseña">
                                                                 </div>
                                                             </div>
@@ -335,8 +335,8 @@
                                                                         <span class="fas fa-id-card"></span>
                                                                     </div>
                                                                     <div class="nk-int-st">
-                                                                        <input type="text" class="form-control"
-                                                                            placeholder="DUI: 99999999-9" name="dui">
+                                                                        <input type="text"  required class="form-control"
+                                                                            placeholder="DUI: 99999999-9" name="dui" data-mask="99999999-9">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -346,7 +346,7 @@
                                                                         <span class="icon-user"></span>
                                                                     </div>
                                                                     <div class="nk-int-st">
-                                                                        <input type="text" class="form-control"
+                                                                        <input type="text"  required class="form-control"
                                                                             placeholder="Nombre" name="nombre">
                                                                     </div>
                                                                 </div>
@@ -357,7 +357,7 @@
                                                                         <span class="icon-user"></span>
                                                                     </div>
                                                                     <div class="nk-int-st">
-                                                                        <input type="text" class="form-control"
+                                                                        <input type="text"  required class="form-control"
                                                                             placeholder="Apellido" name="apellido">
                                                                     </div>
                                                                 </div>
@@ -368,7 +368,7 @@
                                                                         <span class="fas fa-at"></span>
                                                                     </div>
                                                                     <div class="nk-int-st">
-                                                                        <input type="text" class="form-control"
+                                                                        <input type="text"  required class="form-control"
                                                                             placeholder="Correo" name="correo">
                                                                     </div>
                                                                 </div>
@@ -379,7 +379,7 @@
                                                                         <span class="icon-user"></span>
                                                                     </div>
                                                                     <div class="nk-int-st">
-                                                                        <input type="text" class="form-control"
+                                                                        <input type="text"  required class="form-control"
                                                                             placeholder="Usuario" name="usuario">
                                                                     </div>
                                                                 </div>
@@ -390,7 +390,7 @@
                                                                         <span class="icon-key"></span>
                                                                     </div>
                                                                     <div class="nk-int-st">
-                                                                        <input type="password" class="form-control"
+                                                                        <input type="password"  required class="form-control"
                                                                             placeholder="Contraseña" name="contra1">
                                                                     </div>
                                                                 </div>
@@ -401,7 +401,7 @@
                                                                         <span class="icon-key"></span>
                                                                     </div>
                                                                     <div class="nk-int-st">
-                                                                        <input type="password" class="form-control"
+                                                                        <input type="password"  required class="form-control"
                                                                             placeholder="Repetir Contraseña"
                                                                             name="contra2">
                                                                     </div>

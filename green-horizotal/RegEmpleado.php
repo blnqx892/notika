@@ -50,7 +50,7 @@
                     <span class="fas fa-id-card"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" class="form-control" placeholder="DUI: 99999999-9" name="dui"
+                    <input type="text" required class="form-control" placeholder="DUI: 99999999-9" name="dui"
                       data-mask="99999999-9" id="dui" aria-hidden="true">
                   </div>
                 </div>
@@ -61,7 +61,7 @@
                     <span class="icon-user"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" class="form-control" placeholder="Nombres" id="nombres" name="nombres" aria-hidden="true">
+                    <input type="text" required class="form-control" placeholder="Nombres" id="nombres" name="nombres" aria-hidden="true">
                   </div>
                 </div>
               </div>
@@ -71,7 +71,7 @@
                     <span class="icon-user"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" class="form-control" placeholder="Apellidos" id="apellidos" name="apellidos" aria-hidden="true">
+                    <input type="text" required class="form-control" placeholder="Apellidos" id="apellidos" name="apellidos" aria-hidden="true">
                   </div>
                 </div>
               </div><br><br><br><br>
@@ -81,7 +81,7 @@
                     <span class="fas fa-map-marker-alt"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" class="form-control" placeholder="Dirección" id="direccion" name="direccion" aria-hidden="true">
+                    <input type="text" required class="form-control" placeholder="Dirección" id="direccion" name="direccion" aria-hidden="true">
                   </div>
                 </div>
               </div>
@@ -91,7 +91,7 @@
                     <span class="fas fa-phone-alt"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" class="form-control" placeholder="Telf:9999-9999" id="telefono" name="telefono"
+                    <input type="text" required class="form-control" placeholder="Telf:9999-9999" id="telefono" name="telefono"
                       data-mask="9999-9999" aria-hidden="true">
                   </div>
                 </div>
@@ -114,7 +114,7 @@
                   <h5>Fecha de Ingreso</h5>
                   <div class="input-group date nk-int-st">
                     <span class="input-group-addon"></span>
-                    <input type="text" class="form-control" value="<?php echo $fech?>" min="01/01/2000"
+                    <input type="text" required class="form-control" value="<?php echo $fech?>" min="01/01/2000"
                       max="<?php echo $fech?>" name="fecha" id="fech" aria-hidden="true">
                   </div>
                 </div>
@@ -125,13 +125,13 @@
                     <span class="fas fa-address-card"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" class="form-control" placeholder="Cargo" id="cargo" name="cargo" aria-hidden="true">
+                    <input type="text" required class="form-control" placeholder="Cargo" id="cargo" name="cargo" aria-hidden="true">
                   </div>
                 </div>
               </div>
             </div> <br><br><br><br><br><br>
             <center>
-            <button class="btn btn-success notika-btn-success" type="Submit" >Guardar <i
+            <button class="btn btn-success notika-btn-success" type="submit" >Guardar <i
                       class="notika-icon notika-checked"></i></button>
               <button class="btn btn-danger notika-btn-danger">Cancelar <i
                   class="notika-icon notika-close"></i></button>
@@ -240,7 +240,30 @@
     ============================================ -->
   <script src="js/jasny-bootstrap.min.js"></script>
 
-  <script src="../green-horizotal/js/Validaciones/ValidaEmpleado.js"></script>
+  <script src="../green-horizotal/js/Validaciones/ValidaCliente.js"></script>
+
+    <script>
+      $("#save-me").click(function(e){
+        e.preventDefault();
+        $.ajax({
+          type: 'GET',
+          url: '/Funesi/notika/green-horizotal/Controladores/Empleado_val.php',
+          data: {
+            dui: $("#dui").val(),
+            telefono: $("#telefono").val()
+          },
+          success: function(r){
+            console.log(r);
+            if(r != 0){
+              alert('El registro ya existe');
+            }else{
+              $("#fform").submit();
+            }
+          }
+        });
+
+      });
+    </script>
 </body>
 
 </html>
