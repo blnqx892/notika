@@ -33,4 +33,51 @@ $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usua
 mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
 ///////////////////////////////////////////////
     }
+
+    if ($bandera=="EditarUsuario") {
+        $Duiu = $_POST["duius"];
+        $nombreu = $_POST["nombreus"];
+        $apellidou = $_POST["apellidous"];
+        $correou = $_POST["correous"];
+        $usuariou = $_POST["usuarious"];
+        $idusu = $_POST["idcliente"];
+        $sql = "UPDATE usuarios set nombre='$nombresu',apellidos_Usu='$apellidosu',correo='$correou',Usuario='$usuariou' where id ='$idusu'";
+    
+        mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
+        echo"
+        <script language='javascript'>
+        alert('Registro Editado de Usuario Exitoso!!')
+        window.location='/Funesi/notika/green-horizotal/RegUsuario.php'
+        </script>";
+        //header("location: /Funesi/notika/green-horizotal/.php");
+        //////////CAPTURA DATOS PARA BITACORA
+    $usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+    $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Edito un usuario')";
+    mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
+    ///////////////////////////////////////////////
+    }
+    
+    if ($bandera=="cambio") {
+    
+        $sql = "UPDATE usuarios set estado_Usu='".$_POST["valor"]."' where id = '".$_POST["id"]."'";
+        $mostrar = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+        if ($_POST["valor"]==1) {
+        $aux = 0;
+        //////////CAPTURA DATOS PARA BITACORA
+    $usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+    $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Dio de alta a un usuario')";
+    mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
+    ///////////////////////////////////////////////
+        }else{
+            $aux = 1;
+        //////////CAPTURA DATOS PARA BITACORA
+    $usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+    $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Dio de baja a un usuario')";
+    mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
+    ///////////////////////////////////////////////
+        }
+        header("location: /Funesi/notika/green-horizotal/RegUsuario.php?tipo=".$aux."");
+        
+     }
+    
 ?>
