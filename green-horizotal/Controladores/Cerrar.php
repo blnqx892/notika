@@ -1,9 +1,13 @@
 <?php
-include("../cCnfi/Conexion.php");
+include("../confi/Conexion.php");
 $conexion = conectarMysql();
 session_start();
-
-session_destroy();
-session_unset();
+//////////CAPTURA DATOS PARA BITACORA
+$usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+$sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Cerro Sesión')";
+mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
+///////////////////////////////////////////////
+unset($_SESSION['usuarioActivo']);
 header("location: /Funesi/notika/green-horizotal/Login.php");
-?>
+///////////////////////////////////////////////
+ ?>

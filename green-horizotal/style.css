@@ -54,6 +54,20 @@
 /*----------------------------------------*/
 /*  1.  Theme default CSS
 /*----------------------------------------*/
+label {
+	display: block;
+}
+
+div#error2 {
+	height: 20px;
+	width: 20px;
+	display: inline-block;
+	position: relative;
+	top: 5px;
+}
+
+
+
 html, body {font-family: 'Roboto', sans-serif;font-weight:400;}
 body {background:#e3efe4;}
 .floatleft {float:left}

@@ -15,10 +15,21 @@ if ($bandera=="GuardarProveedor") {
 	 ('$nomEmp','$telEmp','$dirEmp','$nomRes','$telRes',1)";
 
 	mysqli_query($conexion,$sql) or die ("Error no conecta".mysqli_connect_error());
-	$_SESSION['mensaje']="Datos Agregados";
+	///$_SESSION['mensaje']="Datos Agregados";
 	//notaError("¡El nombre ingresado ya ha sido registrado!"); 
 	#$_SESSION['mensaje'] ="Registro guardado exitosamente";
-	header("location: /Funesi/notika/green-horizotal/RegProveedor.php");
+	//header("location: /Funesi/notika/green-horizotal/RegProveedor.php");
+	echo"
+	<script language='javascript'>
+	alert('Registro de Proveedor Exitoso!!')
+	window.location='/Funesi/notika/green-horizotal/RegProveedor.php'
+	</script>";
+
+//////////CAPTURA DATOS PARA BITACORA
+$usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+$sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Registró un proveedor')";
+mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
+///////////////////////////////////////////////
 }
 
 if ($bandera=="EditarProveedor") {
@@ -32,7 +43,18 @@ if ($bandera=="EditarProveedor") {
 
 	mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD desde editaPro".mysqli_connect_error());
 	
-	header("location: /Funesi/notika/green-horizotal/ListaProveedor.php");
+	//header("location: /Funesi/notika/green-horizotal/ListaProveedor.php");
+	echo"
+	<script language='javascript'>
+	alert('Registro Editado de Proveedor Exitoso!!')
+	window.location='/Funesi/notika/green-horizotal/ListaProveedor.php'
+	</script>";
+
+//////////CAPTURA DATOS PARA BITACORA
+$usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+$sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Edito un proveedor')";
+mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
+///////////////////////////////////////////////
 }
 
 if ($bandera=="cambio") {
@@ -41,6 +63,11 @@ if ($bandera=="cambio") {
 	$mostrar = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
 	if ($_POST["valor"]==1) {
 	$aux = 0;
+	//////////CAPTURA DATOS PARA BITACORA
+$usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+$sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Dio de alta a un proveedor')";
+mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
+///////////////////////////////////////////////
 	//	$_SESSION['mensaje'] ="Cliente dado de alta exitosamente";
 
     //////////CAPTURA DATOS PARA BITACORA
@@ -50,6 +77,11 @@ if ($bandera=="cambio") {
     ///////////////////////////////////////////////
 	}else{
 		$aux = 1;
+		//////////CAPTURA DATOS PARA BITACORA
+$usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+$sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Dio de baja un proveedor')";
+mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
+///////////////////////////////////////////////
 	//	$_SESSION['mensaje'] ="Cliente dado de baja exitosamente";
 
     //////////CAPTURA DATOS PARA BITACORA

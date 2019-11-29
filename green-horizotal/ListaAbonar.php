@@ -1,3 +1,19 @@
+<?php
+}else{
+    ?>
+    <!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
+</head>
+<body>
+</body>
+</html>
+    <?php
+}
+?>
+
 <!doctype html>
 <html>
 
@@ -676,3 +692,18 @@
 </body>
 
 </html>
+<?php
+}else{
+    ?>
+    <!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
+</head>
+<body>
+</body>
+</html>
+    <?php
+}
+?>

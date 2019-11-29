@@ -60,7 +60,7 @@ session_start(); ?>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
   <!-- Login Register area Start-->
-  <form action="Controladores/Loguear.php" method="POST" autocomplete="off" id="formu">
+  <form action="Controladores/Loguear.php" method="POST" autocomplete="off" >
     <div class="login-content">
       <!-- Login -->
       <div class="nk-block toggled" id="l-login">
@@ -72,24 +72,21 @@ session_start(); ?>
           <div class="input-group">
             <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-support"></i></span>
             <div class="nk-int-st">
-              <input type="text" class="form-control" placeholder="Usuario" name="usuario" id="usuario">
+              <input required type="text" class="form-control" placeholder="Usuario" name="usuario" id="usuario">
             </div>
           </div>
           <div class="input-group mg-t-15">
             <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-edit"></i></span>
             <div class="nk-int-st">
-              <input type="password" class="form-control" placeholder="Contraseña" name="password" id="password">
+              <input required type="password" class="form-control" placeholder="Contraseña" name="password" id="password">
             </div>
           </div><br><br>
           <button type="submit" class="btn btn-success block full-width m-b">Entrar</button>
          
-          <a href="" class="btn btn-login btn-success btn-float" ><i
-              class="notika-icon notika-right-arrow right-arrow-ant"></i></a>
         </div>
 
         <div class="nk-navigation nk-lg-ic">
-          <a href="#" data-ma-action="nk-login-switch" data-ma-block="#l-forget-password"><i>?</i> <span>Olvido
-              Contraseña</span></a>
+          <a href="recupera.php" data-ma-action="nk-login-switch" data-ma-block=><i>?</i> <span>OlvidoContraseña</span></a>
         </div>
       </div>
 
@@ -98,6 +95,7 @@ session_start(); ?>
         <center>
           <image src="img/logo/funlogo.png" />
         </center>
+        <form id="loginform" role="form" action="<?php $_SERVER['PHP_SELF'] ?>" method="POST" autocomplete="off">
         <div class="nk-form">
           <h4>Recuperar Contraseña</h4><br>
           <p class="text-left">Ingrese su correo electrónico, espere unos momentos y revise su bandeja de entrada.</p>
@@ -105,16 +103,54 @@ session_start(); ?>
           <div class="input-group">
             <span class="input-group-addon nk-ic-st-pro"><i class="notika-icon notika-mail"></i></span>
             <div class="nk-int-st">
-              <input type="text" class="form-control" placeholder="Correo Electrónico">
+              <input type="text" class="form-control" placeholder="Correo Electrónico" id="emai"l type="email" name="email">
             </div>
-          </div>
+          </div><br><br>
+          <button id="btn-login" type="submit" class="btn btn-success block full-width m-b" name="Submit">Enviar</button>
 
           <a href="" data-ma-action="nk-login-switch" data-ma-block="#l-login"
             class="btn btn-login btn-success btn-float"><i class="notika-icon notika-right-arrow"></i></a>
         </div>
+        </form>
+        <?php echo resultBlock($errors); ?>
       </div>
     </div>
   </form>
+
+  <?php 
+  $errors = array();
+	
+	if(!empty($_POST))
+	{
+		$email = $mysqli->real_escape_string($_POST['email']);
+		
+		if(!isEmail($email))
+		{
+			$errors[] = "Debe ingresar un correo electronico valido";
+		}
+		
+		if(emailExiste($email))
+		{			
+			$user_id = getValor('idUsuario', 'correo_Usu', $email);
+			$nombre = getValor('nombre_Usu', 'correo_Usu', $email);
+			
+			$token = generaTokenPass($user_id);
+			
+			$url = 'http://'.$_SERVER["SERVER_NAME"].'/Funesi/green-horizotal/login/cambia.php?user_id='.$user_id.'&token='.$token;
+			
+			$asunto = 'Recuperar Password - FUNESI';
+			$cuerpo = "Hola $nombre: <br /><br />Se ha solicitado un reinicio de contrase&ntilde;a. <br/><br/>Para restaurar la contrase&ntilde;a, visita la siguiente direcci&oacute;n: <a href='$url'>Cambiar password</a>";
+			
+			if(enviarEmail($email, $nombre, $asunto, $cuerpo)){
+				echo "Hemos enviado un correo electronico a las direcion $email para restablecer tu password.<br />";
+				echo "<a href='Login.php' >Iniciar Sesion</a>";
+				exit;
+			}
+			} else {
+			$errors[] = "La direccion de correo electronico no existe";
+		}
+	}
+  ?>
 
 <script>
 

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("../Confi/Conexion.php");
 $conexion = conectarMysql();
 
@@ -21,24 +22,20 @@ if ($bandera=="GuardarCompra") {
 	mysqli_query($conexion,$sql) or die ("Error no conectai".mysqli_connect_error());
 
 	//$_SESSION['mensaje'] ="Registro guardado exitosamente";
-	header("location: /Funesi/notika/green-horizotal/RegCompra.php");
+	//header("location: /Funesi/notika/green-horizotal/RegCompra.php");
+
+	echo"
+	<script language='javascript'>
+	alert('Registro de Compra Exitoso!!')
+	window.location='/Funesi/notika/green-horizotal/RegCompra.php'
+	</script>";
+	//////////CAPTURA DATOS PARA BITACORA
+$usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+$sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Registró una compra')";
+mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
+///////////////////////////////////////////////
 }
 
-if ($bandera=="EditarCliente") {
-	$nombresE = $_POST["nombresed"];
-	$apellidosE = $_POST["apellidosed"];
-	$direccionE = $_POST["direccioned"];
-	$telefonoE = $_POST["telefonoed"];
-	$bene1E = $_POST["bene1ed"];
-	$bene2E = $_POST["bene2ed"];
-	$bene3E = $_POST["bene3ed"];
-	$idcliente = $_POST["idcliente"];
-	$sql = "UPDATE cliente set nombre_cli='$nombresE',apellidos_Cli='$apellidosE',direccion_cli='$direccionE',telefono_Cli='$telefonoE',ben1_Cli='$bene1E',ben2_Cli='$bene2E',ben3_Cli='$bene3E' where idCliente ='$idcliente'";
-
-	mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
-	
-	header("location: /Funesi/notika/green-horizotal/ListaCliente.php");
-}
 
 if ($bandera=="cambio") {
 
@@ -46,6 +43,11 @@ if ($bandera=="cambio") {
 	$mostrar = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
 	if ($_POST["valor"]==1) {
 	$aux = 0;
+	//////////CAPTURA DATOS PARA BITACORA
+$usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+$sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Dio una Compra de alta')";
+mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
+///////////////////////////////////////////////
 	//	$_SESSION['mensaje'] ="Cliente dado de alta exitosamente";
 
     //////////CAPTURA DATOS PARA BITACORA
@@ -55,6 +57,10 @@ if ($bandera=="cambio") {
     ///////////////////////////////////////////////
 	}else{
 		$aux = 1;
+		//////////CAPTURA DATOS PARA BITACORA
+$usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+$sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Dio una Compra de baja')";
+mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
 	//	$_SESSION['mensaje'] ="Cliente dado de baja exitosamente";
 
     //////////CAPTURA DATOS PARA BITACORA

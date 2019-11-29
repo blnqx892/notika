@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION['usuarioActivo'])) {
+?>
 <!doctype html>
 <html class="no-js" lang="">
 <!--IMPORTE head desde Menu/apertura-->
@@ -33,7 +37,10 @@
   </div>
   <!-- Breadcomb area End-->
   <!-- Inbox area Start-->
-
+  <?php 
+        $conexion=mysqli_connect('localhost','root', '', 'funesi');
+        $sql="SELECT * from bitacora order by idBitacora DESC";
+        $bitacoras= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
   <!-- Data Table area Start-->
   <div class="data-table-area">
     <div class="container">
@@ -42,7 +49,8 @@
           <div class="inbox-left-sd">
             <div class="inbox-status">
               <ul class="inbox-st-nav inbox-ft">
-                <li><a href="Reporte.php"><button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg">Reporte
+                <li><a href="Reporte.php"><button
+                      class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg">Reporte
                       <i class="fas fa-print"></i></button></a></li>
               </ul>
             </div>
@@ -58,17 +66,23 @@
               <table id="data-table-basic" class="table table-striped">
                 <thead>
                   <tr>
-                    <th>Fecha y Hora</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
                     <th>Usuario</th>
                     <th>Actividad</th>
                   </tr>
                 </thead>
                 <tbody>
+                <?php While ($bitacora = mysqli_fetch_assoc($bitacoras)) {
+                         date_default_timezone_set('America/El_Salvador');
+                         ?>
                   <tr>
-                  <td>22/9/2019 - 2:00PM</td>
-                    <td>blme</td>
-                    <td>Inicio Sesión</td>
+                    <td><?php echo date('d/m/Y',strtotime($bitacora['sesionInicio'])) ?></td>
+                    <td><?php echo date('H:i:s A',strtotime($bitacora['sesionInicio'])) ?></td>
+                    <td><?php echo $bitacora['usuario_Usu'] ?></td>
+                    <td><?php echo $bitacora['actividad'] ?></td>
                   </tr>
+                  <?php } ?>
                 </tbody>
                 <tfoot>
                   <tr>
@@ -172,3 +186,21 @@
 </body>
 
 </html>
+<?php
+}else{
+    ?>
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
+</head>
+
+<body>
+</body>
+
+</html>
+<?php
+}
+?>

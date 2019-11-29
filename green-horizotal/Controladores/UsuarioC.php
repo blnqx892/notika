@@ -1,4 +1,5 @@
 <?php 
+session_start();
     include("../Confi/Conexion.php");
     $conexion = conectarMysql();
     
@@ -15,10 +16,21 @@
        $dui=$_POST["dui"];
        $rol=$_POST["rol"];
        
-       $sql = "INSERT INTO usuario (usuario_Usu,contrasena_Usu,nombre_Usu,apellido_Usu,correo_Usu,Dui_Usu,tipo_Usu,estado_Usu) VALUES 
+       $sql = "INSERT INTO usuario (usuario,contrasena,nombre,apellido_Usu,correo,Dui_Usu,id_tipo,estado_Usu) VALUES 
        ('$usuario','$contrasenia','$nombre','$apellido','$correo','$dui','$rol',1)";
    
        mysqli_query($conexion,$sql) or die ("Error no conectaa".mysqli_connect_error());
-       header("location: /Funesi/notika/green-horizotal/RegUsuario.php");
+      // header("location: /Funesi/notika/green-horizotal/RegUsuario.php");
+      echo"
+	<script language='javascript'>
+	alert('Registro de usuario Exitoso!!')
+	window.location='/Funesi/notika/green-horizotal/RegUsuario.php'
+	</script>";
+
+//////////CAPTURA DATOS PARA BITACORA
+$usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+$sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Registro a un usuario')";
+mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
+///////////////////////////////////////////////
     }
 ?>

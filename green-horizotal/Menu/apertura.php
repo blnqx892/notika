@@ -165,7 +165,9 @@
   <!-- notification CSS
 		============================================ -->
     <link rel="stylesheet" href="css/notification/notification.css">
-  
 
+    <link rel="stylesheet" href="style.css">
+  
+    <script src="script.js"></script>
 
 </head>

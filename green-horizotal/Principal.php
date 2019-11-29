@@ -1,6 +1,7 @@
 <?php
-session_start(); ?>
-
+session_start();
+if (isset($_SESSION['usuarioActivo'])) {
+?>
 <!DOCTYPE html>
 <html class="no-js" lang="es">
 
@@ -9,6 +10,7 @@ session_start(); ?>
 <!--IMPORTE head desde Menu/apertura-->
 
 <body>
+
   <!-- Importe menu desde Menu/menu-->
   <?php include("Menu/menu.php"); ?>
   <!-- End Header Top Area -->
@@ -106,7 +108,26 @@ session_start(); ?>
   ============================================ -->
   <script src="js/plugins.js"></script>
   <!-- main JS
+    <script language="JavaScript" type="text/javascript">
+alert("Bienvenido");
+</script>
   ============================================ -->
+
 
 </body>
 </html>
+<?php
+}else{
+    ?>
+    <!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
+</head>
+<body>
+</body>
+</html>
+    <?php
+}
+?>

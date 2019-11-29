@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION['usuarioActivo'])) {
+?>
 <!doctype html>
 <html class="no-js" lang="">
 <!--IMPORTE head desde Menu/apertura-->
@@ -226,6 +230,9 @@
   <!-- main JS
     ============================================ -->
 
+<!-- dropzone JS
+    ============================================ -->
+    <script src="js/dropzone/dropzone.js"></script>
 
   <!-- datapicker JS
     ============================================ -->
@@ -267,3 +274,18 @@
 </body>
 
 </html>
+<?php
+}else{
+    ?>
+    <!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
+</head>
+<body>
+</body>
+</html>
+    <?php
+}
+?>

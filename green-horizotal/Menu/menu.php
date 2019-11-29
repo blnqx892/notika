@@ -12,9 +12,10 @@
       <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
         <div class="header-top-menu">
           <ul class="nav navbar-nav notika-top-nav">
-            </li>
-            <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false"
-                class="nav-link dropdown-toggle"><i class="fas fa-user-alt"> Blanca Melara</i></a>
+            <li class="nav-item">
+              <a data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i
+                  class="fas fa-user-alt"> Blanca Melara</i>
+              </a>
               <div role="menu" class="dropdown-menu message-dd chat-dd animated zoomIn">
                 <div class="hd-message-info">
                   <a href="#">
@@ -27,7 +28,7 @@
                       </div>
                     </div>
                   </a>
-                  <a href="../Controladores/Cerrar.php">
+                  <a href="../green-horizotal/Controladores/Cerrar.php">
                     <div class="hd-message-sn">
                       <div class="hd-message-img">
                         <i class="fas fa-power-off"></i>

@@ -1,3 +1,8 @@
+<?php
+session_start();
+if (isset($_SESSION['usuarioActivo'])) {
+?>
+
 <!doctype html>
 <html class="no-js" lang="">
 <!--IMPORTE head desde Menu/apertura-->
@@ -34,7 +39,7 @@
     <!-- Breadcomb area End-->
     <?php 
         $conexion=mysqli_connect('localhost','root', '', 'funesi');
-        $sql="SELECT * from usuario order by nombre_Usu ASC";
+        $sql="SELECT * from usuarios order by nombre ASC";
         $usuarios= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
 
     <!-- Data Table area Start-->
@@ -78,9 +83,9 @@
                                 <tbody>
                                     <tr>
                                         <?php While($mostrar=mysqli_fetch_assoc($usuarios)){?>
-                                        <td><?php echo $mostrar['nombre_Usu'] ?></td>
+                                        <td><?php echo $mostrar['nombre'] ?></td>
                                         <td><?php echo $mostrar['apellido_Usu'] ?></td>
-                                        <td><?php echo $mostrar['usuario_Usu'] ?></td>
+                                        <td><?php echo $mostrar['usuario'] ?></td>
                                         <td>
                                             <center><button
                                                     class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
@@ -127,7 +132,7 @@
                                                                 <div class="nk-int-st">
                                                                     <input type="text" required class="form-control"
                                                                         placeholder="DUI: 99999999-9"
-                                                                         disabled="disabled">
+                                                                        disabled="disabled">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -287,7 +292,7 @@
                                                                 <div class="nk-int-st">
                                                                     <input data-type="success" type="password"
                                                                         class="form-control" readonly="readonly"
-                                                                        aria-required="true" value="" id="contra1v">
+                                                                        aria-required="true" value="" id="contra1">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -335,8 +340,9 @@
                                                                         <span class="fas fa-id-card"></span>
                                                                     </div>
                                                                     <div class="nk-int-st">
-                                                                        <input type="text"  required class="form-control"
-                                                                            placeholder="DUI: 99999999-9" name="dui" data-mask="99999999-9">
+                                                                        <input type="text" required class="form-control"
+                                                                            placeholder="DUI: 99999999-9" name="dui"
+                                                                            data-mask="99999999-9">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -346,7 +352,7 @@
                                                                         <span class="icon-user"></span>
                                                                     </div>
                                                                     <div class="nk-int-st">
-                                                                        <input type="text"  required class="form-control"
+                                                                        <input type="text" required class="form-control"
                                                                             placeholder="Nombre" name="nombre">
                                                                     </div>
                                                                 </div>
@@ -357,7 +363,7 @@
                                                                         <span class="icon-user"></span>
                                                                     </div>
                                                                     <div class="nk-int-st">
-                                                                        <input type="text"  required class="form-control"
+                                                                        <input type="text" required class="form-control"
                                                                             placeholder="Apellido" name="apellido">
                                                                     </div>
                                                                 </div>
@@ -368,7 +374,7 @@
                                                                         <span class="fas fa-at"></span>
                                                                     </div>
                                                                     <div class="nk-int-st">
-                                                                        <input type="text"  required class="form-control"
+                                                                        <input type="text" required class="form-control"
                                                                             placeholder="Correo" name="correo">
                                                                     </div>
                                                                 </div>
@@ -379,7 +385,7 @@
                                                                         <span class="icon-user"></span>
                                                                     </div>
                                                                     <div class="nk-int-st">
-                                                                        <input type="text"  required class="form-control"
+                                                                        <input type="text" required class="form-control"
                                                                             placeholder="Usuario" name="usuario">
                                                                     </div>
                                                                 </div>
@@ -390,9 +396,12 @@
                                                                         <span class="icon-key"></span>
                                                                     </div>
                                                                     <div class="nk-int-st">
-                                                                        <input type="password"  required class="form-control"
-                                                                            placeholder="Contraseña" name="contra1">
+                                                                        <input type="password" required
+                                                                            class="form-control"
+                                                                            placeholder="Contraseña" name="contra1"
+                                                                            id="contra1"  value="">
                                                                     </div>
+                                                                    <div id="error1"></div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
@@ -401,10 +410,12 @@
                                                                         <span class="icon-key"></span>
                                                                     </div>
                                                                     <div class="nk-int-st">
-                                                                        <input type="password"  required class="form-control"
+                                                                        <input type="password" required
+                                                                            class="form-control"
                                                                             placeholder="Repetir Contraseña"
-                                                                            name="contra2">
+                                                                            name="contra2" id="contra2"  value="">
                                                                     </div>
+                                                                    <div id="error2"></div>
                                                                 </div>
                                                             </div>
                                                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -459,6 +470,11 @@
         </div>
     </div>
     <!-- End Footer area-->
+
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="script.js"></script>
+
+    <script src="../green-horizotal/js/Validaciones/contrasena.js"></script>
     <!--  chosen JS
     ============================================ -->
     <script src="js/chosen/chosen.jquery.js"></script>
@@ -646,6 +662,25 @@
 		============================================ -->
     <script src="js/notification/bootstrap-growl.min.js"></script>
     <script src="js/notification/notification-active.js"></script>
-    
+
 </body>
+
 </html>
+<?php
+}else{
+    ?>
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
+</head>
+
+<body>
+</body>
+
+</html>
+<?php
+}
+?>
