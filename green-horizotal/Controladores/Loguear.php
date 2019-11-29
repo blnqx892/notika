@@ -7,7 +7,8 @@ session_start();
     $usuario = (isset($_POST['usuario'])) ? $_POST['usuario'] : '';
     $contra = (isset($_POST['password'])) ? $_POST['password'] : '';
 
-    $sql="SELECT * FROM usuarios WHERE usuario='$usuario' AND id_tipo=1";
+    //$sql="SELECT * FROM usuarios WHERE usuario='$usuario' AND id_tipo=1";
+    $sql="SELECT * FROM usuarios WHERE usuario='$usuario'";
     $consulta= mysqli_query($conexion,$sql)or die ("Error a Conectar en la BD ".mysqli_connect_error());
     if ($row= mysqli_fetch_assoc($consulta)) {
         $hash=$row['password'];

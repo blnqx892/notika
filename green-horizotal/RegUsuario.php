@@ -90,14 +90,18 @@ if (isset($_SESSION['usuarioActivo'])) {
                                             <center><button
                                                     class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                                                     data-toggle="modal" data-target="#modalVer" title="Ver"
-                                                    onclick="mostraUsuario('<?php echo $mostrar['Dui_Usu']?>','<?php echo $mostrar['nombre_Usu']?>','<?php echo $mostrar['apellido_Usu']?>','<?php echo $mostrar['correo_Usu']?>','<?php echo $mostrar['usuario_Usu']?>','<?php echo $mostrar['contrasena_Usu']?>')"><i
+                                                    onclick="mostraUsuario('<?php echo $mostrar['Dui_Usu']?>','<?php echo $mostrar['nombre']?>','<?php echo $mostrar['apellido_Usu']?>','<?php echo $mostrar['correo']?>','<?php echo $mostrar['usuario']?>','<?php echo $mostrar['password']?>')"><i
                                                         class="fas fa-eye"></i></button></center>
                                         </td>
                                         <th>
-                                            <center><button
-                                                    class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalEditar"><i
-                                                        class="fas fa-edit"></i></button></center>
+                                            <center>
+                                            
+                                            <button class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
+                                                data-toggle="modal" title="Modificar" data-target="#modalEditar"
+                                                onclick="editarUsuario('<?php echo $mostrar['Dui_Usu']?>','<?php echo $mostrar['nombre']?>','<?php echo $mostrar['apellidos_Usu']?>','<?php echo $mostrar['correo']?>','<?php echo $mostrar['usuario']?>','<?php echo $mostrar['password']?>','<?php echo $mostrar['id']?>')"><i
+                                                    class="fas fa-edit"></i>
+                                                    </button>
+                                                    </center>
                                         </th>
                                         <th>
                                             <center><button
@@ -131,8 +135,9 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" required class="form-control"
-                                                                        placeholder="DUI: 99999999-9"
-                                                                        disabled="disabled">
+                                                                    id="duie" name="duius" readonly="readonly"
+                                                                     data-mask="99999999-9">>
+                                                                        
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -143,7 +148,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" required class="form-control"
-                                                                        placeholder="Nombre" disabled="disabled">
+                                                                    id="nombreus" name="nombreus"
+                                                                   aria-required="true" value="">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -154,7 +160,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" required class="form-control"
-                                                                        placeholder="Apellido" disabled="disabled">
+                                                                    id="apellidous" name="apellidous"
+                                                                            aria-required="true" value="">
                                                                 </div>
                                                             </div>
                                                         </div><br><br><br>
@@ -165,7 +172,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" required class="form-control"
-                                                                        placeholder="Correo">
+                                                                    id="correous" name="correous"
+                                                                            aria-required="true" value="">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -176,18 +184,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" required class="form-control"
-                                                                        placeholder="Usuario" disabled="disabled">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="icon-key"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" required class="form-control"
-                                                                        placeholder="Contraseña">
+                                                                    id="usuarious" name="usuarious"
+                                                                            aria-required="true" value="">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -284,18 +282,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="icon-key"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input data-type="success" type="password"
-                                                                        class="form-control" readonly="readonly"
-                                                                        aria-required="true" value="" id="contra1">
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                    
                                                         <div>
                                                             <center>
                                                                 <image src="img/logo/usuario.png" />

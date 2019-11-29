@@ -51,7 +51,7 @@ if ($bandera=="EditarProveedor") {
 	</script>";
 
 //////////CAPTURA DATOS PARA BITACORA
-$usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+$usuari=$_SESSION['usuarioActivo']['usuario'];
 $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Edito un proveedor')";
 mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
 ///////////////////////////////////////////////
@@ -64,7 +64,7 @@ if ($bandera=="cambio") {
 	if ($_POST["valor"]==1) {
 	$aux = 0;
 	//////////CAPTURA DATOS PARA BITACORA
-$usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+$usuari=$_SESSION['usuarioActivo']['usuario'];
 $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Dio de alta a un proveedor')";
 mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
 ///////////////////////////////////////////////
@@ -78,7 +78,7 @@ mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mys
 	}else{
 		$aux = 1;
 		//////////CAPTURA DATOS PARA BITACORA
-$usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+$usuari=$_SESSION['usuarioActivo']['usuario'];
 $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Dio de baja un proveedor')";
 mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
 ///////////////////////////////////////////////

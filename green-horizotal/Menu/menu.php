@@ -1,3 +1,6 @@
+
+ <?php include("../green-horizotal/Confi/Conexion.php");
+            $conexion = conectarMysql(); ?>
 <!-- Start Header Top Area -->
 <div class="header-top-area">
   <div class="container">
@@ -13,8 +16,8 @@
         <div class="header-top-menu">
           <ul class="nav navbar-nav notika-top-nav">
             <li class="nav-item">
-              <a data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i
-                  class="fas fa-user-alt"> Blanca Melara</i>
+              <a data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                <i class="fas fa-user-alt"></i>&nbsp;<?php echo $_SESSION['usuarioActivo']['nombre']?>
               </a>
               <div role="menu" class="dropdown-menu message-dd chat-dd animated zoomIn">
                 <div class="hd-message-info">
@@ -56,20 +59,31 @@
         <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
           <li><a data-toggle="tab" href="#ventas"><i class="fas fa-dollar-sign"></i> Ventas</a>
           </li>
+         
+          <?php if( $_SESSION['usuarioActivo']['id_tipo'] == 1 ){?>
           <li><a data-toggle="tab" href="#compras"><i class="fas fa-shopping-cart"></i> Compras</a>
-          </li>
+          </li> <?php } ?>
+
           <li><a data-toggle="tab" href="#clientes"><i class="fas fa-address-book"></i> Clientes</a>
           </li>
           <li><a data-toggle="tab" href="#proveedores"><i class="fas fa-dolly"></i> Proveedor</a>
           </li>
+        
           <li><a data-toggle="tab" href="#empleados"><i class="fas fa-user-friends"></i> Empleados</a>
           </li>
+          
+
           <li><a data-toggle="tab" href="#servicios"><i class="fas fa-church"></i> Servicios</a>
           </li>
+
+
+          <?php if( $_SESSION['usuarioActivo']['id_tipo'] == 1 ){?>
           <li><a data-toggle="tab" href="#inventario"><i class="fas fa-boxes"></i> Inventario</a>
           </li>
           <li><a data-toggle="tab" href="#seguridad"><i class="fas fa-users-cog"></i> Seguridad</a>
-          </li>
+          </li><?php } ?>
+          
+
           <li><a data-toggle="tab" href="#ayuda">Ayuda <i class="fas fa-question-circle"></i></a>
           </li>
         </ul>
@@ -112,8 +126,11 @@
               </li>
               <li><a href="ListaServicios.php">Control Servicios</a>
               </li>
+            
+              <?php if( $_SESSION['usuarioActivo']['id_tipo'] == 1 ){?>
               <li><a href="Catalogo.php">Catalogo</a>
-              </li>
+              </li><?php } ?>
+              
             </ul>
           </div>
           <div id="empleados" class="tab-pane notika-tab-menu-bg animated flipInX">
