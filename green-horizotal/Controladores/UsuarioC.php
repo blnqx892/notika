@@ -28,7 +28,7 @@ session_start();
 	</script>";
 
 //////////CAPTURA DATOS PARA BITACORA
-$usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+$usuari=$_SESSION['usuarioActivo']['usuario'];
 $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Registro a un usuario')";
 mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
 ///////////////////////////////////////////////
@@ -51,7 +51,7 @@ mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mys
         </script>";
         //header("location: /Funesi/notika/green-horizotal/.php");
         //////////CAPTURA DATOS PARA BITACORA
-    $usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+    $usuari=$_SESSION['usuarioActivo']['usuario'];
     $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Edito un usuario')";
     mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
     ///////////////////////////////////////////////
@@ -64,14 +64,14 @@ mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mys
         if ($_POST["valor"]==1) {
         $aux = 0;
         //////////CAPTURA DATOS PARA BITACORA
-    $usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+    $usuari=$_SESSION['usuarioActivo']['usuario'];
     $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Dio de alta a un usuario')";
     mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
     ///////////////////////////////////////////////
         }else{
             $aux = 1;
         //////////CAPTURA DATOS PARA BITACORA
-    $usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+    $usuari=$_SESSION['usuarioActivo']['usuario'];
     $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Dio de baja a un usuario')";
     mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
     ///////////////////////////////////////////////

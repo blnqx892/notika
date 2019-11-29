@@ -3,7 +3,7 @@ include("../confi/Conexion.php");
 $conexion = conectarMysql();
 session_start();
 //////////CAPTURA DATOS PARA BITACORA
-$usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+$usuari=$_SESSION['usuarioActivo']['usuario'];
 $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Cerro Sesión')";
 mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
 ///////////////////////////////////////////////

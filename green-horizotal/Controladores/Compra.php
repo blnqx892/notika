@@ -44,7 +44,7 @@ if ($bandera=="cambio") {
 	if ($_POST["valor"]==1) {
 	$aux = 0;
 	//////////CAPTURA DATOS PARA BITACORA
-$usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+$usuari=$_SESSION['usuarioActivo']['usuario'];
 $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Dio una Compra de alta')";
 mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
 ///////////////////////////////////////////////
@@ -58,7 +58,7 @@ mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mys
 	}else{
 		$aux = 1;
 		//////////CAPTURA DATOS PARA BITACORA
-$usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+$usuari=$_SESSION['usuarioActivo']['usuario'];
 $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Dio una Compra de baja')";
 mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
 	//	$_SESSION['mensaje'] ="Cliente dado de baja exitosamente";
