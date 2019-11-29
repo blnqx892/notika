@@ -35,13 +35,13 @@ mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mys
     }
 
     if ($bandera=="EditarUsuario") {
-        $Duiu = $_POST["duius"];
-        $nombreu = $_POST["nombreus"];
-        $apellidou = $_POST["apellidous"];
-        $correou = $_POST["correous"];
-        $usuariou = $_POST["usuarious"];
-        $idusu = $_POST["idcliente"];
-        $sql = "UPDATE usuarios set nombre='$nombresu',apellidos_Usu='$apellidosu',correo='$correou',Usuario='$usuariou' where id ='$idusu'";
+        $dui=$_POST["dui"];
+        $nombres = $_POST["nombre"];
+        $apellido = $_POST["apellido"];
+        $correo = $_POST["correo"];
+        $usuario = $_POST["usuario"];
+        $idusu = $_POST["idusuario"];
+        $sql = "UPDATE usuarios set Dui_Usu='$dui',nombre='$nombres',apellido_Usu='$apellido',correo='$correo',usuario='$usuario' where id ='$idusu'";
     
         mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
         echo"

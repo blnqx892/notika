@@ -37,9 +37,14 @@ if (isset($_SESSION['usuarioActivo'])) {
         </div>
     </div>
     <!-- Breadcomb area End-->
+    <?php if (!isset($_GET['tipo'])) {
+			$tipo=1;
+		}else{
+			$tipo = $_GET['tipo'];
+		}?>
     <?php 
         $conexion=mysqli_connect('localhost','root', '', 'funesi');
-        $sql="SELECT * from usuarios order by nombre ASC";
+        $sql="SELECT * from usuarios where estado_Usu='$tipo' order by nombre ASC";
         $usuarios= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
 
     <!-- Data Table area Start-->
@@ -54,8 +59,16 @@ if (isset($_SESSION['usuarioActivo'])) {
                                 <button class="btn btn-success notika-btn-success" data-toggle="modal"
                                     data-target="#modalNuevoUsu">Nuevo <span class="fas fa-plus-circle"></span>
                                 </button><br><br>
-                                <button class="btn btn-success notika-btn-success">Dar Altas <i
-                                        class="fas fa-arrow-alt-circle-up"></i></button><br><br>
+                                <?php  if ($tipo == 1) { ?>
+                                <a href="/Funesi/notika/green-horizotal/RegUsuario.php?tipo=0"><button
+                                        class="btn btn-success notika-btn-success">Inactivos <i
+                                            class="fas fa-arrow-alt-circle-down"></i></button> &nbsp; </a>
+                                <?php  }else{ ?>
+                                <a href="/Funesi/notika/green-horizotal/RegUsuario.php?tipo=1"><button
+                                        class="btn btn-success notika-btn-success">Activos <i
+                                            class="fas fa-arrow-alt-circle-up"></i></button>&nbsp;</a>
+                                <?php } ?>
+                                <br><br>
                                 <button class="btn btn-success notika-btn-success">Reporte <i class="fas fa-print"></i>
                                 </button><br><br>
                             </ul>
@@ -75,129 +88,143 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         <th>Nombre</th>
                                         <th>Apellido</th>
                                         <th>Usuario</th>
-                                        <th>Ver</th>
-                                        <th>Modificar</th>
-                                        <th>Dar Baja</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <?php While($mostrar=mysqli_fetch_assoc($usuarios)){?>
+                                        <?php if($mostrar['id'] != 28){ ?>
                                         <td><?php echo $mostrar['nombre'] ?></td>
                                         <td><?php echo $mostrar['apellido_Usu'] ?></td>
                                         <td><?php echo $mostrar['usuario'] ?></td>
                                         <td>
-                                            <center><button
-                                                    class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalVer" title="Ver"
-                                                    onclick="mostraUsuario('<?php echo $mostrar['Dui_Usu']?>','<?php echo $mostrar['nombre']?>','<?php echo $mostrar['apellido_Usu']?>','<?php echo $mostrar['correo']?>','<?php echo $mostrar['usuario']?>','<?php echo $mostrar['password']?>')"><i
-                                                        class="fas fa-eye"></i></button></center>
-                                        </td>
-                                        <th>
-                                            <center>
-                                            
+                                            <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
+                                                data-toggle="modal" data-target="#modalVer" title="Ver"
+                                                onclick="mostraUsuario('<?php echo $mostrar['Dui_Usu']?>','<?php echo $mostrar['nombre']?>','<?php echo $mostrar['apellido_Usu']?>','<?php echo $mostrar['correo']?>','<?php echo $mostrar['usuario']?>','<?php echo $mostrar['password']?>')"><i
+                                                    class="fas fa-eye"></i></button>
+                                                    <?php  if ($tipo == 1) {
+                                                ?>
                                             <button class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
                                                 data-toggle="modal" title="Modificar" data-target="#modalEditar"
-                                                onclick="editarUsuario('<?php echo $mostrar['Dui_Usu']?>','<?php echo $mostrar['nombre']?>','<?php echo $mostrar['apellidos_Usu']?>','<?php echo $mostrar['correo']?>','<?php echo $mostrar['usuario']?>','<?php echo $mostrar['password']?>','<?php echo $mostrar['id']?>')"><i
+                                                onclick="editarUsuario('<?php echo $mostrar['Dui_Usu']?>','<?php echo $mostrar['nombre']?>','<?php echo $mostrar['apellido_Usu']?>','<?php echo $mostrar['correo']?>','<?php echo $mostrar['usuario']?>','<?php echo $mostrar['id']?>')"><i
                                                     class="fas fa-edit"></i>
-                                                    </button>
-                                                    </center>
-                                        </th>
-                                        <th>
-                                            <center><button
-                                                    class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                                                        class="fas fa-arrow-alt-circle-down"></i></button></center>
-                                        </th>
+                                            </button>
+                                            <?php  }else{ }?>
+                                            <?php  if($tipo == 1) { ?>
+                                                <button type="button"
+                                                class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"
+                                                title="Dar de baja"><span class="fas fa-arrow-alt-circle-down"
+                                                    onclick="baja(<?php echo $mostrar['id'] ?>)"></span></button>
+
+                                            <?php  }else{ ?>
+                                                <button type="button"
+                                                class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect"
+                                                title="Dar de alta"><i class="fas fa-arrow-alt-circle-up"
+                                                    onclick="alta(<?php echo $mostrar['id'] ?>)"></i></button>
+                                            <?php } ?>
+                                            <?php  }else{ if($tipo == 0){?>
+                                                <button type="button"
+                                                class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect"
+                                                title="Dar de alta"><i class="fas fa-arrow-alt-circle-up"
+                                                    onclick="alta(<?php echo $mostrar['id'] ?>)"></i></button>
+                                            <?php } }?>
+                                        </td>
                                     </tr>
                                     <!--INICIO MODAL EDITAR-->
                                     <div class="modal fade" id="modalEditar" role="dialog">
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close"
-                                                        data-dismiss="modal">&times;</button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <center>
+                                                <form action="Controladores/UsuarioC.php" method="POST">
+                                                    <input type="hidden" value="EditarUsuario" name="bandera">
+                                                    <input type="hidden" value="" name="idusuario" id="idusuario" />
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close"
+                                                            data-dismiss="modal">&times;</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <center>
+                                                            <div class="typography-hd-cr-4">
+                                                                <h3>Editar Datos del Usuario</h3>
+                                                            </div>
+                                                        </center>
                                                         <div class="typography-hd-cr-4">
-                                                            <h3>Editar Datos del Usuario</h3>
+                                                            <h2>Datos Personales</h2>
                                                         </div>
-                                                    </center>
-                                                    <div class="typography-hd-cr-4">
-                                                        <h2>Datos Personales</h2>
+                                                        <hr style="width:100%;border-color:light-gray 25px;"><br>
+                                                        <div class="cmp-tb-hd bcs-hd">
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <span class="fas fa-id-card"></span>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" required class="form-control"
+                                                                            id="dui" name="dui" readonly="readonly"
+                                                                            data-mask="99999999-9">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <span class="icon-user"></span>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" required class="form-control"
+                                                                            id="nombre" name="nombre"
+                                                                            aria-required="true" value="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <span class="icon-user"></span>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" required class="form-control"
+                                                                            id="apellido" name="apellido"
+                                                                            aria-required="true" value="">
+                                                                    </div>
+                                                                </div>
+                                                            </div><br><br><br>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <span class="fas fa-at"></span>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" required class="form-control"
+                                                                            id="correo" name="correo"
+                                                                            aria-required="true" value="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="form-group ic-cmp-int">
+                                                                    <div class="form-ic-cmp">
+                                                                        <span class="icon-user"></span>
+                                                                    </div>
+                                                                    <div class="nk-int-st">
+                                                                        <input type="text" required class="form-control"
+                                                                            id="usuario" name="usuario"
+                                                                            aria-required="true" value=""
+                                                                            readonly="readonly">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div><br><br><br><br>
+                                                        <div class="modal-footer">
+                                                            <button class="btn btn-default" type="submit">Guardar
+                                                                Cambios</button>
+                                                            <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">Cancelar</button>
+                                                        </div>
                                                     </div>
-                                                    <hr style="width:100%;border-color:light-gray 25px;"><br>
-                                                    <div class="cmp-tb-hd bcs-hd">
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="fas fa-id-card"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" required class="form-control"
-                                                                    id="duie" name="duius" readonly="readonly"
-                                                                     data-mask="99999999-9">>
-                                                                        
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="icon-user"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" required class="form-control"
-                                                                    id="nombreus" name="nombreus"
-                                                                   aria-required="true" value="">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="icon-user"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" required class="form-control"
-                                                                    id="apellidous" name="apellidous"
-                                                                            aria-required="true" value="">
-                                                                </div>
-                                                            </div>
-                                                        </div><br><br><br>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="fas fa-at"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" required class="form-control"
-                                                                    id="correous" name="correous"
-                                                                            aria-required="true" value="">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="icon-user"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" required class="form-control"
-                                                                    id="usuarious" name="usuarious"
-                                                                            aria-required="true" value="">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div><br><br><br><br>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default"
-                                                            data-dismiss="modal">Guardar Cambios</button>
-                                                        <button type="button" class="btn btn-default"
-                                                            data-dismiss="modal">Cancelar</button>
-                                                    </div>
-                                                </div>
+                                                </form>
                                             </div>
+
                                         </div>
                                     </div>
                                     <!--FIN  MODAL EDITAR-->
@@ -282,7 +309,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    
+
                                                         <div>
                                                             <center>
                                                                 <image src="img/logo/usuario.png" />
@@ -386,7 +413,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                         <input type="password" required
                                                                             class="form-control"
                                                                             placeholder="Contraseña" name="contra1"
-                                                                            id="contra1"  value="">
+                                                                            id="contra1" value="">
                                                                     </div>
                                                                     <div id="error1"></div>
                                                                 </div>
@@ -400,7 +427,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                         <input type="password" required
                                                                             class="form-control"
                                                                             placeholder="Repetir Contraseña"
-                                                                            name="contra2" id="contra2"  value="">
+                                                                            name="contra2" id="contra2" value="">
                                                                     </div>
                                                                     <div id="error2"></div>
                                                                 </div>
@@ -458,8 +485,72 @@ if (isset($_SESSION['usuarioActivo'])) {
     </div>
     <!-- End Footer area-->
 
+
+    <!-------------------------------------------------------------------------------------->
+    <form method="POST" id="cambioCli">
+        <input type="hidden" name="id" id="idCli" />
+        <input type="hidden" name="bandera" id="banderaCli" />
+        <input type="hidden" name="valor" id="valorCli" />
+    </form>
+    </div>
+    <!-- DAR DE BAJA -->
+    <script type="text/javascript">
+        function baja(id) {
+            swal({
+                title: '¿Está seguro en dar de baja?',
+                // text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si',
+                cancelButtonText: 'No',
+
+            }).then((result) => {
+                if (result.value) {
+                    $('#idCli').val(id);
+                    $('#banderaCli').val('cambio');
+                    $('#valorCli').val('0');
+                    var dominio = window.location.host;
+                    $('#cambioCli').attr('action', 'http://' + dominio +
+                        '/Funesi/notika/green-horizotal/Controladores/UsuarioC.php');
+                    $('#cambioCli').submit();
+                } else {
+
+                }
+            })
+        }
+        //DAR DE ALTA
+        function alta(id) {
+            swal({
+                title: '¿Está seguro en dar de alta?',
+                // text: "You won't be able to revert this!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si',
+                cancelButtonText: 'No',
+
+            }).then((result) => {
+                if (result.value) {
+                    $('#idCli').val(id);
+                    $('#banderaCli').val('cambio');
+                    $('#valorCli').val('1');
+                    var dominio = window.location.host;
+                    $('#cambioCli').attr('action', 'http://' + dominio +
+                        '/Funesi/notika/green-horizotal/Controladores/UsuarioC.php');
+                    $('#cambioCli').submit();
+                } else {
+
+                }
+            })
+        }
+    </script>
+    <!-------------------------------------------------------------------------------------->
+
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-		<script src="script.js"></script>
+    <script src="script.js"></script>
 
     <script src="../green-horizotal/js/Validaciones/contrasena.js"></script>
     <!--  chosen JS
