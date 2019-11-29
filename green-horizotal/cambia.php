@@ -1,7 +1,7 @@
 <?php
 	
-	require 'funcs/conexion.php';
-	require 'funcs/funcs.php';
+	require './funcs/conexion.php';
+	require './funcs/funcs.php';
 	
 	if(empty($_GET['user_id'])){
 		header('Location: Login.php');
@@ -58,8 +58,7 @@ exit;
   <!-- Inbox area Start-->
   <form id="loginform" role="form" action="guarda_pass.php" method="POST" autocomplete="off">
   <input type="hidden" id="user_id" name="user_id" value ="<?php echo $user_id; ?>" />
-					
-					<input type="hidden" id="token" name="token" value ="<?php echo $token; ?>" />
+	<input type="hidden" id="token" name="token" value ="<?php echo $token; ?>" />
   <div class="inbox-area">
     <div class="container">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -76,7 +75,7 @@ exit;
                     <span class="icon-key"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="password" required class="form-control" placeholder="Nueva Contraseña" name="password" aria-hidden="true">
+                <input type="password" required class="form-control" placeholder="Nueva Contraseña" name="password" aria-hidden="true">
                     </div>
                   </div>
                 </div>
