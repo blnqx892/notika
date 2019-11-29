@@ -8,7 +8,7 @@ session_start();
     if ($bandera=="GuardarUsuario") {
        $usuario=$_POST["usuario"];
         ///ALGORITMO DE ENCRIPTACION BLOWFISH, METODO PASSWORD_HASH
-       $contrasenia=password_hash($_POST["contra1"],PASSWORD_BCRYPT, ['cost' => 11]);
+       $contrasenia=password_hash($_POST["contra1"],PASSWORD_DEFAULT);
        /////////////////////////////////////////////////////////
        $nombre=$_POST["nombre"];
        $apellido=$_POST["apellido"];
@@ -16,7 +16,7 @@ session_start();
        $dui=$_POST["dui"];
        $rol=$_POST["rol"];
        
-       $sql = "INSERT INTO usuario (usuario,contrasena,nombre,apellido_Usu,correo,Dui_Usu,id_tipo,estado_Usu) VALUES 
+       $sql = "INSERT INTO usuarios (usuario,password,nombre,apellido_Usu,correo,Dui_Usu,id_tipo,estado_Usu) VALUES 
        ('$usuario','$contrasenia','$nombre','$apellido','$correo','$dui','$rol',1)";
    
        mysqli_query($conexion,$sql) or die ("Error no conectaa".mysqli_connect_error());

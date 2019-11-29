@@ -46,7 +46,7 @@
 	{
 		global $mysqli;
 		
-		$stmt = $mysqli->prepare("SELECT idUsuario FROM usuario WHERE usuario_Usu = ? LIMIT 1");
+		$stmt = $mysqli->prepare("SELECT id FROM usuarios WHERE usuario = ? LIMIT 1");
 		$stmt->bind_param("s", $usuario);
 		$stmt->execute();
 		$stmt->store_result();
@@ -110,7 +110,7 @@
 		
 		global $mysqli;
 		
-		$stmt = $mysqli->prepare("INSERT INTO usuario (usuario_Usu, password, nombre_Usu, correo_Usu, activacion, token, tipo_Usu) VALUES(?,?,?,?,?,?,?)");
+		$stmt = $mysqli->prepare("INSERT INTO usuarios (usuario, password, nombre, correo, activacion, token, id_tipo) VALUES(?,?,?,?,?,?,?)");
 		$stmt->bind_param('ssssisi', $usuario, $pass_hash, $nombre, $email, $activo, $token, $tipo_usuario);
 		
 		if ($stmt->execute()){
@@ -150,7 +150,7 @@
 	function validaIdToken($id, $token){
 		global $mysqli;
 		
-		$stmt = $mysqli->prepare("SELECT activacion FROM usuario WHERE idUsuario = ? AND token = ? LIMIT 1");
+		$stmt = $mysqli->prepare("SELECT activacion FROM usuarios WHERE id = ? AND token = ? LIMIT 1");
 		$stmt->bind_param("is", $id, $token);
 		$stmt->execute();
 		$stmt->store_result();
@@ -179,7 +179,7 @@
 	{
 		global $mysqli;
 		
-		$stmt = $mysqli->prepare("UPDATE usuario SET activacion=1 WHERE idUsuario = ?");
+		$stmt = $mysqli->prepare("UPDATE usuarios SET activacion=1 WHERE id = ?");
 		$stmt->bind_param('s', $id);
 		$result = $stmt->execute();
 		$stmt->close();
@@ -201,7 +201,7 @@
 	{
 		global $mysqli;
 		
-		$stmt = $mysqli->prepare("SELECT idUsuario, tipo_Usu, password FROM usuario_usu WHERE usuario_Usu = ? || correo_Usu = ? LIMIT 1");
+		$stmt = $mysqli->prepare("SELECT id, id_tipo, password FROM usuarios WHERE usuario = ? || correo = ? LIMIT 1");
 		$stmt->bind_param("ss", $usuario, $usuario);
 		$stmt->execute();
 		$stmt->store_result();
@@ -240,7 +240,7 @@
 	{
 		global $mysqli;
 		
-		$stmt = $mysqli->prepare("UPDATE usuario SET last_session=NOW(), token_password='', password_request=0 WHERE id = ?");
+		$stmt = $mysqli->prepare("UPDATE usuarios SET last_session=NOW(), token_password='', password_request=0 WHERE id = ?");
 		$stmt->bind_param('s', $id);
 		$stmt->execute();
 		$stmt->close();
@@ -250,7 +250,7 @@
 	{
 		global $mysqli;
 		
-		$stmt = $mysqli->prepare("SELECT activacion FROM usuario WHERE usuario_Usu = ? || correo_Usu = ? LIMIT 1");
+		$stmt = $mysqli->prepare("SELECT activacion FROM usuarios WHERE usuario = ? || correo= ? LIMIT 1");
 		$stmt->bind_param('ss', $usuario, $usuario);
 		$stmt->execute();
 		$stmt->bind_result($activacion);
@@ -272,7 +272,7 @@
 		
 		$token = generateToken();
 		
-		if($stmt = $mysqli->prepare("UPDATE usuario SET token_password=?, password_request=1 WHERE id = ?")){
+		if($stmt = $mysqli->prepare("UPDATE usuarios SET token_password=?, password_request=1 WHERE id = ?")){
 		$stmt->bind_param('ss', $token, $user_id);
 		$stmt->execute();
 		$stmt->close();
@@ -285,7 +285,7 @@
 	{
 		global $mysqli;
 		
-		if($stmt = $mysqli->prepare("SELECT $campo FROM usuario WHERE $campoWhere = ? LIMIT 1")){
+		if($stmt = $mysqli->prepare("SELECT $campo FROM usuarios WHERE $campoWhere = ? LIMIT 1")){
 		$stmt->bind_param('s', $valor);
 		$stmt->execute();
 		$stmt->store_result();
@@ -308,7 +308,7 @@
 	{
 		global $mysqli;
 		
-		$stmt = $mysqli->prepare("SELECT password_request FROM usuario WHERE id = ?");
+		$stmt = $mysqli->prepare("SELECT password_request FROM usuarios WHERE id = ?");
 		$stmt->bind_param('i', $id);
 		$stmt->execute();
 		$stmt->bind_result($_id);
@@ -328,7 +328,7 @@
 		
 		global $mysqli;
 		
-		$stmt = $mysqli->prepare("SELECT activacion FROM usuario WHERE id = ? AND token_password = ? AND password_request = 1 LIMIT 1");
+		$stmt = $mysqli->prepare("SELECT activacion FROM usuarios WHERE id = ? AND token_password = ? AND password_request = 1 LIMIT 1");
 		$stmt->bind_param('is', $user_id, $token);
 		$stmt->execute();
 		$stmt->store_result();
@@ -357,7 +357,7 @@
 		
 		global $mysqli;
 		
-		$stmt = $mysqli->prepare("UPDATE usuario SET password = ?, token_password='', password_request=0 WHERE id = ? AND token_password = ?");
+		$stmt = $mysqli->prepare("UPDATE usuarios SET password = ?, token_password='', password_request=0 WHERE id = ? AND token_password = ?");
 		$stmt->bind_param('sis', $password, $user_id, $token);
 		
 		if($stmt->execute()){
