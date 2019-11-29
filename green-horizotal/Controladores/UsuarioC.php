@@ -16,8 +16,8 @@ session_start();
        $dui=$_POST["dui"];
        $rol=$_POST["rol"];
        
-       $sql = "INSERT INTO usuarios (usuario,password,nombre,apellido_Usu,correo,Dui_Usu,id_tipo,estado_Usu) VALUES 
-       ('$usuario','$contrasenia','$nombre','$apellido','$correo','$dui','$rol',1)";
+       $sql = "INSERT INTO usuarios (usuario,password,nombre,apellido_Usu,correo,Dui_Usu,id_tipo,estado_Usu,activacion) VALUES 
+       ('$usuario','$contrasenia','$nombre','$apellido','$correo','$dui','$rol',1,1)";
    
        mysqli_query($conexion,$sql) or die ("Error no conectaa".mysqli_connect_error());
       // header("location: /Funesi/notika/green-horizotal/RegUsuario.php");
