@@ -11,13 +11,11 @@ if ($bandera=="GuardarCompra") {
 	$fechaC =explode("/",$fechaC);
 	$fechaC=$fechaC[2].'-'.$fechaC[1].'-'.$fechaC[0];
 	$productoC = $_POST["productoec"];
-	$categoriaC = $_POST["cateec"];
-	$tipoC = $_POST["tipoec"];
 	$cantidadC = $_POST["cantidadec"];
     $unitarioC = $_POST["unitarioec"];
     $ProveedorC = $_POST["id_Proveedor"];
-	$sql = "INSERT INTO compras (fac_Com,fecha_Com,producto_Com,cate_Com,tipo_Comp,cantidad_Com,unitario_Com,id_Proveedor,estado_Com) VALUES 
-	('$facturaC','$fechaC','$productoC','$categoriaC','$tipoC','$cantidadC','$unitarioC','$ProveedorC',1)";
+	$sql = "INSERT INTO compras (fac_Com,fecha_Com,producto_Com,cantidad_Com,unitario_Com,id_Proveedor,estado_Com) VALUES 
+	('$facturaC','$fechaC','$productoC','$cantidadC','$unitarioC','$ProveedorC',1)";
 
 	mysqli_query($conexion,$sql) or die ("Error no conectai".mysqli_connect_error());
 
@@ -30,7 +28,7 @@ if ($bandera=="GuardarCompra") {
 	window.location='/Funesi/notika/green-horizotal/RegCompra.php'
 	</script>";
 	//////////CAPTURA DATOS PARA BITACORA
-$usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+$usuari=$_SESSION['usuarioActivo']['usuario'];
 $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Registró una compra')";
 mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
 ///////////////////////////////////////////////

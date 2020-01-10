@@ -1,6 +1,8 @@
+<?php include("../green-horizotal/Confi/Conexion.php");
+            $conexion = conectarMysql(); 
 
- <?php include("../green-horizotal/Confi/Conexion.php");
-            $conexion = conectarMysql(); ?>
+?>
+
 <!-- Start Header Top Area -->
 <div class="header-top-area">
   <div class="container">
@@ -17,7 +19,7 @@
           <ul class="nav navbar-nav notika-top-nav">
             <li class="nav-item">
               <a data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-                <i class="fas fa-user-alt"></i>&nbsp;<?php echo $_SESSION['usuarioActivo']['nombre']?>
+                <i class="fas fa-user-alt"></i>&nbsp;<?php echo $_SESSION['usuarioActivo']['usuario']?>
               </a>
               <div role="menu" class="dropdown-menu message-dd chat-dd animated zoomIn">
                 <div class="hd-message-info">
@@ -59,30 +61,30 @@
         <ul class="nav nav-tabs notika-menu-wrap menu-it-icon-pro">
           <li><a data-toggle="tab" href="#ventas"><i class="fas fa-dollar-sign"></i> Ventas</a>
           </li>
-         
-          <?php if( $_SESSION['usuarioActivo']['id_tipo'] == 1 ){?>
+
+
           <li><a data-toggle="tab" href="#compras"><i class="fas fa-shopping-cart"></i> Compras</a>
-          </li> <?php } ?>
+          </li>
 
           <li><a data-toggle="tab" href="#clientes"><i class="fas fa-address-book"></i> Clientes</a>
           </li>
           <li><a data-toggle="tab" href="#proveedores"><i class="fas fa-dolly"></i> Proveedor</a>
           </li>
-        
+
           <li><a data-toggle="tab" href="#empleados"><i class="fas fa-user-friends"></i> Empleados</a>
           </li>
-          
+
 
           <li><a data-toggle="tab" href="#servicios"><i class="fas fa-church"></i> Servicios</a>
           </li>
 
 
-          <?php if( $_SESSION['usuarioActivo']['id_tipo'] == 1 ){?>
+
           <li><a data-toggle="tab" href="#inventario"><i class="fas fa-boxes"></i> Inventario</a>
           </li>
           <li><a data-toggle="tab" href="#seguridad"><i class="fas fa-users-cog"></i> Seguridad</a>
-          </li><?php } ?>
-          
+          </li>
+
 
           <li><a data-toggle="tab" href="#ayuda">Ayuda <i class="fas fa-question-circle"></i></a>
           </li>
@@ -126,11 +128,11 @@
               </li>
               <li><a href="ListaServicios.php">Control Servicios</a>
               </li>
-            
-              <?php if( $_SESSION['usuarioActivo']['id_tipo'] == 1 ){?>
+
+
               <li><a href="Catalogo.php">Catalogo</a>
-              </li><?php } ?>
-              
+              </li>
+
             </ul>
           </div>
           <div id="empleados" class="tab-pane notika-tab-menu-bg animated flipInX">
@@ -143,8 +145,6 @@
           </div>
           <div id="inventario" class="tab-pane notika-tab-menu-bg animated flipInX">
             <ul class="notika-main-menu-dropdown">
-              <li><a href="RegInventario.php">Registrar</a>
-              </li>
               <li><a href="ListaFeretros.php">Feretros</a>
               </li>
               <li><a href="ListaEquipo.php">Equipo</a>

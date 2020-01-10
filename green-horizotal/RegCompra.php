@@ -100,40 +100,27 @@ if (isset($_SESSION['usuarioActivo'])) {
                                 </div>
                             </div>
                         </div><br><br><br><br>
+                        
                         <div class="typography-hd-cr-4">
                             <h4>Producto</h4>
                         </div>
                         <hr style="width:100%;border-color:light-gray 25px;"><br>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                    <span class="icon-barcode"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Producto" name="productoec"
-                                        id="productoi" aria-hidden="true">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                             <div class="chosen-select-act fm-cmp-mg">
-                                <select class="chosen" name="cateec" id="catei" data-placeholder="Seleccione Categoria" aria-hidden="true">
+                            <?php 
+                                 $conexion=mysqli_connect('localhost','root', '', 'funesi');
+                                 $sql="SELECT * from producto order by nombre_Pro ASC";
+                                  $productos = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
+                                ?>
+                                <select class="chosen" name="productoec" id="catei" data-placeholder="Seleccione Producto"
+                                    aria-hidden="true">
                                     <option value=""></option>
-                                    <option value="1">Equipo</option>
-                                    <option value="2">Feretro</option>
-                                    <option value="3">Comestibles</option>
-                                    <option value="4">Desechables</option>
+                                    <?php
+                                                While($producto=mysqli_fetch_array($productos)){
+                                                     echo '<option value="'.$producto['idProducto'].'">'.$producto['nombre_Pro'].'</option>';
+                                                }
+                                    ?>
                                 </select>
-                            </div>
-                        </div><br><br><br><br>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                    <span class="fas fa-shapes"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Tipo" name="tipoec" id="tipoi" aria-hidden="true">
-                                </div>
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
@@ -143,7 +130,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                 </div>
                                 <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Cantidad" name="cantidadec"
-                                        id="cantidadi" aria-hidden="true"> 
+                                        id="cantidadi" aria-hidden="true">
                                 </div>
                             </div>
                         </div>
@@ -158,7 +145,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                 </div>
                             </div>
                         </div><br>
-                        <div><button class="btn btn-success notika-btn-primary">Agregar <span
+                        <!-- <div><button class="btn btn-success notika-btn-primary">Agregar <span
                                     class="fas fa-cart-plus"></span></button></div><br><br>
                         <center>
                             <div class="data-table-area">
@@ -208,18 +195,16 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </center>
-                        <center>
+                            </div> -->
                         <div class="dialog-pro dialog">
-                  <button class="btn btn-success notika-btn-success" type="submit" >Guardar <i
-                      class="notika-icon notika-checked"></i></button>
-                  <button class="btn btn-danger notika-btn-danger">Cancelar <i
-                      class="notika-icon notika-close"></i></button>
-                </div>
+                            <button class="btn btn-success notika-btn-success" type="submit">Guardar <i
+                                    class="notika-icon notika-checked"></i></button>
+                            <button class="btn btn-danger notika-btn-danger">Cancelar <i
+                                    class="notika-icon notika-close"></i></button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
     </form>
     <!-- Inbox area End-->
     <!-- Start Footer area-->
@@ -338,15 +323,18 @@ if (isset($_SESSION['usuarioActivo'])) {
 <?php
 }else{
     ?>
-    <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
 </head>
+
 <body>
 </body>
+
 </html>
-    <?php
+<?php
 }
 ?>

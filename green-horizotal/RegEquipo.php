@@ -25,7 +25,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         <i class="notika-icon notika-form"></i>
                                     </div>
                                     <div class="breadcomb-ctn">
-                                        <h2>REGISTRAR PRODUCTOS</h2>
+                                        <h2>REGISTRAR EQUIPO</h2>
                                     </div>
                                 </div>
                             </div>
@@ -39,54 +39,48 @@ if (isset($_SESSION['usuarioActivo'])) {
     <!-- Inbox area Start-->
     <div class="inbox-area">
         <div class="container">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <div class="form-element-list">
                     <div class="typography-hd-cr-4">
                         <h4>Datos Producto</h4>
                     </div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                     <div class="cmp-tb-hd bcs-hd">
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <div class="form-group ic-cmp-int float-lb floating-lb">
+                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                            <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
                                 <span class="icon-barcode"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control">
-                                    <label class="nk-label">Nombre - Modelo</label>
+                                    <input type="text" class="form-control" placeholder="Nombre" name="" required id=""
+                                        aria-hidden="true">
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <div class="chosen-select-act fm-cmp-mg">
-                                <select class="chosen" data-placeholder="Categoria ...">
-                                    <option value="">Equipo</option>
-                                    <option value="value">Feretro</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                        </div><br><br>
+                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                             <div class="chosen-select-act fm-cmp-mg">
                                 <select class="chosen" data-placeholder="Tipo ...">
-                                    <option value="">sillas</option>
+                                <option value=""></option>
+                                    <option value="">Sillas</option>
                                     <option value="">Cortinas</option>
                                     <option value="">Candelabros</option>
                                     <option value="">Candelas</option>
                                     <option value="">Crucifijos</option>
                                 </select>
                             </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                        </div><br><br><br>
+                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
                                 <span class="icon-list-numbered"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Stock minimo">
+                                    <input type="text" class="form-control" placeholder="Stock minimo" name="" required id=""
+                                        aria-hidden="true">
                                 </div>
                             </div>
-                        </div><br><br><br><br>
-                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                        </div>
+                        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
                             <div class="form-group">
                                 <div class="nk-int-st">
                                     <textarea class="form-control auto-size" rows="2"
@@ -94,25 +88,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="dropdone-nk mg-t-30">
-                                <div class="cmp-tb-hd">
-                                    <h2>Cargar Imagen del Producto</h2>
-                                </div>
-                                <div id="dropzone1" class="multi-uploader-cs">
-                                    <form action="/upload" class="dropzone dropzone-nk needsclick" id="demo1-upload">
-                                        <div class="dz-message needsclick download-custom">
-                                            <i class="notika-icon notika-cloud"></i>
-                                            <h2>Suelte los archivos aquí o haga clic para cargar.</h2>
-                                            <p><span class="note needsclick"></span>
-                                            </p>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                    <br><br><br><br><br><br><br><br><br><br><br><br>
+                    <br><br><br><br><br><br>
                     <center>
                         <button class="btn btn-success notika-btn-success">Guardar <i
                                 class="notika-icon notika-checked"></i></button>
@@ -122,8 +99,25 @@ if (isset($_SESSION['usuarioActivo'])) {
                 </div>
 
             </div>
+
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+          <div class="inbox-left-sd">
+          <hr>
+                        <div class="inbox-status">
+                            <ul class="inbox-st-nav inbox-ft">
+                            <a href="/Funesi/notika/green-horizotal/RegFeretro.php"><button class="btn btn-success notika-btn-success">Nuevo <span class="fas fa-plus-circle"></span></button></a><br><br>
+                            <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button><br><br>
+                            <button class="btn btn-success notika-btn-success">Reporte   <i class="fas fa-print"></i> </button><br><br>
+                            </ul>
+                        </div>
+                        <hr>
+          </div>
+        </div>
         </div>
         <!-- Inbox area End-->
+        
+
+
         <!-- Start Footer area-->
         <div class="footer-copyright-area">
             <div class="container">
@@ -138,7 +132,8 @@ if (isset($_SESSION['usuarioActivo'])) {
         </div>
         <!-- End Footer area-->
         <!-- jquery
-    ============================================ -->
+    
+        ============================================ -->
         <script src="js/vendor/jquery-1.12.4.min.js"></script>
         <!-- bootstrap JS
     ============================================ -->

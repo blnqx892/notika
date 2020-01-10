@@ -14,11 +14,12 @@ if ($bandera=="GuardarCliente") {
 	$fechaC = $_POST["fecha"];
 	$fechaC =explode("/",$fechaC);
 	$fechaC=$fechaC[2].'-'.$fechaC[1].'-'.$fechaC[0];
+	$paquete = $_POST["paquete"];
 	$bene1C = $_POST["bene1"];
 	$bene2C = $_POST["bene2"];
 	$bene3C = $_POST["bene3"];
-	$sql = "INSERT INTO cliente (Dui_cli,nombre_cli,apellidos_Cli,direccion_cli,telefono_Cli,ben1_Cli,ben2_Cli,ben3_Cli,fecha_Cli,estado_Cli) VALUES 
-	('$duiC','$nombresC','$apellidosC','$direccionC','$telefonoC','$bene1C','$bene2C','$bene3C','$fechaC',1)";
+	$sql = "INSERT INTO cliente (Dui_cli,nombre_cli,apellidos_Cli,direccion_cli,telefono_Cli,ben1_Cli,ben2_Cli,ben3_Cli,fecha_Cli,idPaquete,estado_Cli) VALUES 
+	('$duiC','$nombresC','$apellidosC','$direccionC','$telefonoC','$bene1C','$bene2C','$bene3C','$fechaC','$paquete',1)";
 
 	mysqli_query($conexion,$sql) or die ("Error no conectai".mysqli_connect_error());
 	echo"
@@ -31,7 +32,7 @@ if ($bandera=="GuardarCliente") {
 
 //////////CAPTURA DATOS PARA BITACORA
 $usuari=$_SESSION['usuarioActivo']['usuario'];
-$sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Registró un cliente')";
+$sql = "INSERT INTO bitacora (usuario,sesionInicio,actividad) VALUES ('$usuari',now(),'Registró un cliente')";
 mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
 ///////////////////////////////////////////////
 	

@@ -38,20 +38,30 @@ if (isset($_SESSION['usuarioActivo'])) {
   </div>
   <!-- Breadcomb area End-->
 
+  <?php 
+        $conexion=mysqli_connect('localhost','root', '', 'funesi');
+        $sql="SELECT * FROM `producto` WHERE  distinto=1";
+        //$sql="SELECT * FROM `producto` WHERE distinto = 0 order by tipo_Prod='$tipo' ASC";
+        $productos= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
+
   <!-- Data Table area Start-->
   <div class="data-table-area">
     <div class="container">
       <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
           <div class="inbox-left-sd">
-          <hr>
-                        <div class="inbox-status">
-                            <ul class="inbox-st-nav inbox-ft">
-                            <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button><br><br>
-                            <button class="btn btn-success notika-btn-success">Reporte   <i class="fas fa-print"></i> </button><br><br>
-                            </ul>
-                        </div>
-                        <hr>
+            <hr>
+            <div class="inbox-status">
+              <ul class="inbox-st-nav inbox-ft">
+                <button data-toggle="modal" data-target="#modalNuevo" class="btn btn-success notika-btn-success">Nuevo
+                  <span class="fas fa-plus-circle"></span></button><br><br>
+                <button class="btn btn-success notika-btn-success">Dar Altas <i
+                    class="fas fa-arrow-alt-circle-up"></i></button><br><br>
+                <button class="btn btn-success notika-btn-success">Reporte <i class="fas fa-print"></i>
+                </button><br><br>
+              </ul>
+            </div>
+            <hr>
           </div>
         </div>
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
@@ -64,53 +74,22 @@ if (isset($_SESSION['usuarioActivo'])) {
                 <thead>
                   <tr>
                     <th>Modelo</th>
-                    <th>Tipo</th>
-                    <th>Caracteristicas</th>
-                    <th>Precio</th>
                     <th>Stock</th>
-                    <th>Ver</th>
-                    <th>Modificar</th>
-                    <th>Dar Baja</th>
+                    <th><center>Acciones<center></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Imperial</td>
-                    <td>Feretro</td>
-                    <td>Ataud de madera laqueado al Naatural</td>
-                    <td>$100</td>
-                    <td>5</td>
-                    <td>
-                      <center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center>
+                    <?php While($mostrar=mysqli_fetch_assoc($productos)){?>
+                    <td><?php echo $mostrar['nombre_Pro'] ?></td>
+                    <td><?php echo $mostrar['stock_Pro'] ?></td>
+                    <td><center><button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal"
+                        data-target="#modalVer"><i class="fas fa-eye"></i></button>
+                      <button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
+                        data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button>
+                      <button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
+                          class="fas fa-arrow-alt-circle-down"></i></button><center>
                     </td>
-                    <th>
-                      <center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button></center>
-                    </th>
-                    <th>
-                      <center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                            class="fas fa-arrow-alt-circle-down"></i></button></center>
-                    </th>
-                  </tr>
-                  <tr>
-                    <td>Catedral</td>
-                    <td>Feretro</td>
-                    <td>Armado con madera de Cedro</td>
-                    <td>$150</td>
-                    <td>20</td>
-                    <td>
-                      <center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center>
-                    </td>
-                    <th>
-                      <center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button></center>
-                    </th>
-                    <th>
-                      <center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                            class="fas fa-arrow-alt-circle-down"></i></button></center>
-                    </th>
 
                     <!-- INICIO MODAL EDITAR-->
                     <div class="modal fade" id="modalEditar" role="dialog">
@@ -132,7 +111,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                               <div class="form-group ic-cmp-int float-lb floating-lb">
                                 <div class="form-ic-cmp">
-                                <span class="icon-barcode"></span>
+                                  <span class="icon-barcode"></span>
                                 </div>
                                 <div class="nk-int-st">
                                   <input type="text" class="form-control">
@@ -141,33 +120,31 @@ if (isset($_SESSION['usuarioActivo'])) {
                               </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <div class="form-group ic-cmp-int float-lb floating-lb">
-                                                            <div class="form-ic-cmp">
-                                                            <span class="fas fa-boxes"></span>
-                                                            </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    disabled="disabled">
-                                                                <label class="nk-label">Categoria</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <div class="form-group ic-cmp-int float-lb floating-lb">
-                                                            <div class="form-ic-cmp">
-                                                            <span class="fas fa-layer-group"></span>
-                                                            </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    disabled="disabled">
-                                                                <label class="nk-label">Tipo</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                              <div class="form-group ic-cmp-int float-lb floating-lb">
+                                <div class="form-ic-cmp">
+                                  <span class="fas fa-boxes"></span>
+                                </div>
+                                <div class="nk-int-st">
+                                  <input type="text" class="form-control" disabled="disabled">
+                                  <label class="nk-label">Categoria</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                              <div class="form-group ic-cmp-int float-lb floating-lb">
+                                <div class="form-ic-cmp">
+                                  <span class="fas fa-layer-group"></span>
+                                </div>
+                                <div class="nk-int-st">
+                                  <input type="text" class="form-control" disabled="disabled">
+                                  <label class="nk-label">Tipo</label>
+                                </div>
+                              </div>
+                            </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="icon-list-numbered"></span>
+                                  <span class="icon-list-numbered"></span>
                                 </div>
                                 <div class="nk-int-st">
                                   <input type="text" class="form-control" placeholder="Stock">
@@ -177,7 +154,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="fas fa-dollar-sign"></span>
+                                  <span class="fas fa-dollar-sign"></span>
                                 </div>
                                 <div class="nk-int-st">
                                   <input type="text" class="form-control" placeholder="Precio Unitario">
@@ -187,7 +164,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="fas fa-dollar-sign"></span>
+                                  <span class="fas fa-dollar-sign"></span>
                                 </div>
                                 <div class="nk-int-st">
                                   <input type="text" class="form-control" placeholder="Precio total">
@@ -238,7 +215,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="icon-barcode"></span>
+                                  <span class="icon-barcode"></span>
                                 </div>
                                 <div class="nk-int-st">
                                   <input type="text" class="form-control" placeholder="Nombre" disabled="disabled">
@@ -248,7 +225,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="fas fa-boxes"></span>
+                                  <span class="fas fa-boxes"></span>
                                 </div>
                                 <div class="nk-int-st">
                                   <input type="text" class="form-control" placeholder="Categoria" disabled="disabled">
@@ -258,7 +235,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="fas fa-layer-group"></span>
+                                  <span class="fas fa-layer-group"></span>
                                 </div>
                                 <div class="nk-int-st">
                                   <input type="text" class="form-control" placeholder="Tipo" disabled="disabled">
@@ -268,7 +245,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="icon-list-numbered"></span>
+                                  <span class="icon-list-numbered"></span>
                                 </div>
                                 <div class="nk-int-st">
                                   <input type="text" class="form-control" placeholder="Stock" disabled="disabled">
@@ -278,28 +255,30 @@ if (isset($_SESSION['usuarioActivo'])) {
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="fas fa-dollar-sign"></span>
+                                  <span class="fas fa-dollar-sign"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Precio Unitario" disabled="disabled">
+                                  <input type="text" class="form-control" placeholder="Precio Unitario"
+                                    disabled="disabled">
                                 </div>
                               </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="fas fa-dollar-sign"></span>
+                                  <span class="fas fa-dollar-sign"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Precio total" disabled="disabled">
+                                  <input type="text" class="form-control" placeholder="Precio total"
+                                    disabled="disabled">
                                 </div>
                               </div>
                             </div><br><br><br><br><br><br><br>
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                               <div class="form-group">
                                 <div class="nk-int-st">
-                                  <textarea class="form-control auto-size" rows="2"
-                                    placeholder="Descripción..." disabled="disabled"></textarea>
+                                  <textarea class="form-control auto-size" rows="2" placeholder="Descripción..."
+                                    disabled="disabled"></textarea>
                                 </div>
                               </div>
                             </div>
@@ -316,7 +295,89 @@ if (isset($_SESSION['usuarioActivo'])) {
                       </div>
                     </div>
                     <!-- FIN MODAL VER-->
+
+                    <!-- INICIO MODAL NUEVO-->
+                    <div class="modal fade" id="modalNuevo" role="dialog">
+                      <div class="modal-dialog modal-large">
+                        <div class="modal-content">
+                          <form action="Controladores/FeretrosC.php" method="POST">
+                            <input type="hidden" value="GuardarFeretro" name="bandera">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                              <center>
+                                <div class="typography-hd-cr-4">
+                                  <h3>Registrar Feretro</h3>
+                                </div>
+                              </center>
+                              <div class="typography-hd-cr-4">
+                              </div>
+                              <hr style="width:100%;border-color:light-gray 25px;"><br>
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                    <span class="icon-barcode"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Codigo" name="codigo">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                    <span class="fas fa-tag"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Modelo" name="modelo">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                    <span class="icon-list-numbered"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="number" class="form-control" placeholder="Stock minimo" name="stock">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                <div class="form-group">
+                                  <div class="nk-int-st">
+                                    <textarea class="form-control auto-size" rows="2" placeholder="Caracteristicas..."
+                                      name="caracte"></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                              <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="dropdone-nk mg-t-30">
+                                  <div class="cmp-tb-hd">
+                                    <span class="note needsclick"></span>
+                                    <h2>Cargar Imagen</h2>
+                                  </div>
+                                  <div id="dropzone1" class="multi-uploader-cs">
+                                    <form action="/upload" class="dropzone dropzone-nk needsclick" id="demo1-upload">
+                                      <div class="dz-message needsclick download-custom">
+                                        <i class="notika-icon notika-cloud"></i>
+                                      </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>--><br><br><br><br><br><br>
+                              <div class="modal-footer">
+                                <button type="submit" class="btn btn-default">Guardar Cambios</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                      <!-- FIN MODAL NUEVO-->
                   </tr>
+                  <?php } ?>
                 </tbody>
                 <tfoot>
                   <tr>
@@ -520,15 +581,18 @@ if (isset($_SESSION['usuarioActivo'])) {
 <?php
 }else{
     ?>
-    <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
 </head>
+
 <body>
 </body>
+
 </html>
-    <?php
+<?php
 }
 ?>

@@ -546,6 +546,15 @@ if (isset($_SESSION['usuarioActivo'])) {
                 }
             })
         }
+        $(document).ready(function(){
+            $("#contra2").on("keyup",function(){
+                if($("#contra2").val() == $("#contra1").val()){
+                    $("#contra2").addClass("border border-success").removeClass("border border-danger");
+                }else{
+                    $("#contra2").addClass("border border-danger").removeClass("border border-success");
+                }
+            })
+        })
     </script>
     <!-------------------------------------------------------------------------------------->
 

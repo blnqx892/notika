@@ -57,7 +57,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                         <hr>
                         <div class="inbox-status">
                             <ul class="inbox-st-nav inbox-ft">
-                            <?php  if ($tipo == 1) { ?>
+                                <?php  if ($tipo == 1) { ?>
                                 <a href="/Funesi/notika/green-horizotal/ListaCompra.php?tipo=0"><button
                                         class="btn btn-success notika-btn-success">Inactivos <i
                                             class="fas fa-arrow-alt-circle-down"></i></button> &nbsp; </a>
@@ -91,7 +91,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                 </thead>
                                 <tbody>
                                     <?php While($mostrar=mysqli_fetch_assoc($compras)){?>
-                                        <?php if($mostrar['idCompra'] != 28){ ?>
+                                    <?php if($mostrar['idCompra'] != 28){ ?>
                                     <tr>
                                         <td><?php $fechaCom = explode("-",$mostrar['fecha_Com']);
                                                                         $fechaCom = $fechaCom[2].'/'.$fechaCom[1].'/'.$fechaCom[0];
@@ -104,31 +104,38 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                 $proveedor = mysqli_fetch_array($proveedor);
                                                 echo $proveedor['nombre_prov'];
                                         ?></td>
-                                        <td><?php echo $mostrar['producto_Com'] ?></td>
+                                        <td><?php 
+                                                $auxs = $mostrar['producto_Com'];
+                                                $sql2 = "SELECT nombre_Pro FROM producto where idProducto = '$auxs'";
+                                                $producto = mysqli_query($conexion, $sql2) or die("No se puedo ejecutar la consulta");
+                                                $producto = mysqli_fetch_array($producto);
+                                                echo $producto['nombre_Pro'];
+                                        ?></td>
                                         <td><?php echo $mostrar['unitario_Com'] ?></td>
                                         <td>
-                                        <?php $fechaCom = explode("-",$mostrar['fecha_Com']);
+                                            <?php $fechaCom = explode("-",$mostrar['fecha_Com']);
                                               $fechaCom = $fechaCom[2].'/'.$fechaCom[1].'/'.$fechaCom[0];
                                             ?>
-                                            <button title="Ver" class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
+                                            <button title="Ver"
+                                                class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                                                 data-toggle="modal" data-target="#modalVerCompra"
                                                 onclick="mostraCompra('<?php echo $fechaCom?>','<?php echo $mostrar['id_Proveedor']?>','<?php echo $mostrar['fac_Com']?>','<?php echo $mostrar['producto_Com']?>','<?php echo $mostrar['cate_Com']?>','<?php echo $mostrar['tipo_Comp']?>','<?php echo $mostrar['cantidad_Com']?>','<?php echo $mostrar['unitario_Com']?>','<?php echo $mostrar['id_Proveedor']?>')"><i
                                                     class="fas fa-eye"></i></button>
-                                                    <?php  if($tipo == 1) { ?>
-                                                        <button
-                                            type="button" class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg" title="Dar de baja"><span
-                                                    class="fas fa-arrow-alt-circle-down"
+                                            <?php  if($tipo == 1) { ?>
+                                            <button type="button"
+                                                class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"
+                                                title="Dar de baja"><span class="fas fa-arrow-alt-circle-down"
                                                     onclick="baja(<?php echo $mostrar['idCompra'] ?>)"></span></button>
-                                                    <?php  }else{ ?>
-                                            <button
-                                            type="button" class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect" title="Dar de alta"><i
-                                                    class="fas fa-arrow-alt-circle-up"
+                                            <?php  }else{ ?>
+                                            <button type="button"
+                                                class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect"
+                                                title="Dar de alta"><i class="fas fa-arrow-alt-circle-up"
                                                     onclick="alta(<?php echo $mostrar['idCompra'] ?>)"></i></button>
                                             <?php } ?>
                                             <?php  }else{ if($tipo == 0){?>
-                                            <button
-                                            type="button" class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect" title="Dar de alta"><i
-                                                    class="fas fa-arrow-alt-circle-up"
+                                            <button type="button"
+                                                class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect"
+                                                title="Dar de alta"><i class="fas fa-arrow-alt-circle-up"
                                                     onclick="alta(<?php echo $mostrar['idCompra'] ?>)"></i></button>
                                             <?php } }?>
                                             </th>
@@ -187,7 +194,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                 <h5>Proveedor</h5>
                                                             </div>
                                                             <div class="chosen-select-act fm-cmp-mg">
-                                                                <select class="chosen" id="proveedorc" name="id_Proveedor" disabled="true">
+                                                                <select class="chosen" id="proveedorc"
+                                                                    name="id_Proveedor" disabled="true">
                                                                     <?php
                                                                             While($proveedor=mysqli_fetch_array($proveedores)){
                                                                             echo '<option value="'.$proveedor['idProveedor'].'">'.$proveedor['nombre_prov'].'</option>';
@@ -197,9 +205,9 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                             </div>
                                                         </div><br>
                                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                        <div class="form-group ic-cmp-int">
+                                                            <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                     <span class="fas fa-file-invoice-dollar"></span>
+                                                                    <span class="fas fa-file-invoice-dollar"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -212,7 +220,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                         </div>
                                                         <hr style="width:100%;border-color:light-gray 25px;"><br>
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <div class="form-group ic-cmp-int">
+                                                            <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
                                                                     <span class="icon-barcode"></span>
                                                                 </div>
@@ -231,9 +239,9 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <div class="form-group ic-cmp-int">
+                                                            <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
-                                                                <span class="fas fa-shapes"></span>
+                                                                    <span class="fas fa-shapes"></span>
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
@@ -270,8 +278,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
-                                                                        placeholder="Precio total"
-                                                                        disabled="disabled">
+                                                                        placeholder="Precio total" disabled="disabled">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -316,8 +323,8 @@ if (isset($_SESSION['usuarioActivo'])) {
     </div>
     <!-- End Footer area-->
 
-<!-------------------------------------------------------------------------------------->
-<form method="POST" id="cambioCli">
+    <!-------------------------------------------------------------------------------------->
+    <form method="POST" id="cambioCli">
         <input type="hidden" name="id" id="idCli" />
         <input type="hidden" name="bandera" id="banderaCli" />
         <input type="hidden" name="valor" id="valorCli" />
@@ -342,7 +349,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                     $('#banderaCli').val('cambio');
                     $('#valorCli').val('0');
                     var dominio = window.location.host;
-                    $('#cambioCli').attr('action', 'http://' + dominio + '/Funesi/notika/green-horizotal/Controladores/Compra.php');
+                    $('#cambioCli').attr('action', 'http://' + dominio +
+                        '/Funesi/notika/green-horizotal/Controladores/Compra.php');
                     $('#cambioCli').submit();
                 } else {
 
@@ -367,7 +375,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                     $('#banderaCli').val('cambio');
                     $('#valorCli').val('1');
                     var dominio = window.location.host;
-                    $('#cambioCli').attr('action', 'http://' + dominio + '/Funesi/notika/green-horizotal/Controladores/Compra.php');
+                    $('#cambioCli').attr('action', 'http://' + dominio +
+                        '/Funesi/notika/green-horizotal/Controladores/Compra.php');
                     $('#cambioCli').submit();
                 } else {
 
@@ -553,15 +562,18 @@ if (isset($_SESSION['usuarioActivo'])) {
 <?php
 }else{
     ?>
-    <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
 </head>
+
 <body>
 </body>
+
 </html>
-    <?php
+<?php
 }
 ?>

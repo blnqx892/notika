@@ -1,5 +1,8 @@
 <?php
 include("../Confi/Conexion.php");
+echo '
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>';
+echo '<script  src = "https://cdn.jsdelivr.net/npm/sweetalert2@9"> </script>';
 //$conexion = conectarMysql();
 $conexion = conectarMysql();
 session_start();
@@ -32,22 +35,43 @@ mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mys
 	//	$data = 'ok';
 		//echo json_encode($data);//en codigo.js se mostrará exito por tanto ingresará a Principal.php
 	} else {
-        echo"
+        /*echo"
             <script language='javascript'>
             alert('ERROR!! Usuario y/o Contraseña Son Invalidos')
             window.location='/Funesi/notika/green-horizotal/Login.php'
-            </script>";
+            </script>";*/
+        echo "<script language='javascript'>
+        Swal('Error');
+        </script>";
         //header("location: /Funesi/notika/green-horizotal/Login.php");
         
 	//	$data = null;
 		//echo json_encode($data);//en codigo.js se mostrará null
     }
 }else {
-    echo"
-    <script language='javascript'>
-    alert('ERROR!! Usuario y/o Contraseña Son Invalidos')
-    window.location='/Funesi/notika/green-horizotal/Login.php'
-    </script>";
+    /*echo"
+            <script language='javascript'>
+            alert('ERROR!! Usuario y/o Contraseña Son Invalidos')
+            window.location='/Funesi/notika/green-horizotal/Login.php'
+            </script>";*/
+            echo "<script language='javascript'>
+            $(document).ready(function () {
+                setTimeout(function () {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Usuario o contraseña incorrecto',
+                        icon: 'error',
+                        showCancelButton: true,
+                        confirmButtonText: 'Aceptar'
+                      }).then((result) => {
+                        if (result.value) {
+                            window.location='/Funesi/notika/green-horizotal/Login.php';
+                        }
+                      })
+                }, 1000);
+            });
+            
+            </script>";
  // header("location: /Funesi/notika/green-horizotal/Login.php");
  // $data = null;
 //echo json_encode($data);

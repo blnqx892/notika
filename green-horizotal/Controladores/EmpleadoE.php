@@ -30,7 +30,7 @@ if ($bandera=="GuardarEmpleado") {
             window.location='/Funesi/notika/green-horizotal/RegEmpleado.php'
             </script>";
     //////////CAPTURA DATOS PARA BITACORA
-    $usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
+    $usuari=$_SESSION['usuarioActivo']['usuario'];
     $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Registró un empleado')";
     mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
     ///////////////////////////////////////////////

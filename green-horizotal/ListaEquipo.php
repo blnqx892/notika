@@ -12,7 +12,16 @@ if (isset($_SESSION['usuarioActivo'])) {
 <body>
   <!-- Importe menu desde Menu/menu-->
   <?php include("Menu/menu.php"); ?>
-
+  <?php if (!isset($_GET['tipo'])) {
+			$tipo=1;
+		}else{
+			$tipo = $_GET['tipo'];
+		}?>
+  <?php 
+        $conexion=mysqli_connect('localhost','root', '', 'funesi');
+        $sql="SELECT * FROM `producto` WHERE tipo_Prod='$tipo' AND distinto=0 ";
+        //$sql="SELECT * FROM `producto` WHERE distinto = 0 order by tipo_Prod='$tipo' ASC";
+        $productos= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
   <!-- Breadcomb area Start-->
   <div class="breadcomb-area">
     <div class="container">
@@ -42,18 +51,30 @@ if (isset($_SESSION['usuarioActivo'])) {
   <div class="data-table-area">
     <div class="container">
       <div class="row">
-      <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
-                    <div class="inbox-left-sd">
-                    <hr>
-                        <div class="inbox-status">
-                            <ul class="inbox-st-nav inbox-ft">
-                            <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button><br><br>
-                            <button class="btn btn-success notika-btn-success">Reporte   <i class="fas fa-print"></i> </button><br><br>
-                            </ul>
-                        </div>
-                        <hr>
-                    </div>
-                </div>
+        <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+          <div class="inbox-left-sd">
+            <hr>
+            <div class="inbox-status">
+              <ul class="inbox-st-nav inbox-ft">
+                <button data-toggle="modal" data-target="#modalNuevo" class="btn btn-success notika-btn-success">Nuevo
+                  <span class="fas fa-plus-circle"></span></button><br><br>
+                <?php  if ($tipo == 1) { ?>
+                <a href="/Funesi/notika/green-horizotal/ListaEquipo.php?tipo=0"><button
+                    class="btn btn-success notika-btn-success">Inactivos <i
+                      class="fas fa-arrow-alt-circle-down"></i></button> &nbsp; </a>
+                <?php  }else{ ?>
+                <a href="/Funesi/notika/green-horizotal/ListaEquipo.php?tipo=1"><button
+                    class="btn btn-success notika-btn-success">Activos <i
+                      class="fas fa-arrow-alt-circle-up"></i></button>&nbsp;</a>
+                <?php } ?>
+                <br><br>
+                <button class="btn btn-success notika-btn-success">Reporte <i class="fas fa-print"></i>
+                </button><br><br>
+              </ul>
+            </div>
+            <hr>
+          </div>
+        </div>
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
           <div class="data-table-list">
             <div class="basic-tb-hd">
@@ -64,58 +85,57 @@ if (isset($_SESSION['usuarioActivo'])) {
                 <thead>
                   <tr>
                     <th>Nombre</th>
-                    <th>Tipo</th>
                     <th>Caracteristicas</th>
                     <th>Bodega</th>
                     <th>En Servicio</th>
-                    <th>Ver</th>
-                    <th>Modificar</th>
-                    <th>Dar Baja</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Sillas Magna Azul</td>
-                    <td>Sillas</td>
-                    <td>Sillas de plastico color azul</td>
-                    <td>20</td>
-                    <td>0</td>
+                    <?php While($mostrar=mysqli_fetch_assoc($productos)){?>
+                      <?php if($mostrar['idProducto'] != 28){ ?>
+                    <td><?php echo $mostrar['nombre_Pro'] ?></td>
+                    <td><?php echo $mostrar['caracteristicas'] ?></td>
+                    <td><?php echo $mostrar['stock_Pro'] ?></td>
+                    <td></td>
                     <td>
-                      <center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center>
-                    </td>
-                    <th>
-                      <center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button></center>
-                    </th>
-                    <th>
-                      <center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                            class="fas fa-arrow-alt-circle-down"></i></button></center>
-                    </th>
-                  </tr>
-                  <tr>
-                    <td>Crucifijos</td>
-                    <td>Crucifijo</td>
-                    <td>Crucifijo de madera</td>
-                    <td>5</td>
-                    <td>0</td>
-                    <td>
-                      <center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center>
-                    </td>
-                    <th>
-                      <center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button></center>
-                    </th>
-                    <th>
-                      <center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                            class="fas fa-arrow-alt-circle-down"></i></button></center>
-                    </th>
+                      <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal"
+                        data-target="#modalVer" title="Ver"
+                        onclick="mostraEquipo('<?php echo $mostrar['codigo_Prod']?>','<?php echo $mostrar['nombre_Pro']?>','<?php echo $mostrar['categoria_Pro']?>','<?php echo $mostrar['stock_Pro']?>','<?php echo $mostrar['caracteristicas']?>')"><i
+                          class="fas fa-eye"></i></button>
+                          <?php  if ($tipo == 1) {
+                                                ?>
+                      <button class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal"
+                        data-target="#modalEditar" title="Editar"
+                        onclick="editarEquipo('<?php echo $mostrar['codigo_Prod']?>','<?php echo $mostrar['nombre_Pro']?>','<?php echo $mostrar['categoria_Pro']?>','<?php echo $mostrar['stock_Pro']?>','<?php echo $mostrar['caracteristicas']?>','<?php echo $mostrar['idProducto']?>')"><i
+                          class="fas fa-edit"></i></button>
+                      <?php  }else{ }?>
+                      <?php  if($tipo == 1) { ?>
+                      <button type="button" class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"
+                        title="Dar de baja"><span class="fas fa-arrow-alt-circle-down"
+                          onclick="baja(<?php echo $mostrar['idProducto'] ?>)"></span></button>
 
-                    <!-- INICIO MODAL EDITAR-->
-                    <div class="modal fade" id="modalEditar" role="dialog">
-                      <div class="modal-dialog modal-large">
-                        <div class="modal-content">
+                      <?php  }else{ ?>
+                      <button type="button" class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect"
+                        title="Dar de alta"><i class="fas fa-arrow-alt-circle-up"
+                          onclick="alta(<?php echo $mostrar['idProducto'] ?>)"></i></button>
+                      <?php } ?>
+                      <?php  }else{ if($tipo == 0){?>
+                      <button type="button" class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect"
+                        title="Dar de alta"><i class="fas fa-arrow-alt-circle-up"
+                          onclick="alta(<?php echo $mostrar['idProducto'] ?>)"></i></button>
+                      <?php } }?>
+                    </td>
+                  </tr>
+
+                  <!-- INICIO MODAL EDITAR-->
+                  <div class="modal fade" id="modalEditar" role="dialog">
+                    <div class="modal-dialog modal-large">
+                      <div class="modal-content">
+                        <form action="Controladores/EquipoC.php" method="POST">
+                          <input type="hidden" value="EditarEquipo" name="bandera">
+                          <input type="hidden" value="" name="idEquipo" id="idEquipo" />
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                           </div>
@@ -129,76 +149,55 @@ if (isset($_SESSION['usuarioActivo'])) {
                               <h4>Equipo</h4>
                             </div>
                             <hr style="width:100%;border-color:light-gray 25px;"><br>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int float-lb floating-lb">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                              <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="icon-barcode"></span>
+                                  <span class="icon-barcode"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control">
-                                  <label class="nk-label" disabled="disabled" disabled="disabled">Nombre</label>
+                                  <input type="text" class="form-control" placeholder="Codigo" disabled="disabled"
+                                    id="codigoe" name="codigo" aria-required="true" value="">
                                 </div>
                               </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <div class="form-group ic-cmp-int float-lb floating-lb">
-                                                            <div class="form-ic-cmp">
-                                                            <span class="fas fa-boxes"></span>
-                                                            </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    disabled="disabled">
-                                                                <label class="nk-label">Categoria</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <div class="form-group ic-cmp-int float-lb floating-lb">
-                                                            <div class="form-ic-cmp">
-                                                            <span class="fas fa-layer-group"></span>
-                                                            </div>
-                                                            <div class="nk-int-st">
-                                                                <input type="text" class="form-control"
-                                                                    disabled="disabled">
-                                                                <label class="nk-label">Tipo</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="icon-list-numbered"></span>
+                                  <span class="fas fa-tag"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Stock">
+                                  <input type="text" class="form-control" placeholder="Nombre" id="nombree"
+                                    name="nombre" aria-required="true" value="">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                              <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                  <span class="fas fa-boxes"></span>
+                                </div>
+                                <div class="nk-int-st">
+                                  <input type="text" class="form-control" placeholder="Categoria" disabled="disabled"
+                                    id="categoriae" name="categoria" aria-required="true" value="">
                                 </div>
                               </div>
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="fas fa-dollar-sign"></span>
+                                  <span class="icon-list-numbered"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Precio Unitario">
+                                  <input type="number" class="form-control" placeholder="Stock minimo" id="stocke"
+                                    name="stock" aria-required="true" value="">
                                 </div>
                               </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                <span class="fas fa-dollar-sign"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Precio total">
-                                </div>
-                              </div>
-                            </div><br><br><br><br><br><br><br>
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                               <div class="form-group">
                                 <div class="nk-int-st">
-                                  <textarea class="form-control auto-size" rows="2"
-                                    placeholder="Descripción..."></textarea>
+                                  <textarea class="form-control auto-size" rows="2" placeholder="Características..."
+                                    id="caractee" name="caracte" aria-required="true" value=""></textarea>
                                 </div>
                               </div>
                             </div>
@@ -209,114 +208,176 @@ if (isset($_SESSION['usuarioActivo'])) {
                             </div>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Guardar
+                            <button type="submit" class="btn btn-default">Guardar
                               Cambios</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                           </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- FIN MODAL EDITAR-->
+
+                  <!-- INICIO MODAL VER-->
+                  <div class="modal fade" id="modalVer" role="dialog">
+                    <div class="modal-dialog modal-large">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                          <center>
+                            <div class="typography-hd-cr-4">
+                              <h3>Información del Equipo</h3>
+                            </div>
+                          </center>
+                          <div class="typography-hd-cr-4">
+                            <h4>Equipo</h4>
+                          </div>
+                          <hr style="width:100%;border-color:light-gray 25px;"><br>
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                              <div class="form-ic-cmp">
+                                <span class="icon-barcode"></span>
+                              </div>
+                              <div class="nk-int-st">
+                                <input type="text" class="form-control" placeholder="Codigo" disabled="disabled">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                              <div class="form-ic-cmp">
+                                <span class="fas fa-tag"></span>
+                              </div>
+                              <div class="nk-int-st">
+                                <input type="text" class="form-control" id="nombre" readonly="readonly"
+                                  aria-required="true" value="">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                              <div class="form-ic-cmp">
+                                <span class="fas fa-boxes"></span>
+                              </div>
+                              <div class="nk-int-st">
+                                <input type="text" class="form-control" id="categoria" readonly="readonly"
+                                  aria-required="true" value="">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                              <div class="form-ic-cmp">
+                                <span class="icon-list-numbered"></span>
+                              </div>
+                              <div class="nk-int-st">
+                                <input type="text" class="form-control" id="stock" readonly="readonly"
+                                  aria-required="true" value="">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                            <div class="form-group">
+                              <div class="nk-int-st">
+                                <textarea class="form-control auto-size" rows="2" id="caracte" readonly="readonly"
+                                  aria-required="true" value=""></textarea>
+                              </div>
+                            </div>
+                          </div>
+                        </div><br><br><br><br><br>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                         </div>
                       </div>
                     </div>
-                    <!-- FIN MODAL EDITAR-->
+                  </div>
+                  <!-- FIN MODAL VER-->
 
-                    <!-- INICIO MODAL VER-->
-                    <div class="modal fade" id="modalVer" role="dialog">
-                      <div class="modal-dialog modal-large">
-                        <div class="modal-content">
+                  <!-- INICIO MODAL NUEVO-->
+                  <div class="modal fade" id="modalNuevo" role="dialog">
+                    <div class="modal-dialog modal-large">
+                      <div class="modal-content">
+                        <form action="Controladores/EquipoC.php" method="POST">
+                          <input type="hidden" value="GuardarEquipo" name="bandera">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                           </div>
                           <div class="modal-body">
                             <center>
                               <div class="typography-hd-cr-4">
-                                <h3>Información del Equipo</h3>
+                                <h3>Registrar Equipo</h3>
                               </div>
                             </center>
                             <div class="typography-hd-cr-4">
-                              <h4>Equipo</h4>
                             </div>
                             <hr style="width:100%;border-color:light-gray 25px;"><br>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="icon-barcode"></span>
+                                  <span class="icon-barcode"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Nombre" disabled="disabled">
+                                  <input type="text" class="form-control" placeholder="Codigo">
                                 </div>
                               </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="fas fa-boxes"></span>
+                                  <span class="fas fa-tag"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Categoria" disabled="disabled">
+                                  <input type="text" class="form-control" placeholder="Nombre" name="nombre"
+                                    id="nombre">
                                 </div>
                               </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                              <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="Categoria ..." name="categoria" id="categoria">
+                                  <option value=""></option>
+                                  <option value="1">Cafetera</option>
+                                  <option value="2">Candelabros</option>
+                                  <option value="3">Cortinas</option>
+                                  <option value="4">Crucifijos</option>
+                                  <option value="5">Floreros</option>
+                                  <option value="6">Lámparas Eléctricas</option>
+                                  <option value="7">Sillas</option>
+                                </select>
+                              </div>
+                            </div><br><br><br>
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="fas fa-layer-group"></span>
+                                  <span class="icon-list-numbered"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Tipo" disabled="disabled">
+                                  <input type="number" class="form-control" placeholder="Stock minimo" name="stock"
+                                    id="stock">
                                 </div>
                               </div>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                <span class="icon-list-numbered"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Stock" disabled="disabled">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                <span class="fas fa-dollar-sign"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Precio Unitario" disabled="disabled">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                <span class="fas fa-dollar-sign"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Precio total" disabled="disabled">
-                                </div>
-                              </div>
-                            </div><br><br><br><br><br><br><br>
-                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                              <div class="form-group">
-                                <div class="nk-int-st">
-                                  <textarea class="form-control auto-size" rows="2"
-                                    placeholder="Descripción..." disabled="disabled"></textarea>
-                                </div>
-                              </div>
-                            </div>
-                            <div>
-                              <center>
-                                <image src="img/logo/productoo.png" />
-                              </center>
                             </div>
                           </div>
+                          <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                            <div class="form-group">
+                              <div class="nk-int-st">
+                                <textarea class="form-control auto-size" rows="2" placeholder="Características..."
+                                  name="caracte" id="caracte"></textarea>
+                              </div>
+                            </div>
+                          </div><br><br><br><br><br>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-default">Guardar</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                           </div>
-                        </div>
+                        </form>
                       </div>
                     </div>
-                    <!-- FIN MODAL VER-->
-                  </tr>
+                  </div>
+                  <!-- FIN MODAL NUEVO-->
+                  <?php } ?>
                 </tbody>
                 <tfoot>
                   <tr>
@@ -328,6 +389,7 @@ if (isset($_SESSION['usuarioActivo'])) {
         </div>
       </div>
     </div>
+    <script src="js/Validaciones/jsEquipo.js"></script>
   </div>
   <!--FIN TABLA-->
 
@@ -344,6 +406,70 @@ if (isset($_SESSION['usuarioActivo'])) {
     </div>
   </div>
   <!-- End Footer area-->
+
+  <!-------------------------------------------------------------------------------------->
+  <form method="POST" id="cambioCli">
+    <input type="hidden" name="id" id="idCli" />
+    <input type="hidden" name="bandera" id="banderaCli" />
+    <input type="hidden" name="valor" id="valorCli" />
+  </form>
+  </div>
+  <!-- DAR DE BAJA -->
+  <script type="text/javascript">
+    function baja(id) {
+      swal({
+        title: '¿Está seguro en dar de baja?',
+        // text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No',
+
+      }).then((result) => {
+        if (result.value) {
+          $('#idCli').val(id);
+          $('#banderaCli').val('cambio');
+          $('#valorCli').val('0');
+          var dominio = window.location.host;
+          $('#cambioCli').attr('action', 'http://' + dominio +
+            '/Funesi/notika/green-horizotal/Controladores/EquipoC.php');
+          $('#cambioCli').submit();
+        } else {
+
+        }
+      })
+    }
+    //DAR DE ALTA
+    function alta(id) {
+      swal({
+        title: '¿Está seguro en dar de alta?',
+        // text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No',
+
+      }).then((result) => {
+        if (result.value) {
+          $('#idCli').val(id);
+          $('#banderaCli').val('cambio');
+          $('#valorCli').val('1');
+          var dominio = window.location.host;
+          $('#cambioCli').attr('action', 'http://' + dominio +
+            '/Funesi/notika/green-horizotal/Controladores/EquipoC.php');
+          $('#cambioCli').submit();
+        } else {
+
+        }
+      })
+    }
+  </script>
+  <!-------------------------------------------------------------------------------------->
+
   <!-- jquery
 		============================================ -->
   <script src="js/vendor/jquery-1.12.4.min.js"></script>
@@ -413,10 +539,10 @@ if (isset($_SESSION['usuarioActivo'])) {
   <script src="js/data-table/data-table-act.js"></script>
   <!-- main JS
     ============================================ -->
-    
 
 
-      <!-- jquery
+
+  <!-- jquery
     ============================================ -->
   <script src="js/vendor/jquery-1.12.4.min.js"></script>
   <!-- bootstrap JS
@@ -518,15 +644,18 @@ if (isset($_SESSION['usuarioActivo'])) {
 <?php
 }else{
     ?>
-    <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
 </head>
+
 <body>
 </body>
+
 </html>
-    <?php
+<?php
 }
 ?>

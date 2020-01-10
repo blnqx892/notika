@@ -117,37 +117,37 @@ if (isset($_SESSION['usuarioActivo'])) {
                                             <?php  if ($tipo == 1) {
                                                 ?>
                                             
-                                            <?php if( $_SESSION['usuarioActivo']['id_tipo'] == 1 ){?>
+                                           
                                             <button class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
                                                 data-toggle="modal" title="Modificar" data-target="#modalEditarCliente"
                                                 onclick="editarCliente('<?php echo $mostrar['Dui_cli']?>','<?php echo $mostrar['nombre_cli']?>','<?php echo $mostrar['apellidos_Cli']?>','<?php echo $mostrar['direccion_cli']?>','<?php echo $mostrar['telefono_Cli']?>','<?php echo $mostrar['ben1_Cli']?>','<?php echo $mostrar['ben2_Cli']?>','<?php echo $mostrar['ben3_Cli']?>','<?php echo $fechaCli?>','<?php echo $mostrar['idCliente']?>')"><i
                                                     class="fas fa-edit"></i>
-                                            </button><?php } ?>
+                                            </button>
 
                                             <?php  }else{ }?>
                                             <?php  if($tipo == 1) { ?>
                                            
-                                                <?php if( $_SESSION['usuarioActivo']['id_tipo'] == 1 ){?>
+                                               
                                             <button type="button"
                                                 class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"
                                                 title="Dar de baja"><span class="fas fa-arrow-alt-circle-down"
-                                                    onclick="baja(<?php echo $mostrar['idCliente'] ?>)"></span></button><?php } ?>
+                                                    onclick="baja(<?php echo $mostrar['idCliente'] ?>)"></span></button>
 
                                             <?php  }else{ ?>
                                             
-                                                <?php if( $_SESSION['usuarioActivo']['id_tipo'] == 1 ){?>
+                                               
                                             <button type="button"
                                                 class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect"
                                                 title="Dar de alta"><i class="fas fa-arrow-alt-circle-up"
-                                                    onclick="alta(<?php echo $mostrar['idCliente'] ?>)"></i></button><?php } ?>
+                                                    onclick="alta(<?php echo $mostrar['idCliente'] ?>)"></i></button>
                                             <?php } ?>
                                             <?php  }else{ if($tipo == 0){?>
                                            
-                                                <?php if( $_SESSION['usuarioActivo']['id_tipo'] == 1 ){?>
+                                               
                                             <button type="button"
                                                 class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect"
                                                 title="Dar de alta"><i class="fas fa-arrow-alt-circle-up"
-                                                    onclick="alta(<?php echo $mostrar['idCliente'] ?>)"></i></button><?php } ?>
+                                                    onclick="alta(<?php echo $mostrar['idCliente'] ?>)"></i></button>
                                             <?php } }?>
                                         </td>
                                     </tr>

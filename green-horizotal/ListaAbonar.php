@@ -1,22 +1,7 @@
 <?php
-}else{
-    ?>
-    <!DOCTYPE HTML>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
-</head>
-<body>
-</body>
-</html>
-    <?php
-}
+session_start();
+if (isset($_SESSION['usuarioActivo'])) {
 ?>
-
-<!doctype html>
-<html>
-
 <head>
     <!-- Place your kit's code here -->
     <script src="https://kit.fontawesome.com/16cea9a08c.js" crossorigin="anonymous"></script>

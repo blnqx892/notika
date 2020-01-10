@@ -163,13 +163,23 @@ if (isset($_SESSION['usuarioActivo'])) {
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <?php 
+                                 $conexion=mysqli_connect('localhost','root', '', 'funesi');
+                                 $sql="SELECT * from paquete order by nombre_paq ASC";
+                                  $paquetes = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
+                                ?>
                   <div class="nk-int-mk sl-dp-mn">
                     <h5>Servicio Funebre</h5>
                   </div>
                   <div class="chosen-select-act fm-cmp-mg">
-                    <select class="chosen" data-placeholder="Seleccionar...">
-                      <option value="United States">Jardín Completo</option>
-                    </select>
+                  <select class="chosen" data-placeholder="Paquete..." name="paquete">
+                                        <option value=""></option>
+                                        <?php
+                                                While($paquete=mysqli_fetch_array($paquetes)){
+                                                     echo '<option value="'.$paquete['idPaquete'].'">'.$paquete['nombre_paq']. ' - $'.$paquete['precio_paq'].'</option>';
+                                                }
+                                    ?>
+                                    </select>
                   </div>
                 </div>
               </center>

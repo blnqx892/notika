@@ -27,7 +27,7 @@ if ($bandera=="GuardarProveedor") {
 
 //////////CAPTURA DATOS PARA BITACORA
 $usuari=$_SESSION['usuarioActivo']['usuario_Usu'];
-$sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Registró un proveedor')";
+$sql = "INSERT INTO bitacora (usuario,sesionInicio,actividad) VALUES ('$usuari',now(),'Registró un proveedor')";
 mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
 ///////////////////////////////////////////////
 }
