@@ -163,7 +163,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                     <h5>Servicio Funebre</h5>
                                 </div>
                                 <div class="chosen-select-act fm-cmp-mg">
-                                    <select class="chosen" data-placeholder="Paquete..." name="paquete">
+                                    <select class="chosen" data-placeholder="Seleccione paquete" name="paquete">
                                         <option value=""></option>
                                         <?php
                                                 While($paquete=mysqli_fetch_array($paquetes)){
@@ -172,19 +172,18 @@ if (isset($_SESSION['usuarioActivo'])) {
                                     ?>
                                     </select>
                                 </div>
-                            </div><br>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="fm-checkbox">
-                                    <label><input type="radio" checked="" class="i-checks"> <i></i>CREDITO</label>
+                            </div><br><br><br><br>
+                            <center><div class="form-element-list col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="fm-checkbox">
+                                <label>
+                                    <input type="radio" name="color" value="azul" class="i-checks"> CREDITO
+                                </label>
+                                <label>
+                                    <input type="radio" name="color" value="negro" class="i-checks"> CONTADO
+                                </label>
                                 </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <div class="fm-checkbox">
-                                    <label><input type="radio" value="option1" name="a" class="i-checks">
-                                        <i></i>CONTADO</label>
-                                </div>
-                            </div>
-                        </div><br><br>
+                            </div></center>
+                        </div><br><br><br><br><br>
                         <div class="cmp-tb-hd bcs-hd">
                             <center>
                                 <div class="dialog-pro dialog">
@@ -199,7 +198,7 @@ if (isset($_SESSION['usuarioActivo'])) {
 
                 </div>
 
-                <!--
+                
                 <div class="modal fade" id="modalNuevo" role="dialog">
                     <div class="modal-dialog modal-large">
                         <div class="modal-content">
@@ -276,7 +275,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                             </div>
                         </div>
                     </div>
-                </div>-->
+                </div>
             </div>
     </form>
     <!-- Inbox area End-->

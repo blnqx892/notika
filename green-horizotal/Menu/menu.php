@@ -157,10 +157,10 @@
               </li>
               <li><a href="">Inventario</a>
               </li>
-              <li><a href="ListaFeretros.php">xxFeretros</a>
+              <!--<li><a href="ListaFeretros.php">xxFeretros</a>
               </li>
               <li><a href="ListaEquipo.php">xxEquipo</a>
-              </li>
+              </li>-->
             </ul>
           </div>
           <div id="seguridad" class="tab-pane notika-tab-menu-bg animated flipInX">
