@@ -7,10 +7,12 @@ $bandera=$_POST["bandera"];
 
 if ($bandera=="GuardarFeretro") {
     $nombre=$_POST["modelo"];
+    $color=$_POST["color"];
+    $material=$_POST["material"];
     $stock=$_POST["stock"];
     $caracte=$_POST["caracte"];
-    $sql="INSERT INTO producto (nombre_Pro, stock_Pro, caracteristicas, distinto, tipo_Prod) VALUES 
-('$nombre', '$stock', '$caracte', 1, 1)";
+    $sql="INSERT INTO producto (nombre_Pro, color_Pro, material_Pro, stock_Pro, caracteristicas, estado_Pro) VALUES 
+('$nombre', '$color', '$material', '$stock', '$caracte', 1)";
 
     mysqli_query($conexion, $sql) or die ("Error no conectai".mysqli_connect_error());
     echo"

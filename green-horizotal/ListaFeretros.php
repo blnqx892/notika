@@ -40,7 +40,7 @@ if (isset($_SESSION['usuarioActivo'])) {
 
   <?php 
         $conexion=mysqli_connect('localhost','root', '', 'funesi');
-        $sql="SELECT * FROM `producto` WHERE  distinto=1";
+        $sql="SELECT * from producto order by nombre_Pro ASC";
         //$sql="SELECT * FROM `producto` WHERE distinto = 0 order by tipo_Prod='$tipo' ASC";
         $productos= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
 

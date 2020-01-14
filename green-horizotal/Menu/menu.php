@@ -19,7 +19,7 @@
           <ul class="nav navbar-nav notika-top-nav">
             <li class="nav-item">
               <a data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-                <i class="fas fa-user-alt"></i>&nbsp;<?php echo $_SESSION['usuarioActivo']['usuario']?>
+                <i class="fas fa-user-alt"></i>&nbsp;<?php echo $_SESSION['usuarioActivo']['usuario'];?>
               </a>
               <div role="menu" class="dropdown-menu message-dd chat-dd animated zoomIn">
                 <div class="hd-message-info">
@@ -80,7 +80,7 @@
 
 
 
-          <li><a data-toggle="tab" href="#inventario"><i class="fas fa-boxes"></i> Inventario</a>
+          <li><a data-toggle="tab" href="#producto"><i class="fas fa-boxes"></i> Producto</a>
           </li>
           <li><a data-toggle="tab" href="#seguridad"><i class="fas fa-users-cog"></i> Seguridad</a>
           </li>
@@ -124,13 +124,19 @@
           </div>
           <div id="servicios" class="tab-pane notika-tab-menu-bg animated flipInX">
             <ul class="notika-main-menu-dropdown">
-              <li><a href="RegServicio.php">Registrar Servicios</a>
+            <li><a href="RegServicio.php">Servicios</a>
               </li>
-              <li><a href="ListaServicios.php">Control Servicios</a>
+            <li><a href="RegServicio.php">Planes</a>
               </li>
-
-
-              <li><a href="Catalogo.php">Catalogo</a>
+              <li><a href="RegServicio.php">Armar Paquete</a>
+              </li>
+              <li><a href="RegServicio.php">Paquetes Funebres</a>
+              </li>
+              <li><a href="RegServicio.php">xxRegistrar Servicios</a>
+              </li>
+              <li><a href="ListaServicios.php">xxControl Servicios</a>
+              </li>
+              <li><a href="Catalogo.php">xxCatalogo</a>
               </li>
 
             </ul>
@@ -143,11 +149,17 @@
               </li>
             </ul>
           </div>
-          <div id="inventario" class="tab-pane notika-tab-menu-bg animated flipInX">
+          <div id="producto" class="tab-pane notika-tab-menu-bg animated flipInX">
             <ul class="notika-main-menu-dropdown">
-              <li><a href="ListaFeretros.php">Feretros</a>
+            <li><a href="RegFeretro.php">Registrar</a>
               </li>
-              <li><a href="ListaEquipo.php">Equipo</a>
+              <li><a href="ListaFeretros.php">Producto</a>
+              </li>
+              <li><a href="">Inventario</a>
+              </li>
+              <li><a href="ListaFeretros.php">xxFeretros</a>
+              </li>
+              <li><a href="ListaEquipo.php">xxEquipo</a>
               </li>
             </ul>
           </div>

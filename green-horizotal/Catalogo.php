@@ -32,7 +32,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         <i class="notika-icon notika-form"></i>
                                     </div>
                                     <div class="breadcomb-ctn">
-                                        <h2>CATALOGO PAQUETES FUNEBRES</h2>
+                                        <h2>SERVICIOS</h2>
                                     </div>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                             <table id="data-table-basic" class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Paquete</th>
+                                        <th>Nombre</th>
                                         <th>Precio</th>
                                         <th>Acciones</th>
                                     </tr>
@@ -405,7 +405,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                     <div class="modal-body">
                                                         <center>
                                                             <div class="typography-hd-cr-4">
-                                                                <h3>Registrar Paquete</h3>
+                                                                <h3>Registrar Servicio</h3>
                                                             </div>
                                                         </center>
                                                         <div class="typography-hd-cr-4">
@@ -418,7 +418,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                 </div>
                                                                 <div class="nk-int-st">
                                                                     <input type="text" required class="form-control"
-                                                                        placeholder="Nombre del Paquete" name="nombre">
+                                                                        placeholder="Nombre" name="nombre">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -430,119 +430,6 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                 <div class="nk-int-st">
                                                                     <input type="number" required class="form-control"
                                                                         placeholder="Precio" name="precio">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <?php 
-                                                                 $conexion=mysqli_connect('localhost','root', '', 'funesi');
-                                                                 $sql="SELECT * FROM `producto` where distinto=1";
-                                                                 $productos= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
-                                                            <div class="chosen-select-act fm-cmp-mg">
-                                                                <select class="chosen"
-                                                                    data-placeholder="Feretro ..." name="feretro"
-                                                                    id="producto">
-                                                                    <option value=""></option>
-                                                                    <?php
-                                                                         While($producto=mysqli_fetch_array($productos)){
-                                                                         echo '<option value="'.$producto['idProducto'].'">'.$producto['nombre_Pro'].'</option>';
-                                                }
-                                    ?>
-                                                                </select>
-                                                            </div>
-                                                        </div><br><br><br>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="icon-list-numbered"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="number" class="form-control"
-                                                                        placeholder="Sillas" name="sillas" id="sillas">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="icon-list-numbered"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="number" class="form-control"
-                                                                        placeholder="Cortinas" name="cortinas"
-                                                                        id="cortinas">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="icon-list-numbered"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="number" class="form-control"
-                                                                        placeholder="Crucifijos" name="crucifijos"
-                                                                        id="crucifijos">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="icon-list-numbered"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="number" class="form-control"
-                                                                        placeholder="Lamparas" name="lamparas"
-                                                                        id="lamparas">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="icon-list-numbered"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="number" class="form-control"
-                                                                        placeholder="Cafeteras" name="cafeteras"
-                                                                        id="cafeteras">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="icon-list-numbered"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="number" class="form-control"
-                                                                        placeholder="Canopies" name="canopi"
-                                                                        id="canopi">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="icon-list-numbered"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="number" class="form-control"
-                                                                        placeholder="Candelabros" name="candela"
-                                                                        id="candela">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="icon-list-numbered"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="number" class="form-control"
-                                                                        placeholder="Floreros" name="floreros"
-                                                                        id="floreros">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -580,7 +467,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                             <div class="modal-body">
                                 <center>
                                     <div class="typography-hd-cr-4">
-                                        <h3>Registrar Paquete</h3>
+                                        <h3>Registrar Servicio</h3>
                                     </div>
                                 </center>
                                 <div class="typography-hd-cr-4">

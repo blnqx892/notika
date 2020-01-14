@@ -76,7 +76,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                 </div>
                             </div>
                             <hr style="width:100%;border-color:light-gray 25px;"><br>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                 <?php 
                                  $conexion=mysqli_connect('localhost','root', '', 'funesi');
                                  $sql="SELECT * from cliente order by nombre_cli ASC";
@@ -86,7 +86,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                     <h5>Cliente</h5>
                                 </div>
                                 <div class="chosen-select-act fm-cmp-mg">
-                                    <select class="chosen" data-placeholder="Cliente..." name="cliente" id="" >
+                                    <select class="chosen" data-placeholder="Cliente..." name="cliente" id="">
                                         <option value=""></option>
                                         <?php
                                                 While($cliente=mysqli_fetch_array($clientes)){
@@ -94,11 +94,11 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                 }
                                     ?>
                                     </select>
-                                </div>
-                            </div><br>
-                            <button class="btn btn-success notika-btn-success" data-toggle="modal"
-                                data-target="#modalNuevo">Nuevo <i class="fas fa-user-plus"></i>
-                            </button><br><br><br><br>
+                                </div><br>
+                                <button class="btn btn-success notika-btn-success" data-toggle="modal"
+                                    data-target="#modalNuevo">Nuevo <i class="fas fa-user-plus"></i>
+                                </button>
+                            </div>
                             <!--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                                 <div class="form-group ic-cmp-int">
                                     <div class="form-ic-cmp">
@@ -173,46 +173,33 @@ if (isset($_SESSION['usuarioActivo'])) {
                                     </select>
                                 </div>
                             </div><br>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <i class="fab fa-speakap"></i>
-                                    </div>
-                                    <div class="nk-int-st">
-                                        <input type="text" class="form-control" placeholder="Precio" name="precio">
-                                    </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="fm-checkbox">
+                                    <label><input type="radio" checked="" class="i-checks"> <i></i>CREDITO</label>
                                 </div>
                             </div>
-                        </div><br><br><br>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="fm-checkbox">
+                                    <label><input type="radio" value="option1" name="a" class="i-checks">
+                                        <i></i>CONTADO</label>
+                                </div>
+                            </div>
+                        </div><br><br>
                         <div class="cmp-tb-hd bcs-hd">
-                            <div class="typography-hd-cr-4">
-                                <h3>Abono</h3>
-                            </div>
-                            <hr style="width:100%;border-color:light-gray 25px;"><br>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <i class="fab fa-speakap"></i>
-                                    </div>
-                                    <div class="nk-int-st">
-                                        <input type="text" class="form-control" placeholder="Abono" name="abono">
-                                    </div>
-                                </div>
-                            </div>
                             <center>
-                            <div class="dialog-pro dialog">
-                                <button class="btn btn-success notika-btn-success" type="submit">Facturar <i
-                                        class="fas fa-receipt"></i></button>
-                                <button class="btn btn-danger notika-btn-danger">Cancelar <i
-                                        class="notika-icon notika-close"></i></button>
-                                        </div>
+                                <div class="dialog-pro dialog">
+                                    <button class="btn btn-success notika-btn-success" type="submit">Facturar <i
+                                            class="fas fa-receipt"></i></button>
+                                    <button class="btn btn-danger notika-btn-danger">Cancelar <i
+                                            class="notika-icon notika-close"></i></button>
+                                </div>
                             </center>
-                        </div><br>
+                        </div><br><br><br>
                     </div>
 
                 </div>
 
-<!--
+                <!--
                 <div class="modal fade" id="modalNuevo" role="dialog">
                     <div class="modal-dialog modal-large">
                         <div class="modal-content">
@@ -315,12 +302,12 @@ if (isset($_SESSION['usuarioActivo'])) {
      $clientes = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
    ?>
 
-<script type="text/javascript">
-function buscar(){
-    var opcion = document.getElementById('cliente').value;
-    window.location.href='http://localhost/Funesi/notika/green-horizotal/RegVenta.php?opcion='+opcion;
-}
-</script>
+    <script type="text/javascript">
+        function buscar() {
+            var opcion = document.getElementById('cliente').value;
+            window.location.href = 'http://localhost/Funesi/notika/green-horizotal/RegVenta.php?opcion=' + opcion;
+        }
+    </script>
 
     <!-- jquery
     ============================================ -->

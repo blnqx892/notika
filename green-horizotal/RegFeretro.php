@@ -37,33 +37,54 @@ if (isset($_SESSION['usuarioActivo'])) {
     </div>
     <!-- Breadcomb area End-->
     <!-- Inbox area Start-->
+    <form action="Controladores/FeretrosC.php" method="POST" autocomplete="off">
+    <input type="hidden" value="GuardarFeretro" name="bandera">
     <div class="inbox-area">
         <div class="container">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-element-list">
                     <div class="typography-hd-cr-4">
-                        <h4>Datos Producto</h4>
+                        <h4>Datos del Producto</h4>
                     </div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                     <div class="cmp-tb-hd bcs-hd">
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <div class="form-group ic-cmp-int float-lb floating-lb">
+                            <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="icon-barcode"></span>
+                                    <span class="icon-list-numbered"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control">
-                                    <label class="nk-label">Modelo</label>
+                                    <input type="text" class="form-control" placeholder="Modelo" name="modelo">
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="icon-list-numbered"></span>
+                                    <span class="icon-list-numbered"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Stock minimo">
+                                    <input type="text" class="form-control" placeholder="Color" name="color"> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="Elegir material" name="material" id=""
+                                    aria-hidden="true">
+                                    <option value=""></option>
+                                    <option value="1">Madera</option>
+                                    <option value="2">Metal</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <span class="icon-list-numbered"></span>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Stock minimo" name="stock">
                                 </div>
                             </div>
                         </div>
@@ -71,39 +92,25 @@ if (isset($_SESSION['usuarioActivo'])) {
                             <div class="form-group">
                                 <div class="nk-int-st">
                                     <textarea class="form-control auto-size" rows="2"
-                                        placeholder="Caracteristicas"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="dropdone-nk mg-t-30">
-                                <div class="cmp-tb-hd">
-                                    <h2>Cargar Imagen del Producto</h2>
-                                </div>
-                                <div id="dropzone1" class="multi-uploader-cs">
-                                    <form action="/upload" class="dropzone dropzone-nk needsclick" id="demo1-upload">
-                                        <div class="dz-message needsclick download-custom">
-                                            <i class="notika-icon notika-cloud"></i>
-                                            <h2>Suelte los archivos aquí o haga clic para cargar.</h2>
-                                            <p><span class="note needsclick"></span>
-                                            </p>
-                                        </div>
-                                    </form>
+                                        placeholder="Caracteristicas" name="caracte"></textarea>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <br><br><br><br><br><br><br><br><br><br><br><br>
-                    <center>
-                        <button class="btn btn-success notika-btn-success">Guardar <i
-                                class="notika-icon notika-checked"></i></button>
-                        <button class="btn btn-danger notika-btn-danger">Cancelar <i
-                                class="notika-icon notika-close"></i></button>
-                    </center>
+                    <br><br><br><br><br><br>
+                    <div>
+                        <center>
+                            <button class="btn btn-success notika-btn-success" type="submit">Guardar <i
+                                    class="notika-icon notika-checked"></i></button>
+                            <button class="btn btn-danger notika-btn-danger">Cancelar <i
+                                    class="notika-icon notika-close"></i></button>
+                        </center>
+                    </div>
                 </div>
 
             </div>
         </div>
+        </form>
         <!-- Inbox area End-->
         <!-- Start Footer area-->
         <div class="footer-copyright-area">
@@ -221,15 +228,18 @@ if (isset($_SESSION['usuarioActivo'])) {
 <?php
 }else{
     ?>
-    <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
 </head>
+
 <body>
 </body>
+
 </html>
-    <?php
+<?php
 }
 ?>
