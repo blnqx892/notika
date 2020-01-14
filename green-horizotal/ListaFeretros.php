@@ -53,8 +53,6 @@ if (isset($_SESSION['usuarioActivo'])) {
             <hr>
             <div class="inbox-status">
               <ul class="inbox-st-nav inbox-ft">
-                <button data-toggle="modal" data-target="#modalNuevo" class="btn btn-success notika-btn-success">Nuevo
-                  <span class="fas fa-plus-circle"></span></button><br><br>
                 <button class="btn btn-success notika-btn-success">Dar Altas <i
                     class="fas fa-arrow-alt-circle-up"></i></button><br><br>
                 <button class="btn btn-success notika-btn-success">Reporte <i class="fas fa-print"></i>

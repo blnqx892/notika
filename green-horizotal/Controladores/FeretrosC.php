@@ -17,7 +17,7 @@ if ($bandera=="GuardarFeretro") {
     mysqli_query($conexion, $sql) or die ("Error no conectai".mysqli_connect_error());
     echo"
 <script language='javascript'>alert('Registro de Feretro Exitoso!!')
- window.location='/Funesi/notika/green-horizotal/ListaFeretros.php'
+ window.location='/Funesi/notika/green-horizotal/RegFeretro.php'
     </script>";
  //////////CAPTURA DATOS PARA BITACORA
     $usuari=$_SESSION['usuarioActivo']['usuario'];
