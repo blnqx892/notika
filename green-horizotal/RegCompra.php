@@ -1,6 +1,19 @@
 <?php
+
 session_start();
 if (isset($_SESSION['usuarioActivo'])) {
+
+    ######### SACAMOS EL VALOR MAXIMO DE LA FACTURA Y LE SUMAMOS UNO ##########
+    
+ $conexion=mysqli_connect('localhost','root', '', 'funesi');
+        $pa=mysqli_query($conexion,"SELECT MAX(factura)as maximo FROM kardex");               
+        if($row=mysqli_fetch_array($pa)){
+            if($row['maximo']==NULL){
+                $factura='10011011';
+            }else{
+                $factura=$row['maximo']+1;
+            }
+        }
 ?>
 
 <!doctype html>
@@ -8,7 +21,6 @@ if (isset($_SESSION['usuarioActivo'])) {
 <!--IMPORTE head desde Menu/apertura-->
 <?php include("Menu/apertura.php"); ?>
 <!--IMPORTE head desde Menu/apertura-->
-
 <body>
     <!-- Importe menu desde Menu/menu-->
     <?php include("Menu/menu.php"); ?>
@@ -38,8 +50,8 @@ if (isset($_SESSION['usuarioActivo'])) {
     </div>
     <!-- Breadcomb area End-->
     <!-- Inbox area Start-->
-    <form action="Controladores/Compra.php" method="POST" autocomplete="off">
-        <input type="hidden" value="GuardarCompra" name="bandera">
+    
+        <form id="detalle">
         <div class="inbox-area">
             <div class="container">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -63,7 +75,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                     <div class="input-group date nk-int-st">
                                         <span class="input-group-addon"></span>
                                         <input type="text" class="form-control" value="<?php echo $fech?>"
-                                            name="fechaec" id="fechae" aria-required="true">
+                                            name="fechaec" id="fecha" aria-required="true">
                                     </div>
                                 </div>
                             </div>
@@ -77,8 +89,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                     <h5>Seleccionar Proveedor</h5>
                                 </div>
                                 <div class="chosen-select-act fm-cmp-mg">
-                                    <select class="chosen" data-placeholder="Elegir Proveedor..." name="id_Proveedor"
-                                        id="proveedori" aria-hidden="true">
+                                <select class="chosen" data-placeholder="Elegir Proveedor..." name="id_Proveedor" id="prove" >
                                         <option value=""></option>
                                         <?php
                                                 While($proveedor=mysqli_fetch_array($proveedores)){
@@ -95,8 +106,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                                     <span class="fas fa-file-invoice-dollar"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="# Factura Compra"
-                                        name="facturaec" id="facturai" aria-hidden="true">
+                                    <input type="text" class="form-control" value="<?php echo$factura?>" placeholder="# Factura Compra"
+                                        name="facturaec" id="factura" aria-hidden="true">
                                 </div>
                             </div>
                         </div><br><br><br><br>
@@ -105,6 +116,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                             <h4>Producto</h4>
                         </div>
                         <hr style="width:100%;border-color:light-gray 25px;"><br>
+                        <!--para guardar en detalle compra temporamente con ajax-->
+                        
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                             <div class="chosen-select-act fm-cmp-mg">
                             <?php 
@@ -112,13 +125,14 @@ if (isset($_SESSION['usuarioActivo'])) {
                                  $sql="SELECT * from producto order by nombre_Pro ASC";
                                   $productos = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
                                 ?>
-                                <select class="chosen" name="productoec" id="catei" data-placeholder="Seleccione Producto"
+                                <select class="chosen" name="productoec" id="prod" data-placeholder="Seleccione Producto"
                                     aria-hidden="true">
                                     <option value=""></option>
                                     <?php
                                                 While($producto=mysqli_fetch_array($productos)){
-                                                     echo '<option value="'.$producto['idProducto'].'">'.$producto['nombre_Pro'].'</option>';
-                                                }
+                                 echo '<option value="'.$producto['idProducto'].'">'.$producto['nombre_Pro'].'</option>';
+                                                 }
+                                                
                                     ?>
                                 </select>
                             </div>
@@ -129,22 +143,11 @@ if (isset($_SESSION['usuarioActivo'])) {
                                     <span class="icon-sort-numeric-asc"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Cantidad" name="cantidadec"
-                                        id="cantidadi" aria-hidden="true">
+                                    <input type="text" class="form-control" placeholder="Cantidad" name="cantidadec" id="cant" aria-hidden="true" />
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                    <span class="fas fa-dollar-sign"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Precio Unitario"
-                                        name="unitarioec" id="precioi" aria-hidden="true">
-                                </div>
-                            </div>
-                        </div><br>
+                        <br>
                         <!-- <div><button class="btn btn-success notika-btn-primary">Agregar <span
                                     class="fas fa-cart-plus"></span></button></div><br><br>
                         <center>
@@ -197,15 +200,62 @@ if (isset($_SESSION['usuarioActivo'])) {
                                 </div>
                             </div> -->
                         <div class="dialog-pro dialog">
-                            <button class="btn btn-success notika-btn-success" type="submit">Guardar <i
+                            <button class="btn btn-success notika-btn-success" type="submit">ok <i
                                     class="notika-icon notika-checked"></i></button>
+
+                           
                             <button class="btn btn-danger notika-btn-danger">Cancelar <i
                                     class="notika-icon notika-close"></i></button>
+                        
+                           
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+    <br/> <br/>
+    <div class="inbox-area">
+            <div class="container">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-element-list">
+                        <div class="typography-hd-cr-4">
+                            <table class="table table-bordered table-sm">
+            <thead>
+              <tr>
+                
+                <td>Producto</td>
+                <td>Cantidad</td>
+                <td>Precio</td>
+                <td>Total</td>
+              </tr>
+            </thead>
+            <tbody id="tabla-ok"></tbody>
+          </table>
                         </div>
                     </div>
                 </div>
             </div>
-    </form>
+        </div>
+         <div class="inbox-area">
+            <div class="container">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-element-list">
+                        <div class="typography-hd-cr-4">
+                            <table class="table table-bordered table-sm">
+        <a href="finalizarCompra.php">
+         <button class="btn btn-success notika-btn-success" type="submit">Finalizar <i
+                                    class="notika-icon notika-checked"></i></button>
+                                </a>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
     <!-- Inbox area End-->
     <!-- Start Footer area-->
     <div class="footer-copyright-area">
@@ -308,7 +358,7 @@ if (isset($_SESSION['usuarioActivo'])) {
 
     <!--  todo JS
     ============================================ -->
-    <script src="js/todo/jquery.todo.js"></script>
+    <!--<script src="js/todo/jquery.todo.js"></script>-->
     <!-- plugins JS
     ============================================ -->
     <script src="js/plugins.js"></script>
@@ -317,6 +367,8 @@ if (isset($_SESSION['usuarioActivo'])) {
     <script src="js/main.js"></script>
     <!-- tawk chat JS
     ============================================ -->
+    <script src="app.js"></script>
+    <!--<script src="jquery-3.3.1.min.js"></script>-->
 </body>
 
 </html>
