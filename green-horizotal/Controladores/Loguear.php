@@ -18,12 +18,32 @@ session_start();
         //echo $hash;
 	if (password_verify($contra, $hash)) {
         $_SESSION['usuarioActivo']=$row;
-        echo"
+
+       /* echo"
         <script language='javascript'>
         alert('EXITO!! Bienvenido')
         type: 'danger'
         window.location='/Funesi/notika/green-horizotal/Principal.php'
-        </script>";
+        </script>";*/
+
+        echo "<script language='javascript'>
+            $(document).ready(function () {
+                setTimeout(function () {
+                    Swal.fire({
+                        title: 'Excelente',
+                        text: '¡¡¡Bienvenido!!!',
+                        icon: 'success',
+                        showCancelButton: true,
+                        confirmButtonText: 'Aceptar'
+                      }).then((result) => {
+                        if (result.value) {
+                            window.location='/Funesi/notika/green-horizotal/Principal.php';
+                        }
+                      })
+                }, 1000);
+            });
+            
+            </script>";
 
         //////////CAPTURA DATOS PARA BITACORA
 $usuari=$_SESSION['usuarioActivo']['usuario'];
@@ -35,14 +55,32 @@ mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mys
 	//	$data = 'ok';
 		//echo json_encode($data);//en codigo.js se mostrará exito por tanto ingresará a Principal.php
 	} else {
+        echo "<script language='javascript'>
+            $(document).ready(function () {
+                setTimeout(function () {
+                    Swal.fire({
+                        title: 'ERROR',
+                        text: 'Usuario y/o Contraseña son incorrectas, vuelve a intentar',
+                        icon: 'error',
+                        showCancelButton: true,
+                        confirmButtonText: 'Aceptar'
+                      }).then((result) => {
+                        if (result.value) {
+                            window.location='/Funesi/notika/green-horizotal/Login.php';
+                        }
+                      })
+                }, 1000);
+            });
+            
+            </script>";
         /*echo"
             <script language='javascript'>
             alert('ERROR!! Usuario y/o Contraseña Son Invalidos')
             window.location='/Funesi/notika/green-horizotal/Login.php'
             </script>";*/
-        echo "<script language='javascript'>
-        Swal('Error');
-        </script>";
+        //echo "<script language='javascript'>
+        //Swal('Error');
+        //</script>";
         //header("location: /Funesi/notika/green-horizotal/Login.php");
         
 	//	$data = null;

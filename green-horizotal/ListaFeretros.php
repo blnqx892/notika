@@ -8,7 +8,7 @@ if (isset($_SESSION['usuarioActivo'])) {
 <!--IMPORTE head desde Menu/apertura-->
 <?php include("Menu/apertura.php"); ?>
 <!--IMPORTE head desde Menu/apertura-->
-
+<?php $material = array(1 => "Madera", 2 => "Metal"); ?>
 <body>
   <!-- Importe menu desde Menu/menu-->
   <?php include("Menu/menu.php"); ?>
@@ -37,10 +37,15 @@ if (isset($_SESSION['usuarioActivo'])) {
     </div>
   </div>
   <!-- Breadcomb area End-->
-
+  <?php if (!isset($_GET['tipo'])) {
+			$tipo=1;
+		}else{
+			$tipo = $_GET['tipo'];
+		}?>
+    
   <?php 
         $conexion=mysqli_connect('localhost','root', '', 'funesi');
-        $sql="SELECT * from producto order by nombre_Pro ASC";
+        $sql="SELECT * from producto where estado_Pro='$tipo' order by nombre_Pro ASC";
         //$sql="SELECT * FROM `producto` WHERE distinto = 0 order by tipo_Prod='$tipo' ASC";
         $productos= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
 
@@ -55,8 +60,12 @@ if (isset($_SESSION['usuarioActivo'])) {
               <ul class="inbox-st-nav inbox-ft">
                 <button class="btn btn-success notika-btn-success">Dar Altas <i
                     class="fas fa-arrow-alt-circle-up"></i></button><br><br>
-                <button class="btn btn-success notika-btn-success">Reporte <i class="fas fa-print"></i>
-                </button><br><br>
+                    <?php  if ($tipo == 1) { ?>
+                <a target="_blank" href="Reportes/ReporteProducto_Act.php?tipo=1"><button class="btn btn-success notika-btn-success">Reporte A <i class="fas fa-print"></i>
+                </button></a><br><br>
+                <?php  }else{ ?>
+                <a target="_blank" href="Reportes/ReporteProducto_In.php?tipo=0"><button class="btn btn-success notika-btn-success">Reporte I <i class="fas fa-print"></i>
+                </button></a><br><br><?php } ?>
               </ul>
             </div>
             <hr>
@@ -72,15 +81,17 @@ if (isset($_SESSION['usuarioActivo'])) {
                 <thead>
                   <tr>
                     <th>Modelo</th>
-                    <th>Stock</th>
-                    <th><center>Acciones<center></th>
+                    <th>Material</th>
+                    <th>Color</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
+                <?php While($mostrar=mysqli_fetch_assoc($productos)){?>
                   <tr>
-                    <?php While($mostrar=mysqli_fetch_assoc($productos)){?>
                     <td><?php echo $mostrar['nombre_Pro'] ?></td>
-                    <td><?php echo $mostrar['stock_Pro'] ?></td>
+                    <td><?php echo $material[$mostrar['material_Pro']] ?></td>
+                    <td><?php echo $mostrar['color_Pro'] ?></td>
                     <td><center><button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal"
                         data-target="#modalVer"><i class="fas fa-eye"></i></button>
                       <button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
@@ -199,6 +210,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <a target="_blank"><button onclick="reporte()" ><i class="fas fa-print"></i>&times;</button></a>
                           </div>
                           <div class="modal-body">
                             <center>
@@ -216,7 +228,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                   <span class="icon-barcode"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Nombre" disabled="disabled">
+                                  <input type="text" class="form-control" placeholder="Modelo" disabled="disabled" id="modelo">
                                 </div>
                               </div>
                             </div>
@@ -226,17 +238,17 @@ if (isset($_SESSION['usuarioActivo'])) {
                                   <span class="fas fa-boxes"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Categoria" disabled="disabled">
+                                  <input type="text" class="form-control" placeholder="Material" disabled="disabled" id="material">
                                 </div>
                               </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                  <span class="fas fa-layer-group"></span>
+                                <span class="fas fa-palette"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Tipo" disabled="disabled">
+                                  <input type="text" class="form-control" placeholder="Color" disabled="disabled" id="color">
                                 </div>
                               </div>
                             </div>
@@ -246,37 +258,16 @@ if (isset($_SESSION['usuarioActivo'])) {
                                   <span class="icon-list-numbered"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Stock" disabled="disabled">
+                                  <input type="text" class="form-control" placeholder="Stock" disabled="disabled" id="stock">
                                 </div>
                               </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                  <span class="fas fa-dollar-sign"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Precio Unitario"
-                                    disabled="disabled">
-                                </div>
-                              </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                  <span class="fas fa-dollar-sign"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Precio total"
-                                    disabled="disabled">
-                                </div>
-                              </div>
-                            </div><br><br><br><br><br><br><br>
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                               <div class="form-group">
                                 <div class="nk-int-st">
-                                  <textarea class="form-control auto-size" rows="2" placeholder="Descripción..."
-                                    disabled="disabled"></textarea>
+                                  <textarea class="form-control auto-size" rows="2" placeholder="Características..."
+                                    disabled="disabled"cid="caracte"></textarea>
                                 </div>
                               </div>
                             </div>
@@ -403,6 +394,21 @@ if (isset($_SESSION['usuarioActivo'])) {
     </div>
   </div>
   <!-- End Footer area-->
+  
+  <script type="text/javascript">
+    //REPORTE------------------------------------------------------
+    function reporte() {
+
+      idusuario = $('#nombrefe').val();
+        var dominio = window.location.host;
+        window.open('http://' + dominio + '/Funesi/notika/green-horizotal/Reportes/ReporteUnicoProducto.php?idusuario=' + idusuario, '_blank');
+      
+
+    }
+  </script>
+
+
+
   <!-- jquery
 		============================================ -->
   <script src="js/vendor/jquery-1.12.4.min.js"></script>

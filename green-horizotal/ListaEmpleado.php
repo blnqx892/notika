@@ -74,8 +74,12 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         class="btn btn-success notika-btn-success">Activos <i
                                             class="fas fa-arrow-alt-circle-up"></i></button>&nbsp;</a>
                                 <?php } ?></button><br><br>
-                                <button class="btn btn-success notika-btn-success">Reporte <i class="fas fa-print"></i>
-                                </button><br><br>
+                                <?php  if ($tipo == 1) { ?>
+                <a target="_blank" href="Reportes/ReporteEmpleado_Act.php?tipo=1"><button class="btn btn-success notika-btn-success">Reporte A <i class="fas fa-print"></i>
+                </button></a><br><br>
+                <?php  }else{ ?>
+                <a target="_blank" href="Reportes/ReporteEmpleado_In.php?tipo=0"><button class="btn btn-success notika-btn-success">Reporte I <i class="fas fa-print"></i>
+                </button></a><br><br><?php } ?>
                             </ul>
                         </div>
                         <hr>
@@ -90,8 +94,6 @@ if (isset($_SESSION['usuarioActivo'])) {
                             <table id="data-table-basic" class="table table-striped">
                                 <thead>
                                     <tr>
-
-                                        <th>Fecha Ingreso</th>
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
                                         <th>Cargo</th>
@@ -102,10 +104,6 @@ if (isset($_SESSION['usuarioActivo'])) {
                                     <?php While($mostrar=mysqli_fetch_assoc($empleados)){?>
                                     <?php if($mostrar['idEmpleado'] != 28){ ?>
                                     <tr>
-                                        <td><?php $fechaEmp = explode("-",$mostrar['fecha_Emple']);
-                                                                        $fechaEmp = $fechaEmp[2].'/'.$fechaEmp[1].'/'.$fechaEmp[0];
-                                                                        echo $fechaEmp ?>
-                                        </td>
                                         <td><?php echo $mostrar['nombres_Emple'] ?></td>
                                         <td><?php echo $mostrar['apellidos_Emple'] ?></td>
                                         <td><?php echo $mostrar['cargo_Emple'] ?></td>
@@ -290,6 +288,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                 <div class="modal-header">
                                                     <button type="button" class="close"
                                                         data-dismiss="modal">&times;</button>
+                                                        <a target="_blank"><button onclick="reporte()" ><i class="fas fa-print"></i>&times;</button></a>
                                                 </div>
                                                 <div class="modal-body">
                                                     <center>
@@ -507,7 +506,17 @@ if (isset($_SESSION['usuarioActivo'])) {
         }
     </script>
 
+<script type="text/javascript">
+    //REPORTE------------------------------------------------------
+    function reporte() {
 
+      idusuario = $('#dui').val();
+        var dominio = window.location.host;
+        window.open('http://' + dominio + '/Funesi/notika/green-horizotal/Reportes/ReporteUnicoEmpleado.php?idusuario=' + idusuario, '_blank');
+      
+
+    }
+  </script>
 
     
     <!-------------------------------------------------------------------------------------->

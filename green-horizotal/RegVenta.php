@@ -198,7 +198,7 @@ if (isset($_SESSION['usuarioActivo'])) {
 
                 </div>
 
-                
+                <!--
                 <div class="modal fade" id="modalNuevo" role="dialog">
                     <div class="modal-dialog modal-large">
                         <div class="modal-content">
@@ -275,7 +275,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
     </form>
     <!-- Inbox area End-->

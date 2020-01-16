@@ -37,6 +37,7 @@ if (isset($_SESSION['usuarioActivo'])) {
     </div>
   </div>
   <!-- Breadcomb area End-->
+  
   <?php if (!isset($_GET['tipo'])) {
 			$tipo=1;
 		}else{
@@ -66,8 +67,12 @@ if (isset($_SESSION['usuarioActivo'])) {
                     class="btn btn-success notika-btn-success">Activos <i
                       class="fas fa-arrow-alt-circle-up"></i></button>&nbsp;</a>
                 <?php } ?><br><br>
-                <button class="btn btn-success notika-btn-success">Reporte <i class="fas fa-print"></i>
-                </button><br><br>
+                <?php  if ($tipo == 1) { ?>
+                <a target="_blank" href="Reportes/ReporteProveedor_Act.php?tipo=1"><button class="btn btn-success notika-btn-success">Reporte A <i class="fas fa-print"></i>
+                </button></a><br><br>
+                <?php  }else{ ?>
+                <a target="_blank" href="Reportes/ReporteProveedores_In.php?tipo=0"><button class="btn btn-success notika-btn-success">Reporte I <i class="fas fa-print"></i>
+                </button></a><br><br><?php } ?>
               </ul>
             </div>
             <hr>
@@ -233,6 +238,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <a target="_blank"><button onclick="reporte()" ><i class="fas fa-print"></i>&times;</button></a>
                           </div>
                           <div class="modal-body">
                             <center>
@@ -344,6 +350,18 @@ if (isset($_SESSION['usuarioActivo'])) {
   </div>
   <!-- End Footer area-->
 
+  <script type="text/javascript">
+    //REPORTE------------------------------------------------------
+    function reporte() {
+
+      idusuario = $('#nombreEmpre').val();
+        var dominio = window.location.host;
+        window.open('http://' + dominio + '/Funesi/notika/green-horizotal/Reportes/ReporteUnico.php?idusuario=' + idusuario, '_blank');
+      
+
+    }
+  </script>
+
   <!-------------------------------------------------------------------------------------->
   <form method="POST" id="cambioCli">
     <input type="hidden" name="id" id="idCli" />
@@ -405,6 +423,11 @@ if (isset($_SESSION['usuarioActivo'])) {
       })
     }
   </script>
+
+
+
+
+  
   <!-------------------------------------------------------------------------------------->
 
   <!-- jquery

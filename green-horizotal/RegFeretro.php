@@ -51,20 +51,10 @@ if (isset($_SESSION['usuarioActivo'])) {
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                    <span class="icon-list-numbered"></span>
+                                <span class="icon-barcode"></span>
                                 </div>
                                 <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Modelo" name="modelo">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                    <span class="icon-list-numbered"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Color" name="color"> 
                                 </div>
                             </div>
                         </div>
@@ -76,6 +66,16 @@ if (isset($_SESSION['usuarioActivo'])) {
                                     <option value="1">Madera</option>
                                     <option value="2">Metal</option>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                <span class="fas fa-palette"></span>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Color" name="color"> 
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
@@ -221,6 +221,8 @@ if (isset($_SESSION['usuarioActivo'])) {
         <script src="js/main.js"></script>
         <!-- tawk chat JS
     ============================================ -->
+
+    
 
 </body>
 

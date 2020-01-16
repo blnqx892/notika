@@ -43,107 +43,34 @@ if (isset($_SESSION['usuarioActivo'])) {
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="form-element-list">
                     <div class="typography-hd-cr-4">
-                        <h4>Duración del Servicio</h4>
-                    </div>
-                    <div class="cmp-tb-hd bcs-hd">
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
-                                <h5>Desde</h5>
-                                <div class="input-group date nk-int-st">
-                                    <span class="input-group-addon"></span>
-                                    <input type="text" class="form-control" value="02/10/2019">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
-                                <h5>Hasta</h5>
-                                <div class="input-group date nk-int-st">
-                                    <span class="input-group-addon"></span>
-                                    <input type="text" class="form-control" value="02/10/2019">
-                                </div>
-                            </div>
-                        </div><br><br><br><br><br>
                         <div class="typography-hd-cr-4">
                         <h4>Datos</h4>
                     </div>
                     <hr style="width:100%;border-color:light-gray 25px;"><br>
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                            <div class="nk-int-mk sl-dp-mn">
-                                <h5>Seleccionar Cliente</h5>
-                            </div>
-                            <div class="chosen-select-act fm-cmp-mg">
-                                <select class="chosen" data-placeholder="Elegir Cliente...">
-                                    <option value="United States">Miguel Prado</option>
-                                </select>
-                            </div>
-                        </div><br>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
                                     <span class="fas fa-church"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Servicio Funerario" disabled="disabled">
+                                    <input type="text" class="form-control" placeholder="Nombre del Servicio" name="nombreSer">
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="fas fa-map-marker-alt"></span>
+                                <span class="fas fa-dollar-sign"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Dirección" disabled="disabled">
+                                    <input type="text" class="form-control" placeholder="Precio" name="precioSer">
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                        <div class="form-group ic-cmp-int">
-                            <div class="form-ic-cmp">
-                            <span class="fas fa-phone-alt"></span>
-                            </div>
-                            <div class="nk-int-st">
-                                <input type="text" class="form-control" placeholder="Telf:9999-9999" disabled="disabled">
-                            </div>
-                        </div>
-                    </div>
-                    </div><br><br><br><br>
-                    <div class="typography-hd-cr-4">
-                        <h4>Información del Paquete</h4>
-                    </div>
-                    <hr style="width:100%;border-color:light-gray 25px;"><br>
-                    <br><br><br><br><br><br><br><br><br>
-                    <div class="typography-hd-cr-4">
-                        <h4>Personal Y Local</h4>
-                    </div>
-                    <hr style="width:100%;border-color:light-gray 25px;"><br>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="nk-int-mk sl-dp-mn sm-res-mg-t-10">
-                            <h2>Seleccionar Personal</h2>
-                        </div>
-                        <div class="chosen-select-act fm-cmp-mg">
-                            <select class="chosen" multiple data-placeholder="Elegir Personal...">
-                                <option value="United States">Aguntín Sanchez - Conductor</option>
-                                <option value="United States">Camila Flores - Edecan</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                        <div class="nk-int-mk sl-dp-mn">
-                            <h2>Seleccionar Local</h2>
-                        </div>
-                        <div class="chosen-select-act fm-cmp-mg">
-                            <select class="chosen" data-placeholder="Elegir Local...">
-                                <option value="United States">Local 1</option>
-                                <option value="United States">Local 2</option>
-                                <option value="United States">Sin Local</option>
-                            </select>
-                        </div>
-                    </div>
+                        
                     <br><br><br><br>
                     <center>
-                        <button class="btn btn-success notika-btn-success">Guardar <i
+                        <button class="btn btn-success notika-btn-success" type="" name="">Guardar <i
                                 class="notika-icon notika-checked"></i></button>
                         <button class="btn btn-danger notika-btn-danger">Cancelar <i
                                 class="notika-icon notika-close"></i></button>

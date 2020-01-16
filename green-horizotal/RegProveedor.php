@@ -38,8 +38,8 @@ if (isset($_SESSION['usuarioActivo'])) {
   </div>
   <!-- Breadcomb area End-->
   <!-- Inbox area Start-->
-  <form action="Controladores/ProveedorC.php" method="POST" id="guardarProve" autocomplete="off"> 
-  <input type="hidden" value="GuardarProveedor" name="bandera">
+  <form action="Controladores/ProveedorC.php" method="POST" id="fform" autocomplete="off">
+    <input type="hidden" value="GuardarProveedor" name="bandera">
     <div class="inbox-area">
       <div class="container">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -54,7 +54,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                   <span class="fas fa-building"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text"  class="form-control" placeholder="Nombre de la Empresa" name="nomEmp" required id="nomEmp" aria-hidden="true">
+                  <input type="text" class="form-control" placeholder="Nombre de la Empresa" name="nomEmp" required
+                    id="nomEmp" aria-hidden="true">
                 </div>
               </div>
             </div>
@@ -64,7 +65,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                   <span class="fas fa-map-marker-alt"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Dirección" name="dirEmp" required id="dirEmp" aria-hidden="true">
+                  <input type="text" class="form-control" placeholder="Dirección" name="dirEmp" required id="dirEmp"
+                    aria-hidden="true">
                 </div>
               </div>
             </div>
@@ -74,7 +76,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                   <span class="fas fa-phone-alt"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Telf: 9999-9999" name="telEmp"  id="telEmp" data-mask="9999-9999" aria-hidden="true" required>
+                  <input type="text" class="form-control" placeholder="Telf: 9999-9999" name="telEmp" required
+                    id="telEmp" data-mask="9999-9999" aria-hidden="true">
                 </div>
               </div>
             </div><br><br><br><br><br>
@@ -88,7 +91,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                   <span class="icon-user"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" class="form-control" placeholder="Nombre Completo" name="nomRes" required id="nomRes" aria-hidden="true">
+                  <input type="text" class="form-control" placeholder="Nombre Completo" name="nomRes" required
+                    id="nomRes" aria-hidden="true">
                 </div>
               </div>
             </div>
@@ -98,16 +102,16 @@ if (isset($_SESSION['usuarioActivo'])) {
                   <span class="fas fa-phone-alt"></span>
                 </div>
                 <div class="nk-int-st">
-                  <input type="text" required class="form-control" placeholder="Telf: 9999-9999" name="telRes" id="telRes" data-mask="9999-9999" aria-hidden="true">
+                  <input type="text" required class="form-control" placeholder="Telf: 9999-9999" name="telRes"
+                    id="telRes" data-mask="9999-9999" aria-hidden="true">
                 </div>
               </div>
             </div><br><br><br><br><br>
             <center>
               <div class="dialog-pro dialog ">
-              <button class="btn btn-success notika-btn-success" type="Submit">Guardar <i
-                      class="notika-icon notika-checked"></i></button>
-                <button class="btn btn-danger notika-btn-danger">Cancelar <i
-                    class="notika-icon notika-close"></i></button>
+                <button class="btn btn-success notika-btn-success" type="button" id="save-me">Guardar <i
+                    class="notika-icon notika-checked"></i></button>
+                <button class="btn btn-danger notika-btn-danger">Cancelar <i class="notika-icon notika-close"></i></button>
               </div>
             </center>
           </div>
@@ -199,18 +203,18 @@ if (isset($_SESSION['usuarioActivo'])) {
   <!-- main JS
     ============================================ -->
 
-     <!-- Input Mask JS
+  <!-- Input Mask JS
     ============================================ -->
   <script src="js/jasny-bootstrap.min.js"></script>
 
-      <!--  notification JS
+  <!--  notification JS
 		============================================ -->
-    <script src="js/notification/bootstrap-growl.min.js"></script>
-    <script src="js/notification/notification-active.js"></script>
+  <script src="js/notification/bootstrap-growl.min.js"></script>
+  <script src="js/notification/notification-active.js"></script>
 
-    <script src="../green-horizotal/js/Validaciones/Mensajes.js"></script>
+  <script src="../green-horizotal/js/Validaciones/Mensajes.js"></script>
 
-    <?php
+  <?php
 if (isset($_SESSION['mensaje'])) {
    echo ("<script type='text/javascript'>
     noti('".$_SESSION['mensaje']."');
@@ -222,42 +226,46 @@ if (isset($_SESSION['mensaje'])) {
 
   <script src="../green-horizotal/js/Validaciones/ValidaProveedor.js"></script>
 
-    <script>
-      $("#save-me").click(function(e){
-        e.preventDefault();
-        $.ajax({
-          type: 'GET',
-          url: '/Funesi/notika/green-horizotal/Controladores/Prove_val.php',
-          data: {
-            telefono: $("#telEmp").val()
-          },
-          success: function(r){
-            console.log(r);
-            if(r != 0){
-              alert('El registro ya existe');
-            }else{
-              $("#fform").submit();
-            }
+  <script>
+    $("#save-me").click(function (e) {
+      e.preventDefault();
+      $.ajax({
+        type: 'GET',
+        url: '/Funesi/notika/green-horizotal/Controladores/Prove_val.php',
+        data: {
+          telEmp: $("#telEmp").val(),
+          telRes: $("#telRes").val()
+        },
+        success: function (r) {
+          console.log(r);
+          if (r != 0) {
+            alert('El registro ya existe');
+          } else {
+            $("#fform").submit();
           }
-        });
-
+        }
       });
-    </script>
+
+    });
+  </script>
 </body>
 
 </html>
 <?php
 }else{
     ?>
-    <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
 </head>
+
 <body>
 </body>
+
 </html>
-    <?php
+<?php
 }
 ?>

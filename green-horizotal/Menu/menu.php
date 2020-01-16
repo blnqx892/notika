@@ -124,19 +124,11 @@
           </div>
           <div id="servicios" class="tab-pane notika-tab-menu-bg animated flipInX">
             <ul class="notika-main-menu-dropdown">
-            <li><a href="RegServicio.php">Servicios</a>
-              </li>
-            <li><a href="RegServicio.php">Planes</a>
+            <li><a href="RegServicio.php">Registrar Servicios</a>
               </li>
               <li><a href="RegServicio.php">Armar Paquete</a>
               </li>
               <li><a href="RegServicio.php">Paquetes Funebres</a>
-              </li>
-              <li><a href="RegServicio.php">xxRegistrar Servicios</a>
-              </li>
-              <li><a href="ListaServicios.php">xxControl Servicios</a>
-              </li>
-              <li><a href="Catalogo.php">xxCatalogo</a>
               </li>
 
             </ul>

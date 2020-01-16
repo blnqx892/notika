@@ -37,7 +37,7 @@ if (isset($_SESSION['usuarioActivo'])) {
   </div>
   <!-- Breadcomb area End-->
   <!-- Inbox area Start-->
-  <form action="Controladores/ClienteC.php" method="POST" autocomplete="off" id="fform">
+  <form action="Controladores/ClienteC.php" method="POST" autocomplete="off" >
   <input type="hidden" value="GuardarCliente" name="bandera">
   <center>
       <div class="inbox-area">
@@ -55,8 +55,9 @@ if (isset($_SESSION['usuarioActivo'])) {
                       <span class="fas fa-id-card"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" required class="form-control" placeholder="DUI: 99999999-9" name="dui"
-                      required data-mask="99999999-9" id="duii" aria-hidden="true">
+                      <input type="text"  class="form-control" placeholder="DUI: 99999999-9" name="dui"
+                      data-mask="99999999-9" id="duii" 
+                                    >
                     </div>
                   </div>
                 </div>
@@ -66,7 +67,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                       <span class="icon-user"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" required class="form-control" placeholder="Nombres" name="nombres" id="nombre" aria-hidden="true">
+                      <input type="text"  class="form-control" placeholder="Nombres" name="nombres" id="nombre" 
+                                    >
                     </div>
                   </div>
                 </div>
@@ -76,7 +78,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                       <span class="icon-user"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" required class="form-control" placeholder="Apellidos" name="apellidos" id="apellido" aria-hidden="true">
+                      <input type="text"  class="form-control" placeholder="Apellidos" name="apellidos" id="apellido" 
+                                    >
                     </div>
                   </div>
                 </div>
@@ -86,8 +89,9 @@ if (isset($_SESSION['usuarioActivo'])) {
                       <span class="fas fa-phone-alt"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" required class="form-control" placeholder="Telf: 9999-9999" name="telefono"
-                        data-mask="9999-9999" id="telfo" aria-hidden="true">
+                      <input type="text"  class="form-control" placeholder="Telf: 9999-9999" name="telefono"
+                        data-mask="9999-9999" id="telfo" 
+                                    >
                     </div>
                   </div>
                 </div>
@@ -97,7 +101,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                       <span class="fas fa-map-marker-alt"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" required class="form-control" placeholder="Dirección" name="direccion" id="direcci" aria-hidden="true">
+                      <input type="text"  class="form-control" placeholder="Dirección" name="direccion" id="direcci" 
+                                    >
                     </div>
                   </div>
                 </div>
@@ -113,7 +118,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                       <span class="fas fa-user-check"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" required class="form-control" placeholder="Nombre beneficiario 1" name="bene1" id="ben1" aria-hidden="true">
+                      <input type="text"  class="form-control" placeholder="Nombre beneficiario 1" name="bene1" id="ben1" 
+                                    >
                     </div>
                   </div>
                 </div>
@@ -123,7 +129,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                       <span class="fas fa-user-check"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" required class="form-control" placeholder="Nombre beneficiario 2" name="bene2" id="ben2" aria-hidden="true">
+                      <input type="text"  class="form-control" placeholder="Nombre beneficiario 2" name="bene2" id="ben2" 
+                                    >
                     </div>
                   </div>
                 </div>
@@ -133,7 +140,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                       <span class="fas fa-user-check"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text" required class="form-control" placeholder="Nombre beneficiario 3" name="bene3" id="ben3" aria-hidden="true">
+                      <input type="text"  class="form-control" placeholder="Nombre beneficiario 3" name="bene3" id="ben3" 
+                                    >
                     </div>
                   </div>
                 </div>
@@ -157,8 +165,9 @@ if (isset($_SESSION['usuarioActivo'])) {
                     <h5>Fecha de Adquisicón</h5>
                     <div class="input-group date nk-int-st">
                       <span class="input-group-addon"></span>
-                      <input type="text" required class="form-control" value="<?php echo $fech?>" min="01/01/2000"
-                        max="<?php echo $fech?>" name="fecha" id="fecha" aria-hidden="true">
+                      <input type="text"  class="form-control" value="<?php echo $fech?>" min="01/01/2000"
+                        max="<?php echo $fech?>" name="fecha" id="fecha" 
+                                    >
                     </div>
                   </div>
                 </div>
@@ -172,7 +181,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                     <h5>Servicio Funebre</h5>
                   </div>
                   <div class="chosen-select-act fm-cmp-mg">
-                  <select class="chosen" data-placeholder="Paquete..." name="paquete">
+                  <select  class="chosen" data-placeholder="Paquete..." name="paquete" 
+                                    >
                                         <option value=""></option>
                                         <?php
                                                 While($paquete=mysqli_fetch_array($paquetes)){
@@ -185,12 +195,10 @@ if (isset($_SESSION['usuarioActivo'])) {
               </center>
               <br><br><br><br><br>
               <center>
-                <div class="dialog-pro dialog">
-                  <button class="btn btn-success notika-btn-success" type="button" id="save-me">Guardar <i
-
+                <div >
+                  <button class="btn btn-success notika-btn-success" type="submit"> Guardar <i
                       class="notika-icon notika-checked"></i></button>
-                  <button class="btn btn-danger notika-btn-danger">Cancelar <i
-                      class="notika-icon notika-close"></i></button>
+                  <button type="reset" class="btn btn-danger notika-btn-danger">Cancelar <i class="notika-icon notika-close"></i></button>
                 </div>
               </center>
             </div>
@@ -365,29 +373,33 @@ if (isset($_SESSION['usuarioActivo'])) {
     ============================================ -->
 
     <!-- <script src="../green-horizotal/js/Validaciones/ValidaCliente.js"></script> -->
-
+   <!-- <script src="js/Validaciones/campos.js"></script>-->
+<!--
     <script>
-      $("#save-me").click(function(e){
-        e.preventDefault();
+      $("#valida").click(function(e){
+        if(validarfor()){
+          alert("Los campos no pueden quedar vacios");
+}else{
+  e.preventDefault();
         $.ajax({
           type: 'GET',
-          url: '/Funesi/notika/green-horizotal/Controladores/Cliente_val.php',
+          url: 'Funesi/notika/green-horizotal/Controladores/Cliente_val.php',
           data: {
             dui: $("#duii").val(),
             telefono: $("#telfo").val()
           },
           success: function(r){
             console.log(r);
-            if(r != 0){
+            if(r == 0){
               alert('El registro ya existe');
             }else{
-              $("#fform").submit();
+              $("#form").submit();
             }
           }
         });
-
+}
       });
-    </script>
+    </script> -->
 </body>
 
 </html>
