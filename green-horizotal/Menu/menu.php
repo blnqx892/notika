@@ -126,9 +126,9 @@
             <ul class="notika-main-menu-dropdown">
             <li><a href="RegServicio.php">Registrar Servicios</a>
               </li>
-              <li><a href="RegServicio.php">Armar Paquete</a>
+              <li><a href="RegPaquete.php">Armar Paquete</a>
               </li>
-              <li><a href="RegServicio.php">Paquetes Funebres</a>
+              <li><a href="">Paquetes Funebres</a>
               </li>
 
             </ul>
