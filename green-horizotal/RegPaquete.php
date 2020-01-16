@@ -93,6 +93,64 @@ if (isset($_SESSION['usuarioActivo'])) {
                                 </select>
                             </div>
                         </div>
+
+                         <div><button class="btn btn-success notika-btn-primary">Agregar <span
+                                    class="fas fa-cart-plus"></span></button></div><br><br>
+                        <center>
+                            <div class="data-table-area">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+                                            <div class="data-table-list">
+                                                <div class="basic-tb-hd">
+                                                    <h2>Paquete</h2>
+                                                </div>
+                                                <div class="table-responsive">
+                                                    <table id="data-table-basic" class="table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Nombre</th>
+                                                                <th>Precio</th>
+                                                                <th>Eliminar</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>
+                                                                    <center> <button
+                                                                            class="btn btn-danger danger-icon-notika waves-effect"
+                                                                            data-toggle="modal"
+                                                                            data-target="#modalVer"><span
+                                                                                class="fas fa-trash-alt"></span></button>
+                                                                    </center>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <span class=""></span>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Paquete Total" name="totalPaq">
+                                </div>
+                            </div>
+                        </div>
+
                     <br><br><br><br>
                     <center>
                         <button class="btn btn-success notika-btn-success" type="" name="">Guardar <i
