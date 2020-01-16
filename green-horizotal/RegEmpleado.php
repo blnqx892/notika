@@ -37,7 +37,7 @@ if (isset($_SESSION['usuarioActivo'])) {
   </div>
   <!-- Breadcomb area End-->
   <!-- Inbox area Start-->
-  <form action="Controladores/EmpleadoE.php" method="POST" id="guardarEmple" autocomplete="off">
+  <form action="Controladores/EmpleadoE.php" method="POST" autocomplete="off">
   <input type="hidden" value="GuardarEmpleado" name="bandera">
     <div class="inbox-area">
       <div class="container">
@@ -54,8 +54,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                     <span class="fas fa-id-card"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" required class="form-control" placeholder="DUI: 99999999-9" name="dui"
-                      data-mask="99999999-9" id="dui" aria-hidden="true">
+                    <input type="text" required required class="form-control" placeholder="DUI: 99999999-9" name="dui"
+                      data-mask="99999999-9" id="dui">
                   </div>
                 </div>
               </div>
@@ -65,7 +65,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                     <span class="icon-user"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" required class="form-control" placeholder="Nombres" id="nombres" name="nombres" aria-hidden="true">
+                    <input type="text" required class="form-control" placeholder="Nombres" id="nombres" name="nombres" >
                   </div>
                 </div>
               </div>
@@ -75,7 +75,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                     <span class="icon-user"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" required class="form-control" placeholder="Apellidos" id="apellidos" name="apellidos" aria-hidden="true">
+                    <input type="text" required class="form-control" placeholder="Apellidos" id="apellidos" name="apellidos" >
                   </div>
                 </div>
               </div><br><br><br><br>
@@ -85,7 +85,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                     <span class="fas fa-map-marker-alt"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" required class="form-control" placeholder="Dirección" id="direccion" name="direccion" aria-hidden="true">
+                    <input type="text" required class="form-control" placeholder="Dirección" id="direccion" name="direccion" >
                   </div>
                 </div>
               </div>
@@ -96,7 +96,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                   </div>
                   <div class="nk-int-st">
                     <input type="text" required class="form-control" placeholder="Telf:9999-9999" id="telefono" name="telefono"
-                      data-mask="9999-9999" aria-hidden="true">
+                      data-mask="9999-9999" >
                   </div>
                 </div>
               </div><br><br><br><br><br><br>
@@ -119,7 +119,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                   <div class="input-group date nk-int-st">
                     <span class="input-group-addon"></span>
                     <input type="text" required class="form-control" value="<?php echo $fech?>" min="01/01/2000"
-                      max="<?php echo $fech?>" name="fecha" id="fech" aria-hidden="true">
+                      max="<?php echo $fech?>" name="fecha" id="fech" >
                   </div>
                 </div>
               </div><br>
@@ -129,17 +129,18 @@ if (isset($_SESSION['usuarioActivo'])) {
                     <span class="fas fa-address-card"></span>
                   </div>
                   <div class="nk-int-st">
-                    <input type="text" required class="form-control" placeholder="Cargo" id="cargo" name="cargo" aria-hidden="true">
+                    <input type="text" required class="form-control" placeholder="Cargo" id="cargo" name="cargo" >
                   </div>
                 </div>
               </div>
             </div> <br><br><br><br><br><br>
             <center>
-            <button class="btn btn-success notika-btn-success" type="submit" >Guardar <i
+            <button class="btn btn-success notika-btn-success" type="button" id="save-me">Guardar <i
                       class="notika-icon notika-checked"></i></button>
-              <button class="btn btn-danger notika-btn-danger">Cancelar <i
+              <button title="Cancelar" type=""  class="btn btn-danger notika-btn-danger">Cancelar <i
                   class="notika-icon notika-close"></i></button>
             </center>
+
           </div>
 
         </div>
@@ -247,14 +248,12 @@ if (isset($_SESSION['usuarioActivo'])) {
     ============================================ -->
   <script src="js/jasny-bootstrap.min.js"></script>
 
-  <script src="../green-horizotal/js/Validaciones/ValidaCliente.js"></script>
-
     <script>
       $("#save-me").click(function(e){
         e.preventDefault();
         $.ajax({
           type: 'GET',
-          url: '/Funesi/notika/green-horizotal/Controladores/Empleado_val.php',
+          url: 'Funesi/notika/green-horizotal/Controladores/Empleado_val.php',
           data: {
             dui: $("#dui").val(),
             telefono: $("#telefono").val()

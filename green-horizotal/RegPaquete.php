@@ -26,7 +26,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         <i class="notika-icon notika-form"></i>
                                     </div>
                                     <div class="breadcomb-ctn">
-                                        <h2>REGISTRAR SERVICIO</h2>
+                                        <h2>ARMAR PAQUETE</h2>
                                     </div>
                                 </div>
                             </div>
@@ -53,21 +53,104 @@ if (isset($_SESSION['usuarioActivo'])) {
                                     <span class="fas fa-church"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Nombre del Servicio" name="nombreSer">
+                                    <input type="text" class="form-control" placeholder="Nombre Paquete" name="nombrePaq">
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <?php 
+                        /////////////////////////////////////////////////////////////
+                        ////////NO SE DE DONDE SERA CARGADO EL FERETRO, POR AHORA CARGA DE TABLA PRODUCTO//////////////
+                        /////////////////////////////////////////////////////////////
+                                 $conexion=mysqli_connect('localhost','root', '', 'funesi');
+                                 $sql="SELECT * from producto order by nombre_Pro ASC";
+                                  $productos = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
+                                ?>
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="Elegir Féretro" name="feretro" id=""
+                                    aria-hidden="true">
+                                    <option value=""></option>
+                                    <?php
+                                                While($producto=mysqli_fetch_array($productos)){
+                                                     echo '<option value="'.$producto['idProducto'].'">'.$producto['nombre_Pro'].'</option>';
+                                                }
+                                    ?>
+                                </select>
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+                        <?php/////////////////////////////////////////////////////////////
+                        ////////POR AHORA NO TENEMOS TABLA SERVICIO PERO SERIAN SOLO DOS CAMPOS, BUENO 3 CON EL ID//////////////
+                        ///////ACA DEBEN CARGAR LOS SERVICIOS//////////////////////////////////////////////////////?>
+                                
+                            <div class="chosen-select-act fm-cmp-mg">
+                                <select class="chosen" data-placeholder="Elegir Servicio" name="servicio" id=""
+                                    aria-hidden="true">
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+
+                         <div><button class="btn btn-success notika-btn-primary">Agregar <span
+                                    class="fas fa-cart-plus"></span></button></div><br><br>
+                        <center>
+                            <div class="data-table-area">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+                                            <div class="data-table-list">
+                                                <div class="basic-tb-hd">
+                                                    <h2>Paquete</h2>
+                                                </div>
+                                                <div class="table-responsive">
+                                                    <table id="data-table-basic" class="table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Nombre</th>
+                                                                <th>Precio</th>
+                                                                <th>Eliminar</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td>
+                                                                    <center> <button
+                                                                            class="btn btn-danger danger-icon-notika waves-effect"
+                                                                            data-toggle="modal"
+                                                                            data-target="#modalVer"><span
+                                                                                class="fas fa-trash-alt"></span></button>
+                                                                    </center>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="fas fa-dollar-sign"></span>
+                                    <span class=""></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Precio" name="precioSer">
+                                    <input type="text" class="form-control" placeholder="Paquete Total" name="totalPaq">
                                 </div>
                             </div>
                         </div>
-                        
+
                     <br><br><br><br>
                     <center>
                         <button class="btn btn-success notika-btn-success" type="" name="">Guardar <i
