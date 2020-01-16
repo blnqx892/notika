@@ -140,10 +140,10 @@ if (isset($_SESSION['usuarioActivo'])) {
                                 </div>
                             </div> 
 
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                    <span class=""></span>
+                                <span class="fas fa-dollar-sign"></span>
                                 </div>
                                 <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Paquete Total" name="totalPaq">

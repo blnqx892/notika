@@ -9,6 +9,7 @@ if (isset($_SESSION['usuarioActivo'])) {
 <?php include("Menu/apertura.php"); ?>
 <!--IMPORTE head desde Menu/apertura-->
 <?php $material = array(1 => "Madera", 2 => "Metal"); ?>
+
 <body>
   <!-- Importe menu desde Menu/menu-->
   <?php include("Menu/menu.php"); ?>
@@ -42,7 +43,7 @@ if (isset($_SESSION['usuarioActivo'])) {
 		}else{
 			$tipo = $_GET['tipo'];
 		}?>
-    
+
   <?php 
         $conexion=mysqli_connect('localhost','root', '', 'funesi');
         $sql="SELECT * from producto where estado_Pro='$tipo' order by nombre_Pro ASC";
@@ -60,12 +61,14 @@ if (isset($_SESSION['usuarioActivo'])) {
               <ul class="inbox-st-nav inbox-ft">
                 <button class="btn btn-success notika-btn-success">Dar Altas <i
                     class="fas fa-arrow-alt-circle-up"></i></button><br><br>
-                    <?php  if ($tipo == 1) { ?>
-                <a target="_blank" href="Reportes/ReporteProducto_Act.php?tipo=1"><button class="btn btn-success notika-btn-success">Reporte A <i class="fas fa-print"></i>
-                </button></a><br><br>
+                <?php  if ($tipo == 1) { ?>
+                <a target="_blank" href="Reportes/ReporteProducto_Act.php?tipo=1"><button
+                    class="btn btn-success notika-btn-success">Reporte A <i class="fas fa-print"></i>
+                  </button></a><br><br>
                 <?php  }else{ ?>
-                <a target="_blank" href="Reportes/ReporteProducto_In.php?tipo=0"><button class="btn btn-success notika-btn-success">Reporte I <i class="fas fa-print"></i>
-                </button></a><br><br><?php } ?>
+                <a target="_blank" href="Reportes/ReporteProducto_In.php?tipo=0"><button
+                    class="btn btn-success notika-btn-success">Reporte I <i class="fas fa-print"></i>
+                  </button></a><br><br><?php } ?>
               </ul>
             </div>
             <hr>
@@ -87,130 +90,139 @@ if (isset($_SESSION['usuarioActivo'])) {
                   </tr>
                 </thead>
                 <tbody>
-                <?php While($mostrar=mysqli_fetch_assoc($productos)){?>
+                  <?php While($mostrar=mysqli_fetch_assoc($productos)){?>
                   <tr>
                     <td><?php echo $mostrar['nombre_Pro'] ?></td>
                     <td><?php echo $material[$mostrar['material_Pro']] ?></td>
                     <td><?php echo $mostrar['color_Pro'] ?></td>
-                    <td><center><button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal"
-                        data-target="#modalVer"><i class="fas fa-eye"></i></button>
-                      <button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                        data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button>
-                      <button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                          class="fas fa-arrow-alt-circle-down"></i></button><center>
+                    <td>
+                      <center><button type="button" class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
+                          data-toggle="modal" title="Ver" data-target="#modalVerFeretro"
+                          onclick="mostrarFeretro('<?php echo $mostrar['nombre_Pro']?>','<?php echo $mostrar['material_Pro']?>','<?php echo $mostrar['color_Pro']?>','<?php echo $mostrar['stock_Pro']?>','<?php echo $mostrar['caracteristicas']?>')"><i
+                            class="fas fa-eye"></i></button>
+                        <button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
+                          data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
+                            class="fas fa-arrow-alt-circle-down"></i></button>
+                        <center>
                     </td>
 
                     <!-- INICIO MODAL EDITAR-->
                     <div class="modal fade" id="modalEditar" role="dialog">
                       <div class="modal-dialog modal-large">
                         <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          </div>
-                          <div class="modal-body">
-                            <center>
-                              <div class="typography-hd-cr-4">
-                                <h3>Editar Datos del Feretro</h3>
-                              </div>
-                            </center>
-                            <div class="typography-hd-cr-4">
-                              <h4>Feretro</h4>
+                          <form action="Controladores/FeretroC.php" method="POST">
+                            <input type="hidden" value="editarFeretro" name="bandera">
+                            <input type="hidden" value="" name="idferetro" id="idferetro" />
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
                             </div>
-                            <hr style="width:100%;border-color:light-gray 25px;"><br>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int float-lb floating-lb">
-                                <div class="form-ic-cmp">
-                                  <span class="icon-barcode"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control">
-                                  <label class="nk-label" disabled="disabled" disabled="disabled">Nombre</label>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int float-lb floating-lb">
-                                <div class="form-ic-cmp">
-                                  <span class="fas fa-boxes"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" disabled="disabled">
-                                  <label class="nk-label">Categoria</label>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int float-lb floating-lb">
-                                <div class="form-ic-cmp">
-                                  <span class="fas fa-layer-group"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" disabled="disabled">
-                                  <label class="nk-label">Tipo</label>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                  <span class="icon-list-numbered"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Stock">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                  <span class="fas fa-dollar-sign"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Precio Unitario">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                  <span class="fas fa-dollar-sign"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Precio total">
-                                </div>
-                              </div>
-                            </div><br><br><br><br><br><br><br>
-                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                              <div class="form-group">
-                                <div class="nk-int-st">
-                                  <textarea class="form-control auto-size" rows="2"
-                                    placeholder="Descripción..."></textarea>
-                                </div>
-                              </div>
-                            </div>
-                            <div>
+                            <div class="modal-body">
                               <center>
-                                <image src="img/logo/productoo.png" />
+                                <div class="typography-hd-cr-4">
+                                  <h3>Editar Datos del Feretro</h3>
+                                </div>
                               </center>
+                              <div class="typography-hd-cr-4">
+                                <h4>Feretro</h4>
+                              </div>
+                              <hr style="width:100%;border-color:light-gray 25px;"><br>
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int float-lb floating-lb">
+                                  <div class="form-ic-cmp">
+                                    <span class="icon-barcode"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="text" class="form-control">
+                                    <label class="nk-label" disabled="disabled" disabled="disabled">Nombre</label>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int float-lb floating-lb">
+                                  <div class="form-ic-cmp">
+                                    <span class="fas fa-boxes"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="text" class="form-control" disabled="disabled">
+                                    <label class="nk-label">Categoria</label>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int float-lb floating-lb">
+                                  <div class="form-ic-cmp">
+                                    <span class="fas fa-layer-group"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="text" class="form-control" disabled="disabled">
+                                    <label class="nk-label">Tipo</label>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                    <span class="icon-list-numbered"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Stock">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                    <span class="fas fa-dollar-sign"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Precio Unitario">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                    <span class="fas fa-dollar-sign"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Precio total">
+                                  </div>
+                                </div>
+                              </div><br><br><br><br><br><br><br>
+                              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                <div class="form-group">
+                                  <div class="nk-int-st">
+                                    <textarea class="form-control auto-size" rows="2"
+                                      placeholder="Descripción..."></textarea>
+                                  </div>
+                                </div>
+                              </div>
+                              <div>
+                                <center>
+                                  <image src="img/logo/productoo.png" />
+                                </center>
+                              </div>
                             </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Guardar
-                              Cambios</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                          </div>
+                            <div class="modal-footer">
+                              <button class="btn btn-default" type="submit">Guardar
+                                Cambios</button>
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                            </div>
                         </div>
                       </div>
+                      </form>
                     </div>
                     <!-- FIN MODAL EDITAR-->
 
                     <!-- INICIO MODAL VER-->
-                    <div class="modal fade" id="modalVer" role="dialog">
+                    <div class="modal fade" id="modalVerFeretro" role="dialog">
                       <div class="modal-dialog modal-large">
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <a target="_blank"><button onclick="reporte()" ><i class="fas fa-print"></i>&times;</button></a>
+                            <a target="_blank"><button onclick="reporte()"><i
+                                  class="fas fa-print"></i>&times;</button></a>
                           </div>
                           <div class="modal-body">
                             <center>
@@ -228,7 +240,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                                   <span class="icon-barcode"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Modelo" disabled="disabled" id="modelo">
+                                  <input type="text" class="form-control" placeholder="Modelo" disabled="disabled"
+                                    id="modelo">
                                 </div>
                               </div>
                             </div>
@@ -238,17 +251,19 @@ if (isset($_SESSION['usuarioActivo'])) {
                                   <span class="fas fa-boxes"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Material" disabled="disabled" id="material">
+                                  <input type="text" class="form-control" placeholder="Material" disabled="disabled"
+                                    aria-required="true" value="" id="material">
                                 </div>
                               </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                               <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                <span class="fas fa-palette"></span>
+                                  <span class="fas fa-palette"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Color" disabled="disabled" id="color">
+                                  <input type="text" class="form-control" placeholder="Color" aria-required="true"
+                                    value="" disabled="disabled" id="color">
                                 </div>
                               </div>
                             </div>
@@ -258,90 +273,91 @@ if (isset($_SESSION['usuarioActivo'])) {
                                   <span class="icon-list-numbered"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Stock" disabled="disabled" id="stock">
+                                  <input type="text" class="form-control" placeholder="Stock" aria-required="true"
+                                    value="" disabled="disabled" id="stock">
                                 </div>
                               </div>
-                            </div>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                               <div class="form-group">
                                 <div class="nk-int-st">
                                   <textarea class="form-control auto-size" rows="2" placeholder="Características..."
-                                    disabled="disabled"cid="caracte"></textarea>
+                                    disabled="disabled" aria-required="true" value="" id="caracte"></textarea>
                                 </div>
                               </div>
                             </div>
-                            <div>
-                              <center>
-                                <image src="img/logo/productoo.png" />
-                              </center>
-                            </div>
+                          <center>
+                            <image src="img/logo/productoo.png" />
+                          </center>
+                        </div>
+                      </div>
+                      <div>
+                      </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        </div>
+                      </div><br><br>
+                    </div>
+            </div>
+            <!-- FIN MODAL VER-->
+
+            <!-- INICIO MODAL NUEVO-->
+            <div class="modal fade" id="modalNuevo" role="dialog">
+              <div class="modal-dialog modal-large">
+                <div class="modal-content">
+                  <form action="Controladores/FeretrosC.php" method="POST">
+                    <input type="hidden" value="GuardarFeretro" name="bandera">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                      <center>
+                        <div class="typography-hd-cr-4">
+                          <h3>Registrar Feretro</h3>
+                        </div>
+                      </center>
+                      <div class="typography-hd-cr-4">
+                      </div>
+                      <hr style="width:100%;border-color:light-gray 25px;"><br>
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group ic-cmp-int">
+                          <div class="form-ic-cmp">
+                            <span class="icon-barcode"></span>
                           </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                          <div class="nk-int-st">
+                            <input type="text" class="form-control" placeholder="Codigo" name="codigo">
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <!-- FIN MODAL VER-->
-
-                    <!-- INICIO MODAL NUEVO-->
-                    <div class="modal fade" id="modalNuevo" role="dialog">
-                      <div class="modal-dialog modal-large">
-                        <div class="modal-content">
-                          <form action="Controladores/FeretrosC.php" method="POST">
-                            <input type="hidden" value="GuardarFeretro" name="bandera">
-                            <div class="modal-header">
-                              <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                              <center>
-                                <div class="typography-hd-cr-4">
-                                  <h3>Registrar Feretro</h3>
-                                </div>
-                              </center>
-                              <div class="typography-hd-cr-4">
-                              </div>
-                              <hr style="width:100%;border-color:light-gray 25px;"><br>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                    <span class="icon-barcode"></span>
-                                  </div>
-                                  <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Codigo" name="codigo">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                    <span class="fas fa-tag"></span>
-                                  </div>
-                                  <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Modelo" name="modelo">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                  <div class="form-ic-cmp">
-                                    <span class="icon-list-numbered"></span>
-                                  </div>
-                                  <div class="nk-int-st">
-                                    <input type="number" class="form-control" placeholder="Stock minimo" name="stock">
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                                <div class="form-group">
-                                  <div class="nk-int-st">
-                                    <textarea class="form-control auto-size" rows="2" placeholder="Caracteristicas..."
-                                      name="caracte"></textarea>
-                                  </div>
-                                </div>
-                              </div>
-                              <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group ic-cmp-int">
+                          <div class="form-ic-cmp">
+                            <span class="fas fa-tag"></span>
+                          </div>
+                          <div class="nk-int-st">
+                            <input type="text" class="form-control" placeholder="Modelo" name="modelo">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group ic-cmp-int">
+                          <div class="form-ic-cmp">
+                            <span class="icon-list-numbered"></span>
+                          </div>
+                          <div class="nk-int-st">
+                            <input type="number" class="form-control" placeholder="Stock minimo" name="stock">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                        <div class="form-group">
+                          <div class="nk-int-st">
+                            <textarea class="form-control auto-size" rows="2" placeholder="Caracteristicas..."
+                              name="caracte"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                      <!--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="dropdone-nk mg-t-30">
                                   <div class="cmp-tb-hd">
                                     <span class="note needsclick"></span>
@@ -356,28 +372,29 @@ if (isset($_SESSION['usuarioActivo'])) {
                                   </div>
                                 </div>
                               </div>--><br><br><br><br><br><br>
-                              <div class="modal-footer">
-                                <button type="submit" class="btn btn-default">Guardar Cambios</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                              </div>
-                            </div>
-                          </form>
-                        </div>
+                      <div class="modal-footer">
+                        <button type="submit" class="btn btn-default">Guardar Cambios</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                       </div>
-                      <!-- FIN MODAL NUEVO-->
-                  </tr>
-                  <?php } ?>
-                </tbody>
-                <tfoot>
-                  <tr>
-                  </tr>
-                </tfoot>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <!-- FIN MODAL NUEVO-->
+              </tr>
+              <?php } ?>
+              </tbody>
+              <tfoot>
+                <tr>
+                </tr>
+              </tfoot>
               </table>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <script src="js/Validaciones/jsFeretro.js"></script>
   </div>
   <!--FIN TABLA-->
 
@@ -394,15 +411,16 @@ if (isset($_SESSION['usuarioActivo'])) {
     </div>
   </div>
   <!-- End Footer area-->
-  
+
   <script type="text/javascript">
     //REPORTE------------------------------------------------------
     function reporte() {
 
-      idusuario = $('#nombrefe').val();
-        var dominio = window.location.host;
-        window.open('http://' + dominio + '/Funesi/notika/green-horizotal/Reportes/ReporteUnicoProducto.php?idusuario=' + idusuario, '_blank');
-      
+      idusuario = $('#modelo').val();
+      var dominio = window.location.host;
+      window.open('http://' + dominio + '/Funesi/notika/green-horizotal/Reportes/ReporteUnicoProducto.php?idusuario=' +
+        idusuario, '_blank');
+
 
     }
   </script>

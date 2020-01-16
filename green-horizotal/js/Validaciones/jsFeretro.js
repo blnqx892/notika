@@ -5,3 +5,12 @@ function mostrarFeretro(modelo,material,color,stock,caracte) {
     $("#stock").val(stock);
     $("#caracte").val(caracte);
 }
+
+function editarFeretro(modelo,material,color,stock,caracte,idferetro) {
+    $("#modeloo").val(modelo);
+    $("#materiall").val(material);
+    $("#colorr").val(color);
+    $("#stockk").val(stock);
+    $("#caractee").val(caracte);
+    $("#idferetro").val(idferetro);
+}

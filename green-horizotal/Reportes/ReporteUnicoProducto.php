@@ -61,15 +61,15 @@ $idusu = $_GET["idusuario"];
  include("../Confi/Conexion.php");
  $conexion = conectarMysql();
  $aux = $idusu;
- $sql1 = "SELECT * FROM usuarios where usuario = '$aux'";
+ $sql1 = "SELECT * FROM producto where nombre_Pro = '$aux'";
  $usuario = mysqli_query($conexion, $sql1) or die("No se puedo ejecutar la consulta");
  $usuario = mysqli_fetch_assoc($usuario);
- $nusu = $usuario['usuario'];?>
+ $nusu = $usuario['nombre_Pro'];?>
   <table width="685" border="0" align="center">
     <tr align="center">
       
-      <td ><strong class="titulos" align="center">USUARIO: </strong>
-        <?php echo $usuario['usuario']?>
+      <td ><strong class="titulos" align="center">PRODUCTO: </strong>
+        <?php echo $usuario['nombre_Pro']?>
       </td>
     </tr>
     </table>
