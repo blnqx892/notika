@@ -32,5 +32,4 @@ $conexion = conectarMysql();
       mysqli_query($conexion,"UPDATE invetario SET stock='$new_cant' WHERE idProducto='$producto'");
        }
 
-
   ?>

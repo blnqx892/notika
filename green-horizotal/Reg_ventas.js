@@ -1,5 +1,5 @@
 $(document).ready(function() {
-mostrar();
+//mostrar();
 console.log('jquery is working!');
 //************ventas
   $('#detalle').submit(e => {
@@ -15,7 +15,8 @@ console.log('jquery is working!');
     $.post('controladorVenta.php',postData,function(response){
       console.log(response);
      // $('#detalle').trigger('reset');
-     mostrar();
+    // mostrar();
+    location.reload(true);
     });
     //fin
     
