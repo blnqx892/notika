@@ -1,5 +1,8 @@
 <?php
 session_start();
+echo '
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>';
+echo '<script  src = "https://cdn.jsdelivr.net/npm/sweetalert2@9"> </script>';
 include("../Confi/Conexion.php");
 $conexion = conectarMysql();
 
@@ -22,10 +25,22 @@ if ($bandera=="GuardarCliente") {
 	('$duiC','$nombresC','$apellidosC','$direccionC','$telefonoC','$bene1C','$bene2C','$bene3C','$fechaC','$paquete',1)";
 
 	mysqli_query($conexion,$sql) or die ("Error no conectai".mysqli_connect_error());
-	echo"
-	<script language='javascript'>
-	alert('Registro de Cliente Exitoso!!')
-	window.location='/Funesi/notika/green-horizotal/RegCliente.php'
+	echo "<script language='javascript'>
+	$(document).ready(function () {
+		setTimeout(function () {
+			Swal.fire({
+				title: '',
+				text: '¡¡¡Registro Exitoso!!!',
+				icon: 'success',
+				confirmButtonText: 'Aceptar'
+			  }).then((result) => {
+				if (result.value) {
+					window.location='/Funesi/notika/green-horizotal/RegCliente.php';
+				}
+			  })
+		}, 1000);
+	});
+	
 	</script>";
 //$_SESSION['mensaje'] ="Registro guardado exitosamente";
 //header("location: /Funesi/notika/green-horizotal/RegCliente.php");
@@ -50,10 +65,22 @@ if ($bandera=="EditarCliente") {
 	$sql = "UPDATE cliente set nombre_cli='$nombresE',apellidos_Cli='$apellidosE',direccion_cli='$direccionE',telefono_Cli='$telefonoE',ben1_Cli='$bene1E',ben2_Cli='$bene2E',ben3_Cli='$bene3E' where idCliente ='$idcliente'";
 
 	mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
-	echo"
-	<script language='javascript'>
-	alert('Registro Editado de Cliente Exitoso!!')
-	window.location='/Funesi/notika/green-horizotal/ListaCliente.php'
+	echo "<script language='javascript'>
+	$(document).ready(function () {
+		setTimeout(function () {
+			Swal.fire({
+				title: '',
+				text: '¡¡¡Modificación Exitosa!!!',
+				icon: 'success',
+				confirmButtonText: 'Aceptar'
+			  }).then((result) => {
+				if (result.value) {
+					window.location='/Funesi/notika/green-horizotal/ListaCliente.php';
+				}
+			  })
+		}, 1000);
+	});
+	
 	</script>";
 	//header("location: /Funesi/notika/green-horizotal/ListaCliente.php");
 	//////////CAPTURA DATOS PARA BITACORA

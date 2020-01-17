@@ -29,7 +29,7 @@
 			
 			if(enviarEmail($email, $nombre, $asunto, $cuerpo)){
 				echo "Hemos enviado un correo electronico a las direcion $email para restablecer tu password.<br />";
-				echo "<a href='Login.php.php' >Iniciar Sesion</a>";
+				echo "<a href='Login.php' >Iniciar Sesion</a>";
 				exit;
 			}
 			} else {
@@ -121,8 +121,12 @@
         </form>
         <?php echo resultBlock($errors); ?>
       </div>
+      
+          <a href="Login.php"> <button type="submit" class="btn btn-success" name="Submit">Inicio</button></a>
+        
     </div>
   </div>
+  
 
 
 

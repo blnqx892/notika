@@ -1,5 +1,8 @@
 <?php 
 session_start();
+echo '
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>';
+echo '<script  src = "https://cdn.jsdelivr.net/npm/sweetalert2@9"> </script>';
     include("../Confi/Conexion.php");
     $conexion = conectarMysql();
     
@@ -15,17 +18,30 @@ session_start();
        $correo=$_POST["correo"];
        $dui=$_POST["dui"];
        $rol=$_POST["rol"];
-       
        $sql = "INSERT INTO usuarios (usuario,password,nombre,apellido_Usu,correo,Dui_Usu,id_tipo,estado_Usu,activacion) VALUES 
        ('$usuario','$contrasenia','$nombre','$apellido','$correo','$dui','$rol',1,1)";
    
        mysqli_query($conexion,$sql) or die ("Error no conectaa".mysqli_connect_error());
       // header("location: /Funesi/notika/green-horizotal/RegUsuario.php");
-      echo"
-	<script language='javascript'>
-	alert('Registro de usuario Exitoso!!')
-	window.location='/Funesi/notika/green-horizotal/RegUsuario.php'
-	</script>";
+
+      echo "<script language='javascript'>
+      $(document).ready(function () {
+          setTimeout(function () {
+              Swal.fire({
+                  title: '',
+                  text: '¡¡¡Registro Exitoso!!!',
+                  icon: 'success',
+                  confirmButtonText: 'Aceptar'
+                }).then((result) => {
+                  if (result.value) {
+                      window.location='/Funesi/notika/green-horizotal/RegUsuario.php';
+                  }
+                })
+          }, 1000);
+      });
+      
+      </script>";
+
 
 //////////CAPTURA DATOS PARA BITACORA
 $usuari=$_SESSION['usuarioActivo']['usuario'];
@@ -44,10 +60,22 @@ mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mys
         $sql = "UPDATE usuarios set Dui_Usu='$dui',nombre='$nombres',apellido_Usu='$apellido',correo='$correo',usuario='$usuario' where id ='$idusu'";
     
         mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
-        echo"
-        <script language='javascript'>
-        alert('Registro Editado de Usuario Exitoso!!')
-        window.location='/Funesi/notika/green-horizotal/RegUsuario.php'
+        echo "<script language='javascript'>
+        $(document).ready(function () {
+            setTimeout(function () {
+                Swal.fire({
+                    title: '',
+                    text: '¡¡¡Modificación Exitosa!!!',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar'
+                  }).then((result) => {
+                    if (result.value) {
+                        window.location='/Funesi/notika/green-horizotal/RegUsuario.php';
+                    }
+                  })
+            }, 1000);
+        });
+        
         </script>";
         //header("location: /Funesi/notika/green-horizotal/.php");
         //////////CAPTURA DATOS PARA BITACORA

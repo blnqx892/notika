@@ -1,5 +1,9 @@
 <?php
 session_start();
+echo '
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>';
+echo '<script  src = "https://cdn.jsdelivr.net/npm/sweetalert2@9"> </script>';
+include("../Confi/Conexion.php");
 include("../Confi/Conexion.php");
 $conexion = conectarMysql();
 
@@ -24,10 +28,22 @@ if ($bandera=="GuardarEmpleado") {
     
         #$_SESSION['mensaje'] ="Registro guardado exitosamente";
             //  header("location: /Funesi/notika/green-horizotal/RegEmpleado.php");
-            echo"
-            <script language='javascript'>
-            alert('Registro de Empleado Exitoso!!')
-            window.location='/Funesi/notika/green-horizotal/RegEmpleado.php'
+            echo "<script language='javascript'>
+            $(document).ready(function () {
+                setTimeout(function () {
+                    Swal.fire({
+                        title: '',
+                        text: '¡¡¡Registro Exitoso!!!',
+                        icon: 'success',
+                        confirmButtonText: 'Aceptar'
+                      }).then((result) => {
+                        if (result.value) {
+                            window.location='/Funesi/notika/green-horizotal/RegEmpleado.php';
+                        }
+                      })
+                }, 1000);
+            });
+            
             </script>";
     //////////CAPTURA DATOS PARA BITACORA
     $usuari=$_SESSION['usuarioActivo']['usuario'];
@@ -48,11 +64,23 @@ if ($bandera=="GuardarEmpleado") {
                 mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD".mysqli_connect_error());
                 
                 //header("location: /Funesi/notika/green-horizotal/ListaEmpleado.php");
-                echo"
-            <script language='javascript'>
-            alert('Registro Editar Empleado Exitoso!!')
-            window.location='/Funesi/notika/green-horizotal/ListaEmpleado.php'
-            </script>";
+                echo "<script language='javascript'>
+	$(document).ready(function () {
+		setTimeout(function () {
+			Swal.fire({
+				title: '',
+				text: '¡¡¡Modificación Exitosa!!!',
+				icon: 'success',
+				confirmButtonText: 'Aceptar'
+			  }).then((result) => {
+				if (result.value) {
+					window.location='/Funesi/notika/green-horizotal/ListaEmpleado.php';
+				}
+			  })
+		}, 1000);
+	});
+	
+	</script>";
     //////////CAPTURA DATOS PARA BITACORA
     $usuari=$_SESSION['usuarioActivo']['usuario'];
     $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Edito un empleado')";

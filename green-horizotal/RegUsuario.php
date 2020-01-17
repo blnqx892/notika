@@ -337,7 +337,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         <div class="modal-dialog modal-large">
                                             <div class="modal-content">
                                                 <form action="Controladores/UsuarioC.php" method="POST">
-                                                    <input type="hidden" value="GuardarUsuario" name="bandera">
+                                                    <input type="hidden" value="GuardarUsuario" name="bandera" autocomplete="off">
                                                     <div class="modal-header">
                                                         <button type="button" class="close"
                                                             data-dismiss="modal">&times;</button>
@@ -450,9 +450,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                             </div>
                                                         </div><br><br><br><br>
                                                         <div class="modal-footer">
-                                                            <button type="submit" class="btn btn-default">Guardar
-                                                                Cambios</button>
-                                                            <button type="button" class="btn btn-default"
+                                                            <button type="submit" class="btn btn-default">Guardar</button>
+                                                            <button  class="btn btn-default"
                                                                 data-dismiss="modal">Cancelar</button>
                                                         </div>
                                                     </div>
