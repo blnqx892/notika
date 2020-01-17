@@ -59,8 +59,15 @@ if (isset($_SESSION['usuarioActivo'])) {
             <hr>
             <div class="inbox-status">
               <ul class="inbox-st-nav inbox-ft">
-                <button class="btn btn-success notika-btn-success">Dar Altas <i
-                    class="fas fa-arrow-alt-circle-up"></i></button><br><br>
+                <?php  if ($tipo == 1) { ?>
+                <a href="/Funesi/notika/green-horizotal/ListaFeretros.php?tipo=0"><button
+                    class="btn btn-success notika-btn-success">Inactivos <i
+                      class="fas fa-arrow-alt-circle-down"></i></button> &nbsp; </a>
+                <?php  }else{ ?>
+                <a href="/Funesi/notika/green-horizotal/ListaFeretros.php?tipo=1"><button
+                    class="btn btn-success notika-btn-success">Activos <i
+                      class="fas fa-arrow-alt-circle-up"></i></button>&nbsp;</a>
+                <?php } ?><br><br>
                 <?php  if ($tipo == 1) { ?>
                 <a target="_blank" href="Reportes/ReporteProducto_Act.php?tipo=1"><button
                     class="btn btn-success notika-btn-success">Reporte A <i class="fas fa-print"></i>
@@ -91,6 +98,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                 </thead>
                 <tbody>
                   <?php While($mostrar=mysqli_fetch_assoc($productos)){?>
+                  <?php if($mostrar['idProducto'] != 28){ ?>
                   <tr>
                     <td><?php echo $mostrar['nombre_Pro'] ?></td>
                     <td><?php echo $material[$mostrar['material_Pro']] ?></td>
@@ -98,21 +106,41 @@ if (isset($_SESSION['usuarioActivo'])) {
                     <td>
                       <center><button type="button" class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                           data-toggle="modal" title="Ver" data-target="#modalVerFeretro"
-                          onclick="mostrarFeretro('<?php echo $mostrar['nombre_Pro']?>','<?php echo $mostrar['material_Pro']?>','<?php echo $mostrar['color_Pro']?>','<?php echo $mostrar['stock_Pro']?>','<?php echo $mostrar['caracteristicas']?>')"><i
+                          onclick="mostrarFeretro('<?php echo $mostrar['nombre_Pro']?>','<?php echo $material[$mostrar['material_Pro']]?>','<?php echo $mostrar['color_Pro']?>','<?php echo $mostrar['caracteristicas']?>')"><i
                             class="fas fa-eye"></i></button>
+                            <?php  if ($tipo == 1) {?> 
                         <button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                            class="fas fa-arrow-alt-circle-down"></i></button>
+                          data-toggle="modal" data-target="#modalEditarProducto" title="Modificar"
+                          onclick="editarFeretro('<?php echo $mostrar['nombre_Pro']?>','<?php echo $material[$mostrar['material_Pro']]?>','<?php echo $mostrar['color_Pro']?>','<?php echo $mostrar['caracteristicas']?>','<?php echo $mostrar['idProducto']?>')"></i></button>
+                          <?php  }else{ }?>
+                      <?php  if($tipo == 1) { ?>
+
+                        <button type="button" class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"
+                          title="Dar de baja"><span class="fas fa-arrow-alt-circle-down"
+                            onclick="baja(<?php echo $mostrar['idProducto'] ?>)"></span></button>
+
+                        <?php  }else{ ?>
+
+                        <button type="button"
+                          class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect"
+                          title="Dar de alta"><i class="fas fa-arrow-alt-circle-up"
+                            onclick="alta(<?php echo $mostrar['idProducto'] ?>)"></i></button>
+                            <?php } ?>
+                      <?php  }else{ if($tipo == 0){?>
+                        <button type="button"
+                          class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect"
+                          title="Dar de alta"><i class="fas fa-arrow-alt-circle-up"
+                            onclick="alta(<?php echo $mostrar['idProducto'] ?>)"></i></button>
+                        <?php } }?>
                         <center>
                     </td>
 
                     <!-- INICIO MODAL EDITAR-->
-                    <div class="modal fade" id="modalEditar" role="dialog">
+                    <div class="modal fade" id="modalEditarProducto" role="dialog">
                       <div class="modal-dialog modal-large">
                         <div class="modal-content">
-                          <form action="Controladores/FeretroC.php" method="POST">
-                            <input type="hidden" value="editarFeretro" name="bandera">
+                          <form action="Controladores/FeretrosC.php" method="POST">
+                            <input type="hidden" value="EditarFeretro" name="bandera">
                             <input type="hidden" value="" name="idferetro" id="idferetro" />
                             <div class="modal-header">
                               <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -128,57 +156,47 @@ if (isset($_SESSION['usuarioActivo'])) {
                               </div>
                               <hr style="width:100%;border-color:light-gray 25px;"><br>
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                  <span class="icon-barcode"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Modelo" 
-                                    id="modeloo">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                  <span class="fas fa-boxes"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Material" 
-                                    aria-required="true" value="" id="materiall">
+                                <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                    <span class="icon-barcode"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Modelo" name="modeloo"
+                                      id="modeloo">
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                  <span class="fas fa-palette"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Color" aria-required="true"
-                                    value=""  id="colorr">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                  <span class="icon-list-numbered"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Stock" aria-required="true"
-                                    value=""  id="stockk">
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                    <span class="fas fa-boxes"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Material" aria-required="true"
+                                      value="" name="materiall" id="materiall" disabled="disabled">
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                              <div class="form-group">
-                                <div class="nk-int-st">
-                                  <textarea class="form-control auto-size" rows="2" placeholder="Características..."
-                                    aria-required="true" value="" id="caractee"></textarea>
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                    <span class="fas fa-palette"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Color" aria-required="true"
+                                      value="" name="colorr" id="colorr">
+                                  </div>
                                 </div>
                               </div>
-                            </div>
+
+                              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                <div class="form-group">
+                                  <div class="nk-int-st">
+                                    <textarea class="form-control auto-size" rows="2" placeholder="Características..."
+                                      aria-required="true" value="" name="caractee" id="caractee"></textarea>
+                                  </div>
+                                </div>
+                              </div>
                               <div>
                                 <center>
                                   <image src="img/logo/productoo.png" />
@@ -248,21 +266,10 @@ if (isset($_SESSION['usuarioActivo'])) {
                                 </div>
                               </div>
                             </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                  <span class="icon-list-numbered"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Stock" aria-required="true"
-                                    value="" disabled="disabled" id="stock">
-                                </div>
-                              </div>
-                            </div>
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                               <div class="form-group">
                                 <div class="nk-int-st">
-                                  <textarea class="form-control auto-size" rows="2" placeholder="Características..."
+                                  <textarea class="form-control auto-size" rows="4" placeholder="Características..."
                                     disabled="disabled" aria-required="true" value="" id="caracte"></textarea>
                                 </div>
                               </div>
@@ -406,6 +413,67 @@ if (isset($_SESSION['usuarioActivo'])) {
     }
   </script>
 
+  <!-------------------------------------------------------------------------------------->
+  <form method="POST" id="cambioCli">
+    <input type="hidden" name="id" id="idCli" />
+    <input type="hidden" name="bandera" id="banderaCli" />
+    <input type="hidden" name="valor" id="valorCli" />
+  </form>
+  </div>
+  <!-- DAR DE BAJA -->
+  <script type="text/javascript">
+    function baja(id) {
+      swal({
+        title: '¿Está seguro en dar de baja?',
+        // text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No',
+
+      }).then((result) => {
+        if (result.value) {
+          $('#idCli').val(id);
+          $('#banderaCli').val('cambio');
+          $('#valorCli').val('0');
+          var dominio = window.location.host;
+          $('#cambioCli').attr('action', 'http://' + dominio +
+            '/Funesi/notika/green-horizotal/Controladores/FeretrosC.php');
+          $('#cambioCli').submit();
+        } else {
+
+        }
+      })
+    }
+    //DAR DE ALTA
+    function alta(id) {
+      swal({
+        title: '¿Está seguro en dar de alta?',
+        // text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No',
+
+      }).then((result) => {
+        if (result.value) {
+          $('#idCli').val(id);
+          $('#banderaCli').val('cambio');
+          $('#valorCli').val('1');
+          var dominio = window.location.host;
+          $('#cambioCli').attr('action', 'http://' + dominio +
+            '/Funesi/notika/green-horizotal/Controladores/FeretrosC.php');
+          $('#cambioCli').submit();
+        } else {
+
+        }
+      })
+    }
+  </script>
 
 
   <!-- jquery

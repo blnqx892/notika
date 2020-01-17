@@ -55,7 +55,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                       <span class="fas fa-id-card"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text"  class="form-control" placeholder="DUI: 99999999-9" name="dui"
+                      <input required type="text"  class="form-control" placeholder="DUI: 99999999-9" name="dui"
                       data-mask="99999999-9" id="duii" 
                                     >
                     </div>
@@ -67,7 +67,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                       <span class="icon-user"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text"  class="form-control" placeholder="Nombres" name="nombres" id="nombre" 
+                      <input required type="text"  class="form-control" placeholder="Nombres" name="nombres" id="nombre" 
                                     >
                     </div>
                   </div>
@@ -78,7 +78,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                       <span class="icon-user"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text"  class="form-control" placeholder="Apellidos" name="apellidos" id="apellido" 
+                      <input required type="text"  class="form-control" placeholder="Apellidos" name="apellidos" id="apellido" 
                                     >
                     </div>
                   </div>
@@ -89,7 +89,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                       <span class="fas fa-phone-alt"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text"  class="form-control" placeholder="Telf: 9999-9999" name="telefono"
+                      <input required type="text"  class="form-control" placeholder="Telf: 9999-9999" name="telefono"
                         data-mask="9999-9999" id="telfo" 
                                     >
                     </div>
@@ -101,7 +101,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                       <span class="fas fa-map-marker-alt"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text"  class="form-control" placeholder="Dirección" name="direccion" id="direcci" 
+                      <input required type="text"  class="form-control" placeholder="Dirección" name="direccion" id="direcci" 
                                     >
                     </div>
                   </div>
@@ -118,7 +118,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                       <span class="fas fa-user-check"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text"  class="form-control" placeholder="Nombre beneficiario 1" name="bene1" id="ben1" 
+                      <input required type="text"  class="form-control" placeholder="Nombre beneficiario 1" name="bene1" id="ben1" 
                                     >
                     </div>
                   </div>
@@ -129,7 +129,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                       <span class="fas fa-user-check"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text"  class="form-control" placeholder="Nombre beneficiario 2" name="bene2" id="ben2" 
+                      <input required type="text"  class="form-control" placeholder="Nombre beneficiario 2" name="bene2" id="ben2" 
                                     >
                     </div>
                   </div>
@@ -140,7 +140,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                       <span class="fas fa-user-check"></span>
                     </div>
                     <div class="nk-int-st">
-                      <input type="text"  class="form-control" placeholder="Nombre beneficiario 3" name="bene3" id="ben3" 
+                      <input required type="text"  class="form-control" placeholder="Nombre beneficiario 3" name="bene3" id="ben3" 
                                     >
                     </div>
                   </div>

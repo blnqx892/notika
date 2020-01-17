@@ -38,7 +38,7 @@ if (isset($_SESSION['usuarioActivo'])) {
   </div>
   <!-- Breadcomb area End-->
   <!-- Inbox area Start-->
-  <form action="Controladores/ProveedorC.php" method="POST" id="fform" autocomplete="off">
+  <form action="Controladores/ProveedorC.php" method="POST" autocomplete="off">
     <input type="hidden" value="GuardarProveedor" name="bandera">
     <div class="inbox-area">
       <div class="container">
@@ -109,7 +109,7 @@ if (isset($_SESSION['usuarioActivo'])) {
             </div><br><br><br><br><br>
             <center>
               <div class="dialog-pro dialog ">
-                <button class="btn btn-success notika-btn-success" type="button" id="save-me">Guardar <i
+                <button class="btn btn-success notika-btn-success" type="submit" >Guardar <i
                     class="notika-icon notika-checked"></i></button>
                 <button class="btn btn-danger notika-btn-danger">Cancelar <i class="notika-icon notika-close"></i></button>
               </div>

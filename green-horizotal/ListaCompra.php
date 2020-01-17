@@ -66,8 +66,9 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         class="btn btn-success notika-btn-success">Activos <i
                                             class="fas fa-arrow-alt-circle-up"></i></button>&nbsp;</a>
                                 <?php } ?><br><br>
-                                <button class="btn btn-success notika-btn-success">Reporte <i class="fas fa-print"></i>
-                                </button><br><br>
+                                <button class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg" data-toggle="modal"
+                    data-target="#modalReporte">Reporte
+                    <i class="fas fa-print"></i></button><br><br>
                             </ul>
                         </div>
                         <hr>
@@ -85,7 +86,6 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         <th>Fecha de Compra</th>
                                         <th>Proveedor</th>
                                         <th>Producto</th>
-                                        <th>$ Precio Unitario</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -111,7 +111,6 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                 $producto = mysqli_fetch_array($producto);
                                                 echo $producto['nombre_Pro'];
                                         ?></td>
-                                        <td><?php echo $mostrar['unitario_Com']?></td>
                                         <td>
                                             <?php $fechaCom = explode("-",$mostrar['fecha_Com']);
                                               $fechaCom = $fechaCom[2].'/'.$fechaCom[1].'/'.$fechaCom[0];
@@ -119,7 +118,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                             <button title="Ver"
                                                 class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                                                 data-toggle="modal" data-target="#modalVerCompra"
-                                                onclick="mostraCompra('<?php echo $fechaCom?>','<?php echo $mostrar['id_Proveedor']?>','<?php echo $mostrar['fac_Com']?>','<?php echo $mostrar['producto_Com']?>','<?php echo $mostrar['cate_Com']?>','<?php echo $mostrar['tipo_Comp']?>','<?php echo $mostrar['cantidad_Com']?>','<?php echo $mostrar['unitario_Com']?>','<?php echo $mostrar['id_Proveedor']?>')"><i
+                                                onclick="mostraCompra('<?php echo $fechaCom?>','<?php echo $mostrar['id_Proveedor']?>','<?php echo $mostrar['fac_Com']?>','<?php echo $producto['nombre_Pro']?>','<?php echo $mostrar['cantidad_Com']?>','<?php echo $mostrar['unitario_Com']?>','<?php echo $mostrar['id_Proveedor']?>')"><i
                                                     class="fas fa-eye"></i></button>
                                             <?php  if($tipo == 1) { ?>
                                             <button type="button"
@@ -141,7 +140,96 @@ if (isset($_SESSION['usuarioActivo'])) {
                                             </th>
                                     </tr>
 
+<!-- INICIO MODAL REPORTE-->
+<div class="modal fade" id="modalReporte" tabindex="-1" role="dialog" aria-hidden="true"
+              >
+              <div class="modal-dialog modal-large">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                    <center>
+                      <div class="typography-hd-cr-4">
+                        <h3>REPORTE DE COMPRA</h3>
+                      </div>
+                    </center>
+                    <div class="typography-hd-cr-4">
+                    </div>
+                    <hr style="width:100%;border-color:light-gray 25px;">
+                    <div class="cmp-tb-hd bcs-hd">
+                      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-element-list">
+                          <h4>Por:</h4>
+                            <label>
+                              <input type="button" id="r1" value="  " name="a" onclick="radioSeleccionado(1);"> Proveedor
+                            </label>
+                            <label>
+                              <input type="button" id="r2" value="  " name="a" onclick="radioSeleccionado(2);"> Fecha
+                            </label>
+                        </div>
+                      </div>
+                      <hr style="width:100%;border-color:light-gray 25px;">
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <?php 
+                            $sql="SELECT * from proveedor where estado_Provee = 1 order by nombre_prov ASC";
+                            $proveedores = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
+                        ?>
+                        <div class="nk-int-mk sl-dp-mn">
+                          <h5>Proveedor</h5>
+                        </div>
+                        <div class="chosen-select-act fm-cmp-mg">
+                          <select class="chosen" data-placeholder="Seleccione" id="clientesID" name="id_Usuario">
+                            <option value=""></option>
+                            <?php
+                                   While($proveedor=mysqli_fetch_array($proveedores)){
+                                     echo '<option value="'.$proveedor['idProveedor'].'">'.$proveedor['nombre_prov'].'</option>';
+                                     }?>
+                          </select>
+                        </div><br>
+                      </div>
+                      <!--<button type="button" name="button" onclick="reporte()">Generar Reporte</button>-->
+                    </div><br><br><br><br>
+                    <hr style="width:100%;border-color:light-gray 25px;">
+                    <div class="i-checks" align="center">
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
+                          <?php
 
+                            date_default_timezone_set('america/el_salvador');
+                            $hora1 = date("A");
+                            $hoy = getdate();
+                            $hora = date("g");
+                            $dia = date("d");
+                            $fech = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
+                        ?>
+                          <h5>Desde</h5>
+                          <div class="input-group date nk-int-st">
+                            <span class="input-group-addon"></span>
+                            <input type="text" class="form-control" value="<?php echo $fech?>" name="fecha" id="fecha1"
+                              aria-required="true">
+                          </div>
+                        </div>
+                      </div>
+                      <input type="hidden" id="tiporeporte" value="1" />
+                      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <div class="form-group nk-datapk-ctm form-elet-mg" id="data_2">
+                          <h5>Hasta</h5>
+                          <div class="input-group date nk-int-st">
+                            <span class="input-group-addon"></span>
+                            <input type="text" class="form-control" value="<?php echo $fech?>" id="fecha2"
+                              aria-required="true">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div><br><br><br><br><br>
+                  <button class="btn btn-success notika-btn-success" type="button" name="button"
+                    onclick="reporte()">Generar <i class="fas fa-receipt"></i></button>
+                </div>
+              </div>
+            </div>
+            <!-- FIN MODAL REPORTE-->
                                     <!-- INICIO MODAL VER-->
                                     <div class="modal fade" id="modalVerCompra" tabindex="-1" role="dialog"
                                         aria-labelledby="myModalLabel">
@@ -231,25 +319,6 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                            <div class="chosen-select-act fm-cmp-mg">
-                                                                <select class="chosen" name="proveedor" id="categoriac"
-                                                                    data-placeholder="Categoria" disabled="true">
-                                                                    <option value=""></option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="fas fa-shapes"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        disabled="disabled" id="tipoc">
-                                                                </div>
-                                                            </div>
-                                                        </div><br> <br> <br> <br>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                                             <div class="form-group ic-cmp-int">
                                                                 <div class="form-ic-cmp">
                                                                     <span class="icon-sort-numeric-asc"></span>
@@ -257,28 +326,6 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                 <div class="nk-int-st">
                                                                     <input type="text" class="form-control"
                                                                         disabled="disabled" id="cantidadc">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="fas fa-dollar-sign"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        disabled="disabled" id="unitarioc">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                                            <div class="form-group ic-cmp-int">
-                                                                <div class="form-ic-cmp">
-                                                                    <span class="fas fa-dollar-sign"></span>
-                                                                </div>
-                                                                <div class="nk-int-st">
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Precio total" disabled="disabled">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -292,7 +339,6 @@ if (isset($_SESSION['usuarioActivo'])) {
                                             </div>
                                         </div>
                                         <!-- FIN MODAL VER-->
-
                                         <?php } ?>
                                 </tbody>
                                 <tfoot>
@@ -386,6 +432,32 @@ if (isset($_SESSION['usuarioActivo'])) {
     </script>
     <!-------------------------------------------------------------------------------------->
 
+    <script type="text/javascript">
+    //REPORTE------------------------------------------------------
+    function reporte() {
+      desde = $('#fecha1').val();
+      hasta = $('#fecha2').val();
+
+      idusuario = $('#clientesID').val();
+      tipor = $('#tiporeporte').val();
+
+      desde = desde.split('/').reverse().join('-');
+      hasta = hasta.split('/').reverse().join('-');
+
+      if (tipor == '1' && idusuario == "") {
+        alert("Debe seleccionar una opción");
+
+      } else if (desde > hasta) {
+        alert("Verifique las fecha");
+      } else {
+        var dominio = window.location.host;
+        window.open('http://' + dominio + '/Funesi/notika/green-horizotal/Reportes/ReporteCompra.php?desde=' + desde +
+          '&hasta=' +
+          hasta + '&idusuario=' + idusuario + '&tipor=' + tipor, '_blank');
+      }
+
+    }
+  </script>
 
 
     <!-- jquery

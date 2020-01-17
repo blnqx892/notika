@@ -1,5 +1,8 @@
 <?php
 session_start();
+echo '
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>';
+echo '<script  src = "https://cdn.jsdelivr.net/npm/sweetalert2@9"> </script>';
 include("../Confi/Conexion.php");
 $conexion = conectarMysql();
 
@@ -19,10 +22,22 @@ if ($bandera=="GuardarProveedor") {
 	//notaError("¡El nombre ingresado ya ha sido registrado!"); 
 	#$_SESSION['mensaje'] ="Registro guardado exitosamente";
 	//header("location: /Funesi/notika/green-horizotal/RegProveedor.php");
-	echo"
-	<script language='javascript'>
-	alert('Registro de Proveedor Exitoso!!')
-	window.location='/Funesi/notika/green-horizotal/RegProveedor.php'
+	echo "<script language='javascript'>
+	$(document).ready(function () {
+		setTimeout(function () {
+			Swal.fire({
+				title: '',
+				text: '¡¡¡Registro Exitoso!!!',
+				icon: 'success',
+				confirmButtonText: 'Aceptar'
+			  }).then((result) => {
+				if (result.value) {
+					window.location='/Funesi/notika/green-horizotal/RegProveedor.php';
+				}
+			  })
+		}, 1000);
+	});
+	
 	</script>";
 	
 
@@ -45,10 +60,22 @@ if ($bandera=="EditarProveedor") {
 	mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD desde editaPro".mysqli_connect_error());
 	
 	//header("location: /Funesi/notika/green-horizotal/ListaProveedor.php");
-	echo"
-	<script language='javascript'>
-	alert('Registro Editado de Proveedor Exitoso!!')
-	window.location='/Funesi/notika/green-horizotal/ListaProveedor.php'
+	echo "<script language='javascript'>
+	$(document).ready(function () {
+		setTimeout(function () {
+			Swal.fire({
+				title: '',
+				text: '¡¡¡Modificación Exitosa!!!',
+				icon: 'success',
+				confirmButtonText: 'Aceptar'
+			  }).then((result) => {
+				if (result.value) {
+					window.location='/Funesi/notika/green-horizotal/ListaProveedor.php';
+				}
+			  })
+		}, 1000);
+	});
+	
 	</script>";
 
 //////////CAPTURA DATOS PARA BITACORA

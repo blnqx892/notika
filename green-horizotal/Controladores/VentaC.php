@@ -21,10 +21,23 @@ if ($bandera=="GuardarVenta") {
     ('$fecha','$numeroV', '$dui','$nombres', '$apellidos', '$direccion', '$telefono', '$paquete', '$precio')";
 
     mysqli_query($conexion, $sql) or die ("Error no conectai".mysqli_connect_error());
-    echo"
-<script language='javascript'>alert('Registro de Venta Exitoso!!')
- window.location='/Funesi/notika/green-horizotal/RegVenta.php'
-    </script>";
+    echo "<script language='javascript'>
+	$(document).ready(function () {
+		setTimeout(function () {
+			Swal.fire({
+				title: '',
+				text: '¡¡¡Registro Exitoso!!!',
+				icon: 'success',
+				confirmButtonText: 'Aceptar'
+			  }).then((result) => {
+				if (result.value) {
+					window.location='/Funesi/notika/green-horizotal/RegVenta.php';
+				}
+			  })
+		}, 1000);
+	});
+	
+	</script>";
  //////////CAPTURA DATOS PARA BITACORA
     $usuari=$_SESSION['usuarioActivo']['usuario'];
     $sql="INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Registró una venta')";

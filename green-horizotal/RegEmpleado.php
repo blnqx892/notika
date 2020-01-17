@@ -135,7 +135,7 @@ if (isset($_SESSION['usuarioActivo'])) {
               </div>
             </div> <br><br><br><br><br><br>
             <center>
-            <button class="btn btn-success notika-btn-success" type="button" id="save-me">Guardar <i
+            <button class="btn btn-success notika-btn-success" type="aubmit" >Guardar <i
                       class="notika-icon notika-checked"></i></button>
               <button title="Cancelar" type=""  class="btn btn-danger notika-btn-danger">Cancelar <i
                   class="notika-icon notika-close"></i></button>
