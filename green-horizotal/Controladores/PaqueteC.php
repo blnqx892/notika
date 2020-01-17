@@ -10,13 +10,13 @@ if ($bandera=="GuardarPaquete") {
     $feretro=$_POST["feretro"];
     $servicios=$_POST["servicios"];
     $precio=$_POST["precio"];
-    $sql="INSERT INTO paquete (nombre_paq, idProducto,servicios,precio_paq,) VALUES 
+    $sql="INSERT INTO paquete (nombre_paq, idProducto,servicios,precio_paq) VALUES 
     ('$nombre', '$feretro', '$servicios', '$precio')";
 
     mysqli_query($conexion, $sql) or die ("Error no conectai".mysqli_connect_error());
     echo"
 <script language='javascript'>alert('Registro de Paquete Exitoso!!')
- window.location='/Funesi/notika/green-horizotal/Catalogo.php'
+ window.location='/Funesi/notika/green-horizotal/RegPaquete.php'
     </script>";
  //////////CAPTURA DATOS PARA BITACORA
     $usuari=$_SESSION['usuarioActivo']['usuario'];

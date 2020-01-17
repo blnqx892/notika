@@ -109,8 +109,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         <td><?php echo $mostrar['telefono_Cli'] ?></td>
                                         <td>
                                             <button title="Ver" <?php $fechaCli = explode("-",$mostrar['fecha_Cli']);
-                                              $fechaCli = $fechaCli[2].'/'.$fechaCli[1].'/'.$fechaCli[0];
-                                            ?> class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
+                                              $fechaCli = $fechaCli[2].'/'.$fechaCli[1].'/'.$fechaCli[0];?> class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                                                 data-toggle="modal" title="Ver" data-target="#modalVerCliente"
                                                 onclick="mostraCliente('<?php echo $mostrar['Dui_cli']?>','<?php echo $mostrar['nombre_cli']?>','<?php echo $mostrar['apellidos_Cli']?>','<?php echo $mostrar['direccion_cli']?>','<?php echo $mostrar['telefono_Cli']?>','<?php echo $mostrar['ben1_Cli']?>','<?php echo $mostrar['ben2_Cli']?>','<?php echo $mostrar['ben3_Cli']?>','<?php echo $fechaCli?>')"><i
                                                     class="fas fa-eye"></i></button>
