@@ -51,7 +51,8 @@ function mostrar() {
     });
   }
 
-  // Delete a Single Task
+  
+  //*******para finalizar la compra limpiare detallecompra
   $(document).on('click', '.prod-delete', (e) => {
   
    // if(confirm('Are you sure you want to delete it?')) {
@@ -64,7 +65,28 @@ function mostrar() {
     //}
   });
 
-  //*******para finalizar la compra limpiare detallecompra
+
+  ///************ventas
+  $('#ventas').submit(e => {
+    e.preventDefault();
+    const postData = {
+      fecha:$('#fecha').val(),
+      numero:$('#recibo').val(),
+      paquete:$('#paquete').val(),
+      cliente:$('#cliente').val(),
+      pago: $('#pago').val()
+    };
+    //solo cuando necesito  solo agregar
+    $.post('controladorVenta.php',postData,function(response){
+      console.log(response);
+     // $('#detalle').trigger('reset');
+     //mostrar();
+    });
+    //fin
+    
+
+  });
+  //**************
  
 
   //***
