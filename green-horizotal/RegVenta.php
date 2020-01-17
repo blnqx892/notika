@@ -116,7 +116,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                         </div><br><br><br><br>
                         
                         <div class="typography-hd-cr-4">
-                            <h4>Producto</h4>
+                            
                         </div>
                         <hr style="width:100%;border-color:light-gray 25px;"><br>
                         <!--para guardar en detalle compra temporamente con ajax-->
@@ -234,19 +234,55 @@ if (isset($_SESSION['usuarioActivo'])) {
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-element-list">
                         <div class="typography-hd-cr-4">
-                            <table class="table table-bordered table-sm">
-            <thead>
-              <tr>
-                
+                    <div class="table-responsive">
+              <table id="data-table-basic" class="table table-striped">
+                <thead>
+                    <?php 
+                      $conexion=mysqli_connect('localhost','root', '', 'funesi');
+                    $queryP = "SELECT * FROM paquete INNER JOIN producto ON paquete.idProducto=producto.idProducto INNER JOIN invetario ON paquete.idProducto=invetario.idProducto ";
+                    $result = mysqli_query($conexion, $queryP);
+
+                    ?>
+                  <tr>
                 <td>Nombre Servicio</td>
                 <td>Féretro</td>
                 <td>Existencia</td>
+                <td>Alerta</td>
                 <td>Servicio</td>
                 <td>Precio</td>
-              </tr>
-            </thead>
-            <tbody id="tabla-ok"></tbody>
-          </table>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php While($mostrar=mysqli_fetch_assoc($result)){
+                    $z=$mostrar['stock'];
+                    $y=$mostrar['stockMinimo'];
+                    ?>
+                  <tr>
+
+                    <td><?php echo $mostrar['nombre_paq'] ?></td>
+                    <td><?php echo $mostrar['nombre_Pro'] ?></td>
+                    <td><?php echo $mostrar['stock'] ?></td>
+                    <td>
+                        <?php if($z<$y){?>
+                            <a href="RegCompra.php">
+                       <button class="btn btn-danger notika-btn-danger">Abastecer<i
+                                    class="notika-icon notika-close"></i></button>
+                                </a>
+                                <?php }else{?>
+                                    <button class="btn btn-success notika-btn-success">Todo bien<i
+                                    class="notika-icon notika-checked"></i></button>
+                                <?php }?>
+                    </td>
+
+                    <td><?php echo $mostrar['servicios'] ?></td>
+                    <td><?php echo $mostrar['precio_paq'] ?></td>
+                </tr>
+            <?php }?>
+            </tbody>
+        </table>
+    </div>
+
+
                         </div>
                     </div>
                 </div>

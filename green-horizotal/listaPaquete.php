@@ -7,7 +7,8 @@ $query = "SELECT * FROM paquete INNER JOIN producto ON paquete.idProducto=produc
   if(!$result) {
     die('Query Failed'. mysqli_error($connection));
   }
-
+$bastese="Abastese";
+$bastesex="NO Abastese";
   $json = array();
   while($row = mysqli_fetch_array($result)) {
     $json[] = array(
