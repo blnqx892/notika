@@ -18,14 +18,22 @@ if ($bandera=="GuardarFeretro") {
 
     mysqli_query($conexion, $sql) or die ("Error no conectai".mysqli_connect_error());
     //mi codigo para agregar el producto en el inventario 
-    $sacar = mysqli_query($conexion, "SELECT * from producto");
+    $sacar = mysqli_query($conexion, "SELECT * from invetario");
             while ($fila = mysqli_fetch_array($sacar)) {  
-                 $id=$fila['idProducto'];  
+                 $id=$fila['precioVenta'];  
                 } 
-    $inventatiroAgg="INSERT INTO invetario(idProducto,stockMinimo,precioVenta)VALUES
-    ('$id','$stock','$precio')";
-    mysqli_query($conexion, $inventatiroAgg) or die ("Error no conectai".mysqli_connect_error());
+    $inventatiroAgg="INSERT INTO compras(unitario_Com)VALUES
+    ('$precio')";
+    mysqli_query($conexion, $inventatiroAgg) or die ("Error no conectae".mysqli_connect_error());
     //******************    
+    $sacar = mysqli_query($conexion, "SELECT * from producto");
+    while ($fila = mysqli_fetch_array($sacar)) {  
+         $id=$fila['idProducto'];  
+        } 
+$inventatiroAgg="INSERT INTO invetario(idProducto,stockMinimo,precioVenta)VALUES
+('$id','$stock','$precio')";
+mysqli_query($conexion, $inventatiroAgg) or die ("Error no conectae".mysqli_connect_error());
+
     echo"
 <script language='javascript'>alert('Registro de Feretro Exitoso!!')
  window.location='/Funesi/notika/green-horizotal/RegFeretro.php'

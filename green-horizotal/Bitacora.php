@@ -220,10 +220,10 @@ if (isset($_SESSION['usuarioActivo'])) {
       hasta = hasta.split('/').reverse().join('-');
 
       if (tipor == '1' && idusuario == "") {
-        notaError("Debe seleccionar un usuario");
+        alert("Debe seleccionar una opción");
 
       } else if (desde > hasta) {
-        notaError("Verifique las fecha");
+        alert("Verifique las fecha");
       } else {
         var dominio = window.location.host;
         window.open('http://' + dominio + '/Funesi/notika/green-horizotal/Reportes/ReporteBitacora.php?desde=' + desde +
