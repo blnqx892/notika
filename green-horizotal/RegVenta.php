@@ -1,6 +1,20 @@
 <?php
+
 session_start();
 if (isset($_SESSION['usuarioActivo'])) {
+
+    ######### SACAMOS EL VALOR MAXIMO DE LA FACTURA Y LE SUMAMOS UNO ##########
+    
+    $conexion=mysqli_connect('localhost','root', '', 'funesi');
+        $pa=mysqli_query($conexion,"SELECT MAX(numero_ven)as maximo FROM venta");               
+        if($row=mysqli_fetch_array($pa)){
+            if($row['maximo']==NULL){
+                $numero='20101';
+            }else{
+                $numero=$row['maximo']+1;
+            }
+        }
+
 ?>
 
 <!doctype html>
@@ -8,7 +22,6 @@ if (isset($_SESSION['usuarioActivo'])) {
 <!--IMPORTE head desde Menu/apertura-->
 <?php include("Menu/apertura.php"); ?>
 <!--IMPORTE head desde Menu/apertura-->
-
 <body>
     <!-- Importe menu desde Menu/menu-->
     <?php include("Menu/menu.php"); ?>
@@ -26,7 +39,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         <i class="notika-icon notika-form"></i>
                                     </div>
                                     <div class="breadcomb-ctn">
-                                        <h2>REGISTRAR VENTA</h2>
+                                        <h2>REGISTRAR VENTAS</h2>
                                     </div>
                                 </div>
                             </div>
@@ -38,14 +51,16 @@ if (isset($_SESSION['usuarioActivo'])) {
     </div>
     <!-- Breadcomb area End-->
     <!-- Inbox area Start-->
-    <form action="Controladores/VentaC.php" method="POST" autocomplete="off">
-        <input type="hidden" value="GuardarVenta" name="bandera">
+    
+        <form id="detalle">
         <div class="inbox-area">
             <div class="container">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="form-element-list">
                         <div class="typography-hd-cr-4">
+                            <h4>Detalles</h4>
                         </div>
+                        <hr style="width:100%;border-color:light-gray 25px;"><br>
                         <div class="cmp-tb-hd bcs-hd">
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                 <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
@@ -60,33 +75,23 @@ if (isset($_SESSION['usuarioActivo'])) {
                                     <h5>Fecha de Venta</h5>
                                     <div class="input-group date nk-int-st">
                                         <span class="input-group-addon"></span>
-                                        <input type="text" class="form-control" value="<?php echo $fech?>" name="fecha"
-                                            id="fechae" aria-required="true">
-                                    </div>
-                                </div>
-                            </div><br>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <span class="fas fa-id-card"></span>
-                                    </div>
-                                    <div class="nk-int-st">
-                                        <input type="number" class="form-control" placeholder="N° Venta" name="numeroV">
+                                        <input type="text" class="form-control" value="<?php echo $fech?>"
+                                            name="fechaec" id="fecha" aria-required="true">
                                     </div>
                                 </div>
                             </div>
-                            <hr style="width:100%;border-color:light-gray 25px;"><br>
                             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                 <?php 
                                  $conexion=mysqli_connect('localhost','root', '', 'funesi');
-                                 $sql="SELECT * from cliente order by nombre_cli ASC";
+                                                $sql="SELECT * from cliente order by nombre_cli ASC";
                                   $clientes = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
+
                                 ?>
                                 <div class="nk-int-mk sl-dp-mn">
-                                    <h5>Cliente</h5>
+                                    <h5>Seleccionar Cliente</h5>
                                 </div>
                                 <div class="chosen-select-act fm-cmp-mg">
-                                    <select class="chosen" data-placeholder="Cliente..." name="cliente" id="">
+                                <select class="chosen" data-placeholder="Cliente..." name="cliente" id="cliente">
                                         <option value=""></option>
                                         <?php
                                                 While($cliente=mysqli_fetch_array($clientes)){
@@ -94,190 +99,161 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                 }
                                     ?>
                                     </select>
-                                </div><br>
-                                <button class="btn btn-success notika-btn-success" data-toggle="modal"
-                                    data-target="#modalNuevo">Nuevo <i class="fas fa-user-plus"></i>
-                                </button>
-                            </div>
-                            <!--<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <span class="fas fa-id-card"></span>
-                                    </div>
-                                    <div class="nk-int-st">
-                                        <input type="text" class="form-control" placeholder="DUI: 99999999-9"
-                                            name="dui" data-mask="99999999-9">
-                                    </div>
+
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <span class="fas fa-id-card"></span>
-                                    </div>
-                                    <div class="nk-int-st">
-                                        <input type="text" class="form-control" placeholder="Nombres" name="nombres">
-                                    </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <span class="fas fa-file-invoice-dollar"></span>
+                                </div>
+                                <div class="nk-int-st">
+                                    <input type="text" class="form-control" value="<?php echo $numero?>" placeholder="# Factura Compra"
+                                        name="facturaec" id="recibo" aria-hidden="true">
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <span class="fas fa-id-card"></span>
-                                    </div>
-                                    <div class="nk-int-st">
-                                        <input type="text" class="form-control" placeholder="Apellidos"
-                                            name="apellidos">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <span class="fas fa-map-marker-alt"></span>
-                                    </div>
-                                    <div class="nk-int-st">
-                                        <input type="text" class="form-control" placeholder="Dirección"
-                                            name="direccion">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                                <div class="form-group ic-cmp-int">
-                                    <div class="form-ic-cmp">
-                                        <span class="fas fa-phone-alt"></span>
-                                    </div>
-                                    <div class="nk-int-st">
-                                        <input type="text" class="form-control" placeholder="Telf:9999-9999"
-                                            name="telefono" data-mask="9999-9999">
-                                    </div>
-                                </div>
-                            </div><br><br><br><br><br><br>-->
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                <?php 
+                        </div><br><br><br><br>
+                        
+                        <div class="typography-hd-cr-4">
+                            <h4>Producto</h4>
+                        </div>
+                        <hr style="width:100%;border-color:light-gray 25px;"><br>
+                        <!--para guardar en detalle compra temporamente con ajax-->
+                        
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="chosen-select-act fm-cmp-mg">
+                            <?php 
                                  $conexion=mysqli_connect('localhost','root', '', 'funesi');
                                  $sql="SELECT * from paquete order by nombre_paq ASC";
                                   $paquetes = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
+
                                 ?>
                                 <div class="nk-int-mk sl-dp-mn">
                                     <h5>Servicio Funebre</h5>
                                 </div>
-                                <div class="chosen-select-act fm-cmp-mg">
-                                    <select class="chosen" data-placeholder="Seleccione paquete" name="paquete">
+
+                               <select class="chosen" data-placeholder="Seleccione paquete" name="paquete" id="paquete">
                                         <option value=""></option>
                                         <?php
                                                 While($paquete=mysqli_fetch_array($paquetes)){
-                                                     echo '<option value="'.$paquete['idPaquete'].'">'.$paquete['nombre_paq']. ' - $'.$paquete['precio_paq'].'</option>';
+                                                     echo '<option value="'.$paquete['idPaquete'].'">'.$paquete['nombre_paq'].'</option>';
                                                 }
                                     ?>
                                     </select>
-                                </div>
-                            </div><br><br><br><br>
-                            <center><div class="form-element-list col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                            <div class="fm-checkbox">
-                                <label>
-                                    <input type="radio" name="color" value="azul" class="i-checks"> CREDITO
-                                </label>
-                                <label>
-                                    <input type="radio" name="color" value="negro" class="i-checks"> CONTADO
-                                </label>
-                                </div>
-                            </div></center>
-                        </div><br><br><br><br><br>
-                        <div class="cmp-tb-hd bcs-hd">
-                            <center>
-                                <div class="dialog-pro dialog">
-                                    <button class="btn btn-success notika-btn-success" type="submit">Facturar <i
-                                            class="fas fa-receipt"></i></button>
-                                    <button class="btn btn-danger notika-btn-danger">Cancelar <i
-                                            class="notika-icon notika-close"></i></button>
-                                </div>
-                            </center>
-                        </div><br><br><br>
-                    </div>
 
-                </div>
-
-                <!--
-                <div class="modal fade" id="modalNuevo" role="dialog">
-                    <div class="modal-dialog modal-large">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <center>
-                                    <div class="typography-hd-cr-4">
-                                        <h3>Editar Datos del Cliente</h3>
-                                    </div>
-                                </center>
-                                <div class="typography-hd-cr-4">
-                                    <h2>Datos Personales</h2>
-                                </div>
-                                <hr style="width:100%;border-color:light-gray 25px;"><br>
-                                <div class="cmp-tb-hd bcs-hd">
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                        <div class="form-group ic-cmp-int">
-                                            <div class="form-ic-cmp">
-                                                <span class="fas fa-id-card"></span>
-                                            </div>
-                                            <div class="nk-int-st">
-                                                <input type="text" class="form-control" placeholder="DUI: 99999999-9">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                        <div class="form-group ic-cmp-int">
-                                            <div class="form-ic-cmp">
-                                                <span class="icon-user"></span>
-                                            </div>
-                                            <div class="nk-int-st">
-                                                <input type="text" class="form-control" placeholder="Nombres">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                        <div class="form-group ic-cmp-int">
-                                            <div class="form-ic-cmp">
-                                                <span class="icon-user"></span>
-                                            </div>
-                                            <div class="nk-int-st">
-                                                <input type="text" class="form-control" placeholder="Apellidos">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <br><br><br>
-                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                                        <div class="form-group ic-cmp-int">
-                                            <div class="form-ic-cmp">
-                                                <span class="fas fa-map-marker-alt"></span>
-                                            </div>
-                                            <div class="nk-int-st">
-                                                <input type="text" class="form-control" placeholder="Dirección">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                        <div class="form-group ic-cmp-int">
-                                            <div class="form-ic-cmp">
-                                                <span class="fas fa-phone-alt"></span>
-                                            </div>
-                                            <div class="nk-int-st">
-                                                <input type="text" class="form-control" placeholder="Telf: 9999-9999" name="telefono">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><br><br><br>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-default">Registrar</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                             </div>
                         </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <div class="form-group ic-cmp-int">
+                                <div class="form-ic-cmp">
+                                    <span class="icon-sort-numeric-asc"></span>
+                                </div>
+                                <div class="chosen-select-act fm-cmp-mg">
+                            <select class="chosen" data-placeholder="Forma de pago" name="pago" id="pago">
+                                        <option value="">Forma de pago</option>
+                                        <option value="contado"> CONTADO</option>
+                                        <option value="credito"> CREDITO</option>
+                            </select>
+
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <!-- <div><button class="btn btn-success notika-btn-primary">Agregar <span
+                                    class="fas fa-cart-plus"></span></button></div><br><br>
+                        <center>
+                            <div class="data-table-area">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+                                            <div class="data-table-list">
+                                                <div class="basic-tb-hd">
+                                                    <h2>Compras</h2>
+                                                </div>
+                                                <div class="table-responsive">
+                                                    <table id="data-table-basic" class="table table-striped">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Producto</th>
+                                                                <th>Categoria</th>
+                                                                <th>Cantidad</th>
+                                                                <th>Precio Unitario</th>
+                                                                <th>Sub-Total</th>
+                                                                <th>Eliminar</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Sillas Magna Azul</td>
+                                                                <td>Equipo</td>
+                                                                <td>45</td>
+                                                                <th>12.50</th>
+                                                                <th>562.5</th>
+                                                                <td>
+                                                                    <center> <button
+                                                                            class="btn btn-danger danger-icon-notika waves-effect"
+                                                                            data-toggle="modal"
+                                                                            data-target="#modalVer"><span
+                                                                                class="fas fa-trash-alt"></span></button>
+                                                                    </center>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                        <tfoot>
+                                                            <tr>
+                                                            </tr>
+                                                        </tfoot>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        <div class="dialog-pro dialog">
+                            <button class="btn btn-success notika-btn-success" type="submit">ok <i
+                                    class="notika-icon notika-checked"></i></button>
+
+                           
+                            <button class="btn btn-danger notika-btn-danger">Cancelar <i
+                                    class="notika-icon notika-close"></i></button>
+                        
+                           
+                        </div>
                     </div>
-                </div>-->
+                </div>
+
             </div>
+
+        </div>
     </form>
+    <br/> <br/>
+    <div class="inbox-area">
+            <div class="container">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="form-element-list">
+                        <div class="typography-hd-cr-4">
+                            <table class="table table-bordered table-sm">
+            <thead>
+              <tr>
+                
+                <td>Nombre Servicio</td>
+                <td>Féretro</td>
+                <td>Existencia</td>
+                <td>Servicio</td>
+                <td>Precio</td>
+              </tr>
+            </thead>
+            <tbody id="tabla-ok"></tbody>
+          </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         
+ 
     <!-- Inbox area End-->
     <!-- Start Footer area-->
     <div class="footer-copyright-area">
@@ -292,21 +268,6 @@ if (isset($_SESSION['usuarioActivo'])) {
         </div>
     </div>
     <!-- End Footer area-->
-    <?php 
-    if (isset($_GET['opcion'])) {
-        
-    }
-    $conexion=mysqli_connect('localhost','root', '', 'funesi');
-    $sql="SELECT idCliente, nombre_cli FROM cliente";
-     $clientes = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
-   ?>
-
-    <script type="text/javascript">
-        function buscar() {
-            var opcion = document.getElementById('cliente').value;
-            window.location.href = 'http://localhost/Funesi/notika/green-horizotal/RegVenta.php?opcion=' + opcion;
-        }
-    </script>
 
     <!-- jquery
     ============================================ -->
@@ -395,7 +356,7 @@ if (isset($_SESSION['usuarioActivo'])) {
 
     <!--  todo JS
     ============================================ -->
-    <script src="js/todo/jquery.todo.js"></script>
+    <!--<script src="js/todo/jquery.todo.js"></script>-->
     <!-- plugins JS
     ============================================ -->
     <script src="js/plugins.js"></script>
@@ -404,6 +365,9 @@ if (isset($_SESSION['usuarioActivo'])) {
     <script src="js/main.js"></script>
     <!-- tawk chat JS
     ============================================ -->
+    <script src="Reg_ventas.js"></script>
+    <!--<script src="jquery-3.3.1.min.js"></script>-->
+</body>
 
 </html>
 <?php
