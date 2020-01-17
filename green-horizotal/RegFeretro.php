@@ -91,7 +91,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                             <div class="form-group ic-cmp-int">
                                 <div class="form-ic-cmp">
-                                    <span class="icon-list-numbered"></span>
+                                <span class="fas fa-dollar-sspangn"></span>
                                 </div>
                                 <div class="nk-int-st">
                                     <input type="text" class="form-control" placeholder="Precio" name="precio">

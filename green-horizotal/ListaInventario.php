@@ -27,7 +27,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                     <i class="notika-icon notika-form"></i>
                   </div>
                   <div class="breadcomb-ctn">
-                    <h2>LISTADO DE FERETROS</h2>
+                    <h2>LISTADO DE INVENTARIO</h2>
                   </div>
                 </div>
               </div>
@@ -46,9 +46,9 @@ if (isset($_SESSION['usuarioActivo'])) {
 
   <?php 
         $conexion=mysqli_connect('localhost','root', '', 'funesi');
-        $sql="SELECT * from producto where estado_Pro='$tipo' order by nombre_Pro ASC";
+        $sql="SELECT * from invetario  order by idProducto ASC";
         //$sql="SELECT * FROM `producto` WHERE distinto = 0 order by tipo_Prod='$tipo' ASC";
-        $productos= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
+        $inventarios= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
 
   <!-- Data Table area Start-->
   <div class="data-table-area">
@@ -62,11 +62,11 @@ if (isset($_SESSION['usuarioActivo'])) {
                 <button class="btn btn-success notika-btn-success">Dar Altas <i
                     class="fas fa-arrow-alt-circle-up"></i></button><br><br>
                 <?php  if ($tipo == 1) { ?>
-                <a target="_blank" href="Reportes/ReporteProducto_Act.php?tipo=1"><button
+                <a target="_blank" href="Reportes/Reporte_Act.php?tipo=1"><button
                     class="btn btn-success notika-btn-success">Reporte A <i class="fas fa-print"></i>
                   </button></a><br><br>
                 <?php  }else{ ?>
-                <a target="_blank" href="Reportes/ReporteProducto_In.php?tipo=0"><button
+                <a target="_blank" href="Reportes/Reporte_In.php?tipo=0"><button
                     class="btn btn-success notika-btn-success">Reporte I <i class="fas fa-print"></i>
                   </button></a><br><br><?php } ?>
               </ul>
@@ -84,26 +84,26 @@ if (isset($_SESSION['usuarioActivo'])) {
                 <thead>
                   <tr>
                     <th>Modelo</th>
-                    <th>Material</th>
-                    <th>Color</th>
+                    <th>Existencias</th>
                     <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php While($mostrar=mysqli_fetch_assoc($productos)){?>
+                  <?php While($mostrar=mysqli_fetch_assoc($inventarios)){?>
                   <tr>
-                    <td><?php echo $mostrar['nombre_Pro'] ?></td>
-                    <td><?php echo $material[$mostrar['material_Pro']] ?></td>
-                    <td><?php echo $mostrar['color_Pro'] ?></td>
+
+                    <td><?php
+                         $aux = $mostrar['idProducto'];
+                         $sql1 = "SELECT nombre_Pro FROM producto where idProducto = '$aux'";
+                         $prducto = mysqli_query($conexion, $sql1) or die("No se puedo ejecutar la consulta");
+                         $prducto = mysqli_fetch_array($prducto);
+                         echo $prducto['nombre_Pro'];
+                    ?></td>
+                    <td><?php echo $mostrar['stock'] ?></td>
                     <td>
                       <center><button type="button" class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" title="Ver" data-target="#modalVerFeretro"
-                          onclick="mostrarFeretro('<?php echo $mostrar['nombre_Pro']?>','<?php echo $mostrar['material_Pro']?>','<?php echo $mostrar['color_Pro']?>','<?php echo $mostrar['stock_Pro']?>','<?php echo $mostrar['caracteristicas']?>')"><i
+                          data-toggle="modal" title="Ver" data-target="#modalVerFeretro"><i
                             class="fas fa-eye"></i></button>
-                        <button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button>
-                        <button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                            class="fas fa-arrow-alt-circle-down"></i></button>
                         <center>
                     </td>
 
@@ -128,57 +128,56 @@ if (isset($_SESSION['usuarioActivo'])) {
                               </div>
                               <hr style="width:100%;border-color:light-gray 25px;"><br>
                               <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                  <span class="icon-barcode"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Modelo" 
-                                    id="modeloo">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                  <span class="fas fa-boxes"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Material" 
-                                    aria-required="true" value="" id="materiall">
+                                <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                    <span class="icon-barcode"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Modelo" id="modeloo">
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                  <span class="fas fa-palette"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Color" aria-required="true"
-                                    value=""  id="colorr">
-                                </div>
-                              </div>
-                            </div>
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                              <div class="form-group ic-cmp-int">
-                                <div class="form-ic-cmp">
-                                  <span class="icon-list-numbered"></span>
-                                </div>
-                                <div class="nk-int-st">
-                                  <input type="text" class="form-control" placeholder="Stock" aria-required="true"
-                                    value=""  id="stockk">
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                    <span class="fas fa-boxes"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Material" aria-required="true"
+                                      value="" id="materiall">
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                              <div class="form-group">
-                                <div class="nk-int-st">
-                                  <textarea class="form-control auto-size" rows="2" placeholder="Características..."
-                                    aria-required="true" value="" id="caractee"></textarea>
+                              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                    <span class="fas fa-palette"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Color" aria-required="true"
+                                      value="" id="colorr">
+                                  </div>
                                 </div>
                               </div>
-                            </div>
+                              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                <div class="form-group ic-cmp-int">
+                                  <div class="form-ic-cmp">
+                                    <span class="icon-list-numbered"></span>
+                                  </div>
+                                  <div class="nk-int-st">
+                                    <input type="text" class="form-control" placeholder="Stock" aria-required="true"
+                                      value="" id="stockk">
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                <div class="form-group">
+                                  <div class="nk-int-st">
+                                    <textarea class="form-control auto-size" rows="2" placeholder="Características..."
+                                      aria-required="true" value="" id="caractee"></textarea>
+                                  </div>
+                                </div>
+                              </div>
                               <div>
                                 <center>
                                   <image src="img/logo/productoo.png" />

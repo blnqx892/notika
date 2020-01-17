@@ -111,7 +111,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                 $producto = mysqli_fetch_array($producto);
                                                 echo $producto['nombre_Pro'];
                                         ?></td>
-                                        <td><?php echo $mostrar['unitario_Com'] ?></td>
+                                        <td><?php echo $mostrar['unitario_Com']?></td>
                                         <td>
                                             <?php $fechaCom = explode("-",$mostrar['fecha_Com']);
                                               $fechaCom = $fechaCom[2].'/'.$fechaCom[1].'/'.$fechaCom[0];
