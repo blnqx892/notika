@@ -2,20 +2,75 @@
 <?php
 session_start();
 if (isset($_SESSION['usuarioActivo'])) {
+
+    if (!empty($_GET['x'])) {
+    //soy el id el que te esta salvando la vida en esta pantalla
+    $id = $_GET['x'];
+
+      
+}
+
+$conexion=mysqli_connect('localhost','root', '', 'funesi');
+
+$queryP = "SELECT * FROM venta INNER JOIN cliente ON venta.id_cliente=cliente.idCliente INNER JOIN paquete ON paquete.idPaquete=venta.paquete_ven WHERE venta.idVenta='$id'";
+                    $result = mysqli_query($conexion, $queryP);
+
+                     while ($roww = mysqli_fetch_array($result)) {
+                     $c_nombre = $roww['nombre_cli'];
+                     $paquete = $roww['nombre_paq'];
+                     $recibo=$roww['numero_ven'];
+                     $precio=$roww['precio_paq'];
+        }
+
+        //********para sumar todos los abonos
+$sumar="SELECT SUM(valor) as valores FROM abono WHERE recibo='$recibo'";
+$xy = mysqli_query($conexion, $sumar);
+
+while ($re = mysqli_fetch_array($xy)) {
+
+                    $xResta=$re['valores'];
+        }
+
+
+
+//***************
+
 ?>
 <!doctype html>
 <html class="no-js" lang="">
 <!--IMPORTE head desde Menu/apertura-->
 <?php include("Menu/apertura.php"); ?>
 <!--IMPORTE head desde Menu/apertura-->
-
 <body>
     <!-- Importe menu desde Menu/menu-->
     <?php include("Menu/menu.php"); ?>
 
     <!-- Breadcomb area Start-->
     <div class="breadcomb-area">
+
         <div class="container">
+
+            <?php
+   if (!empty($_POST['valor'])) {
+    $valor = $_POST['valor'];
+    $proxi = $_POST['proximo'];
+
+    if ($xResta==NULL) {
+       $restar=$precio-$valor;
+    }else{
+        $sum=$xResta+$valor;
+    $restar=($precio-$sum);
+     }
+
+     mysqli_query($conexion,"INSERT INTO abono (recibo,valor,fecha,restante)
+        VALUES ('$recibo','$valor','$proxi','$restar')");
+
+      echo "<script>
+          location.href ='cxc.php?x=$id';
+        </script>";
+    }
+
+    ?>
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="breadcomb-list">
@@ -26,7 +81,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         <i class="notika-icon notika-form"></i>
                                     </div>
                                     <div class="breadcomb-ctn">
-                                        <h2>LISTADO DE VENTAS</h2>
+                                        <h2>ABONOS A CREDITOS</h2>
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +102,6 @@ if (isset($_SESSION['usuarioActivo'])) {
                     <hr>
                         <div class="inbox-status">
                             <ul class="inbox-st-nav inbox-ft">
-                            <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button><br><br>
                             <button class="btn btn-success notika-btn-success">Reporte   <i class="fas fa-print"></i> </button><br><br>
                             </ul>
                         </div>
@@ -57,78 +111,120 @@ if (isset($_SESSION['usuarioActivo'])) {
                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
                     <div class="data-table-list">
                         <div class="basic-tb-hd">
-                            <h2>Ventas</h2>
+                            <h2>Ventas al credito</h2>
                         </div>
-                        <div class="table-responsive">
+                         <div class="row">
+     <div class="col-md-12 text-info" style="font-size:16px">
+    <br>
+<strong class="col-md-2">Cliente:</strong>
+<div class="col-md-4">
+<input class="form-control" id="" type="text" value="<?php echo $c_nombre;?>" disabled> 
+</div>
+<strong class="col-md-2">Paquete: </strong>
+<div class="col-md-4">
+<input class="form-control" id="" type="text" value="<?php echo $paquete;?>" disabled>
+</div>
+<br><br><br>
+<strong class="col-md-2">Precio: </strong>
+<div class="col-md-4">
+<input class="form-control" id="" type="text" value="<?php echo '$'.$precio;?>" disabled>
+</div>
+</div>
+       
+
+<!--botones -->
+<div class="col-md-4">
+            <div class="panel-body" align="center">                                                                                 
+                <a href="ListaVentaCredito.php">
+                    <button type="button" class="btn btn-primary"><i class="fa fa-arrow-left fa-2x" title="Regresar"></i>
+                    </button></a>
+<?php
+
+    
+//if ($deuda-$abonos <> 0 && $estadoA=='EnProceso') {
+    echo '<button type="button" class="btn btn-success " data-toggle="modal" data-target="#abono"><i class="fa fa-plus fa-2x" title="Agregar Nuevo Abono"></i>
+                                      </button>';
+    
+//} 
+?>        
+             
+            </div>
+        </div>
+
+        <!--MODAL PARA AGREGAR LOS ABONOS-->
+         <!--  Modals-->
+        <div class="modal fade" id="abono" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <!--<div class="modal fade" id="abono" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+        <form name="forms" method="post" action="">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                            <h3 align="center" class="modal-title" id="myModalLabel">Registrar<br><?php echo 'Venta por Cobrar No. ' . $recibo; ?></h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">                                       
+                                <div class="col-md-6">                                          
+                                    <label>Valor del Abono:</label>                                             
+                                    <input type="text" name="valor"  min="1" max="<?php //echo $deuda - abonos_saldo($id); ?>" autocomplete="off" required class="form-control"><br><br>
+                                </div>
+                                <div class="col-md-6">                                          
+                                    <label>Fecha pago:</label>                                             
+                                    <input type="date" name="proximo" value="1" min="1" autocomplete="off" required class="form-control"><br><br>
+                                </div>
+                                 
+                            </div> 
+                        </div> 
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Registrar</button>
+                        </div>                                       
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <!--FIN MODAL PARA ABONAR-->
+<!---->
+</div>
+</div>
+
+
+                       <div class="table-responsive">
+
                             <table id="data-table-basic" class="table table-striped">
                                 <thead>
                                     <?php 
                       $conexion=mysqli_connect('localhost','root', '', 'funesi');
-                    $queryP = "SELECT * FROM venta INNER JOIN cliente ON venta.id_cliente=cliente.idCliente
-                     INNER JOIN paquete ON paquete.idPaquete=venta.paquete_ven";
+                    $queryP = "SELECT * FROM abono WHERE recibo='$recibo'";
                     $result = mysqli_query($conexion, $queryP);
 
                     ?>
                                     <tr>
 
-                                        <th>N° Venta</th>
+                                        <th>N° Cuenta</th>
+                                        <th>Pagado</th>
                                         <th>Fecha</th>
-                                        <th>Cliente</th>
-                                        <th>Servicio Funebre</th>
-                                        <th>Precio</th>
-                                        <th>Pago</th>
-                                        <th>Recibo</th>
+                                        <th>Restante</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                    <?php While($mostrar=mysqli_fetch_assoc($result)){
+                    <?php While($y=mysqli_fetch_assoc($result)){
+                       
+
                     ?>
                   <tr>
 
-                    <td><?php echo $mostrar['numero_ven'] ?></td>
-                    <td><?php echo $mostrar['fecha_ven'] ?></td>
-                    <td><?php echo $mostrar['nombre_cli'] ?></td>
-            <td><?php echo $mostrar['nombre_paq'] ?>
-            <td><?php echo $mostrar['precio_paq'] ?>
-            <td><?php echo $mostrar['pago'] ?>
+                    <td><?php echo $y['recibo'] ?></td>
+                    <td><?php echo $y['valor'] ?></td>
+                    <td><?php echo $y['fecha'] ?></td>
+            <td><?php echo $y['restante'] ?>
                 
             </td>
-            <td>
-                                            <center><button
-                                                    class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalVer"><i
-                                                        class="fas fa-eye"></i>Recibo</button>
-                                            </center>
-                                        </td>
-                                    </tr>
+                                         </tr>
             <?php }?>
-
-                                    
-                                    <div class="modal fade" id="modalVer" role="dialog">
-                                        <div class="modal-dialog modal-large">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close"
-                                                        data-dismiss="modal">&times;</button>
-                                                </div>
-                                                <div class="modal-body">
-                                                       <center>
-                                                        <div class="typography-hd-cr-4">
-                                                            <h3>Información de la Venta</h3>
-                                                        </div>
-                                                    </center>
-                                                    <hr style="width:100%;border-color:light-gray 25px;"><br>
-                                                    <div class="cmp-tb-hd bcs-hd">
-                                                        
-                                                </div><br><br><br>
-
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default"
-                                                        data-dismiss="modal">Cerrar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                 </tbody>
                                 <tfoot>

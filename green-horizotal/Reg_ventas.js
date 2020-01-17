@@ -16,7 +16,10 @@ console.log('jquery is working!');
       console.log(response);
      // $('#detalle').trigger('reset');
     // mostrar();
-    location.reload(true);
+    //location.reload('listaVenta.php');
+    //header("location: /Funesi/notika/green-horizotal/ListaVenta.php");
+    window.location.replace("/Funesi/notika/green-horizotal/ListaVenta.php");
+    
     });
     //fin
     

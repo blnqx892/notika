@@ -26,7 +26,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         <i class="notika-icon notika-form"></i>
                                     </div>
                                     <div class="breadcomb-ctn">
-                                        <h2>LISTADO DE VENTAS</h2>
+                                        <h2>LISTADO DE VENTAS AL CREDITO</h2>
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +47,6 @@ if (isset($_SESSION['usuarioActivo'])) {
                     <hr>
                         <div class="inbox-status">
                             <ul class="inbox-st-nav inbox-ft">
-                            <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button><br><br>
                             <button class="btn btn-success notika-btn-success">Reporte   <i class="fas fa-print"></i> </button><br><br>
                             </ul>
                         </div>
@@ -57,15 +56,14 @@ if (isset($_SESSION['usuarioActivo'])) {
                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
                     <div class="data-table-list">
                         <div class="basic-tb-hd">
-                            <h2>Ventas</h2>
+                            <h2>Ventas al credito</h2>
                         </div>
                         <div class="table-responsive">
                             <table id="data-table-basic" class="table table-striped">
                                 <thead>
                                     <?php 
                       $conexion=mysqli_connect('localhost','root', '', 'funesi');
-                    $queryP = "SELECT * FROM venta INNER JOIN cliente ON venta.id_cliente=cliente.idCliente
-                     INNER JOIN paquete ON paquete.idPaquete=venta.paquete_ven";
+                    $queryP = "SELECT * FROM venta INNER JOIN cliente ON venta.id_cliente=cliente.idCliente INNER JOIN paquete ON paquete.idPaquete=venta.paquete_ven WHERE venta.pago='credito'";
                     $result = mysqli_query($conexion, $queryP);
 
                     ?>
@@ -82,6 +80,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                                 </thead>
                                 <tbody>
                     <?php While($mostrar=mysqli_fetch_assoc($result)){
+                        $id=$mostrar['idVenta'];
+
                     ?>
                   <tr>
 
@@ -94,41 +94,16 @@ if (isset($_SESSION['usuarioActivo'])) {
                 
             </td>
             <td>
-                                            <center><button
-                                                    class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
-                                                    data-toggle="modal" data-target="#modalVer"><i
-                                                        class="fas fa-eye"></i>Recibo</button>
+             <center>
+                <a href="cxc.php?x=<?php echo $id;?>"> 
+                <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
+                     ><i
+                      class="fas fa-eye"></i>Abonar</button>
+                  </a>
                                             </center>
                                         </td>
                                     </tr>
             <?php }?>
-
-                                    
-                                    <div class="modal fade" id="modalVer" role="dialog">
-                                        <div class="modal-dialog modal-large">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close"
-                                                        data-dismiss="modal">&times;</button>
-                                                </div>
-                                                <div class="modal-body">
-                                                       <center>
-                                                        <div class="typography-hd-cr-4">
-                                                            <h3>Información de la Venta</h3>
-                                                        </div>
-                                                    </center>
-                                                    <hr style="width:100%;border-color:light-gray 25px;"><br>
-                                                    <div class="cmp-tb-hd bcs-hd">
-                                                        
-                                                </div><br><br><br>
-
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default"
-                                                        data-dismiss="modal">Cerrar</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                 </tbody>
                                 <tfoot>
