@@ -6,7 +6,6 @@
 */
 
 session_start();
-
 $bandera = $_POST["bandera"];
 
 

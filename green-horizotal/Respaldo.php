@@ -51,8 +51,10 @@ if (isset($_SESSION['usuarioActivo'])) {
 							<div class="col-lg-12">
 								<div class="ibox float-e-margins">
 									<div class="ibox-content">
+									
 										<form class="form-horizontal" action="../Controlador/clienteC.php" method="POST" id="guardarCli">
 											<div class="table-responsive">
+											
 												<?php  $ruta ="../backup/db";
 
 												if (is_dir($ruta)) {
