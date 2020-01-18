@@ -88,6 +88,8 @@
               </li>
               <li><a href="ListaVenta.php">Ventas</a>
               </li>
+              <li><a href="ListaVentaCredito.php">Ventas Credito</a>
+              </li>
             </ul>
           </div>
           <div id="clientes" class="tab-pane notika-tab-menu-bg animated flipInX">
