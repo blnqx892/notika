@@ -1,5 +1,8 @@
 <?php 
 session_start();
+echo '
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>';
+echo '<script  src = "https://cdn.jsdelivr.net/npm/sweetalert2@9"> </script>';
 include("../Confi/Conexion.php");
 $conexion=conectarMysql();
 
@@ -34,29 +37,54 @@ $inventatiroAgg="INSERT INTO invetario(idProducto,stockMinimo,precioVenta)VALUES
 ('$id','$stock','$precio')";
 mysqli_query($conexion, $inventatiroAgg) or die ("Error no conectae".mysqli_connect_error());
 
-    echo"
-<script language='javascript'>alert('Registro de Feretro Exitoso!!')
- window.location='/Funesi/notika/green-horizotal/RegFeretro.php'
-    </script>";
+echo "<script language='javascript'>
+$(document).ready(function () {
+    setTimeout(function () {
+        Swal.fire({
+            title: '',
+            text: '¡¡¡Registro Exitoso!!!',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+          }).then((result) => {
+            if (result.value) {
+                window.location='/Funesi/notika/green-horizotal/RegFeretro.php';
+            }
+          })
+    }, 1000);
+});
+
+</script>";
  //////////CAPTURA DATOS PARA BITACORA
     $usuari=$_SESSION['usuarioActivo']['usuario'];
     $sql="INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Registró un feretro')";
     mysqli_query($conexion, $sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
 }
 
-if ($bandera=="EditarEquipo") {
-    $nombre=$_POST["nombre"];
-    $categoria=$_POST["categoria"];
-    $stock=$_POST["stock"];
-    $caracte=$_POST["caracte"];
-    $idEquipo=$_POST["idEquipo"];
-    $sql="UPDATE producto set nombre_Pro='$nombre', stock_Pro='$stock', caracteristicas='$caracte' where idProducto ='$idEquipo'";
+if ($bandera=="EditarFeretro") {
+    $modeloo=$_POST["modeloo"];
+    $colorr=$_POST["colorr"];
+    $caractee=$_POST["caractee"];
+    $idferetro=$_POST["idferetro"];
+    $sql="UPDATE producto set nombre_Pro='$modeloo',color_Pro='$colorr', caracteristicas='$caractee' where idProducto ='$idferetro'";
 
     mysqli_query($conexion, $sql) or die ("Error no conectai".mysqli_connect_error());
-    echo"
-<script language='javascript'>alert('Registro Editado de Equipo Exitoso!!')
- window.location='/Funesi/notika/green-horizotal/ListaEquipo.php'
-    </script>";
+    echo "<script language='javascript'>
+	$(document).ready(function () {
+		setTimeout(function () {
+			Swal.fire({
+				title: '',
+				text: '¡¡¡Modificación Exitosa!!!',
+				icon: 'success',
+				confirmButtonText: 'Aceptar'
+			  }).then((result) => {
+				if (result.value) {
+					window.location='/Funesi/notika/green-horizotal/ListaFeretros.php';
+				}
+			  })
+		}, 1000);
+	});
+	
+	</script>";
  //////////CAPTURA DATOS PARA BITACORA
     $usuari=$_SESSION['usuarioActivo']['usuario'];
     $sql="INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usuari',now(),'Edito un equipo')";
@@ -65,8 +93,8 @@ if ($bandera=="EditarEquipo") {
 
 if ($bandera=="cambio") {
 
-	$sql = "UPDATE producto set tipo_Prod='".$_POST["valor"]."' where idProducto = '".$_POST["id"]."'";
-	$mostrar = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta");
+	$sql = "UPDATE producto set estado_Pro='".$_POST["valor"]."' where idProducto = '".$_POST["id"]."'";
+	$mostrar = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consultaa");
 	if ($_POST["valor"]==1) {
 	$aux = 0;
 	//////////CAPTURA DATOS PARA BITACORA
@@ -82,7 +110,7 @@ $sql = "INSERT INTO bitacora (usuario_Usu,sesionInicio,actividad) VALUES ('$usua
 mysqli_query($conexion,$sql) or die ("Error a Conectar en la BD guardo bita".mysqli_connect_error());
 ///////////////////////////////////////////////
 	}
-	header("location: /Funesi/notika/green-horizotal/ListaEquipo.php?tipo=".$aux."");
+	header("location: /Funesi/notika/green-horizotal/ListaFeretros.php?tipo=".$aux."");
 	
  }
 ?>

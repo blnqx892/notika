@@ -1,5 +1,9 @@
 <?php
 session_start();
+echo '
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>';
+echo '<script  src = "https://cdn.jsdelivr.net/npm/sweetalert2@9"> </script>';
+include("../Confi/Conexion.php");
 include("../Confi/Conexion.php");
 $conexion = conectarMysql();
 
@@ -19,6 +23,7 @@ if ($bandera=="GuardarCompra") {
 	('$facturaC','$fechaC','$productoC','$cantidadC','$unitarioC','$ProveedorC',1)";
 
 	mysqli_query($conexion,$sql) or die ("Error no conectai".mysqli_connect_error());
+
 	//para registrar en el Kardex
 	$total=($cantidadC)*($unitarioC);
 	$compraKardex="INSERT INTO kardex(factura,tipo,idProducto,cantidad,costo,importe,fecha)
@@ -36,10 +41,22 @@ if ($bandera=="GuardarCompra") {
 	//$_SESSION['mensaje'] ="Registro guardado exitosamente";
 	//header("location: /Funesi/notika/green-horizotal/RegCompra.php");
 
-	echo"
-	<script language='javascript'>
-	alert('Registro de Compra Exitoso!!')
-	window.location='/Funesi/notika/green-horizotal/RegCompra.php'
+	echo "<script language='javascript'>
+	$(document).ready(function () {
+		setTimeout(function () {
+			Swal.fire({
+				title: '',
+				text: '¡¡¡Registro Exitoso!!!',
+				icon: 'success',
+				confirmButtonText: 'Aceptar'
+			  }).then((result) => {
+				if (result.value) {
+					window.location='/Funesi/notika/green-horizotal/RegCompra.php';
+				}
+			  })
+		}, 1000);
+	});
+	
 	</script>";
 	//////////CAPTURA DATOS PARA BITACORA
 $usuari=$_SESSION['usuarioActivo']['usuario'];

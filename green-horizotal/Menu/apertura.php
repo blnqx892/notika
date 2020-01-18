@@ -13,6 +13,9 @@
 
   <link rel="stylesheet" href="fonts/style.css">
 
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="script.js"></script>
+
   <!-- Place your kit's code here -->
 
   <!-- notification CSS

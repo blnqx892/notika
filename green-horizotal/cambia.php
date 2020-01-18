@@ -57,38 +57,42 @@ exit;
   <!-- Breadcomb area End-->
   <!-- Inbox area Start-->
   <form id="loginform" role="form" action="guarda_pass.php" method="POST" autocomplete="off">
-  <input type="hidden" id="user_id" name="user_id" value ="<?php echo $user_id; ?>" />
-	<input type="hidden" id="token" name="token" value ="<?php echo $token; ?>" />
-  <div class="inbox-area">
-    <div class="container">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <div class="form-element-list">
-              <div class="typography-hd-cr-4">
-                <h3>Ingrese Contraseña</h3>
+    <input type="hidden" id="user_id" name="user_id" value="<?php echo $user_id; ?>" />
+    <input type="hidden" id="token" name="token" value="<?php echo $token; ?>" />
+    <div class="inbox-area">
+      <div class="container">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="form-element-list">
+            <div class="typography-hd-cr-4">
+              <h3>Ingrese Contraseña</h3>
+            </div>
+            <hr style="width:100%;border-color:light-gray 25px;"><br><br><br><br>
+            <div class="cmp-tb-hd bcs-hd">
+
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="form-group ic-cmp-int">
+                  <div class="form-ic-cmp">
+                    <span class="icon-key"></span>
+                  </div>
+                  <div class="nk-int-st">
+                    <input type="password" required class="form-control" placeholder="Nueva Contraseña" name="password"
+                      value="" id="password">
+                  </div>
+                  <div id="error1"></div>
+                </div>
               </div>
-              <hr style="width:100%;border-color:light-gray 25px;"><br><br><br><br>
-              <div class="cmp-tb-hd bcs-hd">
-                
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                  <div class="form-group ic-cmp-int">
-                    <div class="form-ic-cmp">
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="form-group ic-cmp-int">
+                  <div class="form-ic-cmp">
                     <span class="icon-key"></span>
-                    </div>
-                    <div class="nk-int-st">
-                <input type="password" required class="form-control" placeholder="Nueva Contraseña" name="password" aria-hidden="true">
-                    </div>
                   </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                  <div class="form-group ic-cmp-int">
-                    <div class="form-ic-cmp">
-                    <span class="icon-key"></span>
-                    </div>
-                    <div class="nk-int-st">
-                      <input type="password" required class="form-control" placeholder="Repetir Contraseña" name="con_password" aria-hidden="true">
-                    </div>
+                  <div class="nk-int-st">
+                    <input type="password" required class="form-control" placeholder="Repetir Contraseña"
+                      name="con_password" value="" id="con_password">
                   </div>
+                  <div id="error22"></div>
                 </div>
+              </div><br><br>
               <center>
                 <div class="dialog-pro dialog">
                   <button class="btn btn-success notika-btn-success" id="btn-login" type="submit">Modificar <i
@@ -97,9 +101,9 @@ exit;
               </center>
             </div>
 
-      </div>
-    </div>
-  </div><br><br><br><br><br><br><br><br><br>
+          </div>
+        </div>
+      </div><br><br><br><br><br><br><br><br><br>
   </form>
   <!-- Inbox area End-->
   <!-- Start Footer area-->
@@ -115,6 +119,8 @@ exit;
     </div>
   </div>
   <!-- End Footer area-->
+
+  <script></script>
   <!-- jquery
 		============================================ -->
   <script src="js/vendor/jquery-1.12.4.min.js"></script>
@@ -184,6 +190,8 @@ exit;
   <script src="js/data-table/data-table-act.js"></script>
   <!-- main JS
     ============================================ -->
+
+
 </body>
 
 </html>

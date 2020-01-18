@@ -106,36 +106,35 @@ if (isset($_SESSION['usuarioActivo'])) {
                         data-target="#modalVerProveedor" title="Ver"
                         onclick="mostraProveedor('<?php echo $mostrar['nombre_prov']?>','<?php echo $mostrar['direccion_Prov']?>','<?php echo $mostrar['telefonoResp_Prov']?>','<?php echo $mostrar['nombreEmpr']?>','<?php echo $mostrar['telefEmp']?>')"><i
                           class="fas fa-eye"></i></button>
-                      <?php  if ($tipo == 1) {
-                                                ?>
+                      <?php  if ($tipo == 1) {?>
 
-                                            
+                        <?php if( $_SESSION['usuarioActivo']['id_tipo'] == 1 ){?>
                       <button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
                         data-toggle="modal" data-target="#modalEditarProveedor" title="Modificar"
                         onclick="editarProveedor('<?php echo $mostrar['nombre_prov']?>','<?php echo $mostrar['direccion_Prov']?>','<?php echo $mostrar['telefonoResp_Prov']?>','<?php echo $mostrar['nombreEmpr']?>','<?php echo $mostrar['telefEmp']?>','<?php echo $mostrar['idProveedor']?>')"><i
-                          class="fas fa-edit"></i></button>
+                          class="fas fa-edit"></i></button><?php } ?>
 
                       <?php  }else{ }?>
                       <?php  if($tipo == 1) { ?>
                         
-                      
+                        <?php if( $_SESSION['usuarioActivo']['id_tipo'] == 1 ){?>
                       <button type="button" class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"
                         title="Dar de baja"><span class="fas fa-arrow-alt-circle-down"
-                          onclick="baja(<?php echo $mostrar['idProveedor'] ?>)"></span></button>
+                          onclick="baja(<?php echo $mostrar['idProveedor'] ?>)"></span></button><?php } ?>
 
                       <?php  }else{ ?>
                         
-                        
+                        <?php if( $_SESSION['usuarioActivo']['id_tipo'] == 1 ){?>
                       <button type="button" class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect"
                         title="Dar de alta"><i class="fas fa-arrow-alt-circle-up"
-                          onclick="alta(<?php echo $mostrar['idProveedor'] ?>)"></i></button>
+                          onclick="alta(<?php echo $mostrar['idProveedor'] ?>)"></i></button><?php } ?>
                       <?php } ?>
                       <?php  }else{ if($tipo == 0){?>
                         
-                       
+                        <?php if( $_SESSION['usuarioActivo']['id_tipo'] == 1 ){?>
                       <button type="button" class="btn btn-teal teal-icon-notika btn-reco-mg btn-button-mg waves-effect"
                         title="Dar de alta"><i class="fas fa-arrow-alt-circle-up"
-                          onclick="alta(<?php echo $mostrar['idProveedor'] ?>)"></i></button>
+                          onclick="alta(<?php echo $mostrar['idProveedor'] ?>)"></i></button><?php } ?>
                       <?php } }?>
                     </td>
 

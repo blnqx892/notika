@@ -56,7 +56,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                     </div>
                                     <div class="nk-int-st">
                                         <input type="text" class="form-control" placeholder="Nombre Paquete"
-                                            name="nombrePaq">
+                                            required name="nombrePaq">
                                     </div>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                   $productos = mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); 
                                 ?>
                                 <div class="chosen-select-act fm-cmp-mg">
-                                    <select class="chosen" data-placeholder="Elegir Féretro" name="feretro" id=""
+                                    <select class="chosen" data-placeholder="Elegir Féretro" required name="feretro" id=""
                                         aria-hidden="true">
                                         <option value=""></option>
                                         <?php
@@ -84,8 +84,8 @@ if (isset($_SESSION['usuarioActivo'])) {
                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                                 <div class="form-group">
                                     <div class="nk-int-st">
-                                        <textarea class="form-control auto-size" rows="2" placeholder="Servicios"
-                                            name="servicios"></textarea>
+                                        <textarea type=text class="form-control auto-size" rows="2" placeholder="Servicios"
+                                            required name="servicios"></textarea>
                                     </div>
                                 </div>
                             </div><br>
@@ -95,7 +95,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                         <span class="fas fa-dollar-sign"></span>
                                     </div>
                                     <div class="nk-int-st">
-                                        <input type="text" class="form-control" placeholder="Precio" name="precio">
+                                        <input type="text" class="form-control" placeholder="Precio" required name="precio">
                                     </div>
                                 </div>
                             </div><br><br><br><br><br>

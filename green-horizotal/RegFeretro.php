@@ -54,13 +54,13 @@ if (isset($_SESSION['usuarioActivo'])) {
                                 <span class="icon-barcode"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Modelo" name="modelo">
+                                    <input required type="text" class="form-control" placeholder="Modelo" name="modelo">
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                             <div class="chosen-select-act fm-cmp-mg">
-                                <select class="chosen" data-placeholder="Elegir material" name="material" id=""
+                                <select required class="chosen" data-placeholder="Elegir material" name="material" id=""
                                     aria-hidden="true">
                                     <option value=""></option>
                                     <option value="1">Madera</option>
@@ -74,7 +74,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                 <span class="fas fa-palette"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Color" name="color"> 
+                                    <input required type="text" class="form-control" placeholder="Color" name="color"> 
                                 </div>
                             </div>
                         </div>
@@ -84,7 +84,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                     <span class="icon-list-numbered"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Stock minimo" name="stock">
+                                    <input required type="text" class="form-control" placeholder="Stock minimo" name="stock">
                                 </div>
                             </div>
                         </div>
@@ -94,7 +94,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                 <span class="fas fa-dollar-sspangn"></span>
                                 </div>
                                 <div class="nk-int-st">
-                                    <input type="text" class="form-control" placeholder="Precio" name="precio">
+                                    <input required type="text" class="form-control" placeholder="Precio" name="precio">
                                 </div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
                             <div class="form-group">
                                 <div class="nk-int-st">
-                                    <textarea class="form-control auto-size" rows="2"
+                                    <textarea required class="form-control auto-size" rows="2"
                                         placeholder="Caracteristicas" name="caracte"></textarea>
                                 </div>
                             </div>
