@@ -38,7 +38,7 @@ if (isset($_SESSION['usuarioActivo'])) {
     </div>
     <!-- Breadcomb area End-->
     <!-- Data Table area Start-->
-    <form action="*/../backup/backup.php" method="POST">
+    <form action="../backup/backup.php" method="POST">
         <input type="hidden" name="bandera" value="backup" />
         <div class="data-table-area">
             <div class="container">
@@ -87,16 +87,16 @@ if (isset($_SESSION['usuarioActivo'])) {
                                     <thead>
                                         <tr>
                                             <th>
-                                                <center>Archivo</center>
+                                                Archivo
                                             </th>
                                             <th>
-                                                <center>Tamaño</center>
+                                                Tamaño
                                             </th>
                                             <th>
-                                                <center>Fecha</center>
+                                                Fecha
                                             </th>
                                             <th>
-                                                <center>Acciones</center>
+                                                Acciones
                                             </th>
                                         </tr>
                                     </thead>
@@ -108,14 +108,11 @@ if (isset($_SESSION['usuarioActivo'])) {
 																if ($archivo != "." && $archivo != "..") {
 																	?>
                                         <tr>
-                                            <td><?php echo  $archivo;?></td>
-                                            <td>
-                                                <?php echo filesize( $ruta."/".$archivo) . " bytes"; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo date("d-m-Y g:i:s a", filemtime($ruta."/".$archivo)); ?>
-                                            </td>
+                                        <td><?php echo  $archivo;?></td>
+                                            <td><?php echo filesize( $ruta."/".$archivo)." bytes"; ?>/td>
+                                            <td><?php echo date("d-m-Y g:i:s a", filemtime($ruta."/".$archivo));?></td>
                                         </tr>
+                                        <a title="Descargar"  class="btn btn-success fa fa-download" href="/Funesi/notika/green-horizotal/backup/db/<?php echo $archivo ?><?php  ?>" ></a>
                                         <?php
 																}
 															}?>
