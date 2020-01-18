@@ -62,8 +62,18 @@ while ($re = mysqli_fetch_array($xy)) {
     $restar=($precio-$sum);
      }
 
-     mysqli_query($conexion,"INSERT INTO abono (recibo,valor,fecha,restante)
-        VALUES ('$recibo','$valor','$proxi','$restar')");
+     if ($restar==0) {
+         # code...
+        mysqli_query($conexion,"INSERT INTO abono (recibo,valor,fecha,restante,estado)
+        VALUES ('$recibo','$valor','$proxi','$restar','Cancelado')");
+     }elseif ($precio==$valor) {
+         # code...
+        mysqli_query($conexion,"INSERT INTO abono (recibo,valor,fecha,restante,estado)
+        VALUES ('$recibo','$valor','$proxi','$restar','Cancelado')");
+     }else{
+     mysqli_query($conexion,"INSERT INTO abono (recibo,valor,fecha,restante,estado)
+        VALUES ('$recibo','$valor','$proxi','$restar','En Proceso')");
+     }
 
       echo "<script>
           location.href ='cxc.php?x=$id';
@@ -141,11 +151,14 @@ while ($re = mysqli_fetch_array($xy)) {
 <?php
 
     
-//if ($deuda-$abonos <> 0 && $estadoA=='EnProceso') {
-    echo '<button type="button" class="btn btn-success " data-toggle="modal" data-target="#abono"><i class="fa fa-plus fa-2x" title="Agregar Nuevo Abono"></i>
-                                      </button>';
+if ($xResta==$precio) {
+   
     
-//} 
+}else{
+echo '<button type="button" class="btn btn-success " data-toggle="modal" data-target="#abono"><i class="fa fa-plus fa-2x" title="Agregar Nuevo Abono"></i>
+                                      </button>';
+
+}
 ?>        
              
             </div>
@@ -208,6 +221,7 @@ while ($re = mysqli_fetch_array($xy)) {
                                         <th>Pagado</th>
                                         <th>Fecha</th>
                                         <th>Restante</th>
+                                         <th>Estado</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -221,6 +235,7 @@ while ($re = mysqli_fetch_array($xy)) {
                     <td><?php echo $y['valor'] ?></td>
                     <td><?php echo $y['fecha'] ?></td>
             <td><?php echo $y['restante'] ?>
+             <td><?php echo $y['estado'] ?>
                 
             </td>
                                          </tr>
