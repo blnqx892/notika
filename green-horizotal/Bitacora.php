@@ -434,3 +434,21 @@ if (isset($_SESSION['usuarioActivo'])) {
 <?php
 }
 ?>
+
+desde = $('#fecha1').val();
+            hasta = $('#fecha2').val();
+
+            idproveedor = $('#clientesID').val();
+            tipor = $('#tiporeporte').val();
+
+            desde=desde.split('/').reverse().join('-');
+            hasta=hasta.split('/').reverse().join('-');
+
+            if(tipor == '1' && idproveedor == ""){
+                notaError("Debe seleccionar un proveedor");
+            }else if(desde > hasta && hasta != "") {
+                notaError("Verifique las fecha");
+            }else{
+                var dominio = window.location.host;
+                window.open('http://'+dominio+'/SISAUTO1/view/Reportes/ReporteCompra.php?desde='+desde+'&hasta='+hasta+'&idproveedor='+idproveedor+'&tipor='+tipor,'_blank');
+            }

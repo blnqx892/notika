@@ -46,9 +46,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                     <div class="inbox-left-sd">
                     <hr>
                         <div class="inbox-status">
-                            <ul class="inbox-st-nav inbox-ft">
-                            <button class="btn btn-success notika-btn-success">Dar Altas <i class="fas fa-arrow-alt-circle-up"></i></button><br><br>
-                            <button class="btn btn-success notika-btn-success">Reporte   <i class="fas fa-print"></i> </button><br><br>
+                            <ul class="inbox-st-nav inbox-ft"><button class="btn btn-success notika-btn-success">Reporte   <i class="fas fa-print"></i> </button><br><br>
                             </ul>
                         </div>
                         <hr>

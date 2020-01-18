@@ -76,8 +76,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                 <br><br>
                                 <button class="btn btn-success notika-btn-success">Reporte <i class="fas fa-print"></i>
                                 </button><br><br>
-                                <a href="ListaAbonar.php"><button class="btn btn-success notika-btn-success">Abonar <i
-                                            class="	fas fa-dollar-sign"> </i></button></a>
+                                
                             </ul>
                         </div>
                         <hr>
@@ -274,7 +273,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                             </div>
                                                         </div><br><br><br><br>
                                                         <div class="typography-hd-cr-4">
-                                                            <h2>Paquete</h2>
+                                                            <h2></h2>
                                                         </div>
                                                         <hr style="width:100%;border-color:light-gray 25px;"><br>
                                                         <center>
@@ -289,7 +288,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                    $dia = date("d");
                                                                    $fech = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
                                                                 ?>
-                                                                    <h5>Fecha de Adquisicón</h5>
+                                                                    <h5>Fecha de Registro</h5>
                                                                     <div class="input-group date nk-int-st">
                                                                         <span class="input-group-addon"></span>
                                                                         <input type="text" class="form-control"
@@ -299,19 +298,6 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                <div class="nk-int-mk sl-dp-mn">
-                                                                    <h5>Servicio Funebre</h5>
-                                                                </div>
-                                                                <div class="chosen-select-act fm-cmp-mg">
-                                                                    <select class="chosen"
-                                                                        data-placeholder="Seleccionar...">
-                                                                        <option value="United States">Jardín Completo
-                                                                        </option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-
                                                     </div><br><br><br>
                                                     <div class="modal-footer">
 
@@ -446,7 +432,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                         </div>
                                                     </div><br><br><br><br>
                                                     <div class="typography-hd-cr-4">
-                                                        <h2>Paquete</h2>
+                                                        <h2></h2>
                                                     </div>
                                                     <hr style="width:100%;border-color:light-gray 25px;"><br>
                                                     <center>
@@ -462,7 +448,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                     $dia = date("d");
                                                                      $fechac = $dia.'/'.$hoy['mon'].'/'.$hoy['year'];                                           
                                                                 ?>
-                                                                <h5>Fecha de Adquisicón</h5>
+                                                                <h5>Fecha de Registro</h5>
                                                                 <div class="input-group date nk-int-st">
                                                                     <span class="input-group-addon"></span>
                                                                     <input type="text" class="form-control"
@@ -473,18 +459,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <div class="nk-int-mk sl-dp-mn">
-                                                                <h5>Servicio Funebre</h5>
-                                                            </div>
-                                                            <div class="chosen-select-act fm-cmp-mg">
-                                                                <select class="chosen" data-placeholder="Seleccionar..."
-                                                                    disabled="true">
-                                                                    <option value="United States">Jardín Completo
-                                                                    </option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
+                                                        
                                                 </div><br><br><br>
 
                                                 <div class="modal-footer">

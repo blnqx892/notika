@@ -123,7 +123,7 @@
               </li>
               <li><a href="RegPaquete.php">Armar Paquete</a>
               </li>
-              <li><a href="">Paquetes Funebres</a>
+              <li><a href="ListaPaque.php">Paquetes Funebres</a>
               </li>
 
             </ul>

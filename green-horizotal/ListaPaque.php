@@ -37,7 +37,10 @@ if (isset($_SESSION['usuarioActivo'])) {
     </div>
   </div>
   <!-- Breadcomb area End-->
-
+  <?php 
+        $conexion=mysqli_connect('localhost','root', '', 'funesi');
+        $sql="SELECT * from paquete order by nombre_paq ASC";
+        $paquetes= mysqli_query($conexion, $sql) or die("No se puedo ejecutar la consulta"); ?>
   <!-- Data Table area Start-->
   <div class="data-table-area">
     <div class="container">
@@ -47,7 +50,6 @@ if (isset($_SESSION['usuarioActivo'])) {
           <hr>
                         <div class="inbox-status">
                             <ul class="inbox-st-nav inbox-ft">
-                            <button class="btn btn-success notika-btn-success">Liquidados <span class="icon-clipboard"></span></button><br><br>
                             <button class="btn btn-success notika-btn-success">Reporte   <i class="fas fa-print"></i> </button><br><br>
                             </ul>
                         </div>
@@ -63,34 +65,20 @@ if (isset($_SESSION['usuarioActivo'])) {
               <table id="data-table-basic" class="table table-striped">
                 <thead>
                   <tr>
-                    <th>Cliente</th>
-                    <th>Servicio Funerario</th>
-                    <th>Desde</th>
-                    <th>Hasta</th>
-                    <th>Ver</th>
-                    <th>Editar</th>
-                    <th>Liquidar</th>
+                    <th>Nombre Paquete</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Vladimir Contreras</td>
-                    <td>Jardín Completo</td>
-                    <td>12/10/2019</td>
-                    <td>14/10/2019</td>
+                  <?php While($mostrar=mysqli_fetch_assoc($paquetes)){?>
+                    <td><?php echo $mostrar['nombre_paq'] ?></td>
+                    <td>$<?php echo $mostrar['precio_paq'] ?></td>
                     <td>
                       <center> <button class="btn btn-info info-icon-notika btn-reco-mg btn-button-mg"
                           data-toggle="modal" data-target="#modalVer"><i class="fas fa-eye"></i></button></center>
-                    </td>
-                    <th>
-                      <center><button type="button" class="btn btn-amber amber-icon-notika btn-reco-mg btn-button-mg"
-                          data-toggle="modal" data-target="#modalEditar"><i class="fas fa-edit"></i></button>
-                      </center>
-                    </th>
-                    <th>
-                      <center><button class="btn btn-danger danger-icon-notika btn-reco-mg btn-button-mg"><i
-                            class="fas fa-arrow-alt-circle-down"></i></button></center>
-                    </th>
+                            </td>
                   </tr>
                   <!-- INICIO MODAL VER-->
                   <div class="modal fade" id="modalVer" role="dialog">
@@ -144,6 +132,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                   </div>
                   <!-- FIN MODAL VER-->
                 </tbody>
+                <?php } ?>
                 <tfoot>
                   <tr>
                   </tr>
@@ -170,6 +159,14 @@ if (isset($_SESSION['usuarioActivo'])) {
     </div>
   </div>
   <!-- End Footer area-->
+<script type="text/javascript">
+function eliminar() {
+  $sql1 = "DELETE FROM paquete WHERE idPaquete = '$idCom'";
+  
+		$detalles=mysqli_query($conexion,$sql1) or die ("Error a Conectar en la BD".mysqli_connect_error());
+    }
+</script>
+
   <!-- jquery
 		============================================ -->
   <script src="js/vendor/jquery-1.12.4.min.js"></script>

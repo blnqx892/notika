@@ -112,7 +112,7 @@ if (isset($_SESSION['usuarioActivo'])) {
                                             <td><?php echo filesize( $ruta."/".$archivo)." bytes"; ?>/td>
                                             <td><?php echo date("d-m-Y g:i:s a", filemtime($ruta."/".$archivo));?></td>
                                         </tr>
-                                        <a title="Descargar"  class="btn btn-success fa fa-download" href="/Funesi/notika/green-horizotal/backup/db/<?php echo $archivo ?><?php  ?>" ></a>
+                                        
                                         <?php
 																}
 															}?>

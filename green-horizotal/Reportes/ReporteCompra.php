@@ -13,42 +13,6 @@ $tipor = $_GET["tipor"];
 <head>
   <meta charset="utf-8">
 
-  <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet">
-
-  <link href="../assets/css/plugins/dataTables/datatables.min.css" rel="stylesheet">
-  <link href="../assets/package/dist/sweetalert2.css" rel="stylesheet">
-
-  <!-- Toastr style -->
-  <link href="../assets/css/plugins/toastr/toastr.min.css" rel="stylesheet">
-
-  <!-- Gritter -->
-  <link href="../assets/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
-
-  <link href="../assets/css/animate.css" rel="stylesheet">
-  <link href="../assets/css/style.css" rel="stylesheet">
-  <link href="../assets/pNotify/pnotify.custom.min.css" rel="stylesheet">
-  <script src="../assets/package/dist/sweetalert2.js"></script>
-
-  <link href="../assets/css/plugins/iCheck/custom.css" rel="stylesheet">
-  <link href="../assets/css/plugins/chosen/chosen.css" rel="stylesheet">
-  <link href="../assets/css/plugins/colorpicker/bootstrap-colorpicker.min.css" rel="stylesheet">
-  <link href="../assets/css/plugins/cropper/cropper.min.css" rel="stylesheet">
-  <link href="../assets/css/plugins/switchery/switchery.css" rel="stylesheet">
-  <link href="../assets/css/plugins/jasny/jasny-bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/css/plugins/nouslider/jquery.nouislider.css" rel="stylesheet">
-  <link href="../assets/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
-  <link href="../assets/css/plugins/ionRangeSlider/ion.rangeSlider.css" rel="stylesheet">
-  <link href="../assets/css/plugins/ionRangeSlider/ion.rangeSlider.skinFlat.css" rel="stylesheet">
-  <link href="../assets/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
-  <link href="../assets/css/plugins/clockpicker/clockpicker.css" rel="stylesheet">
-  <link href="../assets/css/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet">
-  <link href="../assets/css/plugins/select2/select2.min.css" rel="stylesheet">
-  <link href="../assets/css/plugins/touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet">
-  <link href="../assets/css/animate.css" rel="stylesheet">
-  <link href="../assets/css/style.css" rel="stylesheet">
-
-
   <script language="javascript">
    function imprimir(){
     if(!window.print){
@@ -120,11 +84,12 @@ $tipor = $_GET["tipor"];
 
         <table width="700" border="1" align="center" rules="all">
           <tr bgcolor="#CCCCCC">
-            <td width="29" bgcolor="#fcf3b3" align="center" class=""><strong>N°</strong></td>
-            <td width="87" align="center" bgcolor="#fcf3b3" class="formatoTabla">N° de factura</td>
-            <td width="87" align="center" bgcolor="#fcf3b3" class="formatoTabla">Fecha</td>
+            <td width="29" bgcolor="#20CDBD" align="center" class=""><strong>N°</strong></td>
+            <td width="87" align="center" bgcolor="#20CDBD" class="formatoTabla">N° de factura</td>
+            <td width="87" align="center" bgcolor="#20CDBD" class="formatoTabla">Fecha</td>
+            <td width="87" align="center" bgcolor="#20CDBD" class="formatoTabla">Cantidad</td>
             <?php if ($tipor == 2) {?>
-            <td width="87" align="center" bgcolor="#fcf3b3" class="formatoTabla">Proveedor</td>
+            <td width="87" align="center" bgcolor="#20CDBD" class="formatoTabla">Proveedor</td>
             <?php }  ?>
           </tr>
           <?php
@@ -147,16 +112,18 @@ $tipor = $_GET["tipor"];
               $proveedor = "";
             }
           if($desde == ""&& $hasta== ""){
-           $sql = "select * from compra ".$proveedor." order by fecha_Com ASC";
+           $sql = "select * from compras ".$proveedor." order by fecha_Com ASC";
          }else if($hasta == ""){
-          $sql = "select * from compra  where fecha_Com BETWEEN '$desde' and '$today' ".$proveedor." order by fecha_Com ASC";
+          $sql = "select * from compras  where fecha_Com BETWEEN '$desde' and '$today' ".$proveedor." order by fecha_Com ASC";
         }else if($desde == ""){
-          $sql = "select * from compra  where fecha_Com <= '$hasta' ".$proveedor." order by fecha_Com ASC";
+          $sql = "select * from compras  where fecha_Com <= '$hasta' ".$proveedor." order by fecha_Com ASC";
         }else{
-          $sql = "select * from compra  where fecha_Com BETWEEN '$desde' and '$hasta' ".$proveedor." order by fecha_Com ASC";
+          $sql = "select * from compras  where fecha_Com BETWEEN '$desde' and '$hasta' ".$proveedor." order by fecha_Com ASC";
         }
 	//$consulta=mysqli_query($conexion,$sql);
-	//$consulta = mysql_query("SELECT * FROM bitacora", $conexion);
+  //$consulta = mysql_query("SELECT * FROM bitacora", $conexion);
+  $sqle="select costo from kardex";
+  $consul=mysqli_query($conexion,$sqle);
         $consulta=mysqli_query($conexion,$sql);
 //  var_dump($consulta);
 
@@ -168,9 +135,21 @@ $tipor = $_GET["tipor"];
           <td bgcolor="" align="center"><?php echo $contador;?></td>
           <td bgcolor="" align="center"><?php echo $fila[1];?></td>
           <td bgcolor="" align="center"><?php echo date('d/m/Y',strtotime($fila[2]));?></td>
+          <td bgcolor="" align="center"><?php echo $fila[3];?></td>
+          <?php if($tipor == 2){ ?>
+          <td bgcolor="">
+          <?php
+          $aux = $fila['id_Proveedor'];
+          $sql1 = "SELECT nombre_prov FROM proveedor where idProveedor = '$aux'";
+          $proveedor = mysqli_query($conexion, $sql1) or die("No se puedo ejecutar la consulta");
+          $proveedor = mysqli_fetch_array($proveedor);
+          echo $proveedor['nombre_prov'];
+          ?>
+          </td>
           <?php } ?>
         </tr>
         <?php $contador++;
+        }
       ?>
     </table>
     <form name="frmTesis" method="get" action="" id="frmTesis">
@@ -187,7 +166,7 @@ $tipor = $_GET["tipor"];
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta http-equiv="refresh" content="0;URL=/SISAUTO1/view/login.php">
+<meta http-equiv="refresh" content="0;URL=/Funesi/notika/green-horizotal/Login.php">
 </head>
 <body>
 </body>
